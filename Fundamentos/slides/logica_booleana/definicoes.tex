@@ -1,0 +1,92 @@
+\section{Conceitos elementares}
+
+\begin{frame}[fragile]{Lógica Proposicional Booleana}
+
+    \begin{block}{Termos Primitivos}
+        Os termos primitivos da Lógica Proposicional Booleana são: 
+        \begin{enumerate}
+            \item proposição
+            \item verdadeiro
+            \item falso
+        \end{enumerate}
+    \end{block}
+
+    \begin{block}{Axiomas}
+       \begin{description}
+            \item[Princípio do Terceiro Excluído:] uma proposição ou é verdadeira ou é falsa.
+            \item[Princípio da Não-Contradição:] uma proposição não pode ser, simultaneamente, verdadeira e falsa.
+        \end{description}
+    \end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplos}
+
+    Exemplos de proposições:
+
+    \begin{itemize}
+        \item A duração de um dia é de 24 horas
+        \item A metade de dois mais dois é igual a três
+        \item $F_n = 2^{2^n} + 1$ é primo para qualquer $n$ natural
+    \end{itemize}
+
+    \vspace{0.3in}
+
+    Não são proposições:
+
+    \begin{itemize}
+        \item Cuidado! Curva acentuada à esquerda!
+        \item Onde fica a agência bancária mais próxima?
+        \item $x > \pi$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Proposições Compostas}
+
+    \begin{block}{Operadores Lógicos}
+        Sejam $p$ e $q$ duas proposições. São proposições:
+        \begin{enumerate}
+            \item a \textbf{conjunção} $p \land q$: verdadeira somente quando ambas $p$ e $q$ são verdadeiras
+            \item a \textbf{disjunção} $p \lor q$: falsa somente quando ambas $p$ e $q$ são falsas
+            \item a \textbf{disjunção exclusiva} $p \veebar q$: falsa somente quando ambas $p$ e $q$ tem mesmo valor lógico
+            \item a \textbf{condicional} $p \to q$: falsa somente quando $p$ é verdadeira e $q$ é falsa
+            \item a \textbf{bicondicional} $p \leftrightarrow q$: falsa somente quando $p$ e $q$ tem valores lógicos distintos
+            \item a \textbf{negação} $\lnot p$: verdadeira quando $p$ é falsa, falsa quando $p$ é verdadeira
+        \end{enumerate}
+    \end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplos}
+
+    Pergunta: quais dos exemplos a seguir são proposições compostas?
+
+    \begin{itemize}
+        \item ``\underline{Eu era um broto e também fiz muito garoto} / 
+            Um mais bem feito que o outro, eles só faltam falar'' (A Violeira, Antônio Carlos Jobim)
+        \item ``Ser ou não ser.'' (Hamlet, William Shakespeare)
+        \item ``Penso, logo existo.'' (René Descartes)
+        \item ``Um conjunto de $\mathbb{R}^{n}$ é sequencialmente compacto se, e somente se, é fechado e limitado.'' (Teorema de Bolzano-Weierstrass) 
+        \item ``Não pode ser seu amigo quem exige seu silêncio.'' (Alice Walker)
+        \item ``\underline{Eu e ela, eu e ela} / Somos dois apaixonados / Caminhamos lado a lado 
+            / Nesse amor sem fim'' (Eu e Ela, Roberto Carlos)
+        \item ``Mas fica, meu amor / Quem sabe um dia / \underline{Por descuido ou poesia} / 
+            \underline{Você goste de ficar}. (Fica, Chico Buarque de Holanda)
+        \item ``Ah se tu soubesses como sou tão carinhoso / E o muito, muito que te quero'' (Carinhoso, Pixinguinha)
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Sentença aberta}
+
+    \begin{block}{Sentença aberta (informal)}
+        Uma sentença aberta $S(x)$ em $x$ é uma expressão na qual o símbolo $x$ ocorre uma 
+        ou mais vezes e que, caso todas as ocorrências de $x$ sejam substituídas por uma 
+        mesma proposição $p$, $S(p)$ se torna uma proposição.
+    \end{block}
+
+\end{frame}
+% Sentença aberta
+% Exemplos em linguagens de programação
