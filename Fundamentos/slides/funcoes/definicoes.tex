@@ -1,0 +1,90 @@
+\section{Conceitos elementares}
+
+\begin{frame}[fragile]{Produto Cartesiano}
+
+    \begin{block}{Produto Cartesiano}
+        Sejam $A$ e $B$ dois conjuntos. O produto cartesiano $A\times B$ é o conjunto de todos
+        os pares ordenados cujo primeiro componente é um elemento de $A$ e o segundo componente
+        é um elemento de $B$, isto é,
+        \[
+            A\times B = \lbrace (a, b)\ |\ a\in A, b\in B\rbrace
+        \]
+    \end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplos de produtos cartesianos}
+
+    \begin{enumerate}
+        \item Seja $A = \lbrace 1, 2, 3\rbrace$ e $B = \lbrace a, b\rbrace$. Então
+        \[
+            A\times B = \lbrace (1, a), (1, b), (2, a), (2, b), (3, a), (3, b)\rbrace
+        \]
+        e
+        \[
+            B\times A = \lbrace (a, 1), (a, 2), (a, 3), (b, 1), (b, 2), (b, 3)\rbrace
+        \]
+
+        \item Seja $C$ o conjunto dos times que participam de um campeonato de futebol. A
+            tabela $T$ dos jogos da primeira fase do campeonato, onde cada time enfrenta todos os
+            outros em jogos de ida e volta é o conjunto
+        \[
+            T = \lbrace (a, b)\in C\times C\ |\ a\neq b\rbrace
+        \]
+
+        \item $\mathbb{R}^2 = \mathbb{R}\times \mathbb{R}$
+    \end{enumerate}
+
+\end{frame}
+
+\begin{frame}[fragile]{Relações e Funções}
+
+    \begin{block}{Relação de $A$ em $B$}
+        Sejam $A$ e $B$ dois conjuntos. Uma \textbf{relação} $R$ de $A$ em $B$ é um subconjunto 
+            $R\subset A\times B$.
+    \end{block}
+
+    \vspace{0.1in}
+
+    \begin{block}{Função de $A$ em $B$}
+        Uma relação $f$ de $A$ em $B$ é uma \textbf{função} de $A$ em $B$ se, para qualquer 
+            $a\in A$, existe um único $b\in B$ tal que $(a, b)\in A\times B$. 
+
+        Notação: $f: A\to B$
+    \end{block}
+
+    \vspace{0.1in}
+
+    \textbf{Observação}: se $f$ é uma função de $A$ em $B$, então $(a, b)\in f$ pode ser 
+        escrito como $f(a) = b$.
+        
+\end{frame}
+
+\begin{frame}[fragile]{Domínio, imagem e gráfico}
+
+    \begin{block}{Domínio e imagem de uma função $f$ de $A$ em $B$}
+        Seja $f$ uma função de $A$ em $B$. O conjunto $A$ é denominado \textbf{domínio} da
+            função $f$, e o conjunto $B$ o \textbf{contradomínio} de $f$. Além disso, o conjunto
+        \[
+            Img(f) = \lbrace b \in B\ |\ \exists\, a\in A\ \mbox{tal que}\ f(a) = b \rbrace
+        \]
+        é a \textbf{imagem} da função $f$. Outra notação comum para o conjunto imagem de $f$ é 
+        $f(A)$.
+    \end{block}
+
+    \vspace{0.05in}
+
+    \begin{block}{Gráfico de uma função}
+        Seja $f$ uma função de $A$ em $B$. O gráfico de $f$ é o conjunto
+        \[
+            Gr(f) = \lbrace (x, f(x))\ |\ x\in A\rbrace
+        \]
+    \end{block}
+
+\end{frame}
+
+%%
+% - Exemplos de funções
+% - Exemplos de domínio e imagem?
+% - Propriedades de funções
+% - Operações em funções (composição, inversas)
