@@ -87,15 +87,17 @@
 
         \item Conjunto dos anos bissextos:
         \[
-            B = \lbrace n\in\mathbb{N}\ |\ 100\ \mbox{divide}\ n\ \mbox{e} \ 400\ \mbox{não divide}\ n\rbrace
+            B = \lbrace n\in\mathbb{N}\ |\ (4\ \mbox{divide}\ n\ \land \lnot(100\ \mbox{divide}\ 
+            n)) \veebar (400\ \mbox{divide}\ n)\rbrace
         \]
 
-        \item Conjunto dos subconjuntos de números inteiros:
+        \item Conjunto dos números compostos:
         \[
-            C = \lbrace S\ |\ S\ \mbox{é conjunto e,}\ \forall s\in S, s\in \mathbb{Z}\rbrace
+            C = \lbrace n\in \mathbb{Z}\ |\ \exists\, d\in \mathbb{Z}\ \mbox{tal que}\ 1 < d < n\
+                \mbox{e}\ d\ \mbox{divide}\ n\rbrace
         \]
 
-        \item Conjunto dos divisores de $n!$
+        \item Conjunto dos divisores de $n!$:
         \[
             D(n) = \lbrace d\in \mathbb{N}\ |\ d\ \mbox{divide}\ n!\rbrace
         \]
@@ -103,7 +105,44 @@
 
 \end{frame}
 
+\begin{frame}[fragile]{Subconjuntos}
+
+    \begin{block}{Subconjuntos}
+        Seja $A$ um conjunto. Um conjunto $B$ é subconjunto de $A$ se, para qualquer $b\in B$, 
+            $b\in A$. Notação: $B\subset A$.
+    \end{block}
+
+    \vspace{0.1in}
+
+    \begin{block}{Igualdade de conjuntos}
+       Dois conjuntos $A$ e $B$ são iguais se, e somente se, $A\subset B$ e $B\subset A$.
+    \end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]{Operações em conjuntos}
+
+    \begin{block}{Operações em conjuntos}
+        Sejam $A$ e $B$ dois conjuntos. São conjuntos
+        \begin{enumerate}
+            \item a \textbf{união}
+            \[
+                A \cup B = \lbrace x\ |\ x\in A\, \vee\, x\in B\rbrace
+            \]
+
+            \item a \textbf{interseção}
+            \[
+                A \cap B = \lbrace x\ |\ x\in A\, \land\, x\in B\rbrace
+            \]
+
+            \item a \textbf{diferença}
+            \[
+                A - B = \lbrace x\ |\ x\in A\, \land\, \lnot (x\in B)\rbrace
+            \]
+        \end{enumerate}
+    \end{block}
+
+\end{frame}
 %% TODO:
-% 1. Corrigir o conceito de sentença aberta (Lógica Booleana)
 % 2. Operações de conjuntos (união, interseção e diferença)
 % 3. Nova aula sobre relações e funções
