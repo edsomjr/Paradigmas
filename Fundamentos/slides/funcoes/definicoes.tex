@@ -60,6 +60,131 @@
         
 \end{frame}
 
+\begin{frame}[fragile]{Exemplo de função}
+
+    \begin{figure}[h]
+        \begin{tikzpicture}
+            \node[circle,fill,inner sep=0pt,minimum size=0.2cm] (A1) at (-2.7, 1.5) {};
+            \node[circle,fill,inner sep=0pt,minimum size=0.2cm] (A2) at (-3.2, 0.0) {};
+            \node[circle,fill,inner sep=0pt,minimum size=0.2cm] (A3) at (-2.7, -1.5) {};
+            \node[circle,fill,inner sep=0pt,minimum size=0.2cm] (Ba) at (2.7, 1.0) {};
+            \node[circle,fill,inner sep=0pt,minimum size=0.2cm] (Bb) at (2.7, -1.0) {};
+ 
+            \draw (-3, 0) ellipse (1.5cm and 2.5cm);
+            \node at (-4.8, 2) { \huge $A$ };
+
+            \node at (-3.0, 1.5) { \Large $1$ };
+            \node at (-3.5, 0.0) { \Large $2$ };
+            \node at (-3.0, -1.5) { \Large $3$ };
+
+            \draw (3, 0) ellipse (1.5cm and 2.5cm);
+            \node at (4.8, 2) { \huge $B$ };
+
+            \node at (3.1, -1.0) { \Large $b$ };
+            \node at (3.1, 1.0) { \Large $a$ };
+
+            \draw[->] (A1) to [out=30,in=130] (Ba);
+            \draw[->] (A2) to [out=45,in=165] (Ba);
+            \draw[->] (A3) to [out=-15,in=200] (Bb);
+
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de relação que não é função}
+
+    \begin{figure}[h]
+        \begin{tikzpicture}
+            \node[circle,fill,inner sep=0pt,minimum size=0.2cm] (A1) at (-2.7, 1.5) {};
+            \node[circle,fill,inner sep=0pt,minimum size=0.2cm] (A2) at (-3.2, 0.0) {};
+            \node[circle,fill,inner sep=0pt,minimum size=0.2cm] (A3) at (-2.7, -1.5) {};
+            \node[circle,fill,inner sep=0pt,minimum size=0.2cm] (Ba) at (2.7, 1.0) {};
+            \node[circle,fill,inner sep=0pt,minimum size=0.2cm] (Bb) at (2.7, -1.0) {};
+ 
+            \draw (-3, 0) ellipse (1.5cm and 2.5cm);
+            \node at (-4.8, 2) { \huge $A$ };
+
+            \node at (-3.0, 1.5) { \Large $1$ };
+            \node at (-3.5, 0.0) { \Large $2$ };
+            \node at (-3.0, -1.5) { \Large $3$ };
+
+            \draw (3, 0) ellipse (1.5cm and 2.5cm);
+            \node at (4.8, 2) { \huge $B$ };
+
+            \node at (3.1, -1.0) { \Large $b$ };
+            \node at (3.1, 1.0) { \Large $a$ };
+
+            \draw[->] (A1) to [out=30,in=130] (Bb);
+            \draw[->] (A3) to [out=-15,in=230] (Ba);
+
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+
+\begin{frame}[fragile]{Exemplo de relação que não é função}
+
+    \begin{figure}[h]
+        \begin{tikzpicture}
+            \node[circle,fill,inner sep=0pt,minimum size=0.2cm] (A1) at (-2.7, 1.5) {};
+            \node[circle,fill,inner sep=0pt,minimum size=0.2cm] (A2) at (-3.2, 0.0) {};
+            \node[circle,fill,inner sep=0pt,minimum size=0.2cm] (A3) at (-2.7, -1.5) {};
+            \node[circle,fill,inner sep=0pt,minimum size=0.2cm] (Ba) at (2.7, 1.0) {};
+            \node[circle,fill,inner sep=0pt,minimum size=0.2cm] (Bb) at (2.7, -1.0) {};
+ 
+            \draw (-3, 0) ellipse (1.5cm and 2.5cm);
+            \node at (-4.8, 2) { \huge $A$ };
+
+            \node at (-3.0, 1.5) { \Large $1$ };
+            \node at (-3.5, 0.0) { \Large $2$ };
+            \node at (-3.0, -1.5) { \Large $3$ };
+
+            \draw (3, 0) ellipse (1.5cm and 2.5cm);
+            \node at (4.8, 2) { \huge $B$ };
+
+            \node at (3.1, -1.0) { \Large $b$ };
+            \node at (3.1, 1.0) { \Large $a$ };
+
+            \draw[->] (A1) to [out=30,in=130] (Bb);
+            \draw[->] (A2) to [out=30,in=130] (Ba);
+            \draw[->] (A2) to [out=-30,in=210] (Bb);
+            \draw[->] (A3) to [out=-15,in=230] (Ba);
+
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Funções notáveis}
+
+    \begin{enumerate}
+        \item A função \textbf{identidade} $\mathrm{id}: A\to A$, tal que $\mathrm{id}(x) = x$.
+
+        \item A \textbf{adição} $a: B\times B \to B$, onde $a(x, y) = x + y$.
+ 
+        \item A função \textbf{delta de Kronecker} $\delta: \mathbb{Z}\times \mathbb{Z}\to 
+            \lbrace 0, 1\rbrace$, dada por
+            \[
+                \delta_{ij} = \left\lbrace \begin{array}{ll} 1, & \mbox{se}\ i = j, \\
+                                                             0, & \mbox{caso contrário}\\
+                                           \end{array} \right.
+            \]
+
+        \item A função de \textbf{decisão} $d_X: Y\to \lbrace \mathtt{True, False}\rbrace$, onde
+            $d_X(y) = \mathtt{True}$ se $y\in X$; caso contrário, $d_X(y) = \mathtt{False}$.
+
+        \item A função \textbf{logaritmo natural} $\ln: \mathbb{R^+}\to \mathbb{R}$, definida 
+        abaixo
+        \[
+            \ln(x) = \int_1^x \frac{1}{t} dt
+        \]
+
+    \end{enumerate}
+
+\end{frame}
+
 \begin{frame}[fragile]{Domínio, imagem e gráfico}
 
     \begin{block}{Domínio e imagem de uma função $f$ de $A$ em $B$}
@@ -83,8 +208,19 @@
 
 \end{frame}
 
-%%
-% - Exemplos de funções
-% - Exemplos de domínio e imagem?
-% - Propriedades de funções
-% - Operações em funções (composição, inversas)
+\begin{frame}[fragile]{Composição de funções}
+
+    \begin{block}{Função composta}
+        Sejam $f: A\to B$ e $g: C\to D$ duas funções. Se $f(B)\subset C$, então a função
+            composta $h: A\to D$ é definida como
+        \[
+            h(x) = (g\circ f)(x) = g(f(x))
+        \]
+    \end{block}
+
+    \vspace{0.2in}
+
+    \textbf{Observação}: Em geral, $(g\circ f)(x) \neq (f\circ g)(x)$ (pode ser que $(f\circ g)(x)$
+        nem esteja, de fato, definida).
+
+\end{frame}
