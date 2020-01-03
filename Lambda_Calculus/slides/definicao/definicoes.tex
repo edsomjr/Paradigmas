@@ -1,0 +1,144 @@
+\section{Definição do cálculo $\lambda$}
+
+\begin{frame}[fragile]{Cálculo $\lambda$}
+
+    \begin{block}{Termos-$\lambda$}
+        O conjunto $\Lambda$ dos termos-$\lambda$ (ou expressões-$\lambda$, ou 
+        simplesmente lambdas) é definido por
+        meio de um conjunto de variáveis $V$ através das regras de aplicação e abstração,
+        dadas a seguir:
+        \begin{enumerate}
+            \item $x\in V \Rightarrow x\in \Lambda$ (expressão)
+            \item $M, N\in V \Rightarrow MN\in \Lambda$ (aplicação)
+            \item $M\in \Lambda, x\in V \Rightarrow \lambda x.M$ (abstração)
+        \end{enumerate}
+    \end{block}
+
+    \vspace{0.1in}
+
+    \textbf{Observação}: informalmente, a aplicação equivale ao cálculo da função 
+        $M$ com argumento $N$, isto é $M(N)$; a abstração corresponde a definição da função 
+        $f(x) = M$.
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplos de termos-$\lambda$}
+
+    \begin{enumerate}
+        \item O termo-$\lambda$ mais simples possível é composto por uma única variável (por 
+            exemplo, $x$)
+
+        \item A função identidade $\lambda x.x$ é um exemplo de abstração
+
+        \item Parêntesis podem ser utilizados para clarificar uma expressão, ou para remover
+            ambiguidades
+
+        \item O termo $(\lambda x.x)y$ é a aplicação da função identidade ao termo $y$
+
+        \item A aplicação é associativa à esquerda:
+        \[
+            M_1M_2\ldots M_N = (((M_1M_2)M_3)\ldots M_N)
+        \]
+
+        \item O termo $\lambda y.(\lambda x.M)$ equivale a uma função de duas variáveis
+
+        \item Uma notação alternativa para o termo anterior é 
+        \[
+            \lambda yx.M = \lambda y.(\lambda x.M)
+        \]
+
+        \item A abstração é associativa à direita:
+        \[
+            \lambda x_1x_2\ldots x_N.M = \lambda x_1.(\lambda x_2.(\ldots \lambda x_N.M))
+        \]
+    \end{enumerate}
+
+\end{frame}
+
+\begin{frame}[fragile]{Variáveis livres e atadas ({\it bound})}
+
+    \begin{itemize}
+        \item A abstração $\lambda x.M$ une (ata, \textit{to bind}) a variável livre $x$ ao
+            termo (expressão) lambda $M$
+
+        \item Uma variável não precedida por um símbolo $\lambda$ que a une a uma expressão
+            é denominada variável \textbf{livre}
+
+        \item Na expressão 
+        \[
+            \lambda x.xy
+        \]
+        a variável $x$ é atada e a variável $y$ é livre
+
+        \item Uma mesma variável pode ser livre e atada em uma mesma expressão. Por exemplo,
+            na expressão
+        \[
+            (\lambda x.xy)(\lambda y.y)
+        \]
+        a variável $y$ é livre no termo entre parêntesis à esquerda, e atada no termo da direita
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Substituições}
+
+    \begin{block}{Substituição}
+    A \textbf{substituição} de todas as ocorrências da variável livre $x$ por $N$ em $M$, cuja
+    notação é $M[x:=N]$, é definida por
+    \begin{enumerate}[i.]
+        \item $x[x:=N] \equiv N$
+        \item $y[x:=N] \equiv y$, se $y\not\equiv x$
+        \item $(M_1M_2)[x:=N] \equiv (M_1[x:=N])(M_2[x:=N])$
+        \item $(\lambda y.M_1)[x:=N] \equiv \lambda y.(M_1[x:=N])$
+    \end{enumerate}
+    \end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplos de substituição}
+
+    \begin{enumerate}
+        \item Exemplo de substituição pela regra 3:
+        \[
+            ((\lambda x.xyz)(\lambda y.xzy))[z:=N] \equiv (\lambda x.xyN)(\lambda y.xNy) 
+        \]
+
+        \item Exemplo de substituição pela regra 4:
+        \[
+            (\lambda x.xy)[y:=N] \equiv \lambda x.xN
+        \]
+
+        \item Exemplo de substituição pelas regras 2 e 4:
+        \[
+            (\lambda x.xy)[z:=N] \equiv \lambda x.xy
+        \]
+
+        \item $(\lambda x.xy)[x:=N]$ não é uma expressão lambda válida, pois as substituições
+            devem ser feitas em termos de variáveis livres, e $x$ é atada na expressão entre
+            parêntesis
+    \end{enumerate}
+
+\end{frame}
+
+\begin{frame}[fragile]{Operações de Redução}
+
+    \begin{block}{Axiomas de Redução}
+        \begin{enumerate}
+            \item A conversão-$\alpha$ permite a troca das variáveis atadas de uma expressão:
+            \[
+                \lambda x.M \equiv \lambda y.(M[x:=y])
+            \]
+
+            \item A redução-$\beta$ associa a aplicação com a substituição:
+            \[
+                (\lambda x.M)N \equiv M[x:=N]
+            \]
+        \end{enumerate}
+    \end{block}
+
+    \vspace{0.1in}
+
+    \textbf{Observação}: a conversão-$\alpha$ é utilizada, primariamente, para evitar colisões
+        de nomes; a redução-$\beta$ é o axioma fundamental do cálculo $\lambda$.
+\end{frame}
