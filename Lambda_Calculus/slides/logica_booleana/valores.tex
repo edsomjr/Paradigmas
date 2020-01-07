@@ -1,0 +1,62 @@
+\section{Valores lógicos}
+
+\begin{frame}[fragile]{Contextualização}
+
+    \begin{itemize}
+        \item Sendo originalmente um sistema lógico, o cálculo $\lambda$ possui apenas
+            dois termos primitivos: a letra grega lambda ($\lambda$) e o ponto final ($.$)
+
+        \item Os axiomas de construção de termos-$\lambda$ (expressões, aplicação e abstração)
+            permitem a definição de novos termos a partir destes dois termos primitivos
+
+        \item Deste modo, os valores lógicos da Lógica Proposicional Booleana (verdadeiro e falso)
+            devem ser igualmente definidos como termos-$\lambda$
+
+        \item As operações lógicas, que permitem a construção de proposições compostas, também
+            devem ser definidas como termos-$\lambda$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Valores lógicos}
+
+    \begin{block}{Verdadeiro e Falso}
+        O valor lógico \textbf{verdadeiro} pode ser representado pela expressão-$\lambda$
+        \[
+            T \equiv \lambda xy.x
+        \] e o valor lógico \textbf{falso} pode ser representado por
+        \[
+            F \equiv \lambda xy.y
+        \]
+    \end{block}
+
+    \vspace{0.1in}
+
+    \textbf{Observação}: veja que $T$ é, de fato, o combinador $\mathbf{K}$, e que $F$ é o 
+    combinador $\mathbf{K_*}$, o qual é extensionalmente igual ao combinador $\mathbf{SK}$, pois
+    \[
+        \mathbf{SK}xy \equiv \mathbf{K}y(xy) \equiv y \equiv Fxy
+    \]
+\end{frame}
+
+\begin{frame}[fragile]{Estrutura \texttt{if-then-else}}
+
+    \begin{block}{\texttt{if-then-else}}
+        Se $p$ é igual a $T$ ou a $F$, a expressão-$\lambda$
+        \[
+            I_F \equiv \lambda pab.pab
+        \]
+        é corresponde ao construto \texttt{if-then-else}. 
+    \end{block}
+
+    \vspace{0.1in}
+
+    \textbf{Observação}: para visualizar esta correspondência, observe que
+    \[
+        (I_F) Tab \equiv Tab \equiv a
+    \]
+    e que
+    \[
+        (I_F) Fab \equiv Fab \equiv b
+    \]
+\end{frame}
