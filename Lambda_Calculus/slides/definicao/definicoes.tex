@@ -121,7 +121,7 @@
 
 \end{frame}
 
-\begin{frame}[fragile]{Operações de Redução}
+\begin{frame}[fragile]{Reduções}
 
     \begin{block}{Axiomas de Redução}
         \begin{enumerate}
@@ -141,4 +141,94 @@
 
     \textbf{Observação}: a conversão-$\alpha$ é utilizada, primariamente, para evitar colisões
         de nomes; a redução-$\beta$ é o axioma fundamental do cálculo $\lambda$.
+\end{frame}
+
+\begin{frame}[fragile]{Exemplos de aplicação dos axiomas de redução}
+
+    \begin{enumerate}
+        \item Aplicação da função identidade (redução-$\beta$)
+        \[
+            (\lambda x.x)y \equiv x[x:=y] \equiv y
+        \]
+
+        \item Aplicação em função de duas variáveis (redução-$\beta$):
+        \begin{align*}
+            (\lambda xy.yx)MN & \equiv (\lambda x.(\lambda y.yx))MN \\
+            & \equiv ((\lambda y.yx)[x:=M])N \\
+            & \equiv (\lambda y.yM)N \\
+            & \equiv (yM)[y:=N] \\
+            & \equiv NM
+        \end{align*}
+    \end{enumerate}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplos de aplicação dos axiomas de redução}
+
+    \begin{enumerate}
+        \setcounter{enumi}{2}
+        \item Uso da conversão-$\alpha$ para evitar colisão de nomes, pois a variável $y$, que
+        irá substituir a variável livre $x$ no termo $\lambda y.yx$, tem mesmo nome que a
+        variável atada $y$ :
+        \begin{align*}
+            (\lambda x.(\lambda y.xy))y & \equiv (\lambda x.(\lambda z.xz))y \\
+            & \equiv (\lambda z.xz)[x:=y] \\
+            & \equiv \lambda z.yz
+        \end{align*}
+
+        Observe que, sem o uso da conversão-$\alpha$, a aplicação resultaria em $(\lambda y.yy)$,
+        termo que não é equivalente ao resultado correto.
+
+    \end{enumerate}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplos de aplicação dos axiomas de redução}
+
+    \begin{enumerate}
+        \setcounter{enumi}{3}
+        \item Outro exemplo de que demanda o uso de conversão-$\alpha$:
+        \begin{align*}
+            (\lambda x.(\lambda y.(x\lambda x.xy)))y &\equiv (\lambda x.(\lambda z.(x\lambda x.xz)))y\\
+            &\equiv (\lambda z.(x\lambda x.xz))[x:=y]\\
+            &\equiv (\lambda z.(y\lambda x.xz))\\
+        \end{align*}
+
+        Aqui novamente a conversão-$\alpha$ foi usada por que $y$ é uma variável atada na
+        expressão $\lambda y.(x\lambda x.xy)$. Além disso, observe que somente a ocorrência
+        livre de $x$ é substituída, conforme a regra de substituição apresentada 
+        anteriormente.
+    \end{enumerate}
+
+\end{frame}
+
+\begin{frame}[fragile]{Combinadores}
+
+    \begin{block}{Combinadores}
+        \begin{enumerate}[(a)]
+            \item O conjunto das variáveis livres $FV(M)$ de $M$ é definido por
+            \begin{enumerate}[i.]
+                \item $FV(x) = \lbrace x\rbrace$
+                \item $FV(MN) = FV(M)\cup FV(N)$
+                \item $FV(\lambda x.M) = FV(M) - \lbrace x\rbrace$
+            \end{enumerate}
+
+            \item $M$ é um termo fechado, ou \textbf{combinador}, se $FV(M) = \emptyset$
+        \end{enumerate}
+    \end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]{Combinadores padrão}
+
+    \begin{block}{Combinadores padrão}
+        Os combinadores padrão são enumerados a seguir: 
+        \begin{enumerate}
+            \item $\mathbf{I} \equiv \lambda x.x$ (identidade)
+            \item $\mathbf{K} \equiv \lambda xy.x$ (\textit{first})
+            \item $\mathbf{K_*} \equiv \lambda xy.y$ (\textit{second})
+            \item $\mathbf{S} \equiv \lambda xyz.xz(yz)$ (\textit{second})
+        \end{enumerate}
+    \end{block}
+
 \end{frame}
