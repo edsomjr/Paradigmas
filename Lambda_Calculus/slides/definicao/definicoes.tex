@@ -202,7 +202,7 @@
 
 \end{frame}
 
-\begin{frame}[fragile]{Combinadores}
+\begin{frame}[fragile]{Combinadores e Igualdade Extensional}
 
     \begin{block}{Combinadores}
         \begin{enumerate}[(a)]
@@ -217,18 +217,46 @@
         \end{enumerate}
     \end{block}
 
+    \vspace{0.1in}
+
+    \begin{block}{Igualdade Extensional}
+        Duas expressões $\lambda$ $E_1, E_2$ são \textbf{extensionamente iguais} se, 
+        $\forall x\in\Lambda$, $E_1x \equiv E_2x$.
+    \end{block}
+
 \end{frame}
 
-\begin{frame}[fragile]{Combinadores padrão}
+\begin{frame}[fragile]{Combinadores padrão e base $\mathbf{S}$-$\mathbf{K}$}
 
     \begin{block}{Combinadores padrão}
         Os combinadores padrão são enumerados a seguir: 
         \begin{enumerate}
-            \item $\mathbf{I} \equiv \lambda x.x$ (identidade)
-            \item $\mathbf{K} \equiv \lambda xy.x$ (\textit{first})
-            \item $\mathbf{K_*} \equiv \lambda xy.y$ (\textit{second})
-            \item $\mathbf{S} \equiv \lambda xyz.xz(yz)$ (\textit{second})
+            \item $\mathbf{I} \equiv \lambda x.x$ 
+            \item $\mathbf{K} \equiv \lambda xy.x$ 
+            \item $\mathbf{K_*} \equiv \lambda xy.y$ 
+            \item $\mathbf{S} \equiv \lambda xyz.xz(yz)$
         \end{enumerate}
     \end{block}
+
+    \vspace{0.1in}
+
+    \begin{block}{Completude da base $\mathbf{S}$-$\mathbf{K}$}
+        Dado uma expressão lambda $E$, é possível gerar um novo combinador $C$ a partir dos
+        combinadores $\mathbf{S}$ e $\mathbf{K}$ de tal modo que $E$ e $C$ são
+        extensionalmente iguais.
+    \end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo da completude de $\mathbf{S}$-$\mathbf{K}$}
+
+    A identidade $\mathbf{I}$ é extensionalmente igual ao combinador $\mathbf{S K K}$:
+
+    \begin{align*}
+        ((\mathbf{S K K}) x) &\equiv (\mathbf{S K K} x) \\
+        & \equiv (\mathbf{K} x (\mathbf{K} x)) \\
+        & \equiv x \\
+        & \equiv \mathbf{I} x
+    \end{align*}
 
 \end{frame}
