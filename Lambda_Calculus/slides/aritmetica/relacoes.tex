@@ -1,0 +1,61 @@
+\section{Relações entre números naturais}
+
+\begin{frame}[fragile]{Teste Condicional}
+
+    \begin{block}{Função $\mathbf{Z}$}
+        O termo-$\lambda$
+        \[
+            Z\equiv \lambda x.xF\lnot F
+        \]
+        o qual chamaremos \textbf{função} $\mathbf{Z}$, retorna verdadeiro ($T$) quando aplicada
+        em $0$, e retorna falso ($F$) para qualquer outro número natural.
+    \end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]{Observações sobre a função $\mathbf{Z}$}
+
+    \begin{itemize}
+        \item Para entender o comportamento da função $\mathbf{Z}$, observe que
+        \[
+            Oyx \equiv (\lambda sz.z)yx \equiv x,
+        \]
+        isto é, quando aplicada ao termo $xy$, $0$ ignora a ``função'' $y$ e retorna o argumento
+        $x$
+
+        \item O termo-$\lambda$ $F$, quando aplicado em qualquer termo lambda $z$, 
+        retorna a identidade $\mathbf{I}$, pois
+        \[
+            Fz \equiv (\lambda xy.y)z \equiv (\lambda x.(\lambda y.y))z \equiv (\lambda y.y)[x:=z]
+                \equiv \lambda y.y \equiv \mathbf{I}
+        \]
+
+        \item O natural $N$ aplica $N$ vezes o termo $y$ ao argumento $x$:
+        \[
+            Nyx \equiv (\lambda sz.s(s(\ldots s(z)))yx \equiv y(y(\ldots y(x)))
+        \]
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Observações sobre a função $\mathbf{Z}$}
+
+    \begin{itemize}
+        \item Assim,
+        \begin{align*}
+            Z0 &\equiv (\lambda.xF\lnot F)0 \\
+            &\equiv 0F\lnot F \equiv (0F\lnot)F \\
+            &\equiv \lnot F \equiv T
+        \end{align*}
+            
+        \item Para um natural $N$ qualquer,
+        \begin{align*}
+            ZN &\equiv (\lambda.xF\lnot F)N \\
+            &\equiv NF\lnot F \equiv (NF\lnot)F \\
+            &\equiv \mathbf{I} F \equiv F,
+        \end{align*}
+ 
+        pois uma ou mais aplicações de $F$ ao argumento $\lnot$ resulta na identidade $\mathbf{I}$
+    \end{itemize}
+
+\end{frame}
