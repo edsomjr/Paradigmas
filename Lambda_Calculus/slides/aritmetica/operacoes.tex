@@ -1,2 +1,66 @@
 \section{Adição e Multiplicação}
 
+\begin{frame}[fragile]{Adição}
+
+    \begin{block}{Adição de números naturais}
+        Seja $S$ a expressão-$\lambda$ que computa o sucessor de um número natural. O 
+        termo-$\lambda$
+        \[
+            + \equiv (\lambda xy.xSy)
+        \]
+        corresponde à \textbf{adição} de números naturais.
+    \end{block}
+
+    \vspace{0.1in}
+
+    \textbf{Observação}: de acordo com a definição acima, a adição ($+$) é uma operação
+    pré-fixada.
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de adição}
+
+    \begin{align*}
+        +23 &\equiv (\lambda xy.xSy)23 \\
+        &\equiv 2S3 \\
+        &\equiv S(S(3)) \\
+        &\equiv S(4) \\
+        &\equiv 5
+    \end{align*}
+
+\end{frame}
+
+\begin{frame}[fragile]{Multiplicação}
+
+    \begin{block}{Multiplicação de números naturais}
+        A expressão-$\lambda$
+        \[
+            \cdot \equiv (\lambda xyz.x(yz))
+        \]
+        corresponde à \textbf{multiplicação} de números naturais.
+    \end{block}
+
+    \vspace{0.1in}
+
+    \textbf{Observações}:
+    \begin{enumerate}[(a)]
+        \item Do mesmo modo que foi observado na adição, a multiplicação ($\cdot$) é uma operação 
+            pré-fixada
+        \item A interpretação desta expressão é a seguinte: $x$ marca o número de vezes que
+            será aplicada a função $(yz)$, a qual aplica $y$ vezes a função $z$
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de multiplicação}
+
+    \begin{align*}
+        \cdot 23 &\equiv (\lambda xys.x(ys))23 \\
+        &\equiv \lambda s.2(3s) \\
+        &\equiv \lambda s.(\lambda yz.y(y(z))(3s) \\
+        &\equiv \lambda s.(\lambda z.(3s)(3s(z)) \\
+        &\equiv \lambda s.(\lambda z.(3s)(s(s(s(z)))) \\
+        &\equiv \lambda s.(\lambda z.s(s(s(s(s(s(z))))))) \\
+        &\equiv \lambda sz.s(s(s(s(s(s(z)))))) \\
+        &\equiv 6
+    \end{align*}
+
+\end{frame}
