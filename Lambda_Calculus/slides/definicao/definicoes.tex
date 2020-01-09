@@ -1,0 +1,273 @@
+\section{Definição do cálculo $\lambda$}
+
+\begin{frame}[fragile]{Cálculo $\lambda$}
+
+    \begin{block}{Termos-$\lambda$}
+        O conjunto $\Lambda$ dos termos-$\lambda$ (ou expressões-$\lambda$, ou 
+        simplesmente lambdas) é definido por
+        meio de um conjunto de variáveis $V$ através das regras de aplicação e abstração,
+        dadas a seguir:
+        \begin{enumerate}
+            \item $x\in V \Rightarrow x\in \Lambda$ (expressão)
+            \item $M, N\in V \Rightarrow MN\in \Lambda$ (aplicação)
+            \item $M\in \Lambda, x\in V \Rightarrow \lambda x.M$ (abstração)
+        \end{enumerate}
+    \end{block}
+
+    \vspace{0.1in}
+
+    \textbf{Observação}: informalmente, a aplicação equivale ao cálculo da função 
+        $M$ com argumento $N$, isto é $M(N)$; a abstração corresponde a definição da função 
+        $f(x) = M$.
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplos de termos-$\lambda$}
+
+    \begin{enumerate}
+        \item O termo-$\lambda$ mais simples possível é composto por uma única variável (por 
+            exemplo, $x$)
+
+        \item A função identidade $\lambda x.x$ é um exemplo de abstração
+
+        \item Parêntesis podem ser utilizados para clarificar uma expressão, ou para remover
+            ambiguidades
+
+        \item O termo $(\lambda x.x)y$ é a aplicação da função identidade ao termo $y$
+
+        \item A aplicação é associativa à esquerda:
+        \[
+            M_1M_2\ldots M_N = (((M_1M_2)M_3)\ldots M_N)
+        \]
+
+        \item O termo $\lambda y.(\lambda x.M)$ equivale a uma função de duas variáveis
+
+        \item Uma notação alternativa para o termo anterior é 
+        \[
+            \lambda yx.M = \lambda y.(\lambda x.M)
+        \]
+
+        \item A abstração é associativa à direita:
+        \[
+            \lambda x_1x_2\ldots x_N.M = \lambda x_1.(\lambda x_2.(\ldots \lambda x_N.M))
+        \]
+    \end{enumerate}
+
+\end{frame}
+
+\begin{frame}[fragile]{Variáveis livres e atadas ({\it bound})}
+
+    \begin{itemize}
+        \item A abstração $\lambda x.M$ une (ata, \textit{to bind}) a variável livre $x$ ao
+            termo (expressão) lambda $M$
+
+        \item Uma variável não precedida por um símbolo $\lambda$ que a une a uma expressão
+            é denominada variável \textbf{livre}
+
+        \item Na expressão 
+        \[
+            \lambda x.xy
+        \]
+        a variável $x$ é atada e a variável $y$ é livre
+
+        \item Uma mesma variável pode ser livre e atada em uma mesma expressão. Por exemplo,
+            na expressão
+        \[
+            (\lambda x.xy)(\lambda y.y)
+        \]
+        a variável $y$ é livre no termo entre parêntesis à esquerda, e atada no termo da direita
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Substituições}
+
+    \begin{block}{Substituição}
+    A \textbf{substituição} de todas as ocorrências da variável livre $x$ por $N$ em $M$, cuja
+    notação é $M[x:=N]$, é definida por
+    \begin{enumerate}[i.]
+        \item $x[x:=N] = N$
+        \item $y[x:=N] = y$, se $y\neq x$
+        \item $(M_1M_2)[x:=N] = (M_1[x:=N])(M_2[x:=N])$
+        \item $(\lambda y.M_1)[x:=N] = \lambda y.(M_1[x:=N])$
+    \end{enumerate}
+    \end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplos de substituição}
+
+    \begin{enumerate}
+        \item Exemplo de substituição pela regra 3:
+        \[
+            ((\lambda x.xyz)(\lambda y.xzy))[z:=N] = (\lambda x.xyN)(\lambda y.xNy) 
+        \]
+
+        \item Exemplo de substituição pela regra 4:
+        \[
+            (\lambda x.xy)[y:=N] = \lambda x.xN
+        \]
+
+        \item Exemplo de substituição pelas regras 2 e 4:
+        \[
+            (\lambda x.xy)[z:=N] = \lambda x.xy
+        \]
+
+        \item $(\lambda x.xy)[x:=N]$ não é uma expressão lambda válida, pois as substituições
+            devem ser feitas em termos de variáveis livres, e $x$ é atada na expressão entre
+            parêntesis
+    \end{enumerate}
+
+\end{frame}
+
+\begin{frame}[fragile]{Reduções}
+
+    \begin{block}{Axiomas de Redução}
+        \begin{enumerate}
+            \item A conversão-$\alpha$ permite a troca das variáveis atadas de uma expressão,
+            evitando colisões de nomes:
+            \[
+                \lambda x.M \equiv_\alpha \lambda y.(M[x:=y])
+            \]
+
+            \item A redução-$\beta$ associa a aplicação com a substituição:
+            \[
+                (\lambda x.M)N \equiv_\beta M[x:=N]
+            \]
+
+            \item A  conversão-$\eta$ elimina de redundâncias em expressões cujo
+                propósito é apenas passar um argumento para uma função:
+            \[
+                (\lambda x.Mx) \equiv_\eta M,
+            \]
+            se $x$ não é uma variável livre em $M$.
+        \end{enumerate}
+    \end{block}
+
+    \textbf{Observação}: Se a expressão-$\lambda$ $N$ pode ser obtida através de sucessivas 
+        aplicações dos três axiomas acima ao termo $M$, escreveremos $M\equiv N$.
+\end{frame}
+
+\begin{frame}[fragile]{Exemplos de aplicação dos axiomas de redução}
+
+    \begin{enumerate}
+        \item Aplicação da função identidade (redução-$\beta$)
+        \[
+            (\lambda x.x)y \equiv x[x:=y] \equiv y
+        \]
+
+        \item Aplicação em função de duas variáveis (redução-$\beta$):
+        \begin{align*}
+            (\lambda xy.yx)MN & \equiv (\lambda x.(\lambda y.yx))MN \\
+            & \equiv ((\lambda y.yx)[x:=M])N \\
+            & \equiv (\lambda y.yM)N \\
+            & \equiv (yM)[y:=N] \\
+            & \equiv NM
+        \end{align*}
+
+        \item Eliminação de redundância (conversão-$\eta$):
+        \[
+            (\lambda x.zyx) \equiv zy
+        \]
+    \end{enumerate}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplos de aplicação dos axiomas de redução}
+
+    \begin{enumerate}
+        \setcounter{enumi}{3}
+        \item Uso da conversão-$\alpha$ para evitar colisão de nomes, pois a variável $y$, que
+        irá substituir a variável livre $x$ no termo $\lambda y.yx$, tem mesmo nome que a
+        variável atada $y$ :
+        \begin{align*}
+            (\lambda x.(\lambda y.xy))y & \equiv (\lambda x.(\lambda z.xz))y \\
+            & \equiv (\lambda z.xz)[x:=y] \\
+            & \equiv \lambda z.yz
+        \end{align*}
+
+        Observe que, sem o uso da conversão-$\alpha$, a aplicação resultaria em $(\lambda y.yy)$,
+        termo que não é equivalente ao resultado correto.
+
+    \end{enumerate}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplos de aplicação dos axiomas de redução}
+
+    \begin{enumerate}
+        \setcounter{enumi}{4}
+        \item Outro exemplo de que demanda o uso de conversão-$\alpha$:
+        \begin{align*}
+            (\lambda x.(\lambda y.(x\lambda x.xy)))y &\equiv (\lambda x.(\lambda z.(x\lambda x.xz)))y\\
+            &\equiv (\lambda z.(x\lambda x.xz))[x:=y]\\
+            &\equiv (\lambda z.(y\lambda x.xz))\\
+        \end{align*}
+
+        Aqui novamente a conversão-$\alpha$ foi usada por que $y$ é uma variável atada na
+        expressão $\lambda y.(x\lambda x.xy)$. Além disso, observe que somente a ocorrência
+        livre de $x$ é substituída, conforme a regra de substituição apresentada 
+        anteriormente.
+    \end{enumerate}
+
+\end{frame}
+
+\begin{frame}[fragile]{Combinadores e Igualdade Extensional}
+
+    \begin{block}{Combinadores}
+        \begin{enumerate}[(a)]
+            \item O conjunto das variáveis livres $FV(M)$ de $M$ é definido por
+            \begin{enumerate}[i.]
+                \item $FV(x) = \lbrace x\rbrace$
+                \item $FV(MN) = FV(M)\cup FV(N)$
+                \item $FV(\lambda x.M) = FV(M) - \lbrace x\rbrace$
+            \end{enumerate}
+
+            \item $M$ é um termo fechado, ou \textbf{combinador}, se $FV(M) = \emptyset$
+        \end{enumerate}
+    \end{block}
+
+    \vspace{0.1in}
+
+    \begin{block}{Igualdade Extensional}
+        Duas expressões $\lambda$ $E_1, E_2$ são \textbf{extensionamente iguais} se, 
+        $\forall x\in\Lambda$, $E_1x \equiv E_2x$.
+    \end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]{Combinadores padrão e base $\mathbf{S}$-$\mathbf{K}$}
+
+    \begin{block}{Combinadores padrão}
+        Os combinadores padrão são enumerados a seguir: 
+        \begin{enumerate}
+            \item $\mathbf{I} \equiv \lambda x.x$ 
+            \item $\mathbf{K} \equiv \lambda xy.x$ 
+            \item $\mathbf{K_*} \equiv \lambda xy.y$ 
+            \item $\mathbf{S} \equiv \lambda xyz.xz(yz)$
+        \end{enumerate}
+    \end{block}
+
+    \vspace{0.1in}
+
+    \begin{block}{Completude da base $\mathbf{S}$-$\mathbf{K}$}
+        Dado uma expressão lambda $E$, é possível gerar um novo combinador $C$ a partir dos
+        combinadores $\mathbf{S}$ e $\mathbf{K}$ de tal modo que $E$ e $C$ são
+        extensionalmente iguais.
+    \end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo da completude de $\mathbf{S}$-$\mathbf{K}$}
+
+    A identidade $\mathbf{I}$ é extensionalmente igual ao combinador $\mathbf{S K K}$:
+
+    \begin{align*}
+        ((\mathbf{S K K}) x) &\equiv (\mathbf{S K K} x) \\
+        & \equiv (\mathbf{K} x (\mathbf{K} x)) \\
+        & \equiv x \\
+        & \equiv \mathbf{I} x
+    \end{align*}
+
+\end{frame}

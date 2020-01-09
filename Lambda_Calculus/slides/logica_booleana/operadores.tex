@@ -1,0 +1,73 @@
+\section{Operadores Lógicos}
+
+\begin{frame}[fragile]{Operadores Lógicos}
+
+    \begin{block}{Operadores Lógicos}
+        Sejam $x, y\in\lbrace T, F\rbrace$. Os operadores da lógica proposicional booleana são:
+        \begin{enumerate}
+            \item \textbf{conjunção}:
+            \[
+                \land xy \equiv \lambda xy.xyx \equiv (I_F) xyx 
+            \]
+
+            \item \textbf{disjunção}:
+            \[
+                \vee xy \equiv \lambda xy.xxy \equiv (I_F) xxy 
+            \]
+
+            \item \textbf{negação}:
+            \[
+                \lnot x \equiv \lambda x.xFT \equiv (I_F) xFT
+            \]
+        \end{enumerate}
+    \end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]{Operadores Lógicos e Combinadores}
+
+    \begin{block}{Operadores Lógicos e Combinadores}
+        As operações lógicas são extensionalmente iguais aos combinadores dados a seguir,
+        de modo que podem ser utilizadas como operações:
+        \begin{enumerate}
+            \item \textbf{conjunção} (pós-fixada):
+            \[
+                \mathbf{AND} \equiv F \equiv \mathbf{SK}
+            \]
+
+            \item \textbf{disjunção} (in-fixada):
+            \[
+                \mathbf{OR} \equiv T \equiv \mathbf{K}
+            \]
+
+            \item \textbf{negação} (pós-fixada):
+            \[
+                \mathbf{NOT} \equiv FT \equiv (\mathbf{SK)}\mathbf{K}
+            \]
+        \end{enumerate}
+    \end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo: tabelas-verdade}
+
+    Conjunção:
+
+    \begin{align*}
+        (TT)(\mathbf{AND}) &\equiv TTF\equiv T(TF)\equiv T\\
+        (TF)(\mathbf{AND}) &\equiv TFF\equiv T(FF)\equiv F\\
+        (FT)(\mathbf{AND}) &\equiv FTF\equiv F(TF)\equiv F\\
+        (FF)(\mathbf{AND}) &\equiv FFF\equiv F(FF)\equiv F
+    \end{align*}
+
+    Disjunção:
+
+    \begin{align*}
+        (T)(\mathbf{OR})(T) &\equiv TTT\equiv T(TT)\equiv T\\
+        (T)(\mathbf{OR})(F) &\equiv TTF\equiv T(TF)\equiv T\\
+        (F)(\mathbf{OR})(T) &\equiv FTT\equiv F(TT)\equiv T\\
+        (F)(\mathbf{OR})(F) &\equiv FTF\equiv F(TF)\equiv F
+    \end{align*}
+
+
+\end{frame}

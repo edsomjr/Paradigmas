@@ -1,0 +1,90 @@
+\section{Números Naturais}
+
+\begin{frame}[fragile]{Contexto}
+
+    \begin{itemize}
+        \item É esperado que uma linguagem de programação seja capaz de realizar operações
+            aritméticas com números naturais
+
+        \item Contudo, conforme dito anteriormente, o cálculo $\lambda$ contém apenas dois
+            termos primitivos: o símbolo $\lambda$ e o ponto final
+
+        \item Assim, como no caso dos valores lógicos, é preciso representar os números naturais
+            por meio de expressões-$\lambda$
+
+        \item Como os inteiros são infinitos, é preciso definir uma forma de deduzir todos eles
+            a partir de algum valor inicial
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Zero}
+
+    \begin{block}{Definição de zero}
+        O número natural \textbf{zero} pode ser representado pelo termo-$\lambda$
+        \[
+            0 \equiv \lambda sz.z
+        \]
+    \end{block}
+
+    \vspace{0.1in}
+
+    \textbf{Observação}: veja que, de acordo com a definição, acima $0 \equiv F$, onde $F$ é o
+        valor lógico falso.
+\end{frame}
+
+\begin{frame}[fragile]{Sucessor}
+
+    \begin{block}{Sucessor}
+        O termo-$\lambda$
+        \[
+            S \equiv \lambda wyx.y(wyx)
+        \]
+        é denominado função sucessor, ou simplesmente, \textbf{sucessor}, de um número
+        natural.
+    \end{block}
+
+    \vspace{0.2in}
+
+    \textbf{Observação}: a função sucessor permite a definição de todos os números naturais 
+        a partir do zero: $1\equiv S0, 2\equiv S1, \ldots$.
+\end{frame}
+
+\begin{frame}[fragile]{Definição de $1$}
+
+    \begin{align*}
+        1 &\equiv S0 \\
+          &\equiv (\lambda wyx.y(wyx))(\lambda sz.z) \\
+          &\equiv (\lambda w.(\lambda yx.y(wyx)))(\lambda sz.z) \\
+          &\equiv (\lambda yx.y(wyx))[w:=(\lambda sz.z)] \\
+          &\equiv \lambda yx.y((\lambda sz.z)yx) \\
+          &\equiv \lambda yx.y(x) \\
+          &\equiv \lambda sz.s(z)
+    \end{align*}
+
+    \vspace{0.1in}
+
+    \textbf{Observação}: no último passo foi aplicada uma conversão-$\alpha$ para renomear
+        as variáveis $y$ e $x$, de modo a manter as variáveis $s$ e $z$ nas definições dos
+        números naturais
+\end{frame}
+
+\begin{frame}[fragile]{Definição de $2$}
+
+    \begin{align*}
+        2 &\equiv S1 \\
+          &\equiv (\lambda wyx.y(wyx))(\lambda sz.s(z)) \\
+          &\equiv (\lambda w.(\lambda yx.y(wyx)))(\lambda sz.s(z)) \\
+          &\equiv (\lambda yx.y(wyx))[w:=(\lambda sz.s(z))] \\
+          &\equiv \lambda yx.y((\lambda sz.s(z))yx) \\
+          &\equiv \lambda yx.y(y(x)) \\
+          &\equiv \lambda sz.s(s(z))
+    \end{align*}
+
+    \vspace{0.1in}
+
+    \textbf{Observação}: a definição dos naturais pode interpretada como composições de funções.
+        Se $s$ é uma função, $0$ significa simplesmente retornar o argumento $z$; $1$ 
+        significa aplicar a função uma vez $s(z)$; $2$ significa aplicar a função duas vezes:
+        $s(s(z)) = s^2(z)$, e assim por diante. 
+\end{frame}

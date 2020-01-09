@@ -1,0 +1,56 @@
+\section{Recursão}
+
+\begin{frame}[fragile]{Recursão}
+
+    \begin{itemize}
+        \item A recursão diz respeito a definição de uma função em termos de si mesma
+
+        \item Ao contrário de outras notações, o cálculo $\lambda$ não permite esta definição
+            diretamente, uma vez que os termos-$\lambda$ são anônimos
+
+        \item Uma maneira de contornar isso é utilizar uma expressão-$\lambda$ que receba a 
+            si mesma como argumento
+
+        \item Além disso, é preciso lidar com os dois aspectos fundamentais de uma função
+            recursiva: o(s) caso(s) base(s) e a chamada recursiva
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Estrutura básica da recursão}
+
+    \begin{huge}
+    \[
+        f(x) =  \left\lbrace \begin{array}{ll}
+                    g(x_0), & \mbox{se}\ P(x_0), \\
+                    h(x, f(x)), & \mbox{caso contrário}
+                \end{array} \right.
+    \]
+    \end{huge}
+
+    \vspace{0.5in}
+
+    $P(x)$ é um predicado que retorna verdadeiro se $x_0$ é o valor que caracteriza o caso base.
+    Se $P(x)$ for verdadeira, o valor de $f$ em $x_0$ será dado pela função $g$; se $P(x)$ for
+    falsa, $f(x)$ é igual a uma função $h$ que depende de $x$ e de $f(x)$.
+\end{frame}
+
+\begin{frame}[fragile]{Representação da estrutura básica da recursão no cálculo-$\lambda$}
+
+    \begin{huge}
+    \[
+        F\equiv (\lambda fx.(Px)(gx)(hx(fx)))
+    \]
+    \end{huge}
+
+    \vspace{0.3in}
+
+    Observe que na definição da função recursiva $F$ é utilizado o termo-$\lambda$ $I_F$: se o
+    predicado $(Px)$ retornar verdadeiro, o retorno será o primeiro parâmetro $(gx)$, que 
+    corresponde ao valor de $F$ para o caso base; se falso, será avaliada a função $h$, que
+    tem como parâmetros $x$ e $(fx)$.
+
+    \vspace{0.1in}
+    Não há garantias, contudo, que $F\equiv f$, pois no cálculo $\lambda$ os termos são anônimos.
+    É preciso, portanto, definir um termo que garanta esta equivalência. 
+\end{frame}

@@ -1,0 +1,185 @@
+\section{Relações entre números naturais}
+
+\begin{frame}[fragile]{Teste Condicional}
+
+    \begin{block}{Função $\mathbf{Z}$}
+        O termo-$\lambda$
+        \[
+            Z\equiv \lambda x.xF\lnot F
+        \]
+        o qual chamaremos \textbf{função} $\mathbf{Z}$, retorna verdadeiro ($T$) quando aplicada
+        em $0$, e retorna falso ($F$) para qualquer outro número natural.
+    \end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]{Observações sobre a função $\mathbf{Z}$}
+
+    \begin{itemize}
+        \item Para entender o comportamento da função $\mathbf{Z}$, observe que
+        \[
+            0yx \equiv (\lambda sz.z)yx \equiv x,
+        \]
+        isto é, quando aplicada ao termo $xy$, $0$ ignora a ``função'' $y$ e retorna o argumento
+        $x$
+
+        \item O termo-$\lambda$ $F$, quando aplicado em qualquer termo lambda $z$, 
+        retorna a identidade $\mathbf{I}$, pois
+        \[
+            Fz \equiv (\lambda xy.y)z \equiv (\lambda x.(\lambda y.y))z \equiv (\lambda y.y)[x:=z]
+                \equiv \lambda y.y \equiv \mathbf{I}
+        \]
+
+        \item O natural $N$ aplica $N$ vezes o termo $y$ ao argumento $x$:
+        \[
+            Nyx \equiv (\lambda sz.s(s(\ldots s(z)))yx \equiv y(y(\ldots y(x)))
+        \]
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Observações sobre a função $\mathbf{Z}$}
+
+    \begin{itemize}
+        \item Assim,
+        \begin{align*}
+            Z0 &\equiv (\lambda.xF\lnot F)0 \\
+            &\equiv 0F\lnot F \equiv (0F\lnot)F \\
+            &\equiv \lnot F \equiv T
+        \end{align*}
+            
+        \item Para um natural $N$ qualquer,
+        \begin{align*}
+            ZN &\equiv (\lambda.xF\lnot F)N \\
+            &\equiv NF\lnot F \equiv (NF\lnot)F \\
+            &\equiv \mathbf{I} F \equiv F,
+        \end{align*}
+ 
+        pois uma ou mais aplicações de $F$ ao argumento $\lnot$ resulta na identidade $\mathbf{I}$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Pares}
+
+    \begin{block}{Pares}
+    No cálculo $\lambda$, o \textbf{par} $(a, b)$ pode ser representado pela expressão-$\lambda$
+    \[
+        (a, b) \equiv \lambda z.zab
+    \]
+
+    O \textbf{primeiro elemento} do par pode ser extraído a partir da aplicação desta expressão ao
+        termo $T$:
+    \[
+        (\lambda z.zab)T \equiv Tab \equiv a
+    \]
+
+    O \textbf{segundo elemento} é extraído por meio da aplicação da expressão ao termo $F$:
+    \[
+        (\lambda z.zab)F \equiv Fab \equiv b
+    \]
+    \end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]{Par sucessor}
+
+    \begin{block}{Proposição}
+    O termo-$\lambda$
+    \[
+        \Phi \equiv (\lambda pz.z(S(pT))(pT))
+    \]
+    transforma o par $(n, n - 1)$ no par $(n + 1, n)$.
+    \end{block}
+
+    \begin{block}{Demonstração}
+    De fato, o termo $(pT)$ extrai o primeiro elemento do par, e o termo $S(pT)$ é o sucessor
+    deste elemento. Assim,
+    \begin{align*}
+        \Phi ((n, n - 1)) &\equiv  (\lambda pz.z(S(pT))(pT))(\lambda z.z(n)(n-1)) \\
+        &\equiv  (\lambda z.z(S((\lambda z.z(n)(n-1))T))((\lambda z.z(n)(n-1))T)) \\
+        &\equiv  (\lambda z.z(S(Tn(n-1)))(Tn(n-1))) \\
+        &\equiv  (\lambda z.z(Sn)n) \\
+        &\equiv  (\lambda z.z(n + 1)n) \equiv (n + 1, n)
+    \end{align*}
+    \end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]{Antecessor}
+
+    \begin{block}{Proposição}
+    A expressão-$\lambda$
+    \[
+        P \equiv (\lambda n.n\Phi (\lambda z.z00))F
+    \]
+    computa o \textbf{antecessor} de qualquer natural $N$ maior que zero, e $P0 = 0$.
+    \end{block}
+
+    \begin{block}{Demonstração}
+    Temos que
+    \[
+        P0 \equiv ((\lambda n.n\Phi (\lambda z.z00))F)0 \equiv 0\Phi (\lambda z.z00) F
+        \equiv (\lambda z.z00)F \equiv 0
+    \]
+    Seja $N$ um natural maior do que zero. Daí
+    \begin{align*}
+        PN &\equiv ((\lambda n.n\Phi (\lambda z.z00))F)N \equiv N\Phi (\lambda z.z00) F \\
+        &\equiv (\lambda z.zN(N - 1))F \equiv N - 1,
+    \end{align*}
+    pois $N\Phi (\lambda z.z00)$ corresponde a $N$ aplicações do termo $\Phi$ ao par $(0, 0)$.
+    \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de antecessor}
+
+    \begin{align*}
+        P3 &\equiv ((\lambda n.n\Phi (\lambda z.z00))F)3 \\
+           &\equiv 3\Phi (\lambda z.z00) F \\
+           &\equiv (\Phi (\Phi (\Phi (\lambda z.z00)))) F \\
+           &\equiv (\Phi (\Phi (\lambda z.z10))) F \\
+           &\equiv (\Phi (\lambda z.z21)) F \\
+           &\equiv (\lambda z.z32) F \\
+           &\equiv 2
+    \end{align*}
+
+\end{frame}
+
+\begin{frame}[fragile]{Desigualdade}
+
+    \begin{block}{Relação maior ou igual que}
+    Sejam $x$ e $y$ dois números naturais. O termo-$\lambda$
+    \[
+        G \equiv (\lambda xy.Z(xPy))
+    \]
+    retorna verdadeiro ($T$) se $x$ é \textbf{maior ou igual que} $y$, ou falso ($F$), caso 
+    contrário.
+    \end{block}
+
+    \vspace{0.1in}
+
+    \textbf{Observação}: o termo $G$ pode ser interpretado da seguinte maneira: se o resultado de
+    se aplicar $x$ vezes o antecessor $P$ no natural $y$ é zero, então $x\geq y$. Este 
+    procedimento remete à subtração $y - x$, exceto pelo fato de que o resultado será zero
+    caso $x$ seja maior do que $y$, e não o número negativo correspondente nos inteiros.
+
+\end{frame}
+
+\begin{frame}[fragile]{Igualdade}
+
+    \begin{block}{Relação igual a}
+    O termo-$\lambda$
+    \[
+        E\equiv (\lambda xy.\land (Z(xPy))(Z(yPx)))
+    \]
+    retorna verdadeiro ($T$) se $x$ e $y$ são números naturais iguais, e falso ($F$), caso
+    contrário.
+    \end{block}
+
+    \vspace{0.1in}
+
+    \textbf{Observação}: $x = y$ se $x\geq y$ e $y\geq x$. Esta propriedade pode ser observada na
+    definição da expressão $E$, na qual aparecem o termo-$\lambda$ correspondente à operação
+    lógica \textbf{e} ($\land$) e termos oriundos da definição da desigualdade maior ou igual que
+    ($G$).
+\end{frame}
