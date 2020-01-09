@@ -10,6 +10,7 @@
 \usepackage{appendixnumberbeamer}
 
 \usepackage{tikz}
+\usepackage{xcolor}
 \usepackage{colortbl}
 \usepackage{inconsolata}
 
