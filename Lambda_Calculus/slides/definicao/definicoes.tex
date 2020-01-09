@@ -87,10 +87,10 @@
     A \textbf{substituição} de todas as ocorrências da variável livre $x$ por $N$ em $M$, cuja
     notação é $M[x:=N]$, é definida por
     \begin{enumerate}[i.]
-        \item $x[x:=N] \equiv N$
-        \item $y[x:=N] \equiv y$, se $y\not\equiv x$
-        \item $(M_1M_2)[x:=N] \equiv (M_1[x:=N])(M_2[x:=N])$
-        \item $(\lambda y.M_1)[x:=N] \equiv \lambda y.(M_1[x:=N])$
+        \item $x[x:=N] = N$
+        \item $y[x:=N] = y$, se $y\neq x$
+        \item $(M_1M_2)[x:=N] = (M_1[x:=N])(M_2[x:=N])$
+        \item $(\lambda y.M_1)[x:=N] = \lambda y.(M_1[x:=N])$
     \end{enumerate}
     \end{block}
 
@@ -101,17 +101,17 @@
     \begin{enumerate}
         \item Exemplo de substituição pela regra 3:
         \[
-            ((\lambda x.xyz)(\lambda y.xzy))[z:=N] \equiv (\lambda x.xyN)(\lambda y.xNy) 
+            ((\lambda x.xyz)(\lambda y.xzy))[z:=N] = (\lambda x.xyN)(\lambda y.xNy) 
         \]
 
         \item Exemplo de substituição pela regra 4:
         \[
-            (\lambda x.xy)[y:=N] \equiv \lambda x.xN
+            (\lambda x.xy)[y:=N] = \lambda x.xN
         \]
 
         \item Exemplo de substituição pelas regras 2 e 4:
         \[
-            (\lambda x.xy)[z:=N] \equiv \lambda x.xy
+            (\lambda x.xy)[z:=N] = \lambda x.xy
         \]
 
         \item $(\lambda x.xy)[x:=N]$ não é uma expressão lambda válida, pois as substituições
@@ -125,22 +125,28 @@
 
     \begin{block}{Axiomas de Redução}
         \begin{enumerate}
-            \item A conversão-$\alpha$ permite a troca das variáveis atadas de uma expressão:
+            \item A conversão-$\alpha$ permite a troca das variáveis atadas de uma expressão,
+            evitando colisões de nomes:
             \[
-                \lambda x.M \equiv \lambda y.(M[x:=y])
+                \lambda x.M \equiv_\alpha \lambda y.(M[x:=y])
             \]
 
             \item A redução-$\beta$ associa a aplicação com a substituição:
             \[
-                (\lambda x.M)N \equiv M[x:=N]
+                (\lambda x.M)N \equiv_\beta M[x:=N]
             \]
+
+            \item A  conversão-$\eta$ elimina de redundâncias em expressões cujo
+                propósito é apenas passar um argumento para uma função:
+            \[
+                (\lambda x.Mx) \equiv_\eta M,
+            \]
+            se $x$ não é uma variável livre em $M$.
         \end{enumerate}
     \end{block}
 
-    \vspace{0.1in}
-
-    \textbf{Observação}: a conversão-$\alpha$ é utilizada, primariamente, para evitar colisões
-        de nomes; a redução-$\beta$ é o axioma fundamental do cálculo $\lambda$.
+    \textbf{Observação}: Se a expressão-$\lambda$ $N$ pode ser obtida através de sucessivas 
+        aplicações dos três axiomas acima ao termo $M$, escreveremos $M\equiv N$.
 \end{frame}
 
 \begin{frame}[fragile]{Exemplos de aplicação dos axiomas de redução}
@@ -159,6 +165,11 @@
             & \equiv (yM)[y:=N] \\
             & \equiv NM
         \end{align*}
+
+        \item Eliminação de redundância (conversão-$\eta$):
+        \[
+            (\lambda x.zyx) \equiv zy
+        \]
     \end{enumerate}
 
 \end{frame}
@@ -166,7 +177,7 @@
 \begin{frame}[fragile]{Exemplos de aplicação dos axiomas de redução}
 
     \begin{enumerate}
-        \setcounter{enumi}{2}
+        \setcounter{enumi}{3}
         \item Uso da conversão-$\alpha$ para evitar colisão de nomes, pois a variável $y$, que
         irá substituir a variável livre $x$ no termo $\lambda y.yx$, tem mesmo nome que a
         variável atada $y$ :
@@ -186,7 +197,7 @@
 \begin{frame}[fragile]{Exemplos de aplicação dos axiomas de redução}
 
     \begin{enumerate}
-        \setcounter{enumi}{3}
+        \setcounter{enumi}{4}
         \item Outro exemplo de que demanda o uso de conversão-$\alpha$:
         \begin{align*}
             (\lambda x.(\lambda y.(x\lambda x.xy)))y &\equiv (\lambda x.(\lambda z.(x\lambda x.xz)))y\\
