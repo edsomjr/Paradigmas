@@ -34,7 +34,7 @@
     \begin{block}{Multiplicação de números naturais}
         A expressão-$\lambda$
         \[
-            \cdot \equiv (\lambda xyz.x(yz))
+            \times \equiv (\lambda xyz.x(yz))
         \]
         corresponde à \textbf{multiplicação} de números naturais.
     \end{block}
@@ -43,7 +43,7 @@
 
     \textbf{Observações}:
     \begin{enumerate}[(a)]
-        \item Do mesmo modo que foi observado na adição, a multiplicação ($\cdot$) é uma operação 
+        \item Do mesmo modo que foi observado na adição, a multiplicação ($\times$) é uma operação 
             pré-fixada
         \item A interpretação desta expressão é a seguinte: $x$ marca o número de vezes que
             será aplicada a função $(yz)$, a qual aplica $y$ vezes a função $z$
@@ -53,11 +53,11 @@
 \begin{frame}[fragile]{Exemplo de multiplicação}
 
     \begin{align*}
-        \cdot 23 &\equiv (\lambda xys.x(ys))23 \\
+        \times 23 &\equiv (\lambda xys.x(ys))23 \\
         &\equiv \lambda s.2(3s) \\
         &\equiv \lambda s.(\lambda yz.y(y(z))(3s) \\
-        &\equiv \lambda s.(\lambda z.(3s)(3s(z)) \\
-        &\equiv \lambda s.(\lambda z.(3s)(s(s(s(z)))) \\
+        &\equiv \lambda s.(\lambda z.3s(3sz)) \\
+        &\equiv \lambda s.(\lambda z.3s(s(s(s(z))))) \\
         &\equiv \lambda s.(\lambda z.s(s(s(s(s(s(z))))))) \\
         &\equiv \lambda sz.s(s(s(s(s(s(z)))))) \\
         &\equiv 6
