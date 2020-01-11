@@ -200,7 +200,7 @@
     \vspace{0.05in}
 
     \begin{block}{Gráfico de uma função}
-        Seja $f$ uma função de $A$ em $B$. O gráfico de $f$ é o conjunto
+        Seja $f$ uma função de $A$ em $B$. O \textbf{gráfico} de $f$ é o conjunto
         \[
             Gr(f) = \lbrace (x, f(x))\ |\ x\in A\rbrace
         \]
@@ -211,8 +211,8 @@
 \begin{frame}[fragile]{Composição de funções}
 
     \begin{block}{Função composta}
-        Sejam $f: A\to B$ e $g: C\to D$ duas funções. Se $f(B)\subset C$, então a função
-            composta $h: A\to D$ é definida como
+        Sejam $f: A\to B$ e $g: C\to D$ duas funções. Se $f(B)\subset C$, então a \textbf{função
+            composta} $h: A\to D$ é definida como
         \[
             h(x) = (g\circ f)(x) = g(f(x))
         \]
@@ -223,4 +223,42 @@
     \textbf{Observação}: Em geral, $(g\circ f)(x) \neq (f\circ g)(x)$ (pode ser que $(f\circ g)(x)$
         nem esteja, de fato, definida).
 
+\end{frame}
+
+\begin{frame}[fragile]{Funções injetoras, sobrejetoras e bijetoras}
+
+    \begin{block}{Definição}
+        Seja $f:A\to B$ uma função.
+        \begin{enumerate}[(a)]
+            \item $f$ é \textbf{injetora} se $f(x) = f(y)$ implica $x = y$, para todos $x, y\in A$
+            \item $f$ é \textbf{sobrejetora} se $Img(f) = f(A) = B$
+            \item $f$ é dita \textbf{bijetora} se é injetora e sobrejetora
+        \end{enumerate}
+    \end{block}
+
+    \vspace{0.1in}
+    
+    \textbf{Observações}: em uma função injetora, cada elemento do contradomínio $B$ pode estar
+        relacionado a, no máximo, um elemento do domínio $A$; em uma função sobrejetora, todos
+        os elementos de $B$ devem estar associados a, no mínimo, um elemento de $A$.
+\end{frame}
+
+\begin{frame}[fragile]{Função inversa}
+
+    \begin{block}{Definição}
+        Seja $f:A\to B$ uma função bijetora de $A$ em $B$. A \textbf{função inversa} 
+        $f^{-1}: B\to A$ de $f$ é uma função tal que $f^{-1}(b) = a$ se, e somente se, $f(a) = b$. 
+    \end{block}
+
+    \vspace{0.2in}
+
+    \textbf{Observação}: para qualquer função bijetora $f:X\to Y$, temos que
+    \[
+        (f\circ f^{-1})(y) = y
+    \] e que
+    \[
+        (f^{-1}\circ f)(x) = x,
+    \]
+    ou seja, a composição de uma função com sua inversa resulta na função identidade 
+    $\mathrm{id}(x) = x$.
 \end{frame}
