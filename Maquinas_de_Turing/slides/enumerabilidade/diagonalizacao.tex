@@ -1,0 +1,99 @@
+\section{Diagonalização}
+
+\begin{frame}[fragile]{Exemplo de conjunto não-enumerável}
+
+    \begin{block}{Teorema de Cantor}
+        O conjunto de todos os conjuntos de inteiros positivos não é enumerável.
+    \end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]{Demonstração do Teorema de Cantor}
+
+    \begin{itemize}
+        \item Uma forma de demonstrar o Teorema de Cantor é utilizar uma técnica chamada
+            diagonalização
+
+        \item A ideia é, a partir de uma lista $L$ de conjuntos de inteiros positivos,
+            construir um conjunto $\Delta(L)$ de inteiros positivos que não pertence à lista
+            $L$
+
+        \item Caso este conjunto seja acrescido à lista $L$, é possível aplicar a mesma
+            técnica para construir um novo conjunto $\Delta(L^*)$ que não pertence à
+            lista $L^* = L\cup \Delta(L)$
+
+        \item Assim, não existe nenhuma lista que enumera o conjunto de todos os conjuntos de
+            inteiros positivos
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Construção do conjunto $\Delta(L)$}
+
+    \begin{itemize}
+        \item Seja $L = S_1, S_2, S_3, \ldots$ uma lista de conjuntos de inteiros positivos $S_i$,
+            $i\in \mathbb{Z}^+$
+
+        \item Defina
+        \[
+            \Delta(L) = \lbrace n\in\mathbb{Z}^+\ |\ n \in S_n\rbrace
+        \]
+
+        \item Da definição acima, $\Delta(L)\subset \mathbb{Z}^+$
+
+        \item Como sugerido pela própria notação, o conjunto $\Delta(L)$ depende da lista $L$:
+            cada lista $L_j$ de conjuntos de inteiros positivos gera um conjunto $\Delta(L_j)$
+            em particular
+
+        \item Por exemplo, se $L = S_1, S_2, S_3, \ldots$ é tal que $S_i$ é o conjunto dos
+            $i$ primeiros números primos, temos que
+        \[
+            \Delta(L) = \lbrace 1, 4, 6, 8, 9, 10, \ldots \rbrace
+        \]
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Demonstração por contradição}
+
+    \begin{itemize}
+        \item Suponha, por contradição, que $\Delta(L)\in L$, isto é, que o conjunto $\Delta(L)$
+            seja listado, em algum momento, por $L$
+
+        \item Assim, existe um $k\in\mathbb{Z}^+$ tal que $\Delta(L) = S_k$
+
+        \item Em relação ao inteiro positivo $k$ há dois cenários possíveis
+
+        \item Se $k\in S_k$, então $\Delta(L)\neq S_k$, pois por definição, se $k\in\Delta(L)$ então
+            $k\not\in S_k$
+
+        \item Logo, deveríamos ter $k\not\in S_k$ mas, neste caso, teríamos que ter $k\in\Delta(L)$,
+            de modo que $S_k\neq \Delta(L)$
+
+        \item Portanto, a hipótese de que $\Delta(L)\in L$ leva a contradição
+            $(\Delta(L)=S_k) \land (\Delta(L)\neq S_k)$
+
+        \item Assim, $\Delta(L)\not\in L$, completando a demonstração do Teorema de Cantor
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Corolário do Teorema de Cantor}
+
+    \begin{block}{Corolário}
+        O conjunto $\mathbb{R}$ dos números reais não é enumerável.
+    \end{block}
+
+    \begin{block}{Demonstração}
+        Seja $x\in\mathbb{R}$ tal que $O < x < 1$. Então $x$ tem uma expansão decimal da forma
+        \[
+            0,x_1x_2x_3\ldots
+        \]
+        Seja $S_x$ o conjunto de inteiros positivos tal que $n\in S_x$ se, e somente se, 
+            $x_n = 1$. Deste modo, qualquer conjunto $S\subset \mathbb{Z}^+$ está associado a,
+            pelo menos, um número real $y\in (0, 1)$. Assim, se os reais fossem enumeráveis,
+            o conjunto de todos os conjuntos de inteiros positivos seria enumerável, contradizendo
+            o Teorema de Cantor.
+            
+    \end{block}
+\end{frame}
