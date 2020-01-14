@@ -9,6 +9,7 @@ Material didático da disciplina Paradigmas de Programação, ministrada pelo pr
     1. [Funções](Fundamentos/slides/funcoes/funcoes.pdf)
 1. Máquinas de Turing
     1. [Enumerabilidade](Maquinas_de_Turing/slides/enumerabilidade/enumerabilidade.pdf)
+    1. [Máquinas de Turing](Maquinas_de_Turing/slides/maquinas_de_turing/maquinas_de_turing.pdf)
 1. Cálculo Lambda
     1. [Definição](Lambda_Calculus/slides/definicao/definicao.pdf)
     1. [Lógica Booleana](Lambda_Calculus/slides/logica_booleana/logica_booleana.pdf)
