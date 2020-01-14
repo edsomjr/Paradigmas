@@ -178,9 +178,138 @@
 
 \end{frame}
 
+
+\begin{frame}[fragile]{Configurações em uma máquina com $n=3$}
+
+    \begin{itemize}
+        \item A configuração inicial da máquina é
+        \[
+            1_111
+        \]
+
+        \item Como o quadrado a ser avaliado tem um traço, o computador 
+            apaga o traço, seguindo para os estados $2$ e $3$:
+        \[
+            0_211,\ \ 1_31
+        \]
+
+        \item Encontrando um traço no quadrado, o estado $3$ também o apaga, e retorna para o
+            estado inicial, passando pelo estado $4$:
+        \[
+            0_41,\ \ 1_1
+        \]
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Configurações em uma máquina com $n=3$}
+
+    \begin{itemize}
+        \item Novamente no estado $1$, o computador torna a apagar o traço, seguindo para o 
+            estado $3$:
+        \[
+            0_2,\ \ 0_3
+        \]
+
+        \item Agora o estado $3$ encontra um quadrado em branco (de fato, a fita está toda em
+            branco neste momento)
+
+        \item Neste caso, ele escreve um traço no quadrado e vai para estado $5$, onde a 
+            computação é encerrada:
+        \[
+            1_5
+        \]
+
+        \item Se $n$ fosse par, a computação se encerraria no estado $1$, em um quadrado em branco
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo: Adição de números positivos}
+
+    A máquina abaixo inicia no traço mais à esquerda de um bloco de $n$ traços, o qual é seguido
+    de um quadrado com um espaço em branco, e mais um bloco de $m$ traços: de resto, a fita está
+    em branco. Ela termina a computação no traço mais à esquerda de um bloco de $m+n$ traços, e 
+    o restante da fita está em branco.
+
+    \vspace{0.3in}
+    
+    \begin{figure}[h]
+        \centering
+        \begin{tikzpicture}[opacity=0]
+            \node[draw,circle] (q1) at (0, 0) { $\mathbf{1}$ };
+            \node[draw,circle] (q2) at (2.5, 0) { $\mathbf{2}$ };
+            \node[draw,circle] (q3) at (5, 0) { $\mathbf{3}$ };
+            \node[draw,circle] (q4) at (7.5, 0) { $\mathbf{4}$ };
+
+            \draw[->] (q1) edge[loop above] node { \footnotesize $1:B$ } (q2);
+            \draw[->] (q1) edge node[anchor=south] { \footnotesize $B:R$ } (q2);
+            \draw[->] (q2) edge[loop above] node { \footnotesize $1:R$ } (q2);
+            \draw[->] (q2) edge node[anchor=south] { \footnotesize $B:1$ } (q3);
+            \draw[->] (q3) edge[loop above] node { \footnotesize $1:L$ } (q3);
+            \draw[->] (q3) edge node[anchor=south] { \footnotesize $B:R$ } (q4);
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo: Adição de números positivos}
+
+    A máquina abaixo inicia no traço mais à esquerda de um bloco de $n$ traços, o qual é seguido
+    de um quadrado com um espaço em branco, e mais um bloco de $m$ traços: de resto, a fita está
+    em branco. Ela termina a computação no traço mais à esquerda de um bloco de $m+n$ traços, e 
+    o restante da fita está em branco.
+
+    \vspace{0.3in}
+    
+    \begin{figure}[h]
+        \centering
+        \begin{tikzpicture}[opacity=1]
+            \node[draw,circle] (q1) at (0, 0) { $\mathbf{1}$ };
+            \node[draw,circle] (q2) at (2.5, 0) { $\mathbf{2}$ };
+            \node[draw,circle] (q3) at (5, 0) { $\mathbf{3}$ };
+            \node[draw,circle] (q4) at (7.5, 0) { $\mathbf{4}$ };
+
+            \draw[->] (q1) edge[loop above] node { \footnotesize $1:B$ } (q2);
+            \draw[->] (q1) edge node[anchor=south] { \footnotesize $B:R$ } (q2);
+            \draw[->] (q2) edge[loop above] node { \footnotesize $1:R$ } (q2);
+            \draw[->] (q2) edge node[anchor=south] { \footnotesize $B:1$ } (q3);
+            \draw[->] (q3) edge[loop above] node { \footnotesize $1:L$ } (q3);
+            \draw[->] (q3) edge node[anchor=south] { \footnotesize $B:R$ } (q4);
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Configurações em uma máquina com $n=2, m = 3$}
+
+    \begin{itemize}
+        \item A configuração inicial da máquina é
+        \[
+            1_110111
+        \]
+
+        \item O estado $1$ apaga o primeiro traço e segue para o estado $2$:
+        \[
+            0_110111,\ \ 1_20111
+        \]
+
+        \item O estado $2$ localiza o espaço em branco que separa os dois blocos, escreve um traço
+            no quadrado correspondente e segue para o estado $3$:
+        \[
+            10_2111,\ \ 11_3111
+        \]
+
+        \item Por fim, o estado $3$ posiciona o computador no traço mais à esquerda do bloco
+            recém-formado:
+        \[
+            1_31111,\ \ 0_311111,\ \ 1_41111
+        \]
+    \end{itemize}
+
+\end{frame}
 %% TODO:
-% - Adicionar exemplos da rotina de paridade
-% - Adicionar a máquina que adiciona dois inteiros positivos
 % - Exemplos da máquina de adição
 % - Incluir seção sobre computabilidade e tese de Turing
 % - Incluir aula sobre incomputabilidade (problema da parada)
