@@ -1,0 +1,64 @@
+\section{Computabilidade e Tese de Turing}
+
+\begin{frame}[fragile]{Especificação para uma função de $k$ argumentos}
+
+    \begin{enumerate}[(a)]
+        \item Os argumentos $m_1, m_2, \ldots, m_k$ são apresentados em notação monádica por
+            $k$ blocos com $m_i$ traços cada; os blocos são separados por um único espaço em branco
+            e a fita, de resto, está em branco
+        \item O computador começa examinando o traço mais à esquerda do bloco $m_1$; \textbf{(a)}
+            e \textbf{(b)} caracterizam a \textbf{configuração inicial} da máquina
+        \item Se $f(m_1, m_2, \ldots, m_k) = n$, a máquina para no traço mais à esquerda de um
+            bloco contendo $n$ traços; de resto, a fita está em branco. Esta é a 
+            \textbf{configuração (posição) final padrão}
+        \item Se a função $f$ não está definida para os argumentos dados, ou a máquina não irá
+            parar, ou irá parar em uma configuração final que não é a padrão
+    \end{enumerate}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de máquina que segue a especificação}
+
+    \begin{itemize}
+        \item Considere a máquina
+        \[
+            q_1S_1S_1q_2,
+        \]
+        que representa uma função de um único argumento $m$
+
+        \item Ela examina o primeiro traço do bloco de $m$ traços, escreve $1$ (o que equivale
+            a não fazer nada) e segue para o estado $2$
+
+        \item A máquina para no estado $2$: neste momento, ela está sobre o quadrado mais à
+            esquerda de um bloco de $m$ traços; de resto, a fita está vazia
+
+        \item Logo a máquina para na configuração final padrão, e $f(m) = m$ para todo inteiro
+            positivo $m$
+
+        \item Assim, $f(x) = \mathrm{id}(x)$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Computabilidade por Máquina de Turing}
+
+    \begin{block}{Definição}
+        Uma função numérica de $k$ argumentos é \textbf{computável por Máquina de Turing}, ou
+        \textbf{Turing computável} se existe uma máquina que atenda as especificações 
+        apresentadas e que compute $f(x)$ para todos os elementos $x$ no domínio de $f$.
+    \end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]{A Tese de Turing}
+
+    \begin{block}{Tese de Turing}
+        Toda função efetivamente computável é Turing computável.
+    \end{block}
+
+    \vspace{0.2in}
+
+    \textbf{Observações}: naturalmente, toda função Turing computável é efetivamente computável.
+    Note também que, uma vez que a noção de computabilidade não é rigorosamente definida, não é
+    possível demonstrar formalmente a Tese de Turing, de modo que ela é, de fato, uma conjectura.
+\end{frame}
