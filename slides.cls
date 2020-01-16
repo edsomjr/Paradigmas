@@ -27,6 +27,7 @@
 \usepackage{minted}
 \usepackage{mdframed}
 \usepackage{enumerate}
+\usepackage{subcaption}
 
 \usepackage{amsmath}
 \usepackage{algorithm}
