@@ -1,0 +1,72 @@
+\section{Conceitos Elementares}
+
+\begin{frame}[fragile]{Programação Imperativa}
+
+    \begin{itemize}
+        \item É uma abstração de computadores reais, os quais são baseados em máquinas de Turing e 
+            na arquitetura de Von Neumann, com registradores e memória
+
+        \item O conceito fundamental é o de estados modificáveis
+
+        \item Variáveis e atribuições são os construtos de programação análogos aos registradores 
+            dos ábacos e dos quadrados das máquinas de Turing
+
+        \item Linguagens imperativas fornecem uma série de comandos que permitem a manipulação do 
+            estado da máquina
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Estados}
+
+    \begin{itemize}
+        \item \textbf{Nomes} podem ser associados a um valor e depois serem associados a 
+            um outro valor distinto
+
+        \item O conjunto de nomes, de valores associados e a localização do ponto de controle do 
+            programa constituem o \textbf{estado} do programa
+
+        \item O estado é um modelo lógico que associa localizações de memória à valores
+
+        \item Um programa em execução gera uma sequência de estados 
+
+        \item As \textbf{transições} entre os estados é feita por meio de atribuições e comandos 
+            de sequenciamento
+
+        \item A menos que sejam cuidadosamente escritos, programas imperativos só podem ser 
+            entendimentos em termos de seu comportamento de execução
+
+        \item Isto porque, durante a execução, qualquer variável pode ser referenciada, o 
+            controle pode se mover para um ponto arbitrário e qualquer valor pode ser modificado
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Valores, variáveis e nomes}
+
+    \begin{itemize}
+        \item Os padrões binários que o hardware reconhece são considerados, nas linguagens de 
+            programação, \textbf{valores}
+
+        \item Uma unidade de armazenamento em hardware equivale a uma \textbf{variável}, no ponto 
+            de vista do programa
+
+        \item O endereço da unidade de armazenamento é interpretado como um \textbf{nome} no 
+            contexto de programação
+
+        \item Assim, um nome é associado tanto ao endereço (localização) de uma unidade de 
+            armazenamento quanto ao valor armazenado nesta unidade
+
+        \item A localização é denominada \textit{l-value}, e o valor em si, \textit{r-value}
+
+        \item Por exemplo, na expressão:
+        \[
+            x = x + 2;
+        \]
+        o $x$ à esquerda da expressão é um \textit{l-value} (localização), enquanto o $x$ da 
+        direita é um \textit{r-value} (valor)
+
+    \end{itemize}
+
+\end{frame}

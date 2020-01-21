@@ -1,0 +1,78 @@
+\section{Atribuição e Variáveis}
+
+\begin{frame}[fragile]{Atribuições}
+
+    \begin{itemize}
+        \item Atribuições mudam os valores de uma dada localização
+
+        \item Em Assembly, atribuições são feitas por meio do comando \code{nasm}{MOV}:
+
+            \inputsyntax{nasm}{codes/mov.st}
+
+        \item A sintaxe Assembly para comandos com dois parâmetros é a seguinte:
+    
+            \inputsyntax{nasm}{codes/command.st}
+
+        onde \texttt{dest} é a localização onde será escrito o valor contido em \texttt{orig}
+
+        \item Na segunda forma do comando \code{nasm}{MOV}, \texttt{imm} refere-se a um valor
+            \textbf{imediato}
+
+        \item Esta valor corresponde a um número inteiro, em notação decimal ou hexadecimal (por
+            meio do sufixo \texttt{H})
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de atribuição}
+    \inputsnippet{nasm}{1}{22}{codes/atribuicao.s}
+\end{frame}
+
+\begin{frame}[fragile]{Adição e subtração}
+
+    \begin{itemize}
+        \item O valor a ser atribuído pode ser o resultado de uma das quatro operações
+            aritméticas
+
+        \item A \textbf{adição} e a \textbf{subtração} tem a mesma sintaxe:
+            \inputsyntax{nasm}{codes/add_sub.st}
+
+        \item Na primeira forma, o valor armazenado em \texttt{orig} é adicionado/subtraído do
+            valor contido em \texttt{dest}, e o resultado é armazenado em \texttt{dest}
+
+        \item Na segunda forma, o valor do registrador é atualizado, através da adição/subtração
+            do valor imediato
+
+        \item Ao contrário da matemática, nenhum dos dois comandos é comutativo
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de aplicação da adição e da subtração}
+    \inputsnippet{nasm}{1}{19}{codes/euler.s}
+\end{frame}
+
+\begin{frame}[fragile]{Multiplicação}
+
+    \begin{itemize}
+        \item A multiplicação não compartilha da mesma sintaxe da adição e da subtração
+
+        \item Isto porque, ao multiplicar dois números de $b$-\textit{bits}, o resultado será um
+            número de $2b$-\textit{bits}
+
+        \item Assim, a sintaxe da multiplicação é
+
+            \inputsyntax{nasm}{codes/mult.st}
+
+        \item Se \texttt{reg} é um registrador de 8-\textit{bits}, este será multiplicado por
+            \code{nasm}{AL} e o produto será armazenado em \code{nasm}{AX}
+
+        \item Por exemplo,
+
+            \inputsyntax{nasm}{codes/mult8.st}
+
+        equivale a \code{asm}{AX} = \code{asm}{AL}$\cdot$\code{asm}{BH}
+    \end{itemize}
+
+\end{frame}
