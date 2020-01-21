@@ -1,2 +1,2 @@
-MOV reg, reg
-MOV reg, imm
+    MOV reg, reg
+    MOV reg, imm

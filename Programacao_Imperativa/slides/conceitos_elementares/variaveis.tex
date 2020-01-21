@@ -1,0 +1,131 @@
+\section{Variáveis}
+
+\begin{frame}[fragile]{Variáveis e Assembly}
+
+    \begin{itemize}
+        \item Como a programação imperativa consiste em uma série de comandos a serem executados,
+            é preciso manter registro de tudo que já foi computado
+
+        \item As variáveis mantém o estado do programa
+
+        \item Elas permitem que o controle decida o próximo estado a ser atingido, após a 
+            modificação do estado atual
+
+        \item Em Assembly as variáveis correspondem aos registradores e aos endereços de memória
+            acessíveis
+
+        \item Os nomes dos registradores já estão pré-definidos
+
+        \item Já as áreas de memória acessíveis são identificadores por \textbf{rótulos}, e cada
+            \textit{byte} desta memória deve ser acessado por meio de seu endereço
+
+        \item Cada rótulo corresponde à área de memória onde está a instrução que o sucede
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Estrutura dos programas em Assembly}
+
+    \begin{itemize}
+        \item Embora cada arquitetura tenha uma linguagem Assembly distinta, a estrutura dos 
+            programas escritos em Assembly tende a ser a mesma
+
+        \item Esta estrutura é denominada \textbf{formato de quatro campos}
+
+            \inputsyntax{nasm}{codes/4fields.s}
+
+        \item A primeira coluna contém os \textbf{rótulos} do programa: cada rótulo é seguido de 
+            dois pontos
+
+        \item A segunda coluna contém os \textbf{mnemônicos} que correspondem às instruções a serem
+            executadas
+
+        \item A terceira coluna contém os \textbf{operandos} de cada instrução, se houverem
+
+        \item A quarta coluna contém os \textbf{comentários} pertinentes
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Seções}
+
+    \begin{itemize}
+        \item Além das quatro colunas identificadas, os códigos Assembly também são divididos
+            em \textbf{seções}
+
+        \item A seção \texttt{.text} contém as instruções do programa
+
+        \item A seção \texttt{.data} contém as variáveis inicializadas
+
+        \item Cada variável da seção \texttt{.data} é associada a um nome, que será
+            acessível em toda seção \texttt{.text}
+
+        \item As pseudo-instruções \code{nasm}{DB} e \code{nasm}{DW} são utilizadas para declarar
+            variáveis inicializadas cuja unidade de medida é o \textit{byte} ou uma palavra,
+            respectivamente
+
+        \item Um vetor de \textit{bytes} ou palavras pode ser inicializado por meio de 
+            vírgulas
+
+            \inputsyntax{nasm}{codes/array.st}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Seções}
+
+    \begin{itemize}
+        \item A seção \texttt{.bss} (\textit{Block Started by Symbol}) é utilizada para reservar
+            memória para variáveis não inicializadas
+
+        \item A pseudo-instrução \code{nasm}{RESB}, cuja sintaxe é
+
+            \inputsyntax{nasm}{codes/resb.st}
+
+        reserva \texttt{imm} \textit{bytes} de memória
+
+        \item A instrução \code{nasm}{RESW} tem mesma sintaxe, mas reserva \texttt{imm} palavras,
+            sendo que o tamanho de cada palavra depende da arquitetura
+
+        \item A palavra-chave \code{nasm}{global} declara os símbolos que serão exportados pelo
+            código-objeto
+
+        \item O símbolo \code{nasm}{_start} será ponto de partida da execução de programas
+            escritos em Assembly e montados com o NASM
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Tipos de dados em Assembly}
+
+    \begin{itemize}
+        \item As linguagens Assembly não mantém registro dos tipos das variáveis do programa
+
+        \item O significado dos padrões binários armazenados nos registradores ou na memória
+            fica a cargo do programador, que deve manter a coerência dos mesmos ao longo do
+            programa
+
+        \item Por exemplo, as instruções de adição não fazem distinção se os números são
+            sinalizados ou não
+
+        \item O \textit{assembler} utilizado pode fornecer macros para facilitar a inicialização
+            de variáveis, como no caso dos valores imediatos e de strings
+
+        \item Mesmo com estas facilidades, não há nenhum verificação, nem em tempo de compilação,
+            nem em tempo de execução, de tipos de dado, limites, violações, etc
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Hello World!}
+    \inputsnippet{nasm}{1}{22}{codes/hello.s}
+\end{frame}
+
+\begin{frame}[fragile]{Hello World com entrada de usuário}
+    \inputsnippet{nasm}{1}{22}{codes/hello2.s}
+\end{frame}
+
+\begin{frame}[fragile]{Hello World com entrada de usuário}
+    \inputsnippet{nasm}{23}{42}{codes/hello2.s}
+\end{frame}
+

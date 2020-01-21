@@ -1,1 +1,1 @@
-MUL reg
+    MUL reg
