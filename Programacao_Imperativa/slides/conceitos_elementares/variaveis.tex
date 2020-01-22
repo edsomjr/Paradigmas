@@ -129,3 +129,23 @@
     \inputsnippet{nasm}{23}{42}{codes/hello2.s}
 \end{frame}
 
+\begin{frame}[fragile]{Variáveis e memória}
+
+    \begin{itemize}
+        \item É possível manipular as variáveis em memória por meio de atribuições
+
+        \item Para tal, é preciso carregar a informação para um registrador, realizar o
+            processamento desejado e depois mover o resultado para a memória
+
+        \item A sintaxe para indicar um endereço de memória é \texttt{[X]}, onde 
+            \texttt{X} é um rótulo ou um registrador
+
+        \item É possível realizar aritmética de ponteiros, através da sintaxe
+            \texttt{[X + offset]}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de manipulação de variável em memória}
+    \inputsnippet{nasm}{1}{22}{codes/variables.s}
+\end{frame}
