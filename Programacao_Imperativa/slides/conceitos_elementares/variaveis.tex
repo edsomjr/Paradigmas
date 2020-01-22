@@ -60,12 +60,11 @@
         \item Cada variável da seção \texttt{.data} é associada a um nome, que será
             acessível em toda seção \texttt{.text}
 
-        \item As pseudo-instruções \code{nasm}{DB} e \code{nasm}{DW} são utilizadas para declarar
-            variáveis inicializadas cuja unidade de medida é o \textit{byte} ou uma palavra,
+        \item As pseudo-instruções \code{nasm}{DB}, \code{nasm}{DW} e \code{nasm}{DD} são 
+            utilizadas para declarar variáveis cuja unidade de medida é 1, 2, ou 4 \textit{bytes},
             respectivamente
 
-        \item Um vetor de \textit{bytes} ou palavras pode ser inicializado por meio de 
-            vírgulas
+        \item Um vetor de variáveis pode ser inicializado por meio de vírgulas
 
             \inputsyntax{nasm}{codes/array.st}
     \end{itemize}
@@ -84,8 +83,9 @@
 
         reserva \texttt{imm} \textit{bytes} de memória
 
-        \item A instrução \code{nasm}{RESW} tem mesma sintaxe, mas reserva \texttt{imm} palavras,
-            sendo que o tamanho de cada palavra depende da arquitetura
+        \item As instruções \code{nasm}{RESW} e \code{nasm}{RESD} tem mesma sintaxe, mas
+            as unidades de medida correspondem àquelas apresentadas para as instruções
+            \code{nasm}{DW} e \code{nasm}{DD}, respectivamente
 
         \item A palavra-chave \code{nasm}{global} declara os símbolos que serão exportados pelo
             código-objeto
