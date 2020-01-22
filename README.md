@@ -14,6 +14,7 @@ Material didático da disciplina Paradigmas de Programação, ministrada pelo pr
     1. [Ábacos](Maquinas_de_Turing/slides/abacos/abacos.pdf)
 1. Programação Imperativa
     1. [Assembly](Programacao_Imperativa/slides/assembly/assembly.pdf)
+    1. [Conceitos Elementares](Programacao_Imperativa/slides/conceitos_elementares/conceitos_elementares.pdf)
 1. Cálculo Lambda
     1. [Definição](Lambda_Calculus/slides/definicao/definicao.pdf)
     1. [Lógica Booleana](Lambda_Calculus/slides/logica_booleana/logica_booleana.pdf)
