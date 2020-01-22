@@ -1,0 +1,85 @@
+\section{Configuração do ambiente de desenvolvimento}
+
+\begin{frame}[fragile]{NASM}
+
+    \begin{itemize}
+        \item The Netwide Assembler, ou NASM, é um montador (\textit{assembler}) de código livre,
+            que roda em plataforma DOS e Linux
+
+        \item Desde a versão 2.07, o NASM está sobre a licença BSD (\textit{Simplified (2-clause)})
+
+        \item Ele foi desenvolvido inicialmente por Simon Tatham e Julian Hall, sendo mantido
+            atualmente por um time liderado por H. Peter Anvin
+
+        \item O NASM tem suporte para todas as arquiteturas x86
+
+        \item Em distribuições Linux com suporte ao \texttt{apt}, ele pode ser instalado com o
+        comando
+        \begin{center}
+            \verb|$ sudo apt-get install nasm|
+        \end{center}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Teste do ambiente}
+
+    \begin{itemize}
+        \item Como os programas serão escritos para rodar em ambiente Linux, estes códigos devem
+            levar em conta as características deste ambiente operacional
+
+        \item Isto porque será o sistema operacional o responsável pela interface com os
+            periféricos
+
+        \item Assim, o código \textit{assembly} não tem acesso direto ao hardware
+
+        \item As interações com os hardwares serão feitas por meio dos \textit{drivers} do sistema
+            Linux, através de chamadas de sistema (\textit{syscalls})
+
+        \item O menor código possível simples retorna a execução para o sistema operacional, 
+            com código 0 (zero), indicando sucesso 
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Menor código {\it assembly}}
+
+    \inputcode{nasm}{codes/minimal.s}
+
+\end{frame}
+
+\begin{frame}[fragile]{Compilação, linkedição e execução}
+
+    \begin{itemize}
+        \item Para compilar (montar) um código \textit{assembly} (extensões \texttt{.asm} ou 
+            \texttt{.s}), é preciso invocar o NASM, indicando o formato do objeto a ser criado:
+
+        \begin{center}
+            \verb|$ nasm -f elf main.s|
+        \end{center}
+        
+        \item No processo de linkedição é preciso também indicar, por meio da opção \texttt{-m},
+            que a arquitetura alvo é de 64 \textit{bits}:
+
+        \begin{center}
+            \verb|$ ld -m elf_i386 main.o -o main|
+        \end{center}
+
+        \item A opção \texttt{-o} indica o nome do executável a ser gerado
+
+        \item Para rodar o executável criado, basta usar os mesmo mecanismos disponíveis em Linux
+            para invocar um programa como, por exemplo, indicar seu caminho:
+        
+        \begin{center}
+            \verb|$ ./main|
+        \end{center}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Script para compilação, linkedição e execução}
+
+    \inputcode{bash}{codes/build_and_run.sh}
+
+\end{frame}
