@@ -29,6 +29,6 @@ finish:
     mov eax, 4      ; Optcode de sys_write
     int 80h
 
-    mov ebx, esi      ; Encerra com sucesso
+    mov ebx, 0      ; Encerra com sucesso
     mov eax, 1
     int 80h

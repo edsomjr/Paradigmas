@@ -14,7 +14,7 @@ _start:
     mov edx, 256    ; Lê, no máximo, 256 caracteres
     mov ecx, bf     ; Grava a leitura em bf
     mov ebx, 0      ; Lê de STDIN
-    mov eax, 3      ; Optcode de sys_read
+    mov eax, 3      ; Optcode de SYS_READ
     int 80h         ; EAX = digitos lidos + '\n'
 
     dec eax         ; Desconta o '\n'
@@ -23,45 +23,45 @@ _start:
     mov edx, eax    ; Número de caracteres lidos
     mov ecx, bf     ; Buffer de leitura
     mov ebx, 1      ; Escreve em STDOUT
-    mov eax, 4      ; Optcode de sys_write
+    mov eax, 4      ; Optcode de SYS_WRITE
     int 80h
 
     ; Converte a string para inteiro
     mov eax, 0      ; EAX conterá o número convertido
+    mov esi, bf     ; Buffer contendo o número como string
     mov ebx, 10     ; Base numérica
-    mov ecx, bf     ; Buffer contendo o número como string
+    mov ecx, 0      ; Próximo dígito a ser processado
 
 to_int:
-    mov edx, 0      ; Extrai o próximo dígito
-    mov dl, [ecx]
+    mov cl, [esi]
 
-    cmp dl, '0'     ; Se o caractere está fora da faixa [0-9] finaliza
+    cmp cl, '0'     ; Se o caractere está fora da faixa [0-9] finaliza
     jl done
 
-    cmp dl, '9'
+    cmp cl, '9'
     jg done
 
-    sub edx, '0'    ; Converte de ASCII para decimal
-    mul ebx         ; EAX = 10*EAX + EDX
-    add eax, edx
+    sub ecx, '0'    ; Converte de ASCII para decimal
 
-    inc ecx         ; Avança o ponteiro e continua o laço
+    mul ebx         ; EAX = 10*EAX + ECX
+    add eax, ecx
+
+    inc esi         ; Avança o ponteiro e continua o laço
     jmp to_int
 
 done:
-    mov esi, eax    ; ESI = n
+    mov ebx, eax    ; EBX = n
 
     ; Verifica se o número é menor que 2
-    mov ebx, 2
-    cmp esi, ebx
+    mov ecx, 2
+    cmp ebx, ecx
     jl not_prime 
 
-    ; Verifica se é igual a 2
-    je is_prime
+    je is_prime     ; Verifica se é igual a 2
 
     ; Verifica se é par
-    mov eax, esi
-    div ebx
+    mov eax, ebx
+    div ecx
     cmp edx, 0
     je not_prime
 
@@ -72,11 +72,11 @@ next:
     ; Checa se há ultrapassou a raiz quadrada
     mov eax, ecx
     mul eax
-    cmp eax, esi
+    cmp eax, ebx
     jg is_prime
 
     ; Verifica se ECX divide n
-    mov eax, esi
+    mov eax, ebx
     div ecx
     cmp edx, 0
     je not_prime
@@ -87,7 +87,7 @@ next:
 
 is_prime:
     mov edx, 11     ; 'yes' tem 11 bytes
-    mov ecx, yes    ; Escreve o conteúdo de no
+    mov ecx, yes    ; Escreve o conteúdo de yes
     jmp finish
 
 not_prime:
