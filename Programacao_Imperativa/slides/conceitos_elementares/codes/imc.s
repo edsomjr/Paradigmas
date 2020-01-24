@@ -13,10 +13,10 @@ _start:
     mov ebx, eax
 
     mov eax, 805000 ; A massa m é armazenada em EAX. O zero extra é 
-                    ; por conta da conversão das unidades de medida
+                    ; oriundo da conversão das unidades de medida
 
     div ebx         ; eax = IMC
-    mov ebx, eax    ; O resultado será o código de retorno
+    mov ebx, eax    ; O resultado será o código de retorno do programa
  
     mov eax, 1      ; Move o código de SYS_EXIT (opcode 1) para EAX
     int 80h         ; Encerra o programa com erro IMC
