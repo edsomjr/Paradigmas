@@ -1,0 +1,63 @@
+\section{Pilha}
+
+\begin{frame}[fragile]{Pilha}
+
+    \begin{itemize}
+        \item A pilha (\textit{stack}) é uma porção de memória compartilhada entre o programa e
+            o sistema operacional
+
+        \item Ela pode ser usada para a comunicação entre subprogramas, armazenamento temporário 
+            e por chamadas de sistema
+
+        \item Ela é uma estrutura LIFO (\textit{last in, first out}), isto é, o último elemento que
+            foi inserido é o primeiro a ser removido
+
+        \item Como é uma área compartilhada, ela deve ser usada com bastante cuidado, sob o risco
+            de quebra do programa 
+
+        \item O registrador \code{nasm}{ESP} (SP -- \textit{stack pointer}) contém o endereço de                memória do elemento do topo da pilha 
+
+        \item Este registrador pode ser lido a qualquer momento, mas não pode ser escrito 
+            diretamente
+
+    \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}[fragile]{Inserção de elementos na pilha}
+
+    \begin{itemize}
+        \item A instrução \code{nasm}{PUSH} insere um novo elemento no topo da pilha, atualizando
+            apropriadamente o valor de \code{nasm}{ESP}
+
+            \inputsyntax{nasm}{codes/push.st}
+
+        \item O tamanho da memória acrescida à pilha depende do tamanho do registrador passado
+            como parâmetro: 2 \textit{bytes} para um registrador de 16 \textit{bits}, 4 
+            \textit{bytes} para um registrador de 32 \textit{bits}
+
+        \item Esta instrução não suporta registradores de 8 \textit{bits}
+
+        \item A pilha cresce ``para baixo'', isto é, um \code{nasm}{PUSH} com um registrador de
+            32 \textit{bits} (por exemplo, \code{nasm}{EAX}) equivale às instruções
+
+            \inputsyntax{nasm}{codes/push_sub.st}
+
+    \end{itemize}
+
+\end{frame}
+
+\input{push}
+
+\begin{frame}[fragile]{Exemplo de uso da pilha}
+    \inputsnippet{nasm}{1}{22}{codes/print_int.s}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso da pilha}
+    \inputsnippet{nasm}{23}{44}{codes/print_int.s}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso da pilha}
+    \inputsnippet{nasm}{45}{57}{codes/print_int.s}
+\end{frame}
