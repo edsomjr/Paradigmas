@@ -50,6 +50,33 @@
 
 \input{push}
 
+\begin{frame}[fragile]{Remoção de elementos da pilha}
+
+    \begin{itemize}
+        \item A instrução \code{nasm}{POP} remove o elemento que está no topo da pilha,
+            atualizando o valor de \code{nasm}{ESP} para o novo topo
+
+            \inputsyntax{nasm}{codes/pop.st}
+
+        \item A quantidade de \textit{bytes} que serão efetivamente removidos depende do
+            tamanho do registrador passado como parâmetros: 2 \textit{bytes} para um registrador 
+            de 16 \textit{bits}, 4 \textit{bytes} para um registrador de 32 \textit{bits}
+
+        \item De forma semelhante à instrução \code{nasm}{PUSH}, não há suporte para registradores
+            de 8 \textit{bits}
+
+        \item Como a pilha cresce ``para baixo'', remover um elemento de $b$ \textit{bytes}
+            equivale a somar $b$ \textit{bytes} em \code{nasm}{ESP}
+
+        \item Assim, a instrução \code{nasm}{POP AX} equivale às instruções
+
+            \inputsyntax{nasm}{codes/pop_add.st}
+    \end{itemize}
+
+\end{frame}
+
+\input{pop}
+
 \begin{frame}[fragile]{Exemplo de uso da pilha}
     \inputsnippet{nasm}{1}{22}{codes/print_int.s}
 \end{frame}
