@@ -1,0 +1,113 @@
+\section{Funções}
+
+\begin{frame}[fragile]{Subrotinas}
+
+    \begin{itemize}
+        \item A possibilidade de alterar qualquer registrador ou memória disponível a qualquer
+            momento, assim como saltar arbitrariamente para qualquer posição válida, dificulta
+            a escrita de trechos de código reutilizáveis
+
+        \item Construtos de linguagens de alto nível, como subrotinas ou funções, podem ser 
+            implementados em Assembly, com o uso da pilha
+
+        \item O principal uso da pilha é o de manter os valores dos registradores antes da
+            chamada da subrotina
+
+        \item Ela também pode ser utilizada tanto para armazenar os parâmetros da subrotina 
+            quanto para armazenar o valor de retorno, no caso de funções
+
+        \item Além disso, ela deve armazenar o endereço de memória para o qual a subrotina 
+            deve seguir após o seu retorno
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Subrotinas}
+
+    \begin{itemize}
+        \item A ordem de passagem dos parâmetros e da localização do valor de retorno (pilha ou
+            registrador) depende da convenção de cada plataforma
+
+        \item Na implementação GNU da linguagem C, o retorno é feito no registrador 
+            \code{nasm}{EAX}, e os parâmetros são passados da direita para a esquerda (assim,
+            o primeiro parâmetro será inserido por último na pilha)
+
+        \item Também a responsabilidade de remover os parâmetros da subrotina inseridos na
+            pilha faz parte da convenção
+
+        \item No caso da linguagem C, a responsabilidade é da rotina que invocou a subrotina
+
+        \item As subrotinas podem ser implementadas em um arquivo separado, o qual pode ser
+            incluído no programa por meio da diretiva \code{nasm}{include}, precedida pelo
+            caractere `\verb|%|'
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Chamada e retorno}
+
+    \begin{itemize}
+        \item A instrução \code{nasm}{CALL} é usada para invocar um subrotina 
+
+            \inputsyntax{nasm}{codes/call.st}
+
+        \item Esta instrução difere da instrução \code{nasm}{JUMP} por armazenar, na pilha,
+            o endereço de memória que marca o ponto de retorno da execução, após a conclusão
+            da subrotina
+
+        \item Para seguir este endereço ao término da subrotina, é utilizada a instrução
+            \code{nasm}{RET}, a qual não recebe parâmetros
+
+        \item Esta instrução salta para o endereço de memória apropriado na rotina que invocou
+            a subrotina, e remove este endereço da pilha
+
+        \item As instruções de salto não devem ser utilizadas para implementar as subrotinas,
+            pois há o risco de que fique lixo na pilha ou que esta seja corrompida por uma
+            remoção não associada a uma inserção prévia
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo do uso de subrotinas: FizzBuzz}
+    \inputsnippet{nasm}{1}{22}{codes/fizzbuzz.s}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo do uso de subrotinas: FizzBuzz}
+    \inputsnippet{nasm}{23}{45}{codes/fizzbuzz.s}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo do uso de subrotinas: FizzBuzz}
+    \inputsnippet{nasm}{46}{68}{codes/fizzbuzz.s}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo do uso de subrotinas: FizzBuzz}
+    \inputsnippet{nasm}{69}{88}{codes/fizzbuzz.s}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo do uso de subrotinas: FizzBuzz}
+    \inputsnippet{nasm}{89}{119}{codes/fizzbuzz.s}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação das subrotinas utilizadas em FizzBuzz}
+    \inputsnippet{nasm}{1}{20}{codes/subroutines.s}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação das subrotinas utilizadas em FizzBuzz}
+    \inputsnippet{nasm}{21}{43}{codes/subroutines.s}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação das subrotinas utilizadas em FizzBuzz}
+    \inputsnippet{nasm}{44}{65}{codes/subroutines.s}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação das subrotinas utilizadas em FizzBuzz}
+    \inputsnippet{nasm}{66}{78}{codes/subroutines.s}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação das subrotinas utilizadas em FizzBuzz}
+    \inputsnippet{nasm}{79}{99}{codes/subroutines.s}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação das subrotinas utilizadas em FizzBuzz}
+    \inputsnippet{nasm}{100}{120}{codes/subroutines.s}
+\end{frame}

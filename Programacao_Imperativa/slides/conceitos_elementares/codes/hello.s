@@ -1,5 +1,5 @@
 ; Versão Assembly do clássico 'Hello, World!'. A impressão no terminal 
-; é feita por meio da chamada sys_write (optcode 4). Os parâmetros são
+; é feita por meio da chamada SYS_WRITE (optcode 4). Os parâmetros são
 ;
 ;       EDX     Tamanho, em bytes, da string a ser escrita
 ;       ECX     Endereço da string a ser impressa
@@ -14,7 +14,7 @@ _start:
     mov edx, 14     ; msg tem um total de 14 bytes
     mov ecx, msg    ; msg contém o endereço da mensagem
     mov ebx, 1      ; A saída é o console
-    mov eax, 4      ; Optcode de sys_write
+    mov eax, 4      ; Optcode de SYS_WRITE
     int 80h         ; Realiza a chamada via interrupção
 
     mov ebx, 0      ; Encerra o programa com sucesso

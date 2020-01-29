@@ -1,0 +1,2 @@
+    while condicao do
+        bloco

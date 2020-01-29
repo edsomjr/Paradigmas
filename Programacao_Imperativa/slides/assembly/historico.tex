@@ -27,17 +27,17 @@
 
         \item O primeiro computador pessoal (Altair, em 1975) utilizava um processador 8080
 
-        \item Ele possuía 6 registradores de 8-\textit{bits}: $A, B, C, D, H, L$ 
+        \item Ele possuía 6 registradores de 8-\textit{bits}: \texttt{A, B, C, D, H, L} 
 
         \item Os endereços de memória e a transferência de dados também eram de 8-\textit{bits}
 
-        \item O registrador $L$ (\textit{low}) armazenava endereços de memória, e a memória era 
-            composta de 256-\textit{bytes}, identificados pelos números de 0 a 255
+        \item O registrador \texttt{L} (\textit{low}) armazenava endereços de memória, e a 
+            memória era composta de 256-\textit{bytes}, identificados pelos números de 0 a 255
 
-        \item Este registrador poderia ser combinado com o registrador $H$ (\textit{high}) para
-            compôr um endereço de 16-\textit{bits}
+        \item Este registrador poderia ser combinado com o registrador \texttt{H} 
+            (\textit{high}) para compôr um endereço de 16-\textit{bits}
 
-        \item Quando este par era referenciado por uma instrução, ela utiliza a letra $X$ 
+        \item Quando este par era referenciado por uma instrução, ela utilizava a letra \texttt{X} 
             (\textit{extended}) para sinalizar este uso
     \end{itemize}
 
@@ -113,14 +113,15 @@
 \begin{frame}[fragile]{Registradores 8086}
 
     \begin{itemize}
-        \item Quando o processador de 16-\textit{bits} 8086 foi desenvolvido, a letra $X$ foi 
-            usada para designar os novos registradores de 16-\textit{bits}: $AX, BX, CX$ e $DX$
+        \item Quando o processador de 16-\textit{bits} 8086 foi desenvolvido, a letra \texttt{X} 
+            foi usada para designar os novos registradores de 16-\textit{bits}: \texttt{AX, BX, CX}
+            e \texttt{DX}
 
-        \item Estes novos registradores são pares de registradores de 8-\textit{bits}: $AL, AH,
-            BL, BH, CL, CH, DL$ e $DH$
+        \item Estes novos registradores são pares de registradores de 8-\textit{bits}: \texttt{AL, 
+            AH, BL, BH, CL, CH, DL} e \texttt{DH}
 
-        \item Os demais registradores de 16-\textit{bits}, a saber: $SP, BP, SI$ e $DI$, não são
-            pares, e não trazem a letra $X$ em sua nomenclatura
+        \item Os demais registradores de 16-\textit{bits}, a saber: \texttt{SP, BP, SI} e 
+            \texttt{DI}, não são pares, e não trazem a letra \texttt{X} em sua nomenclatura
 
         \item A transferência de dados é feita em 16-\textit{bits}
 
@@ -231,8 +232,8 @@
     \begin{itemize}
         \item A arquitetura dos processadores 8086 foi aperfeiçoada nos novos processadores 80386
 
-        \item Os oito registradores que iniciam com a letra $E$ (\textit{extension}) são extensões
-            dos registradores do 8086
+        \item Os oito registradores que iniciam com a letra \texttt{E} (\textit{extension}) são 
+            extensões dos registradores do 8086
 
         \item Cada registrador tem 32-\textit{bits}, e seus 16-\textit{bits} menos significativos
             correspondem ao registradores do 8086
@@ -356,3 +357,48 @@
 
 \end{frame}
 
+\begin{frame}[fragile]{Registradores de dados ({\it Data Registers}) do 80386}
+
+    \begin{table}[ht]
+        \centering
+
+        \begin{tabularx}{\textwidth}{clX}
+            \toprule
+            \textbf{Registrador} & \textbf{Nome} & \textbf{Uso sugerido} \\
+            \midrule
+            \texttt{EAX} & \textit{Accumulator Register} & Operações aritméticas, lógicas e 
+                                                            transferência de dados \\
+            \midrule
+            \texttt{EBX} & \textit{Base Register} & Registro do ponteiro base de dados contíguos \\
+            \midrule
+            \texttt{ECX} & \textit{Counter Register} & Contadores \\
+            \midrule
+            \texttt{EDX} & \textit{Data Register} & Transferência de dados e operações de multiplicação e divisão \\
+            \bottomrule
+        \end{tabularx}
+    \end{table}
+
+\end{frame}
+
+\begin{frame}[fragile]{Registradores de ponteiros e de índices do 80386}
+
+    \begin{table}[ht]
+        \centering
+
+        \begin{tabularx}{1.01\textwidth}{cclX}
+            \toprule
+            \textbf{Tipo} & \textbf{Registrador} & \textbf{Nome} & \textbf{Uso sugerido} \\
+            \midrule
+            \multirow{2}{*}[-2em]{\it Pointer Register} & \texttt{ESP} & \textit{Stack Pointer} & Contém 
+                                                    o endereço do topo da pilha \\
+            & \cellcolor[gray]{0.9}\texttt{SBP} & \cellcolor[gray]{0.9}\textit{Base Pointer} & \cellcolor[gray]{0.9}Contém o endereço da base da pilha \\
+            \midrule
+            \multirow{2}{*}[-2em]{\it Index Register} & \texttt{ESI} & \textit{Source Index} & 
+                Ponteiro/índice inicial da contagem  \\
+            & \cellcolor[gray]{0.9}\texttt{EDI} & \cellcolor[gray]{0.9}\textit{Destination Index} &
+                \cellcolor[gray]{0.9} Ponteiro/índice final da contagem \\
+            \bottomrule
+        \end{tabularx}
+    \end{table}
+
+\end{frame}

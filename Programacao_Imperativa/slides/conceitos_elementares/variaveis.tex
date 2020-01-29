@@ -60,14 +60,19 @@
         \item Cada variável da seção \texttt{.data} é associada a um nome, que será
             acessível em toda seção \texttt{.text}
 
-        \item As pseudo-instruções \code{nasm}{DB} e \code{nasm}{DW} são utilizadas para declarar
-            variáveis inicializadas cuja unidade de medida é o \textit{byte} ou uma palavra,
+        \item As pseudo-instruções \code{nasm}{DB}, \code{nasm}{DW} e \code{nasm}{DD} 
+            (\textit{define byte, define word} e \textit{define double word}) são 
+            utilizadas para declarar variáveis cuja unidade de medida é 1, 2, ou 4 \textit{bytes},
             respectivamente
 
-        \item Um vetor de \textit{bytes} ou palavras pode ser inicializado por meio de 
-            vírgulas
+        \item Um vetor de variáveis pode ser inicializado por meio de vírgulas
 
             \inputsyntax{nasm}{codes/array.st}
+
+        \item Um vetor com $25$ zeros pode ser inicializado com a sintaxe
+
+            \inputsyntax{nasm}{codes/narray.st}
+
     \end{itemize}
 
 \end{frame}
@@ -78,14 +83,15 @@
         \item A seção \texttt{.bss} (\textit{Block Started by Symbol}) é utilizada para reservar
             memória para variáveis não inicializadas
 
-        \item A pseudo-instrução \code{nasm}{RESB}, cuja sintaxe é
+        \item A pseudo-instrução \code{nasm}{RESB} (\textit{reserve byte}), cuja sintaxe é
 
             \inputsyntax{nasm}{codes/resb.st}
 
         reserva \texttt{imm} \textit{bytes} de memória
 
-        \item A instrução \code{nasm}{RESW} tem mesma sintaxe, mas reserva \texttt{imm} palavras,
-            sendo que o tamanho de cada palavra depende da arquitetura
+        \item As instruções \code{nasm}{RESW} e \code{nasm}{RESD} tem mesma sintaxe, mas
+            as unidades de medida correspondem àquelas apresentadas para as instruções
+            \code{nasm}{DW} e \code{nasm}{DD}, respectivamente
 
         \item A palavra-chave \code{nasm}{global} declara os símbolos que serão exportados pelo
             código-objeto
@@ -141,7 +147,18 @@
             \texttt{X} é um rótulo ou um registrador
 
         \item É possível realizar aritmética de ponteiros, através da sintaxe
-            \texttt{[X + offset]}
+        \begin{center}
+            \texttt{[reg + scale*reg + offset]}
+        \end{center}
+
+        \item Os valores possíveis para o fator de escala \texttt{scale} são: 1, 2, 4 ou 8
+
+        \item O primeiro registrador é denominado \textbf{registrador base}
+
+        \item O registrador multiplicado pelo fator de escala é denominado \textbf{registrador 
+            índice}
+
+        \item Tanto o registrador índice como o deslocamento (\texttt{offset}) podem ser omitidos
     \end{itemize}
 
 \end{frame}

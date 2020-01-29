@@ -6,9 +6,9 @@ SECTION .text
 global _start
 
 _start:
-    mov edx, [msg]  ; Torna maiúsulca a primeira letra de msg
-    sub edx, 20h    
-    mov [msg], edx
+    mov bl,[msg+1]  ; Torna maiúsulca a segunda letra de msg
+    sub bl, 20h     ; bl tem 1 byte de tamanho
+    mov [msg+1], bl
 
     mov edx, 5      ; msg tem um total de 5 bytes
     mov ecx, msg    ; msg contém o endereço da mensagem
