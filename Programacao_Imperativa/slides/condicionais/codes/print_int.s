@@ -35,7 +35,7 @@ print_int:
     mov eax, 4      ; Restaura o valor de eax
 
     add esp, 2      ; Remove o topo da pilha
-    dec esi         ; Decrementa o contado
+    dec esi         ; Decrementa o contador
     jmp print_int
 
 done:
