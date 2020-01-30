@@ -1,0 +1,84 @@
+\section{Fortran}
+
+\begin{frame}[fragile]{Fortran}
+
+    \begin{itemize}
+        \item Fortran (\textit{IBM Mathematical FORmula TRANslation System}) é uma linguagem de
+            programação desenvolvida na décade de 1950 
+
+        \item Até os dias atuais é uma das principais (ou a principal) linguagem utilizada em
+            programação científica
+
+        \item O primeiro compilador foi desenvolvido na IBM, por uma equipe liderada por
+            John W. Backus, nos anos de 1954 a 1957
+
+        \item O ISO/IEC 1539-1:1997 contém o padrão Fortran 95, um dos mais populares da linguagem
+
+        \item Fortran apresenta notável performance em computação numérica, o que levou a sua
+            adoção em pesquisas científicas e aplicações computacionalmente intensivas, como
+            meteorologia, física, engenharia, etc
+    \end{itemize}
+
+\end{frame}
+\begin{frame}[fragile]{GFortran}
+
+    \begin{itemize}
+        \item O projeto GNU Fortran (GFortran) consiste em um \textit{front-end} de compilador e 
+            bibliotecas de \textit{run-time} para o GCC que dêem suporte à linguagem Fortran
+            
+        \item Ele é totalmente compatível com o padrão Fortran 95 e incluí suporte legado ao
+            formato Fortran 77
+
+        \item Em distribuições Linux com suporte ao \texttt{apt}, ele pode ser instalado com o
+        comando
+        \begin{center}
+            \verb|$ sudo apt-get install gfortran|
+        \end{center}
+
+        \item Para testar a instalação, insira o seguinte comando no terminal:
+        \begin{center}
+            \verb|$ f95| -v
+        \end{center}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{\it Hello World!}
+
+    \inputcode{fortran}{codes/hello.f90}
+
+\end{frame}
+
+\begin{frame}[fragile]{Compilação, linkedição e execução}
+
+    \begin{itemize}
+        \item Para compilar um código Fortran (extensões \texttt{.f90})
+            é preciso invocar o GFortran, utilizando a \textit{flag} \texttt{-c}:
+
+        \begin{center}
+            \verb|$ f95 -c hello.f90|
+        \end{center}
+        
+        \item No processo de linkedição é preciso indicar, os código-objetos que comporão o 
+            executável e, opcionalmente, o nome deste executável (opçaõ \texttt{-o}):
+
+        \begin{center}
+            \verb|$ f95 hello.o -o hello|
+        \end{center}
+
+        \item É possível executar ambas etapas em um só comando:
+        \begin{center}
+            \verb|$ f95 hello.f90 -o hello|
+        \end{center}
+
+        \item Para rodar o executável criado, basta usar os mesmo mecanismos disponíveis em Linux
+            para invocar um programa como, por exemplo, indicar seu caminho:
+        
+        \begin{center}
+            \verb|$ ./hello|
+        \end{center}
+
+    \end{itemize}
+
+\end{frame}
+
