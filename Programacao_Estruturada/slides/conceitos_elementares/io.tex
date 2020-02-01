@@ -1,0 +1,50 @@
+\section{Entrada e Saída}
+
+\begin{frame}[fragile]{Saída de dados}
+
+    \begin{itemize}
+        \item A função \code{fortran}{write} permite a escrita de uma lista (\texttt{list})
+            de dados em um fluxo (\texttt{stream}), de acordo com a formatação dada em 
+            \texttt{label}:
+
+            \inputsyntax{fortran}{codes/write.st}
+
+        \item O fluxo pode ser um número associado a um arquivo, uma variável do tipo 
+            \code{fortran}{character} ou o símbolo \texttt{*}, que indica o valor padrão (em geral,
+            o terminal)
+
+        \item O rótulo (\texttt{label}) é o inteiro identificador do formato, ou \texttt{*} para
+            formato livre 
+
+        \item A sintaxe para a declaração de um rótulo é
+
+            \inputsyntax{fortran}{codes/label.st}
+
+        \item Os descritores de formato são uma lista de itens, separados por vírgula, que 
+            determinam como a saída deve ser apresentada
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplos de descritores de formato}
+
+    \begin{table}[ht]
+        \centering
+        \begin{tabularx}{0.95\textwidth}{lX}
+            \toprule
+            \textbf{Descritor} & \textbf{Efeito} \\
+            \midrule
+            $nIw$ & Imprime os próximos $n$ inteiros, com tamanho de $w$ caracteres cada \\
+            \rowcolor[gray]{0.9}
+            $nFw.d$ & Imprime os próximos $n$ números complexos ou reais, em ponto fixo,
+                com $w$ caracteres, e $d$ dígitos na parte decimal \\ 
+            $nEw.d$ & Imprime os próximos $n$ números complexos ou reais, em ponto flutuante,
+                com $w$ caracteres, e $d$ dígitos na parte decimal \\ 
+            \rowcolor[gray]{0.9}
+            $Aw$ & Imprime a variável não-numérica $A$, com $w$ caracteres de tamanho \\
+            \bottomrule
+        \end{tabularx}
+    \end{table}
+
+\end{frame}
