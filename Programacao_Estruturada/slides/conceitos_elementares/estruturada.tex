@@ -3,7 +3,174 @@
 \begin{frame}[fragile]{Principais características}
 
     \begin{itemize}
-        \item
+        \item A programação estruturada é um paradigma que tem como ideia principal aumentar a 
+            clareza e a legibilidade do código através da organização baseada em blocos
+
+        \item Outra ideia associada à programação estruturada é evitar o uso de saltos 
+            a pontos arbitrários (por exemplo, o comando \code{c}{goto} da linguagem C/C++)
+
+        \item Os saltos, portanto, só poderiam ser feito por meio de construtos pré-definidos
+
+        \item Em 1964, Corrado Böhm e Giuseppe Jacopini apresentaram um artigo demonstrando que
+            apenas três estruturas de controle eram necessárias para escrever qualquer programa
+
+        \item O teorema proposto e demonstrado tornava o salto incondicional para um ponto
+            arbitrário do código desnecessário
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Teorema de Böhm-Jacopini}
+
+    \begin{block}{Teorema da programação estruturada}
+        É possível criar um programa combinando subprogramas de apenas três maneiras diferentes:
+        \begin{enumerate}
+            \item Executar um subprograma, e em seguida, outro subprograma (\textbf{sequência})
+            \item Executar um dentre dois subprogramas possíveis, de acordo com uma expressão
+                booleana (\textbf{seleção})
+            \item Executar um subprograma enquanto uma expressão booleana é verdadeira 
+                (\textbf{iteração})
+        \end{enumerate}
+    \end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]{Evolução da programação estruturada}
+
+    \begin{itemize}
+        \item Embora o teorema de Böhm-Jacopini tem sido inicialmente ignorado, a carta de Edsger
+            Dijkstra, entitulada ``\textit{Go To Statement Considered Harmful}'', de 1968, foi
+            um marco na história da computação
+
+        \item Dijkstra prega que os programas deveriam ser organizados de uma maneira sistemática,
+            chamada \textit{programação estruturada}
+
+        \item Em 1972 o New York Times conclui o primeiro projeto de larga escala, bem sucedido,
+            desenvolvido sobre o paradigma da programação estruturada
+
+        \item Este projeto, e as palestras proferidas por Edward Yourdon nos anos 1970 ajudaram a
+            difundir a programação estruturada
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Metodologia de desenvolvimento de programas estruturados}
+
+    \begin{block}{Definição}
+        A programação estruturada é um método que reduz a complexidade de um programa por meio de
+
+        \begin{enumerate}
+            \item Análise \textit{top-down} para a solução do problema
+            \item Uso de modularização para a estrutura e organização do programa
+            \item Uso de código estruturado para os módulos individuais
+        \end{enumerate}
+    \end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]{Metodologia de desenvolvimento de programas estruturados}
+
+    \begin{itemize}
+        \item A análise \textit{top-down} inclui a resolução do problema e da listagem das 
+            instruções que compõem esta solução
+
+        \item Se o problema for muito complexo para ser resolvido diretamente, ele é dividido em
+            subproblemas menores, cujas soluções podem ser combinadas para formar a solução do
+            problema original
+
+        \item A modularização permite dividir o programa em partes menores, denominadas 
+            \textbf{módulos}, \textbf{subrotinas} ou \textbf{subprogramas}
+
+        \item Cada módulo é responsável por uma única tarefa
+
+        \item O código estruturado organiza as instruções da solução por meio das 
+            \textbf{estruturas de controle}
+
+        \item Estas estruturas definem a ordem de execução das instruções: sequencialmente, 
+            condicionalmente (seleção) ou repetidamente (iteração)
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Metodologia de desenvolvimento de programas estruturados}
+
+    \begin{itemize}
+        \item As estruturas de controle podem conter seleções e repetições, mas devem ter, 
+            externamente, apenas um ponto de entrada e um ponto de saída
+
+        \item O módulo principal do programa resolve o problema
+
+        \item Caso ele precise realizar uma subtarefa, esta é executada por um módulo, o qual é
+            invocado a partir do módulo principal
+
+        \item Uma boa prática em códigos estruturados é de utilizar nomes significativos para
+            variáveis e subrotinas, de modo a ampliar a compreensão da semântica do código
+
+        \item Neste sentido, também é recomendado o uso de comentários
+
+        \item Por fim, é preferível utilizar tipos agregados de dados que, embora possam ter
+            tipos distintos, representam um mesmo conceito ou ideia, do que listar cada variável
+            individualmente
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Subrotinas}
+
+    \begin{block}{Definição}
+        Uma \textbf{subrotina} é composta por uma sequência de instruções, agrupadas sob um mesmo
+            nome, e que em conjunto, e na ordem especificada, são capazes de realizar uma tarefa.
+    \end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]{Características das subrotinas}
+
+    \begin{itemize}
+        \item Subrotinas podem ser definidas no próprio programa, ou em arquivos separados (por 
+            exemplo, em bibliotecas)
+
+        \item A depender da linguagem, as subrotinas podem ser chamadas de \textbf{procedimentos},
+            \textbf{funções}, \textbf{rotinas}, \textbf{métodos} ou \textbf{subprogramas}
+
+        \item O termo geral é \textbf{unidade invocável} (\textit{callable unit})
+
+        \item As subrotinas se comportam como programas independentes, mas são codificadas de modo
+            que seja possível invocá-las quantas vezes forem necessárias
+
+        \item Elas podem invocar ou serem invocadas por outras subrotinas
+
+        \item Uma vez finalizada a subrotina, a execução do programa segue para a instrução que
+            sucede a chamada da subrotina
+
+        \item O \textbf{corpo} da subrotina contém o código que será executado a cada invocação
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Características das subrotinas}
+
+    \begin{itemize}
+
+        \item O código que invoca a subrotina pode ser comunicar com esta por meio de 
+            \textbf{parâmetros}, que são uma lista de variáveis, definidas pela rotina, necessárias
+            para sua execução
+
+        \item Os valores atribuídos, em uma chamada, para cada parâmetro, são denominados
+            \textbf{argumentos}
+
+        \item Subrotina podem ou não retornar valores após a sua execução: este valor, se existir,              é o \textbf{retorno} da subrotina
+
+        \item Algumas linguagem denominam \textbf{função} uma subrotina com retorno, e 
+            \textbf{procedimentos} as subrotinas sem retorno
+
+        \item Um subrotina que invoca a si mesma é denominada rotina \textbf{recursiva}
+
+        \item Uma convenção comum é que o nome de uma subrotina deve ser um \textbf{verbo}, que
+            indique a tarefa que será realizada
+
+        \item Idealmente, uma subrotina deve executar uma única tarefa e depender o mínimo possível
+            de outras subrotinas
     \end{itemize}
 
 \end{frame}

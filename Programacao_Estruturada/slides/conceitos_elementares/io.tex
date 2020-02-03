@@ -48,3 +48,27 @@
     \end{table}
 
 \end{frame}
+
+\begin{frame}[fragile]{Leitura de dados}
+
+    \begin{itemize}
+        \item A função \code{fortran}{read} permite a leitura de uma lista (\texttt{list}) de
+            dados de um fluxo (\texttt{stream}), com os tipos especificados em \texttt{label}:
+
+            \inputsyntax{fortran}{codes/read.st}
+
+        \item O fluxo e as especificações de formato são as mesmas apresentadas para a função
+            \code{fortran}{write}
+
+        \item O rótulo indicado para o parâmetro \texttt{end} indica o ponto do código para o qual
+            a execução deve prosseguir caso a entrada seja exaurida prematuramente
+
+        \item No caso do rótulo associado ao parâmetro \texttt{err} marca o ponto que inicia o
+            tratamento de algum possível erro na leitura
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de leitura/saída de dados em Fortran}
+    \inputsnippet{fortran}{1}{22}{codes/io.f90}
+\end{frame}
