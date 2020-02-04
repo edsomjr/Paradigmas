@@ -1,0 +1,145 @@
+\section{Estruturas de controle}
+
+\begin{frame}[fragile]{Estruturas de seleção}
+
+    \begin{itemize}
+        \item Em Fortran, a principal estrutura de seleção é o construto \texttt{IF-THEN-ELSE},
+            cuja sintaxe é
+
+            \inputsyntax{fortran}{codes/if.st}
+
+        \item A \texttt{condicao} é uma variável ou expressão lógica
+
+        \item Se a \texttt{condicao} for \textbf{verdadeira}, o \texttt{blocoA} é executado, e ao
+            fim deste a execução segue para a código que segue o \code{fortran}{end if}
+
+        \item Caso contrário, o \texttt{blocoB} é executado
+
+        \item A cláusula \code{fortran}{else} é opcional
+
+        \item Se um \code{fortran}{if} segue imediatamente um \code{fortran}{else}, é criada
+            uma cascata de blocos mutuamente excludentes, sendo executado o primeiro cuja
+            condição associada for verdadeira (ou o último, caso exista uma cláusula 
+            \code{fortran}{else} final)
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso do construto {\tt IF-ELSE}}
+    \inputsnippet{fortran}{1}{22}{codes/irrf.f90}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso do construto {\tt IF-ELSE}}
+    \inputsnippet{fortran}{23}{45}{codes/irrf.f90}
+\end{frame}
+
+\begin{frame}[fragile]{\tt SELECT-CASE}
+
+    \begin{itemize}
+        \item Outra estrutura de seleção disponível em Fortran é o construto \texttt{SELECT-CASE},
+            cuja sintaxe é
+
+            \inputsyntax{fortran}{codes/case.st}
+
+        \item O \texttt{seletor} é uma variável ou expressão cujo tipo é \code{fortran}{integer},
+            \code{fortran}{character} ou \code{fortran}{logical}
+
+        \item As listas de rótulos descrevem os rótulos que compõem cada caso, separados por
+            vírgulas
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{\tt SELECT-CASE}
+    \begin{itemize}
+        \item Os rótulos podem ser especificados de quatro maneiras:
+
+            \inputsyntax{fortran}{codes/labels.st}
+
+        \item Na primeira forma, um único valor \texttt{x} é especificado
+
+        \item Na segunda forma, são especificados todos os valores no intervalo \texttt{[a, b]}
+            (aqui, \texttt{a} deve ser necessariamente menor do que \texttt{b})
+
+        \item Na terceira forma, são especificados todos os valores maiores ou iguais a 
+            \texttt{L}; na quarta, todos os valores menores ou iguais a \texttt{R}
+
+        \item Uma vez determinado o valor do \texttt{seletor}, será executado o primeiro bloco
+            cujo valor está relacionado na lista de rótulos, e em seguida a execução segue para
+            a linha que sucede o \code{fortran}{end select}
+
+        \item O \code{fortran}{case default} é opcional, e seu bloco será executado apenas se
+            o valor do \texttt{seletor} não estiver listado em nenhum \code{fortran}{case}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso do construto {\tt SELECT-CASE}}
+    \inputsnippet{fortran}{1}{22}{codes/priority.f90}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso do construto {\tt SELECT-CASE}}
+    \inputsnippet{fortran}{23}{45}{codes/priority.f90}
+\end{frame}
+
+\begin{frame}[fragile]{Estruturas de laço}
+
+    \begin{itemize}
+        \item Fortran disponibiliza duas estruturas de repetição
+
+        \item A primeira delas é a estrutura \texttt{DO}, cuja sintaxe é
+
+            \inputsyntax{fortran}{codes/do.st}
+
+        \item A \texttt{variavel} de controle deve ser do tipo \code{fortran}{integer}
+
+        \item A \texttt{variavel} terá \texttt{a} como valor inicial e \texttt{b} como valor
+            final
+
+        \item Após cada execução do \texttt{bloco}, o valor da variável é acrescido do 
+            \texttt{delta}
+
+        \item Se o \texttt{delta} (passo) for omitido, ele assume o valor 1 (um)
+
+        \item O comando \code{fortran}{exit}, se executado, encerra o laço imediatamente
+
+        \item Já o comando \code{fortran}{cycle} finaliza a execução do bloco, seguindo 
+            imediatamente para a atualização da \texttt{variavel}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso do construto {\tt DO}}
+    \inputsnippet{fortran}{1}{22}{codes/factorial.f90}
+\end{frame}
+
+\begin{frame}[fragile]{\tt DO-WHILE}
+
+    \begin{itemize}
+        \item Fortran possui uma segunda estrutura de repetição: o construto \texttt{DO-WHILE},
+            cuja sintaxe é
+
+            \inputsyntax{fortran}{codes/while.st}
+
+        \item A \texttt{condicao} é uma variável ou uma expressão do tipo \code{fortran}{logical}
+
+        \item Se a \texttt{condicao} for verdadeira, o \texttt{bloco} associado será executado
+
+        \item Após a execução do \texttt{bloco}, a condição é reavaliada e, se permanecer
+            verdadeira, o \texttt{bloco} é executado novamente
+
+        \item Se o bloco não modifica as variáveis que compõem a condição de modo que ela possa
+            eventualmente se tornar falsa, o laço será infinito
+
+        \item Os comandos \code{fortran}{exit} e \code{fortran}{cycle} também podem ser usados
+            neste construto, com o mesmo significado do construto \texttt{DO}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso do construto {\tt DO-WHILE}}
+    \inputsnippet{fortran}{1}{22}{codes/fast_exp.f90}
+\end{frame}
+
