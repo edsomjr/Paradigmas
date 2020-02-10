@@ -1,0 +1,1 @@
+    write(stream, label) list

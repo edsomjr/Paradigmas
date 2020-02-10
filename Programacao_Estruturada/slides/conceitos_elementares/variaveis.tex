@@ -1,0 +1,148 @@
+\section{Variáveis}
+
+\begin{frame}[fragile]{Variáveis em Fortran}
+
+    \begin{itemize}
+        \item Em Fortran, as variáveis simbolizam regiões de memória, as quais podem ser 
+            lidas ou escritas
+
+        \item Cada variável é identificada por um \textbf{nome}, que deve iniciar com um
+            caractere alfabético e conter apenas caracteres alfanuméricos ou o símbolo 
+            \verb|'_'|
+
+        \item Em Fortran não há distinção entre caracteres maiúsculos e minúsculos
+
+        \item Assim como nas linguagens imperativas, uma variável identifica tanto o endereço
+            da região de memória quanto o valor armazenado
+
+        \item Qual dos dois valores será utilizado depende do contexto (se é um \textit{l-value} ou
+            um \textit{r-value}
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Declaração de variáveis e tipos de dados}
+
+    \begin{itemize}
+        \item Uma variável pode ser declarada em Fortran usando a seguinte syntaxe
+
+            \inputsyntax{fortran}{codes/variables.st}
+
+        \item Os principais tipos de dados em Fortran são: \code{fortran}{real}, 
+            \code{fortran}{integer}, \code{fortran}{complex} e \code{fortran}{character}
+        
+        \item O valor inicial é opcional
+
+        \item Strings podem ser declaradas indicando-se o número de caracteres que a compõe
+
+            \inputsyntax{fortran}{codes/strings.st}
+
+        \item Para declarar \textbf{constantes}, isto é, variáveis com permissão para leitura
+            apenas), é utilizada a palavra-chave \code{fortran}{parameter}:
+
+            \inputsyntax{fortran}{codes/parameter.st}
+    
+        \item No caso de constantes, o valor inicial é mandatório
+
+        \item A expressão \code{fortran}{implicit none} determina que todas as variáveis devem
+            ser declaradas antes de seu uso, e é boa prática sempre utilizá-la no início dos
+            programas
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de declaração e uso de variáveis em Fortran}
+    \inputsnippet{fortran}{1}{22}{codes/area.f90}
+\end{frame}
+
+\begin{frame}[fragile]{Operadores aritméticos e funções intrínsecas}
+
+    \begin{itemize}
+        \item Sendo uma linguagem voltada para computação científica, Fortran tem suporte para
+            uma série de operadores aritméticos
+
+        \item No caso das expressões com mais de um operador, o operador de menor precedência é
+            computado antes do de menor precedência
+        \item Além disso, há um bom número de funções \textit{intrísecas} da linguagem, disponíveis
+            sem a necessidade de importar arquivos ou bibliotecas externas
+
+        \item Boa parte destas funções são relacionadas às funções matemáticas e manipulação
+            numérica
+    \end{itemize}
+
+    \begin{table}[ht]
+        \centering
+        \begin{tabular}{ccl}
+            \toprule
+            \textbf{Operador} & \textbf{Precedência} & \textbf{Operação} \\
+            \midrule
+                \texttt{**} & 1 & Expoenciação \\
+                \texttt{*} & 2 & Multiplicação \\
+                \texttt{/} & 2 & Divisão \\
+                \texttt{+} & 3 & Adição \\
+                \texttt{-} & 3 & Subtração \\
+            \bottomrule
+        \end{tabular}
+    \end{table}
+\end{frame}
+
+\begin{frame}[fragile]{Funções intrísecas úteis}
+
+    \begin{table}[ht]
+        \centering
+        \begin{tabular}{ll}
+            \toprule
+            \textbf{Função} & \textbf{Retorno} \\
+            \midrule
+                \texttt{abs(a)} & Valor absoluto de \texttt{a} \\
+                \texttt{sin(w)} & Seno de \texttt{w} \\
+                \texttt{cos(w)} & Cosseno de \texttt{w} \\
+                \texttt{tan(x)} & Tangente de \texttt{w} \\
+                \texttt{sqrt(x)} & Raiz quadrada de \texttt{x} \\
+                \texttt{conjg(z)} & Conjugado complexo de \texttt{z} \\
+                \texttt{log10(x)} & Logaritmo em base 10 de \texttt{x} \\
+                \texttt{mod(r1, r2)} & Resto da divisão de \texttt{r1} por \texttt{r2} \\
+                \texttt{max(r1, r2, ...)} & Maior dentre todos os argumentos \\
+                \texttt{min(r1, r2, ...)} & Menor dentre todos os argumentos \\
+            \bottomrule
+        \end{tabular}
+    \end{table}
+
+    \vspace{0.2in}
+
+    \textbf{Legenda}: {\texttt{r}: real ou inteiro, \texttt{z}: complexo, \texttt{w}: real ou 
+        complexo, \texttt{x}: real, \texttt{a}: qualquer tipo.}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso de funções intrísecas e operadores aritméticos}
+    \inputsnippet{fortran}{1}{22}{codes/polar.f90}
+\end{frame}
+
+\begin{frame}[fragile]{Operadores lógicos e relacionais}
+
+    \begin{itemize}
+        \item Fortran também tem suporte para variáveis booleanas, cujos valores possíveis 
+            são verdadeiro (\code{fortran}{.TRUE.}) e falso (\code{fortran}{.FALSE.})
+
+        \item As variáveis booleanas são declaradas com o tipo \code{fortran}{logical}:
+
+            \inputsyntax{fortran}{codes/logical.st}
+
+        \item Variáveis boolenas ou expressões que resultem em valores booleanos podem ser 
+            combinadas com os operadores lógicos \textbf{e} (\code{fortran}{.and.}), \textbf{ou}
+            (\code{fortran}{.or}) ou \textbf{não} (\code{fortran}{.not})
+
+        \item Os operadores relacionais são apresentados em duas formas
+
+        \item A primeira delas é a em notação símbolica: \code{fortran}{<, <=, ==, >=, >, /=}
+
+        \item A segunda é por meio de com operadores semelhantes aos operadores lógicos:
+            \code{fortran}{.lt., .le., .eq., .ge., .gt., .ne.}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso de operadores relacionais}
+    \inputsnippet{fortran}{1}{22}{codes/maratona.f90}
+\end{frame}

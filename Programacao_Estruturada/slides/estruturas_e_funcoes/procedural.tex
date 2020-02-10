@@ -1,0 +1,116 @@
+\section{Programação Procedural}
+
+\begin{frame}[fragile]{Programação Procedural}
+
+    \begin{itemize}
+        \item A ideia que originou a programação procedural surgiu por volta de 1958, antes do 
+            paradigma estruturado estar completamente estabelecido
+
+        \item O objetivo era diminuir a complexidade dos programas, dividindo-os em unidades
+            menores
+
+        \item Cada unidade, denominada \textbf{procedimento}, era responsável por uma única tarefa
+
+        \item Estes procedimentos seriam equivalentes aos verbos nas linguagens naturais
+
+        \item Este paradigma se desenvolveu como uma evolução do paradigma estruturado, sendo 
+            comum usar ambos termos combinados (programação estruturada/procedural) ou mesmo
+            como sinônimos
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de linguagem procedural: C}
+
+    \begin{itemize}
+        \item A linguagem C foi desenvolvida em 1972 por Ken Thompson e Dennis Ritchie
+
+        \item Ela combina construtos de alto nível com elementos de baixo nível (ponteiros,
+            \code{c}{goto}, etc)
+
+        \item A partir do padrão estabelecido em 1988, os códigos escritos em C se tornaram
+            portáveis para todas as plataformas que tivessem um compilador C
+
+        \item C é uma linguagem adequada para programação de sistemas operacionais, compiladores,
+            jogos e aplicações comerciais, e tem sido amplamente utilizada desde sua criação
+
+        \item Por exemplo, na linguagem C, o programa é representado pela função 
+
+            \inputsyntax{c}{codes/main.st}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de linguagem procedural: C}
+
+    \begin{itemize}
+        \item O retorno da função \code{c}{main()} é capturado pelo sistema operacional
+
+        \item Zero significa que o programa finalizou sua execução com sucesso; qualquer outro
+            valor representa um possível erro na execução
+
+        \item Os dois parâmetros (os quais podem ser omitidos) representam o número de parâmetros
+            (\code{c}{argc}) e os parâmetros (\code{c}{argv}) passados em linha de comando
+
+        \item As subrotinas são declaradas sem retorno:
+
+            \inputsyntax{c}{codes/sub.st}
+
+        \item As funções e subrotinas podem invocar outras funções e subrotinas, ou mesmo a si
+            próprias
+
+        \item Uma função/subrotina que invoca a si mesma é chamada \textbf{recursiva}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de linguagem procedural: C}
+
+    \begin{itemize}
+        \item Cada função/subrotina deve ser definida/implementada em um único ponto, mas pode
+            ser declarada ou invocada quantas vezes forem necessárias
+
+        \item A sintaxe para a declaração de uma função é
+
+            \inputsyntax{c}{codes/decl.st}
+
+        \item Para a definição da função, a sintaxe é
+            \inputsyntax{c}{codes/f.st}
+
+        \item O tipo do retorno e dos parâmetros é um dos tipos primitivos (\code{c}{char},
+            \code{c}{int}, \code{c}{float} e \code{c}{double}), ou ponteiros para estes tipos
+            (ou para o tipo \code{c}{void}), ou tipos definidos pelo usuário (\code{c}{struct} ou
+                \code{c}{union})
+
+        \item O valor a ser retornado deve seguir o comando \code{c}{return}
+
+        \item Para referenciar uma função implementada em outro arquivo, a declaração deve ser
+            antecedida pela palavra reservada \code{c}{extern}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de código procedural escrito em C}
+    \inputsnippet{c}{1}{22}{codes/main.c}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de código procedural escrito em C}
+    \inputsnippet{c}{1}{22}{codes/coin_change.h}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de código procedural escrito em C}
+    \inputsnippet{c}{1}{22}{codes/coin_change.c}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de código procedural escrito em C}
+    \inputsnippet{c}{23}{45}{codes/coin_change.c}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de código procedural escrito em C}
+    \inputsnippet{c}{46}{68}{codes/coin_change.c}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de código procedural escrito em C}
+    \inputsnippet{c}{69}{81}{codes/coin_change.c}
+\end{frame}

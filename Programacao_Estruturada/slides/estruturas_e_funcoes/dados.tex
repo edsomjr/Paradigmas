@@ -1,0 +1,93 @@
+\section{Tipos de dados compostos}
+
+\begin{frame}[fragile]{Vetores}
+
+    \begin{itemize}
+        \item Fortran tem suporte nativo para \textbf{vetores} (\textit{arrays}) de elementos de 
+            um mesmo tipo
+
+        \item A sintaxe para a declaração de um vetor é 
+
+            \inputsyntax{fortran}{codes/array.st}
+
+        \item O parêtesis que segue o \texttt{nome} da variável, e as dimensões listadas,
+            determinam a \textbf{forma} (\textit{shape}) do vetor
+
+        \item A notação de parêntesis também pode ser utilizada para acessar os elementos
+            individuais do vetor
+
+        \item Fortran utilizar a indexação matemática, de modo que o primeiro elemento do vetor
+            tem índice 1
+
+        \item A palavra-chave \code{fortran}{allocatable} pode ser utilizada para declarar
+            vetores dinâmicos
+
+        \item A função \code{fortran}{allocate()} reserva espaço em memória para tais vetores, e
+            esta memória deve ser liberada após o uso por meio da função 
+            \code{fortran}{deallocate()}
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso de vetores}
+    \inputsnippet{fortran}{1}{22}{codes/statistics.f90}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso de vetores}
+    \inputsnippet{fortran}{24}{46}{codes/statistics.f90}
+\end{frame}
+
+\begin{frame}[fragile]{Manipulação de vetores}
+
+    \begin{itemize}
+        \item Fortran disponibiliza uma série de características úteis para a manipulação de
+            vetores
+
+        \item Por exemplo, se \texttt{a, b} e \texttt{c} são vetores de mesma dimensão 
+            (\texttt{N}), a expressão ``\code{fortran}{c = a + b}'' equivale a
+
+            \inputsyntax{fortran}{codes/arrays_sum.st}
+
+        \item A atribuição ``\code{fortran}{xs = k}'' atribui o valor \texttt{k} a todos os 
+            elementos do vetor \texttt{xs}
+
+        \item A atribuição também pode ser utilizada para copiar vetores de mesma dimensão
+
+        \item Além disso, há várias funções intrínsecas que manipulam vetores diretamente, como
+            \code{fortran}{dot_product, matmul, maxval, minval}, \code{fortran}{product} e \code{fortran}{sum}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de manipulação de vetores}
+    \inputsnippet{fortran}{1}{22}{codes/angle.f90}
+\end{frame}
+
+\begin{frame}[fragile]{Tipos de dados de usuário}
+
+    \begin{itemize}
+        \item Fortran também permite ao usuário definir novos tipos de dados, denominados
+            dados \textbf{derivados} (\textit{derived data types})
+
+        \item Estes dados são compostos pelo agrupamento de dados de tipos primitivos, ou mesmo
+            de outros dados derivados
+
+        \item Eles equivalem a uma \code{c}{struct} da linguagem C
+
+        \item A sintaxe para a declaração de um tipo de dado derivado é
+
+            \inputsyntax{fortran}{codes/derived.st}
+
+        \item Variáveis do nome tipo são declaradas usando a sintaxe
+
+            \inputsyntax{fortran}{codes/derived_decl.st}
+
+        \item Os membros do novo tipo são acessados por meio do operador \verb|'%'|
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso de dados derivados}
+    \inputsnippet{fortran}{1}{22}{codes/pacient.f90}
+\end{frame}

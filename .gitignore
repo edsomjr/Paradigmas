@@ -7,3 +7,5 @@ prog
 *.d
 *.exe
 *.class
+a.out
+*.mod
