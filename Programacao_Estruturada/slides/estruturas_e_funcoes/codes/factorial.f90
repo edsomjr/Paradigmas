@@ -1,5 +1,5 @@
 ! Computa o fatorial de n
-program priority
+program factorial
 
     implicit none
 
@@ -15,4 +15,4 @@ program priority
 
 1   format ('Fatorial de ', I2, I10)
 
-end program priority
+end program factorial
