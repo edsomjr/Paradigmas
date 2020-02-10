@@ -76,3 +76,48 @@
     \end{itemize}
 
 \end{frame}
+
+\begin{frame}[fragile]{Exemplo de declaração e uso de subrotinas}
+    \inputsnippet{fortran}{1}{22}{codes/selection.f90}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de declaração e uso de subrotinas}
+    \inputsnippet{fortran}{23}{42}{codes/selection.f90}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de declaração e uso de subrotinas}
+    \inputsnippet{fortran}{43}{66}{codes/selection.f90}
+\end{frame}
+
+\begin{frame}[fragile]{Observações sobre funções e subrotinas}
+
+    \begin{itemize}
+        \item No caso em que um dos parâmetros é um vetor \code{fortran}{xs} de tamanho 
+            desconhecido, as dimensões deste pode ser obtido por meio da função intrínseca
+            \code{fortran}{size()}
+
+        \item Para tal, na declaração do tipo de parâmetro esta dimensão desconhecida deve ser
+            indicada (por exemplo, \code{fortran}{integer :: xs(:)})
+
+        \item Como um subrotina pode usar um parâmetro tanto para entrada como para saída, o uso
+            de cada parâmetro pode ser explicitado por meio do atributo \code{fortran}{intent}
+
+        \item O parâmetro atributo é um dentre três valores possíveis: \code{fortran}{in},
+            \code{fortran}{out} e \code{fortran}{inout}
+
+        \item Além de melhorar a legibilidade, este atributo previne que um parâmetro de entrada
+            seja modificado
+
+        \item O atributo \code{fortran}{save} pode ser utilizado para marcar variáveis locais que
+            mantém seus valores entre as chamadas de uma função ou subrotina 
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de subrotina em Fortran}
+    \inputsnippet{fortran}{1}{22}{codes/fibonacci.f90}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de subrotina em Fortran}
+    \inputsnippet{fortran}{23}{45}{codes/fibonacci.f90}
+\end{frame}

@@ -1,1 +1,67 @@
 \section{Módulos}
+
+\begin{frame}[fragile]{Organização do programa em módulos}
+
+    \begin{itemize}
+        \item Os \textbf{módulos} são uma importante característica da programação estruturada,
+            permitindo o agrupamento lógico de trechos de código semanticamente relacionados
+
+        \item As linguagens de programação que suportam o paradigma estruturado, em geral, permitem
+            a separação de módulos em arquivos distintos
+
+        \item Os módulos também podem oferecer controle, completo ou parcial, de acesso às 
+            variáveis, funções e subrotinas definidas no módulo
+
+        \item A possibilidade de um módulo importar outros módulos favorece o reuso de código e 
+            a construção de bibliotecas de funções e subrotinas
+
+        \item Além disso, no caso de linguagens compiladas, os módulos podem ser pré-compilados,
+            acelerando o processo de compilação do programa e facilitando a depuração e manutenção
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Declaração e implementação de módulos em Fortran}
+
+    \begin{itemize}
+        \item A sintaxe para a declaração de um módulo em Fortran é a seguinte:
+
+            \inputsyntax{fortran}{codes/modules.st}
+ 
+        \item O bloco do programa, as funções e as subrotinas podem acessar o módulo por meio
+            do comando \code{fortran}{use}:
+
+            \inputsyntax{fortran}{codes/use.st}
+
+        \item A declaração de funções e subrotinas é opcional
+
+        \item Cada módulo deve estar em um arquivo separado 
+
+        \item Os módulos devem ser compilados com a \textit{flag} \texttt{'-c'}
+
+        \item O acesso às variáveis do módulo pode ser controlado por meio dos atributos
+            \code{fortran}{private} e \code{fortran}{public}
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso de módulos em Fortran}
+    \inputsnippet{fortran}{1}{22}{codes/is_prime.f90}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso de módulos em Fortran}
+    \inputsnippet{fortran}{1}{22}{codes/primes.f90}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso de módulos em Fortran}
+    \inputsnippet{fortran}{23}{44}{codes/primes.f90}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso de módulos em Fortran}
+    \inputsnippet{fortran}{45}{66}{codes/primes.f90}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso de módulos em Fortran}
+    \inputsnippet{fortran}{67}{89}{codes/primes.f90}
+\end{frame}
