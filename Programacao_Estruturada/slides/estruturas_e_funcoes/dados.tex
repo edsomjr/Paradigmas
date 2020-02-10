@@ -63,3 +63,31 @@
 \begin{frame}[fragile]{Exemplo de manipulação de vetores}
     \inputsnippet{fortran}{1}{22}{codes/angle.f90}
 \end{frame}
+
+\begin{frame}[fragile]{Tipos de dados de usuário}
+
+    \begin{itemize}
+        \item Fortran também permite ao usuário definir novos tipos de dados, denominados
+            dados \textbf{derivados} (\textit{derived data types})
+
+        \item Estes dados são compostos pelo agrupamento de dados de tipos primitivos, ou mesmo
+            de outros dados derivados
+
+        \item Eles equivalem a uma \code{c}{struct} da linguagem C
+
+        \item A sintaxe para a declaração de um tipo de dado derivado é
+
+            \inputsyntax{fortran}{codes/derived.st}
+
+        \item Variáveis do nome tipo são declaradas usando a sintaxe
+
+            \inputsyntax{fortran}{codes/derived_decl.st}
+
+        \item Os membros do novo tipo são acessados por meio do operador \verb|'%'|
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso de dados derivados}
+    \inputsnippet{fortran}{1}{22}{codes/pacient.f90}
+\end{frame}

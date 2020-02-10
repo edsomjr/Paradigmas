@@ -1,1 +1,78 @@
-\section{Procedimentos e Funções}
+\section{Subrotinas e Funções}
+
+\begin{frame}[fragile]{Subrotinas e Funções}
+
+    \begin{itemize}
+        \item Em Fortran, uma \textbf{subrotina} difere de uma \textbf{função} no
+            sentido de que não possui um valor de retorno
+
+        \item Ambas podem ser declaradas no próprio arquivo do programa, ou em arquivos
+            separados
+
+        \item Funções são invocadas da mesma maneira que as funções intrínsecas da linguagem
+
+        \item As subrotinas são invocadas por meio de um comando \code{fortran}{call}
+
+        \item A comunicação entre o programa e as funções e subrotinas se dá por meio de 
+            \textbf{argumentos} (ou \textbf{parâmetros}) e do \textbf{retorno}, no caso
+            das funções
+
+        \item Ambas são fundamentais em programas estruturados, no sentido que permite a
+            organização e reuso de trechos de código, formando unidades semânticas
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Funções}
+
+    \begin{itemize}
+        \item A sintaxe para a declaração de uma função é a seguinte:
+
+            \inputsyntax{fortran}{codes/function.st}
+
+        \item O retorno da função deve armazenado em uma variável local de mesmo nome da função
+
+        \item O bloco de comandos pode ser encerrado prematuramente, por meio do comando
+            \code{fortran}{return}
+
+        \item As variáveis são passadas por \code{fortran}{referência}
+
+        \item A primeira implicação deste fato é que os parâmetros devem ter o mesmo tipo da
+            variável passada como parâmetro na chamada
+
+        \item A segunda implicação é que, caso um parâmetro seja modificado na função, esta
+            mudança será feita na variável original
+
+        \item As funções devem ser declaradas a partir do ponto marcado pela palavra-chave
+            \code{fortran}{contains}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de declaração e uso de funções}
+    \inputsnippet{fortran}{1}{22}{codes/binom.f90}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de declaração e uso de funções}
+    \inputsnippet{fortran}{23}{45}{codes/binom.f90}
+\end{frame}
+
+\begin{frame}[fragile]{Subrotinas}
+
+    \begin{itemize}
+        \item A sintaxe para a declaração de subrotinas é semelhante à declaração de funções:
+
+            \inputsyntax{fortran}{codes/subroutines.st}
+
+        \item Assim como as funções, as subrotinas recebem os valores de seus argumentos por
+            referência, o que permite a modificação destes parâmetros
+
+        \item Não há retorno em subrotinas
+
+        \item As subrotinas também devem ser declaradas após a palavra-chave 
+            \code{fortran}{contains}, e encerradas a qualquer momento por meio do comando
+            \code{fortran}{return}
+
+    \end{itemize}
+
+\end{frame}
