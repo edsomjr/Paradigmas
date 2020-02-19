@@ -1,0 +1,176 @@
+\section{Tipos Primitivos}
+
+\begin{frame}[fragile]{Operadores Aritméticos}
+
+    \begin{itemize}
+        \item Em Haskell, expressões utilizando os operadores aritméticos binários podem ser 
+            escritas tanto em forma prefixada quanto na forma infixada:
+
+            \inputsyntax{haskell}{codes/arithmetic.hs}
+
+        \item Além da adição, a subtração, a multiplicação, a divisão e a exponenciação
+            também estão disponíveis
+
+            \inputsyntax{haskell}{codes/sub.hs}
+
+        \item O operador \texttt{\^} representa a divisão em ponto flutuante, não inteira
+
+        \item Os resultados não geram \textit{overflow}, sendo a aritmética estendida
+            implementada nativamente
+
+            \inputsyntax{haskell}{codes/exp.hs}
+
+        \item Números negativos devem vir entre parêntesis, para evitar ambiguidades
+
+            \inputsyntax{haskell}{codes/negative.hs}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Operadores lógicos e relacionais}
+
+    \begin{itemize}
+        \item Em Haskell os valores booleanos são \code{haskell}{True} e \code{haskell}{False}
+
+        \item Os operadores lógicos são: \textbf{e} (\texttt{\&\&}), \textbf{ou} (\texttt{||}) e
+            \textbf{não} (\code{haskell}{not})
+
+        \item Os operadores relacionais são: \textbf{igual} (\texttt{==}), \textbf{diferente}
+            (\texttt{/=}), \textbf{menor} (\texttt{<}), \textbf{menor ou igual} (\texttt{<=}),
+            \textbf{maior} (\texttt{>}) e \textbf{maior ou igual} (\texttt{>=})
+
+        \item No ghci, a precedência dos operadores pode ser consultada por meio do comando
+            `\texttt{:info}'
+
+        \item O valor 1 significa a menor precedência possível; 9 é a maior precedência possível
+
+            \inputsyntax{haskell}{codes/precedence.hs}
+        
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Listas}
+
+    \begin{itemize}
+        \item As listas são tipos primitivos em Haskell
+
+        \item Elas são declaradas por meio de colchetes, e os seus elementos são separados
+            por vírgulas 
+
+            \inputsyntax{haskell}{codes/list_declaration.hs}
+
+        \item A lista vazia é representada por \code{haskell}{[]}
+
+        \item Todos os elementos de uma lista devem ser do mesmo tipo
+
+        \item Haskell permite uma notação que permite a enumeração dos elementos da lista
+
+            \inputsyntax{haskell}{codes/list_enumeration.hs}
+
+        \item Listas podem ser concatenadas por meio do operador \code{haskell}{++}
+
+            \inputsyntax{haskell}{codes/list_concatenation.hs}
+
+        \item Um elemento pode ser adicionado ao início de uma lista por meio do operador
+            \code{haskell}{cons} (\texttt{:})
+
+            \inputsyntax{haskell}{codes/list_cons.hs}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Caracteres e strings}
+
+    \begin{itemize}
+        \item Um caractere é delimitado por aspas simples
+
+            \inputsyntax{haskell}{codes/char.hs}
+
+        \item Uma string (de caracteres) é delimitada por aspas duplas
+
+            \inputsyntax{haskell}{codes/string.hs}
+
+        \item Efetivamente, uma string é uma lista de caracteres
+
+            \inputsyntax{haskell}{codes/list_of_chars.hs}
+
+        \item Vale a igualdade: \code{haskell}{"" == []}
+
+        \item Observe também que \code{haskell}{"A"} e \code{haskell}{'A'} tem tipos distintos
+
+        \item Como as strings são listas, a notação de enumeração pode ser utilizada:
+
+            \inputsyntax{haskell}{codes/alphabet.hs}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Tipos de dados em Haskell}
+
+    \begin{itemize}
+        \item O \textbf{tipo} de um dado é uma abstração sobre a cadeia de \textit{bytes} que
+            armazena o valor da variável ou constante
+
+        \item Haskell é uma linguagem com tipagem de dados \textbf{forte} e \textbf{estática},
+            onde os tipos das expressões pode ser inferidos \textbf{automaticamente}
+
+        \item Em um sistema de tipagem estática, os tipos dos dados e das expressões devem ser 
+            conhecidos em tempo de compilação
+
+        \item Em um sistema forte, as regras identificação, conversão e validação dos tipos
+            são estritas e aplicadas em tempo de compilação
+
+        \item Em Haskeel, se uma expressão violar as regras de tipagem ela será considerada mal 
+            formada, e levará a um erro de tipo
+
+        \item Também não há promoção de tipos ou conversões implícitas de tipos dentro de 
+            uma expressão
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Tipos de dados em Haskell}
+
+    \begin{itemize}
+        \item Conversões entre tipos envolvem cópias, o que pode impactar na performance dos
+            programas
+
+        \item A combinação de tipagem forte e estática faz com que os erros de tipos em Haskell
+            jamais aconteçam em tempo de execução
+
+        \item O fato de ter um sistema forte e estático torna Haskell uma linguagem segura; a 
+            inferência de tipos a torna uma linguagem concisa
+
+        \item A convenção em Haskell é que tipos de dados iniciem em letras maísculas, e
+            as variáveis iniciem em letra minúscula
+
+        \item No ghci, o tipo de uma expressão pode ser determinado por meio do comando
+            \code{haskell}{:type}
+
+        \item A assinatura de um tipo é 
+
+            \inputsyntax{haskell}{codes/type.hs}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Scripts}
+
+    \begin{itemize}
+        \item Programas em Haskell também podem ser escritos em arquivos, chamados 
+            \textit{\textbf{scripts}}
+
+        \item Estes \textit{scripts} podem ser interpretados pelo programa \texttt{runghc}, ou
+            compilados pelo \texttt{ghc}
+
+        \item O \textit{script} abaixo reproduz parcialmente o comportamento do comando 
+            \texttt{wc} do Linux, que conta o número de palavras da entrada:
+
+            \inputsyntax{haskell}{codes/wc.hs}
+
+        \item Comentários iniciam com dois traços (\code{haskell}{--})
+    \end{itemize}
+
+\end{frame}

@@ -1,0 +1,1 @@
+    ghci> "Exemplo de string"
