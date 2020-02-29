@@ -1,1 +1,52 @@
 \section{Haskell}
+
+\begin{frame}[fragile]{Haskell}
+
+    \begin{itemize}
+        \item Haskell é uma linguagem de programação moderna, puramente funcional
+
+        \item Ela implementa valoração não-estrita, polimorfismo de tipos, funções de alta-ordem
+            e um sistema de tipagem forte e estrito
+
+        \item Em termos numéricos, ela oferece inteiros de precisão arbitrária, números racionais,
+            e números em ponto flutuante e variáveis booleanas
+
+        \item Ela foi desenvolvida por um comitê, cuja primeira versão data de 1990
+
+        \item Dentre as principais motivações para a criação do Haskell estavam:
+
+        \begin{enumerate}[i.]
+            \item unificar os esforços de dezenas de diferentes linguagens funcionais,
+            \item ter uma linguagem funcional simples e apropriada para ensino, e
+            \item criar uma linguagem funcional livre
+        \end{enumerate}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{GHC}
+
+    \begin{itemize}
+        \item GHC (\textit{Glasgow Haskell Compiler}) é um compilador (\texttt{ghc}),
+            interpretador (\texttt{runghc}) e um ambiente interativo (\texttt{ghci}), de 
+            código aberto, para a linguagem Haskell
+
+        \item Ele tem bom suporte para paralelismo, e gera códigos rápidos, em especial em
+            programação concorrentes
+
+        \item O GHC oferece, por padrão, uma variedade de bibliotecas, e outras podem ser 
+            encontradas em \href{https://hackage.haskell.org/}{Hackage}
+ 
+        \item Há versões para plataformas Windows, Linux e MacOS, dentre outras
+
+        \item Em Linux, ele pode ser instalado com o comando
+
+            \inputsyntax{bash}{codes/install.sh}
+
+        \item Para mudar o \textit{prompt} do GHCi, use o comando \code{haskell}{:set}
+
+            \inputsyntax{haskell}{codes/ghci.hs}
+
+    \end{itemize}
+
+\end{frame}

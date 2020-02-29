@@ -1,2 +1,146 @@
 \section{Programação Funcional}
 
+\begin{frame}[fragile]{Visão geral}
+
+    \begin{itemize}
+        \item A programação funcional é um paradigma de programação que trata a computação como
+            a valoração de funções matemáticas e que evita estados e dados mutáveis
+
+        \item Tem como fundamento o cálculo lambda
+
+        \item Os programas consistem em expressões, de modo que é um paradigma declarativo, não
+            imperativo
+
+        \item O conceito principal é de que o retorno de uma função depende única e exclusivamente
+            de suas entradas
+
+        \item Isto significa que uma função chamada duas ou mais vezes, com os mesmos argumentos, 
+            produzirá sempre o mesmo retorno, o que não necessariamente ocorre em paradigmas
+            imperativos
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo em C de mesmos argumentos, retornos distintos}
+    \inputcode{c}{codes/function.c}
+\end{frame}
+
+\begin{frame}[fragile]{Histórico da programação funcional}
+
+    \begin{itemize}
+        \item A programação funcional tem raízes no cálculo lambda, que surgiu na década de 1930
+
+        \item Na década de 1950, Lisp foi uma das primeiras linguagens a incorporar conceitos e
+            características da programação funcional
+
+        \item Na década de 1960 a APL (\textit{A Programming Language}) foi desenvolvida, e 
+            influenciou o desenvolvimento da FP na década seguinte
+
+        \item Também na décade de 1970 foi desenvolvida a linguagem ML, e em 1987 iniciou o
+            desenvolvimento da linguagem Haskell
+
+        \item Na década de 1990 surgiram as linguagens J, K e Q
+
+        \item Com o passar do tempo e da maturação destas linguagens, elas deixaram de ser usadas
+            apenas em pesquisas e na academia e hoje são utilizadas em aplicações reais
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Principais características da programação funcional}
+
+    \begin{enumerate}[(a)]
+        \item As funções são cidadãs de primeira classe: as funções podem aceitar funções
+            como parâmetros e podem retornar funções
+
+        \item As funções são puras, isto é, não há efeitos colaterais
+
+        \item Uso extensivo de recursão
+
+        \item As variáveis são imutáveis
+
+        \item A valoração das expressões é não-estrita, de modo que o valor de uma variável ou
+            função só é computado quando for utilizado (também chamada \textit{lazy evaluation})
+
+        \item As expressões dos programas tem um valor de retorno 
+
+        \item Uso de \textit{pattern matching} para extração dos membros de objetos ou para
+            condicionais
+    \end{enumerate}
+
+\end{frame}
+
+\begin{frame}[fragile]{Variáveis imutáveis}
+
+    \begin{itemize}
+        \item Variáveis \textbf{imutáveis} são aquelas cujo valor não pode ser modificado após sua
+            inicialização
+
+        \item Em linguagens imperativas, tais variáveis são denominadas \textbf{constantes}
+
+        \item Variáveis imutáveis são úteis em ambientes \textit{multithread}, pois elas não levam
+            a problemas de concorrência
+
+        \item Em linguagens funcionais, uma variável é atada a um valor ou expressão em sua
+            atribuição inicial, e ao longo do programa ela não pode ser desatada ou atada a uma
+            outra expressão ou valor
+
+        \item O código Haskell abaixo gera um erro de compilação, pois a variável
+            \texttt{x} é imutável:
+
+            \inputsyntax{haskell}{codes/immutable.hs}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Funções de primeira classe}
+
+    \begin{itemize}
+        \item \textbf{Funções de primeira classe} são funções que recebem o mesmo tratamento que
+            os objetos da linguagem
+
+        \item Assim, elas podem ser parâmetros ou retornos de outras funções, ou podem ser
+            armazenadas em variáveis
+
+        \item \textbf{Funções de alta ordem} são funções que recebem uma ou mais funções como
+            parâmetros, ou que retornam uma função
+
+        \item Funções que não são de alta ordem são denominadas funções de \textbf{primeira ordem}
+
+        \item No cálculo lambda, todas as funções de são alta ordem
+
+        \item Um exemplo típico de função de alta ordem é a função \code{haskell}{map()}, que 
+            recebe como parâmetros uma função \code{haskell}{f()} e uma lista \code{haskell}{xs},
+            e e retorna uma lista cujo $i$-ésimo elemento é $f(x_i)$
+
+        \item Exemplo em Haskell:
+            \inputsyntax{haskell}{codes/map.hs}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Funções anônimas}
+
+    \begin{itemize}
+        \item As funções contém quatro partes: nome, lista de parâmetros, corpo e retorno
+
+        \item \textbf{Funções anônimas} são funções que não possuem um nome
+
+        \item Há dois tipos de funções anônimas: \textbf{funções lambda} e 
+            \textbf{\textit{closures}}
+
+        \item Em geral, funções anônimas são utilizadas como parâmetros de funções de alta ordem,
+            ou para a construção dos retornos destas
+
+        \item Funções lambda são funções compostas por uma lista de parâmetros, um corpo e um
+            retorno
+
+        \item \textit{Closures} são semelhantes às funções lambda, exceto pelo fato de que elas
+            referenciam variáveis foram do escopo do seu corpo e lista de parâmetros
+
+        \item Em geral, os \textit{closures} são implementados como estruturas de dados que
+            contém um ponteiro para o código da função e para todas as variáveis necessárias para
+            sua execução
+    \end{itemize}
+
+\end{frame}
