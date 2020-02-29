@@ -24,3 +24,6 @@ Material didático da disciplina Paradigmas de Programação, ministrada pelo pr
     1. [Lógica Booleana](Lambda_Calculus/slides/logica_booleana/logica_booleana.pdf)
     1. [Aritmética](Lambda_Calculus/slides/aritmetica/aritmetica.pdf)
     1. [Recursão](Lambda_Calculus/slides/recursao/recursao.pdf)
+1. Programação Funcional
+    1. [Fundamentos](Programacao_Funcional/slides/fundamentos/fundamentos.pdf)
+
