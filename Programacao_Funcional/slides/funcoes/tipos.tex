@@ -1,0 +1,49 @@
+\section{Tipos de dados de usuário}
+
+\begin{frame}[fragile]{Definição de novos tipos de dados}
+
+    \begin{itemize}
+        \item É possível introduzir novos tipos de dados por meio da palavra reservada
+            \code{haskell}{data}
+
+        \item A sintaxe é
+
+            \inputsyntax{haskell}{codes/data.hs}
+
+        \item Tanto o construtor de tipo quanto o construtor de valor devem iniciar em
+            letra maiúscula
+
+        \item Os $N$ tipos se referem aos tipos dos $N$ membros (campos) do novo tipo de dado
+
+        \item O construtor de valor pode ser entendido como uma função qualquer
+
+        \item Por exemplo, 
+
+            \inputsyntax{haskell}{codes/student.hs}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Definição de novos tipos de dados}
+
+    \begin{itemize}
+        \item O nome do  tipo e de seus valores são independentes
+
+        \item Os nomes dos tipos são usados exclusivamente em suas definições
+
+        \item Os construtores de valores são utilizados no programa para criar variáveis do
+            tipo definido
+
+        \item Quando não há ambiguidade, os nomes dos tipos e dos valores podem ser o mesmo
+
+        \item Esta prática é normal e legal
+
+        \item Haskell não permite a mistura de dois tipos de dados que são estruturalmente
+            diferentes, mas tem nomes diferentes
+
+        \item Por exemplo, no trecho abaixo,
+            \inputsyntax{haskell}{codes/point2D.hs}
+        \texttt{x} e \texttt{y} não são comparáveis, pois tem tipos distintos
+    \end{itemize}
+
+\end{frame}
