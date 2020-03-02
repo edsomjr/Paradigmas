@@ -121,6 +121,10 @@
     \inputcode{haskell}{codes/area.hs}
 \end{frame}
 
+\begin{frame}[fragile]{Exemplo de {\it pattern matching} em listas}
+    \inputcode{haskell}{codes/sumlist.hs}
+\end{frame}
+
 \begin{frame}[fragile]{Exemplo de extração de membros usando {\it pattern matching}}
     \inputcode{haskell}{codes/student_members.hs}
 \end{frame}
@@ -176,4 +180,82 @@
             \inputsyntax{haskell}{codes/valid.hs}
     \end{itemize}
 
+\end{frame}
+
+\begin{frame}[fragile]{Notação de registro}
+
+    \begin{itemize}
+        \item Escrever funções de acesso para os membros de um tipo de dado é tedioso e
+            propenso a erros
+
+        \item Haskell oferece uma definição alternativa, que permite listar as funções de
+            acesso no momento da definição do novo tipo de dado
+
+        \item Por exemplo, o tipo \code{haskell}{Student} definido anteriormente poderia
+            ser definido da seguinte forma:
+
+            \inputsyntax{haskell}{codes/student_record.hs}
+
+        \item Esta notação também pode ser utilizada para criar variáveis deste novo tipo
+
+        \item A impressão padrão herdada de \code{haskell}{Show} também fica mais elaborada
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de criação de variável com notação de registro}
+    \inputcode{haskell}{codes/student_record_variables.hs}
+\end{frame}
+
+\begin{frame}[fragile]{Tipos parametrizáveis}
+
+    \begin{itemize}
+        \item Em Haskell é possível criar tipos de dados parametrizados, por meio da introdução
+            de uma variável na definição de tipo
+
+        \item Na biblioteca padrão (\code{haskell}{Prelude}) é definido o tipo parametrizado
+            \code{haskell}{Maybe}:
+
+            \inputsyntax{haskell}{codes/maybe.hs}
+
+        \item A variável \code{haskell}{a} nesta definição significa um tipo de dado qualquer
+
+        \item Este tipo de dado é utilizado para retornos de funções que podem estar ausentes
+
+        \item Por exemplo, a função \code{haskell}{head} retorna um erro quando aplicada à
+            lista vazia
+
+            \inputsyntax{haskell}{codes/head_error.hs}
+
+        \item Uma versão ``segura'' de \code{haskell}{head} pode ser implementada da seguinte
+            maneira:
+
+            \inputsyntax{haskell}{codes/safehead.hs}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Tipos recursivos}
+
+    \begin{itemize}
+        \item Um tipo é dito \textbf{recursivo} se ele for definido em termos de si próprio
+
+        \item Por exemplo, uma lista parametrizada pode ser definida como
+
+            \inputsyntax{haskell}{codes/list.hs}
+
+        \item Os tipos recursivos devem ter ao menos um caso base (construtor que não se refere
+            ao próprio tipo)
+
+        \item Assim, eles devem ter, no mínimo, dois construtores distintos
+
+        \item Uma árvore binária pode ser definida como
+
+            \inputsyntax{haskell}{codes/bst.hs}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de definição e uso de tipo recursivo}
+    \inputcode{haskell}{codes/list_example.hs}
 \end{frame}
