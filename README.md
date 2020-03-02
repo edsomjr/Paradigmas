@@ -26,4 +26,5 @@ Material didático da disciplina Paradigmas de Programação, ministrada pelo pr
     1. [Recursão](Lambda_Calculus/slides/recursao/recursao.pdf)
 1. Programação Funcional
     1. [Fundamentos](Programacao_Funcional/slides/fundamentos/fundamentos.pdf)
+    1. [Funções e Tipos de Dados de Usuário](Programacao_Funcional/slides/funcoes/funcoes.pdf)
 
