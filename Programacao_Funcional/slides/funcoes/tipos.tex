@@ -259,3 +259,129 @@
 \begin{frame}[fragile]{Exemplo de definição e uso de tipo recursivo}
     \inputcode{haskell}{codes/list_example.hs}
 \end{frame}
+
+\begin{frame}[fragile]{Variáveis locais}
+
+    \begin{itemize}
+        \item Em Haskell há duas formas de introduzir variáveis locais a uma função
+
+        \item A primeira delas é utilizando uma expressão \code{haskell}{let}, cuja sintaxe é
+
+            \inputsyntax{haskell}{codes/let.hs}
+
+        \item Cada linha define uma nova variável
+
+        \item O escopo destas variáveis é a expressão que define o valor da função, e também
+            as linhas de definição de variáveis subsequentes
+
+        \item Se o nome de uma das variáveis locais coincidir com o nome de um dos parâmetros da
+            função, prevalecerá a variável local (\textit{shadowing}), o que pode levar a 
+            expressões confusas ou \textit{bugs}
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Variáveis locais}
+
+    \begin{itemize}
+        \item A segunda forma de se declarar variáveis locais é por meio de uma expressão
+            \code{haskell}{where}, cuja sintaxe é
+
+            \inputsyntax{haskell}{codes/where.hs}
+
+        \item A diferença entre as expressões \code{haskell}{where} e \code{haskell}{let} é que
+            a primeira prioriza a expressão, deixando os detalhes para depois
+
+        \item O escopo das variáveis definidas na expressão \code{haskell}{where} é a expressão
+            da função, que precede o bloco, e o próprio bloco \code{haskell}{where}
+
+        \item Além de variáveis locais, é possível definir funções locais nas expressões
+            \code{haskell}{let} e \code{haskell}{where}
+
+        \item A escolha entre estas duas alternativas é uma questão de estilo
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso de variáveis locais}
+    \inputcode{haskell}{codes/polynomial.hs}
+\end{frame}
+
+\begin{frame}[fragile]{Indentação}
+
+    \begin{itemize}
+        \item Em Haskell, a indentação e espaços em branco são utilizados para delimitar os
+            blocos
+
+        \item A primeira expressão de um programa pode começar em qualquer coluna do texto, desde
+            que as demais expressões de mesmo nível comecem nesta mesma coluna
+
+        \item Se a expressão é seguida de uma linha em branco ou por uma expressão em uma coluna
+            mais à direita, ela é considerada uma continuação da expressão anterior
+
+        \item Após um \code{haskell}{let} ou um \code{haskell}{where}, o compilador memorizará
+            a posição do próximo \textit{token}: expressões nas próximas linhas que comecem na
+            mesma posição serão consideradas novas entradas destes blocos
+
+        \item Por conta destas regras, é indicado o uso de espaços, e não de tabulações, na
+            indentação do código
+
+        \item Embora não seja comum, os blocos podem ser delimitados por chaves (`\texttt{\{}' e
+            `\texttt{\}}'): neste caso, as regras acima podem ser violadas, usando-se 
+            ponto-e-vírgula para separar as expressões
+            
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Expressões {\it case}}
+
+    \begin{itemize}
+        \item As expressões \code{haskell}{case} permitem confrontar uma expressão com vários
+            padrões
+
+        \item A sintaxe é
+
+            \inputsyntax{haskell}{codes/case.hs}
+
+        \item O valor da expressão é confrontado com cada um dos padrões, na ordem descrita
+
+        \item Caso um casamento seja válido, o valor da expressão \code{haskell}{case} será o
+            valor indicado após a seta (\code{haskell}{->})
+
+        \item Também é possível usar o \textit{wildcard}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de expressão {\it case}}
+    \inputcode{haskell}{codes/frommaybe.hs}
+\end{frame}
+
+\begin{frame}[fragile]{Guardas}
+
+    \begin{itemize}
+        \item O uso de \textit{pattern matching} é feito apenas com valores dos objetos
+
+        \item Para testes mais elaborados, com condicionais, Haskell disponibiliza as 
+            \textbf{guardas}
+
+        \item Cada padrão a ser casado pode ser seguido por uma ou mais guardas, sendo elas
+            expressões do tipo \code{haskell}{Bool}
+
+        \item Cada guarda é introduzida pelo símbolo \code{haskell}{|}, e seguida de um
+            \code{haskell}{=} (ou \code{haskell}{->}, no caso de expressões \code{haskell}{case})
+
+        \item Após o símbolo, segue a expressão a ser utilizada caso o padrão seja casado e a
+            guarda verdadeira
+
+        \item A expressão \code{haskell}{otherwise} é atada ao valor \code{haskell}{True}, de modo
+            que é uma guarda sempre verdadeira, o que melhora a legibilidade do código
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso de guardas}
+    \inputcode{haskell}{codes/guards.hs}
+\end{frame}
