@@ -82,6 +82,32 @@
 
 \end{frame}
 
+\begin{frame}[fragile]{Definindo novas funções}
+
+    \begin{itemize}
+        \item A sintaxe para a definição de uma nova função é
+
+            \inputsyntax{haskell}{codes/function.hs}
+
+        \item O nome da função deve iniciar em minúsculas, e os parâmetros devem ser separados
+            por um espaço em branco
+
+        \item O valor da expressão será o retorno da função
+
+        \item O tipo da função pode ser declarado explicitamente, mas esta declaração é opcional
+
+            \inputsyntax{haskell}{codes/areaCircle.hs}
+
+        \item A declaração de tipo pode ser útil para definir o tipo da função em caso de
+            ambiguidade
+
+        \item O \textit{currying} é aplicado em funções de dois ou mais parâmetros 
+
+            \inputsyntax{haskell}{codes/areaTriangle.hs}
+    \end{itemize}
+
+\end{frame}
+
 \begin{frame}[fragile]{Condicionais}
 
     \begin{itemize}

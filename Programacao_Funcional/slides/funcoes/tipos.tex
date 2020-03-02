@@ -47,3 +47,133 @@
     \end{itemize}
 
 \end{frame}
+
+\begin{frame}[fragile]{Sinônimos}
+
+    \begin{itemize}
+        \item Em Haskell é possível definir um \textbf{sinônimo} para um tipo já existe, com
+            o intuito de ampliar o entendimento do código por meio do uso de nomes mais
+            descritivos
+
+        \item Isto pode ser feito por meio da palavra-reservada \code{haskell}{type}
+
+        \item Por exemplo,
+
+            \inputsyntax{haskell}{codes/student_type.hs}
+
+        \item A definição de sinônimos é similar a feita em C/C++ por meio da palavra-reservada
+            \code{cpp}{typedef}
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Tipos de dados algébricos}
+
+    \begin{itemize}
+        
+        \item O tipo de dados \textbf{algébricos} podem ter mais de um construtor. Por exemplo:
+
+            \inputsyntax{haskell}{codes/blood_groups.hs}
+
+        \item Eles também não denominados tipos \textbf{enumeráveis}
+
+        \item Cada um dos construtores pode ter zero ou mais parâmetros. Por exemplo:
+
+            \inputsyntax{haskell}{codes/shape.hs}
+
+        \item Com um único construtor, o tipo de dado algébrico equivale a uma \code{c}{struct}
+            em C
+
+        \item Com dois ou mais construtores, todos sem parâmetros, corresponde a uma 
+            \code{c}{enum}
+
+        \item Nos demais casos, pode ser visto como uma \code{haskell}{union} de C/C++
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{\it Pattern Matching}
+
+    \begin{itemize}
+        \item Um padrão (\textit{pattern}) permite a extração de membros de um tipo
+
+        \item Isto permite a definição de uma função por meio de vários padrões de entrada
+
+        \item Quando a função for chamada, os valores dos parâmetros de entrada são 
+            confrontados com os padrões definidos, um por vez, na ordem em que foram definidos
+
+        \item Quando um casamento (\textit{matching}) for bem sucedido, a expressão associada
+            definirá o valor de retorno da função
+
+        \item Se nenhum casamento for bem sucedido, o resultado será um erro
+
+        \item O símbolo `\code{haskell}{_}' (\textit{wildcard}) pode ser usado para casar qualquer
+            valor
+
+        \item Em alguns contextos, o \textit{pattern matching} é também denominado 
+            \textbf{desconstrução}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de definição de função usando {\it pattern matching}}
+    \inputcode{haskell}{codes/area.hs}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de extração de membros usando {\it pattern matching}}
+    \inputcode{haskell}{codes/student_members.hs}
+\end{frame}
+
+\begin{frame}[fragile]{O símbolo {\tt \$}} 
+
+    \begin{itemize}
+        \item O símbolo  \code{haskell}{$} é um operador em Haskell com um comportamento
+            que não é óbvio a primeira vista
+
+        \item O tipo do operador \code{haskell}{$} é
+
+            \inputsyntax{haskell}{codes/dolar.hs}
+
+        \item Ele recebe uma função \code{haskell}{f :: a -> b} e o parâmetro \code{haskell}{a},
+            e retorna \code{haskell}{b = f(a)}
+
+        \item Este é o mesmo comportamento do espaço em branco:
+
+            \inputsyntax{haskell}{codes/space.hs}
+
+        \item Assim, a primeira vista este operador parecer ser desnecessário, mas a sua
+            importância vem de sua precedência
+
+            \inputsyntax{haskell}{codes/precedence.hs}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{O símbolo {\tt \$}} 
+
+    \begin{itemize}
+        \item \code{haskell}{infixr} nos diz que este é um operador associativo à direita
+
+        \item O valor \code{haskell}{0} (zero) corresponde a menor precedência possível
+
+        \item Já a aplicação de função (operador espaço) é associativo à esquerda e tem a
+            maior precedência possível
+
+        \item Assim, ele serve para mudar a associatividade e precedência da aplicação de funções
+
+        \item Por exemplo, a expressão
+
+            \inputsyntax{haskell}{codes/invalid.hs}
+
+        é inválida, pois a associatividade e a precedência da aplicação faz com que ela seja
+         interpretada como
+
+            \inputsyntax{haskell}{codes/invalid2.hs}
+
+        \item Já com o uso do operador dólar temos
+
+            \inputsyntax{haskell}{codes/valid.hs}
+    \end{itemize}
+
+\end{frame}
