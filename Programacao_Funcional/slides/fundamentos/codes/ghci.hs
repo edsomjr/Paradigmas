@@ -1,0 +1,1 @@
+    Prelude> :set prompt "ghci> "

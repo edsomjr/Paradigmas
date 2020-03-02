@@ -1,0 +1,387 @@
+\section{Tipos de dados de usuário}
+
+\begin{frame}[fragile]{Definição de novos tipos de dados}
+
+    \begin{itemize}
+        \item É possível introduzir novos tipos de dados por meio da palavra reservada
+            \code{haskell}{data}
+
+        \item A sintaxe é
+
+            \inputsyntax{haskell}{codes/data.hs}
+
+        \item Tanto o construtor de tipo quanto o construtor de valor devem iniciar em
+            letra maiúscula
+
+        \item Os $N$ tipos se referem aos tipos dos $N$ membros (campos) do novo tipo de dado
+
+        \item O construtor de valor pode ser entendido como uma função qualquer
+
+        \item Por exemplo, 
+
+            \inputsyntax{haskell}{codes/student.hs}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Definição de novos tipos de dados}
+
+    \begin{itemize}
+        \item O nome do  tipo e de seus valores são independentes
+
+        \item Os nomes dos tipos são usados exclusivamente em suas definições
+
+        \item Os construtores de valores são utilizados no programa para criar variáveis do
+            tipo definido
+
+        \item Quando não há ambiguidade, os nomes dos tipos e dos valores podem ser o mesmo
+
+        \item Esta prática é normal e legal
+
+        \item Haskell não permite a mistura de dois tipos de dados que são estruturalmente
+            diferentes, mas tem nomes diferentes
+
+        \item Por exemplo, no trecho abaixo,
+            \inputsyntax{haskell}{codes/point2D.hs}
+        \texttt{x} e \texttt{y} não são comparáveis, pois tem tipos distintos
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Sinônimos}
+
+    \begin{itemize}
+        \item Em Haskell é possível definir um \textbf{sinônimo} para um tipo já existe, com
+            o intuito de ampliar o entendimento do código por meio do uso de nomes mais
+            descritivos
+
+        \item Isto pode ser feito por meio da palavra-reservada \code{haskell}{type}
+
+        \item Por exemplo,
+
+            \inputsyntax{haskell}{codes/student_type.hs}
+
+        \item A definição de sinônimos é similar a feita em C/C++ por meio da palavra-reservada
+            \code{cpp}{typedef}
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Tipos de dados algébricos}
+
+    \begin{itemize}
+        
+        \item O tipo de dados \textbf{algébricos} podem ter mais de um construtor. Por exemplo:
+
+            \inputsyntax{haskell}{codes/blood_groups.hs}
+
+        \item Eles também não denominados tipos \textbf{enumeráveis}
+
+        \item Cada um dos construtores pode ter zero ou mais parâmetros. Por exemplo:
+
+            \inputsyntax{haskell}{codes/shape.hs}
+
+        \item Com um único construtor, o tipo de dado algébrico equivale a uma \code{c}{struct}
+            em C
+
+        \item Com dois ou mais construtores, todos sem parâmetros, corresponde a uma 
+            \code{c}{enum}
+
+        \item Nos demais casos, pode ser visto como uma \code{haskell}{union} de C/C++
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{\it Pattern Matching}
+
+    \begin{itemize}
+        \item Um padrão (\textit{pattern}) permite a extração de membros de um tipo
+
+        \item Isto permite a definição de uma função por meio de vários padrões de entrada
+
+        \item Quando a função for chamada, os valores dos parâmetros de entrada são 
+            confrontados com os padrões definidos, um por vez, na ordem em que foram definidos
+
+        \item Quando um casamento (\textit{matching}) for bem sucedido, a expressão associada
+            definirá o valor de retorno da função
+
+        \item Se nenhum casamento for bem sucedido, o resultado será um erro
+
+        \item O símbolo `\code{haskell}{_}' (\textit{wildcard}) pode ser usado para casar qualquer
+            valor
+
+        \item Em alguns contextos, o \textit{pattern matching} é também denominado 
+            \textbf{desconstrução}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de definição de função usando {\it pattern matching}}
+    \inputcode{haskell}{codes/area.hs}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de {\it pattern matching} em listas}
+    \inputcode{haskell}{codes/sumlist.hs}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de extração de membros usando {\it pattern matching}}
+    \inputcode{haskell}{codes/student_members.hs}
+\end{frame}
+
+\begin{frame}[fragile]{O símbolo {\tt \$}} 
+
+    \begin{itemize}
+        \item O símbolo  \code{haskell}{$} é um operador em Haskell com um comportamento
+            que não é óbvio a primeira vista
+
+        \item O tipo do operador \code{haskell}{$} é
+
+            \inputsyntax{haskell}{codes/dolar.hs}
+
+        \item Ele recebe uma função \code{haskell}{f :: a -> b} e o parâmetro \code{haskell}{a},
+            e retorna \code{haskell}{b = f(a)}
+
+        \item Este é o mesmo comportamento do espaço em branco:
+
+            \inputsyntax{haskell}{codes/space.hs}
+
+        \item Assim, a primeira vista este operador parecer ser desnecessário, mas a sua
+            importância vem de sua precedência
+
+            \inputsyntax{haskell}{codes/precedence.hs}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{O símbolo {\tt \$}} 
+
+    \begin{itemize}
+        \item \code{haskell}{infixr} nos diz que este é um operador associativo à direita
+
+        \item O valor \code{haskell}{0} (zero) corresponde a menor precedência possível
+
+        \item Já a aplicação de função (operador espaço) é associativo à esquerda e tem a
+            maior precedência possível
+
+        \item Assim, ele serve para mudar a associatividade e precedência da aplicação de funções
+
+        \item Por exemplo, a expressão
+
+            \inputsyntax{haskell}{codes/invalid.hs}
+
+        é inválida, pois a associatividade e a precedência da aplicação faz com que ela seja
+         interpretada como
+
+            \inputsyntax{haskell}{codes/invalid2.hs}
+
+        \item Já com o uso do operador dólar temos
+
+            \inputsyntax{haskell}{codes/valid.hs}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Notação de registro}
+
+    \begin{itemize}
+        \item Escrever funções de acesso para os membros de um tipo de dado é tedioso e
+            propenso a erros
+
+        \item Haskell oferece uma definição alternativa, que permite listar as funções de
+            acesso no momento da definição do novo tipo de dado
+
+        \item Por exemplo, o tipo \code{haskell}{Student} definido anteriormente poderia
+            ser definido da seguinte forma:
+
+            \inputsyntax{haskell}{codes/student_record.hs}
+
+        \item Esta notação também pode ser utilizada para criar variáveis deste novo tipo
+
+        \item A impressão padrão herdada de \code{haskell}{Show} também fica mais elaborada
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de criação de variável com notação de registro}
+    \inputcode{haskell}{codes/student_record_variables.hs}
+\end{frame}
+
+\begin{frame}[fragile]{Tipos parametrizáveis}
+
+    \begin{itemize}
+        \item Em Haskell é possível criar tipos de dados parametrizados, por meio da introdução
+            de uma variável na definição de tipo
+
+        \item Na biblioteca padrão (\code{haskell}{Prelude}) é definido o tipo parametrizado
+            \code{haskell}{Maybe}:
+
+            \inputsyntax{haskell}{codes/maybe.hs}
+
+        \item A variável \code{haskell}{a} nesta definição significa um tipo de dado qualquer
+
+        \item Este tipo de dado é utilizado para retornos de funções que podem estar ausentes
+
+        \item Por exemplo, a função \code{haskell}{head} retorna um erro quando aplicada à
+            lista vazia
+
+            \inputsyntax{haskell}{codes/head_error.hs}
+
+        \item Uma versão ``segura'' de \code{haskell}{head} pode ser implementada da seguinte
+            maneira:
+
+            \inputsyntax{haskell}{codes/safehead.hs}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Tipos recursivos}
+
+    \begin{itemize}
+        \item Um tipo é dito \textbf{recursivo} se ele for definido em termos de si próprio
+
+        \item Por exemplo, uma lista parametrizada pode ser definida como
+
+            \inputsyntax{haskell}{codes/list.hs}
+
+        \item Os tipos recursivos devem ter ao menos um caso base (construtor que não se refere
+            ao próprio tipo)
+
+        \item Assim, eles devem ter, no mínimo, dois construtores distintos
+
+        \item Uma árvore binária pode ser definida como
+
+            \inputsyntax{haskell}{codes/bst.hs}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de definição e uso de tipo recursivo}
+    \inputcode{haskell}{codes/list_example.hs}
+\end{frame}
+
+\begin{frame}[fragile]{Variáveis locais}
+
+    \begin{itemize}
+        \item Em Haskell há duas formas de introduzir variáveis locais a uma função
+
+        \item A primeira delas é utilizando uma expressão \code{haskell}{let}, cuja sintaxe é
+
+            \inputsyntax{haskell}{codes/let.hs}
+
+        \item Cada linha define uma nova variável
+
+        \item O escopo destas variáveis é a expressão que define o valor da função, e também
+            as linhas de definição de variáveis subsequentes
+
+        \item Se o nome de uma das variáveis locais coincidir com o nome de um dos parâmetros da
+            função, prevalecerá a variável local (\textit{shadowing}), o que pode levar a 
+            expressões confusas ou \textit{bugs}
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Variáveis locais}
+
+    \begin{itemize}
+        \item A segunda forma de se declarar variáveis locais é por meio de uma expressão
+            \code{haskell}{where}, cuja sintaxe é
+
+            \inputsyntax{haskell}{codes/where.hs}
+
+        \item A diferença entre as expressões \code{haskell}{where} e \code{haskell}{let} é que
+            a primeira prioriza a expressão, deixando os detalhes para depois
+
+        \item O escopo das variáveis definidas na expressão \code{haskell}{where} é a expressão
+            da função, que precede o bloco, e o próprio bloco \code{haskell}{where}
+
+        \item Além de variáveis locais, é possível definir funções locais nas expressões
+            \code{haskell}{let} e \code{haskell}{where}
+
+        \item A escolha entre estas duas alternativas é uma questão de estilo
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso de variáveis locais}
+    \inputcode{haskell}{codes/polynomial.hs}
+\end{frame}
+
+\begin{frame}[fragile]{Indentação}
+
+    \begin{itemize}
+        \item Em Haskell, a indentação e espaços em branco são utilizados para delimitar os
+            blocos
+
+        \item A primeira expressão de um programa pode começar em qualquer coluna do texto, desde
+            que as demais expressões de mesmo nível comecem nesta mesma coluna
+
+        \item Se a expressão é seguida de uma linha em branco ou por uma expressão em uma coluna
+            mais à direita, ela é considerada uma continuação da expressão anterior
+
+        \item Após um \code{haskell}{let} ou um \code{haskell}{where}, o compilador memorizará
+            a posição do próximo \textit{token}: expressões nas próximas linhas que comecem na
+            mesma posição serão consideradas novas entradas destes blocos
+
+        \item Por conta destas regras, é indicado o uso de espaços, e não de tabulações, na
+            indentação do código
+
+        \item Embora não seja comum, os blocos podem ser delimitados por chaves (`\texttt{\{}' e
+            `\texttt{\}}'): neste caso, as regras acima podem ser violadas, usando-se 
+            ponto-e-vírgula para separar as expressões
+            
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Expressões {\it case}}
+
+    \begin{itemize}
+        \item As expressões \code{haskell}{case} permitem confrontar uma expressão com vários
+            padrões
+
+        \item A sintaxe é
+
+            \inputsyntax{haskell}{codes/case.hs}
+
+        \item O valor da expressão é confrontado com cada um dos padrões, na ordem descrita
+
+        \item Caso um casamento seja válido, o valor da expressão \code{haskell}{case} será o
+            valor indicado após a seta (\code{haskell}{->})
+
+        \item Também é possível usar o \textit{wildcard}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de expressão {\it case}}
+    \inputcode{haskell}{codes/frommaybe.hs}
+\end{frame}
+
+\begin{frame}[fragile]{Guardas}
+
+    \begin{itemize}
+        \item O uso de \textit{pattern matching} é feito apenas com valores dos objetos
+
+        \item Para testes mais elaborados, com condicionais, Haskell disponibiliza as 
+            \textbf{guardas}
+
+        \item Cada padrão a ser casado pode ser seguido por uma ou mais guardas, sendo elas
+            expressões do tipo \code{haskell}{Bool}
+
+        \item Cada guarda é introduzida pelo símbolo \code{haskell}{|}, e seguida de um
+            \code{haskell}{=} (ou \code{haskell}{->}, no caso de expressões \code{haskell}{case})
+
+        \item Após o símbolo, segue a expressão a ser utilizada caso o padrão seja casado e a
+            guarda verdadeira
+
+        \item A expressão \code{haskell}{otherwise} é atada ao valor \code{haskell}{True}, de modo
+            que é uma guarda sempre verdadeira, o que melhora a legibilidade do código
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso de guardas}
+    \inputcode{haskell}{codes/guards.hs}
+\end{frame}

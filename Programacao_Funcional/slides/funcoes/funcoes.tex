@@ -1,0 +1,236 @@
+\section{Funções}
+
+\begin{frame}[fragile]{Aplicação de funções}
+
+    \begin{itemize}
+        \item Haskell não utiliza parêntesis para delimitar os parâmetros de uma função em uma
+            chamada
+
+        \item A sintaxe para a chamada de funções é
+
+            \inputsyntax{haskell}{codes/call.hs}
+
+        \item Por exemplo, o código abaixo compara dois inteiros:
+
+            \inputsyntax{haskell}{codes/compare.hs}
+
+        \item Os parêntesis são utilizados para resolver ambiguidades ou clarificar o significado
+            de expressões complexas
+
+        \item Por exemplo, o código abaixo compara as raizes quadradas de dois inteiros 
+
+            \inputsyntax{haskell}{codes/sqrt.hs}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplos de funções que agem em listas}
+
+    \begin{enumerate}
+        \item A função \code{haskell}{head} retorna o primeiro elemento de uma lista. Ex.:
+
+            \inputsyntax{haskell}{codes/head.hs}
+
+        \item Já a função \code{haskell}{tail} retorna todos os elementos da lista, exceto o
+            primeiro. Ex.:
+
+            \inputsyntax{haskell}{codes/tail.hs}
+
+        \item A função \code{haskell}{take} extrai os $n$ primeiros elementos da lista. Ex.:
+
+            \inputsyntax{haskell}{codes/take.hs}
+
+        \item De modo similar, a função \code{haskell}{drop} retorna todos os elementos da lista,
+            exceto os $n$ primeiros. Ex.:
+
+            \inputsyntax{haskell}{codes/drop.hs}
+
+        \item A função \code{haskell}{length} retorna o número de elementos da lista
+
+            \inputsyntax{haskell}{codes/length.hs}
+
+        \item A função \code{haskell}{null} retorna verdadeiro se a lista está vazia; e falso,
+            caso contrário
+    \end{enumerate}
+
+\end{frame}
+
+\begin{frame}[fragile]{Tuplas}
+
+    \begin{itemize}
+        \item Uma tupla é uma coleção, de tamanho fixo, de objetos de quaisquer tipos 
+
+        \item Em Haskell, as tuplas são delimitadas por parêntesis
+
+        \item Por exemplo, a tupla \code{haskell}{(1, True, "Test")} tem tipo
+            \code{haskell}{(Int, Bool, [Char])}
+
+        \item Uma tupla que não contém nenhum elemento é grafada como \code{haskell}{()}
+
+        \item Não há tuplas de um único elemento em Haskell
+
+        \item A ordem e o tipo dos elementos da tupla fazem diferença
+
+        \item Por exemplo, as tuplas \code{haskell}{(True, 'a')} e \code{haskell}{('a', True)}
+            tem tipos distintos, e não são comparáveis
+
+        \item As tuplas podem ser utilizadas para retornar múltiplos valores de uma função
+
+        \item As funções \code{haskell}{fst} e \code{haskell}{snd} retornam o primeiro e segundo
+            elemento de uma tupla de dois elementos, respectivamente
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Definindo novas funções}
+
+    \begin{itemize}
+        \item A sintaxe para a definição de uma nova função é
+
+            \inputsyntax{haskell}{codes/function.hs}
+
+        \item O nome da função deve iniciar em minúsculas, e os parâmetros devem ser separados
+            por um espaço em branco
+
+        \item O valor da expressão será o retorno da função
+
+        \item O tipo da função pode ser declarado explicitamente, mas esta declaração é opcional
+
+            \inputsyntax{haskell}{codes/areaCircle.hs}
+
+        \item A declaração de tipo pode ser útil para definir o tipo da função em caso de
+            ambiguidade
+
+        \item O \textit{currying} é aplicado em funções de dois ou mais parâmetros 
+
+            \inputsyntax{haskell}{codes/areaTriangle.hs}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Condicionais}
+
+    \begin{itemize}
+        \item Haskell tem uma variante do construto \texttt{IF-THEN-ELSE}
+
+        \item A sintaxe é 
+
+            \inputsyntax{haskell}{codes/if.hs}
+
+        \item A \texttt{condicao} deve ser uma expressão do tipo \code{haskell}{Bool}
+
+        \item Os dois valores devem ter o mesmo tipo
+
+        \item Ao contrário das linguagens imperativas, a cláusula \code{haskell}{else} é 
+            obrigatória
+
+        \item Se indentação for utilizada, ela deve ser consistente, pois fará parte
+            do construto
+
+        \item Diferentemente das linguagens imperativas, o uso deste construto não é muito
+            frequentes, sendo preterido nos casos que o \textit{pattern matching} puder ser
+            utilizado
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de condicionais em Haskell}
+
+    \inputcode{haskell}{codes/collatz.hs}
+
+\end{frame}
+
+\begin{frame}[fragile]{\it Lazy evaluation}
+
+    \begin{itemize}
+        \item Em Haskell a valoração das expressões é não-estrita (\textit{lazy evaluation})
+
+        \item Isto significa que os termos de uma expressão ou os parâmetros de uma função
+            só serão computados caso sejam necessários
+
+        \item As vantagens desta abordagem é que não são feitos cálculos desnecessários
+
+        \item Porém é preciso um maior tempo de processamento e memória, pois é preciso manter
+            o registro das expressões intermediárias (\textit{thunks})
+
+        \item Esta estratégia está embutida na linguagem, sem a necessidade de nenhum indicativo
+            ou marcação nos programas
+
+        \item A título de exemplo, e para entender as diferenças entre as duas abordagens, a 
+        expressão
+
+            \inputsyntax{haskell}{codes/lazy.hs}
+
+        será computada usando as valorações estrita e não-estrita
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de valoração}
+    \textbf{Valoração estrita}:
+    \vspace{0.1in}
+    \inputsyntax{haskell}{codes/strict.hs}
+
+    \vspace{0.3in}
+
+    \textbf{Valoração não-estrita}:
+    \vspace{0.1in}
+    \inputsyntax{haskell}{codes/non_strict.hs}
+\end{frame}
+
+\begin{frame}[fragile]{Polimorfismo}
+
+    \begin{itemize}
+        \item Em Haskell, listas são tipos polimórficos
+
+        \item A notação \code{haskell}{[a]} significa 
+            ``uma lista de elementos do tipo \code{haskell}{a}''
+ 
+        \item Variáveis que correspondem a tipos de dados começam sempre em minúsculas
+
+        \item Não há maneiras de se determinar exatamente qual é o tipo de \code{haskell}{a}
+
+        \item A função \code{haskell}{fst} tem o tipo \code{haskell}{fst :: (a, b) -> a}
+
+        \item \code{haskell}{a} e \code{haskell}{b} representam tipos, possivelmente distintos
+
+        \item Pelo tipo da função, o único comportamente possível que ela pode ter é 
+            retornar o primeiro elemento da tupla
+
+        \item Esta é uma importante característica do Haskell: o tipo de uma função pode dar
+            pistas sobre (ou possivelmente determinar) o comportamento de uma função
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Funções puras}
+
+    \begin{itemize}
+        \item Haskell assume, por padrão, que todas as funções são puras
+
+        \item Esta características tem profundas implicações na linguagem e na forma de programar
+
+        \item Por exemplo, considere que a função \code{haskell}{f} tenha o tipo
+            \code{haskell}{f :: Bool -> Bool}
+
+        \item Como \code{haskell}{f} é pura, ela só pode ter um dos seguintes comportamentos:
+
+        \begin{enumerate}[i.]
+            \item ignorar seu argumento e retornar sempre \code{haskell}{True} ou 
+                \code{haskell}{False}
+
+            \item retornar seu argumento sem modificações
+
+            \item negar seu argumento
+        \end{enumerate}
+
+        \item A pureza das funções é inerentemete modular: toda função é auto-contida e tem uma
+            interface bem definida
+
+        \item Ela também facilita o teste unitário de cada função
+
+        \item Em Haskell, códigos impuros devem ser separados de códigos puros, e a maior parte
+            do programa deve ser puro, com a parte impura a mais simples o possível
+    \end{itemize}
+
+\end{frame}
