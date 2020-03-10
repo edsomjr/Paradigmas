@@ -1,0 +1,2 @@
+    ghci> init "ABCDE"
+    "ABCD"

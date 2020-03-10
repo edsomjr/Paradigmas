@@ -1,0 +1,2 @@
+    ghci> last "ABC"
+    'C'
