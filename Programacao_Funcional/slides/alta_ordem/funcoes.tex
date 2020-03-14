@@ -1,0 +1,158 @@
+\section{Funções de alta ordem}
+
+\begin{frame}[fragile]{Exemplos de funções das bibliotecas do Haskell}
+
+    \begin{enumerate}
+        \item A função \code{haskell}{lines} recebe uma string e retorna um vetor de strings,
+            o qual corresponde às linhas contidas na string original
+            \inputsyntax{haskell}{codes/lines.hs}
+
+        \item A função \code{haskell}{unlines} é sua inversa: ela recebe um vetor de strings,
+            e une todas elas em uma única string, adicionando o terminador de linha
+            (\code{haskell}{'\n'}) entre elas
+
+            \inputsyntax{haskell}{codes/unlines.hs}
+
+        \item A função \code{haskell}{last} retorna o último elemento da lista
+
+            \inputsyntax{haskell}{codes/last.hs}
+
+    \end{enumerate}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplos de funções das bibliotecas do Haskell}
+
+    \begin{enumerate}
+        \setcounter{enumi}{3}
+        \item A função complementar de \code{haskell}{last} é a função \code{haskell}{init},
+            que retorna todos, menos o último, elementos da lista
+
+            \inputsyntax{haskell}{codes/init.hs}
+
+        \item A função \code{haskell}{(++)} une duas listas em uma única lista
+
+            \inputsyntax{haskell}{codes/append.hs}
+
+        \item A função \code{haskell}{concat} generaliza este comportamento, recebendo uma lista
+            de listas e as concatenando em uma única lista
+
+            \inputsyntax{haskell}{codes/concat.hs}
+    \end{enumerate}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplos de funções das bibliotecas do Haskell}
+
+    \begin{enumerate}
+        \setcounter{enumi}{6}
+
+        \item A função \code{haskell}{reverse} recebe uma lista \code{haskell}{xs} e retorna uma 
+            nova lista, com todos os elementos de \code{haskell}{xs} em ordem inversa
+
+            \inputsyntax{haskell}{codes/reverse.hs}
+
+        \item As funções \code{haskell}{and} e \code{haskell}{or} aplicam as operações lógicas
+            binárias \code{haskell}{(&&)} e \code{haskell}{(||)} em todos os elementos da lista,
+            até que reste apenas um elemento
+
+            \inputsyntax{haskell}{codes/and.hs}
+
+        \item A função \code{haskell}{splitAt} recebe um inteiro \code{haskell}{i} e uma lista
+            \code{haskell}{xs}, e retorna um par de listas \code{haskell}{(xs[1..i], xs[(i+1)..i])}
+    \end{enumerate}
+
+\end{frame}
+\begin{frame}[fragile]{Funções infixadas}
+
+    \begin{itemize}
+        \item Haskell utiliza, por padrão, a notação prefixada, de modo que, na aplicação da função
+            \code{haskell}{f} aos argumentos \code{haskell}{x} e \code{haskell}{y}, o nome da
+            função precede os argumentos, que são separados por espaços em branco
+
+            \inputsyntax{haskell}{codes/prefix.hs}
+
+        \item Se a função recebe dois ou mais argumentos, é possível que a notação infixada traga
+            uma melhor compreensão e leitura
+
+        \item Para utilizar a notação infixada, basta colocar o nome da função entre crases
+            (\code{haskell}{`}), tanto em uma definição quanto em uma chamada
+
+        \item Ambas formas são intercambiáveis
+
+            \inputsyntax{haskell}{codes/bitwise_or.hs}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplos de funções infixadas}
+
+    \begin{enumerate}
+        \item A função \code{haskell}{elem} recebe um elemento \code{haskell}{x} e uma lista de 
+            elementos \code{haskell}{xs} e retorna verdadeiro se \code{haskell}{x} pertence a
+            \code{haskell}{xs}
+
+            \inputsyntax{haskell}{codes/elem.hs}
+
+        \item A negação de \code{haskell}{elem} é a função \code{haskell}{notElem}
+
+            \inputsyntax{haskell}{codes/notelem.hs}
+
+        \item A função \code{haskell}{isPrefixOf} do módulo \code{haskell}{Data.List} recebe os
+            mesmos parâmetros, e retorna verdadeiro se \code{haskell}{x} é prefixo de 
+            \code{haskell}{xs}
+
+        \item As funções \code{haskell}{isInfixOf} e \code{haskell}{isSuffixOf} do mesmo módulo
+            tem comportamento semelhante, retornando verdadeiro se \code{haskell}{x} é uma sublista
+            de \code{haskell}{xs} ou se \code{haskell}{x} é sufixo de \code{haskell}{xs}, 
+            respectivamente
+    \end{enumerate}
+
+\end{frame}
+\begin{frame}[fragile]{Funções de alta ordem}
+
+    \begin{itemize}
+        \item Uma função é dita de \textbf{alta ordem} se ela recebe uma ou mais funções
+            como parâmetro ou retorna uma função
+
+        \item Por exemplo, a função \code{haskell}{break} recebe um predicado \code{haskell}{P} e 
+            uma lista \code{haskell}{xs}, e retorna uma par de listas \code{haskell}{(ys, zs)},
+            onde \code{haskell}{xs = ys ++ zs} e \code{haskell}{zs} tem início no primeiro 
+            elemento \code{haskell}{x} de \code{haskell}{xs} tal que a expressão
+            `\code{haskell}{P x}' é 
+            verdadeira
+
+            \inputsyntax{haskell}{codes/break.hs}
+    
+        \item A função \code{haskell}{all} recebe um predicado \code{haskell}{P} e uma lista
+            \code{haskell}{xs} e retorna verdadeiro se `\code{haskell}{P x}` é verdadeira para
+            todos \code{haskell}{x} em \code{haskell}{xs}
+
+        \item A função \code{haskell}{any} recebe os mesmos parâmetros, e retorna verdeiro se
+            `\code{haskell}{P x}' é verdadeira para ao menos um elemento de \code{haskell}{xs}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplos de funções de alta ordem}
+
+    \begin{enumerate}
+        \item A função \code{haskell}{takeWhile} recebe um predicado \code{haskell}{P} e uma lista
+            \code{haskell}{xs} e retorna uma lista \code{haskell}{ys} cujos
+            elementos são todos dentre os primeiros elementos \code{haskell}{x}
+            de \code{haskell}{xs} tais que `\code{haskell}{P x}' é verdadeira
+
+        \item Sua complementar é a função \code{haskell}{dropWhile}, que recebe os mesmo parâmetros
+            e retorna uma lista \code{haskell}{ys} cujo primeiro elemento é o primeiro elemento
+            \code{haskell}{x} de \code{haskell}{xs} para o qual a expressão 
+            `\code{haskell}{P x}' é falsa
+
+            \inputsyntax{haskell}{codes/takeWhile.hs}
+
+        \item A função \code{haskell}{span} retornam um par de listas
+            com as duas partes resultantes da chamada de \code{haskell}{takeWhile}
+
+            \inputsyntax{haskell}{codes/spam.hs}
+    \end{enumerate}
+
+\end{frame}
