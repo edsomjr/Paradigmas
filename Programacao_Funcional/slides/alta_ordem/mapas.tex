@@ -1,0 +1,68 @@
+\section{Mapas, filtros e reduções}
+
+\begin{frame}[fragile]{Laços em Haskell}
+
+    \begin{itemize}
+        \item Diferentemente das linguagens imperativas, Haskell não oferece construtos equivalentes
+            aos laços \code{c}{for} e \code{c}{while} das linguagens imperativas
+
+        \item Para contornar este fato pode-se valer de algumas técnicas distintas
+
+        \item Uma maneira é utilizar recursão
+
+        \item Outra forma é utilizar funções de alta ordem e abstrações
+
+        \item Esta diferença de abordagem tende a ser um fator que dificulta a 
+            aprendizagem de Haskell, e linguagens funcionais em geral, para programadores
+            acostumados com linguagens imperativas
+
+    \end{itemize}
+
+\end{frame}
+\begin{frame}[fragile]{Mapas, filtros e reduções}
+
+    \begin{itemize}
+        \item Os \textbf{mapas}, os \textbf{filtros} e as \textbf{reduções} são funções de alta 
+            ordem fundamentais em programação funcional
+
+        \item Elas abstraem três conceitos fundamentais:
+        \begin{enumerate}
+            \item A partir de uma lista \code{haskell}{xs}, criar uma nova lista \code{haskell}{ys}
+                tal que $y_i = f(x_i)$ para uma função $f$ dada (mapa)
+
+            \item A partir de uma lista \code{haskell}{xs}, criar uma nova lista \code{haskell}{ys}
+                formada pelos elementos \code{haskell}{x} de \code{haskell}{xs} que atendem a um
+                predicado \code{haskell}{P} (filtro)
+
+            \item Gerar um elemento \code{haskell}{y} a partir de uma lista \code{haskell}{xs}
+                atráves da aplicação sucessiva de uma operação binária \code{haskell}{op} e um
+                valor inicial \code{haskell}{x0} (redução)
+        \end{enumerate}
+
+        \item Todas as três técnicas recebem uma função como parâmetro
+
+        \item A aplicação destas técnicas substituem, em vários casos, a necessidade dos laços das
+            linguagens imperativas
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Filtros}
+
+    \begin{itemize}
+        \item Em Haskell, os filtros são implementados por meio da função \code{haskell}{filter}:
+
+            \inputsyntax{haskell}{codes/filter.hs}
+
+        \item Um filtro recebe um predicato \code{haskell}{P} e uma lista de elementos do tipo
+            \code{haskell}{[a]} e retorna uma nova lista do tipo \code{haskell}{[a]}
+
+        \item Um elemento \code{haskell}{a} da lista de entrada estará na lista de saída
+            se, e somente se, a expressão `\code{haskell}{P a}' for verdadeira
+
+        \item A ordem relativa dos elementos é preservada
+
+            \inputsyntax{haskell}{codes/hex.hs}
+    \end{itemize}
+
+\end{frame}

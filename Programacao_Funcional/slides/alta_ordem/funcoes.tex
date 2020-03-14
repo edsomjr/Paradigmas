@@ -63,6 +63,30 @@
     \end{enumerate}
 
 \end{frame}
+
+\begin{frame}[fragile]{Exemplos de funções das bibliotecas do Haskell}
+
+    \begin{enumerate}
+        \setcounter{enumi}{9}
+
+        \item A função \code{haskell}{zip} recebe duas listas \code{haskell}{xs} e 
+            \code{haskell}{ys} e gera uma lista de pares \code{haskell}{zs}, cujo tamanho é mesmo
+            da menor dentre as duas, cujos elementos \code{haskell}{(xi, yi)} são oriundos destas
+            listas, nesta ordem
+
+            \inputsyntax{haskell}{codes/zip.hs}
+        
+        \item As funções \code{haskell}{zip3}, \code{haskell}{zip4}, ..., \code{haskell}{zip7} são 
+            as equivalentes para três, quatro, etc, até sete listas
+
+        \item A função \code{haskell}{words} quebra uma string em uma lista de palavras, delimitadas
+            por qualquer caractere que corresponda a espaços em branco:
+
+            \inputsyntax{haskell}{codes/words.hs}
+    \end{enumerate}
+
+\end{frame}
+
 \begin{frame}[fragile]{Funções infixadas}
 
     \begin{itemize}
