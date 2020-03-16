@@ -264,4 +264,137 @@
 
 \end{frame}
 
-%\begin{frame}[fragile]{Reduções: {\it left fold}}
+\begin{frame}[fragile]{Reduções: {\it left fold}}
+
+    \begin{itemize}
+        \item Em Haskel, as reduções são implementadas por meio de \textbf{dobras} (\textit{folds})
+
+        \item A \textbf{dobra à esquerda} (\textit{left fold}) abstraí o seguinte padrão:
+        \begin{enumerate}[i.]
+            \item fazer algo a cada elemento da lista;
+            \item atualizar o acumulador a cada ação; e
+            \item retornar o acumulador ao final do processo.
+        \end{enumerate}
+
+        \item A função \code{haskell}{foldl} pode ser definida como
+
+            \inputsyntax{haskell}{codes/foldl.hs}
+
+        \item \texttt{step} é uma função que recebe dois parâmetros dos tipos 
+            \code{haskell}{a} e \code{haskell}{b}, respectivamente, e retorna um elemento do
+            tipo \code{haskell}{a}
+
+        \item \texttt{zero} é o acumulador, e na chamada da função \code{haskell}{foldl}
+            é o termo inicial da expansão
+
+        \item O terceiro parâmetro é a lista a ser processada
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Reduções: {\it left fold}}
+
+    \begin{itemize}
+        \item A função \code{haskell}{step} atualizará o acumulador, utilizando o valor acumulado
+            e um elemento da lista
+
+        \item \code{haskell}{foldl} é uma dobra à esquerda porque consome os elementos da lista
+            da esquerda para a direita
+
+        \item Por exemplo, a função \code{haskell}{accumulate} abaixo retorna a soma dos elementos
+            da lista \code{haskell}{xs}
+
+            \inputsyntax{haskell}{codes/accumulate.hs}
+
+        \item Os parêntesis constituem uma notação para funções (ou operadores) binárias
+
+        \item Outro exemplo seria a implementação da função fatorial:
+
+            \inputsyntax{haskell}{codes/factorial.hs}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de expansão de uma dobra à esquerda}
+    \inputsyntax{haskell}{codes/factorial_expansion.hs}
+\end{frame}
+
+\begin{frame}[fragile]{Dobra à direita}
+
+    \begin{itemize}
+        \item A função \code{haskell}{foldr} realiza a dobra à direita
+
+        \item Ela pode ser definida como
+
+            \inputsyntax{haskell}{codes/foldr.hs}
+
+        \item A diferença entre as duas dobras pode ser vista através da expansão 
+
+            \inputsyntax{haskell}{codes/factorial_foldr.hs}
+
+        \item Esta função pode ser interpretada da seguinte maneira: troque o construtor da
+            lista por \code{haskell}{step} e a lista vazio por \code{haskell}{zero}:
+
+            \inputsyntax{haskell}{codes/foldr_list.hs}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Dobra à direita}
+
+    \begin{itemize}
+        \item À primeira vista, a dobra à direita parece menos útil na prática do que a dobra à
+            esquerda, uma vez que processa os elementos do último para o primeiro
+
+        \item Contudo, ela pode ser utilizada para implementar a função \code{haskell}{filter}
+
+        \item Considere a implementação de \code{haskell}{filter} abaixo, que utiliza recursão
+            explícita:
+
+            \inputsyntax{haskell}{codes/filter_recursion.hs}
+
+        \item Esta implementação pode ser reescrita como
+
+            \inputsyntax{haskell}{codes/filter_foldr.hs}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Dobra à direita}
+
+    \begin{itemize}
+        \item A assinatura da função \code{haskell}{filter} nos diz que ela retorna uma lista
+            do mesmo tipo que ela consome
+
+        \item O caso base então ocorre com a lista vazia, que inicializará o acumulador
+
+        \item A função \code{haskell}{foldr} chamará a função \code{haskell}{step} passando um
+            elemento da lista e o acumulador
+
+        \item Se o elemento atender ao predicado \code{haskell}{p} ele deve ser adicionado ao
+            acumulador, caso contrário deve ser descartado
+
+        \item Funções que podem ser implementadas com \code{haskell}{foldr} são denominadas
+            \textbf{recursivas primitivas}
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Dobra à direita}
+
+    \begin{itemize}
+        \item A função \code{haskell}{map} também pode ser implementada por meio da função
+            \code{haskell}{foldr}:
+
+            \inputsyntax{haskell}{codes/map_foldr.hs}
+
+        \item Até mesmo \code{haskell}{foldl} pode ser escrita em termos de \code{haskell}{foldr}:
+
+            \inputsyntax{haskell}{codes/folds.hs}
+
+        \item Observe a expansão abaixo:
+            \inputsyntax{haskell}{codes/foldl_as_foldr.hs}
+    \end{itemize}
+
+\end{frame}
