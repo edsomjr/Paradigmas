@@ -19,6 +19,131 @@
     \end{itemize}
 
 \end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso de recursão: Capitalização}
+
+    \begin{itemize}
+        \item O primeiro exemplo de uso de recursão para substituir laços é o problema de
+            capitalizar as palavras de uma string dada
+
+        \item Por capitalizar uma palavra entende-se:
+        \begin{enumerate}
+            \item tornar a primeira letra maiúscula; e
+            \item transformar todas as demais em minúsculas
+        \end{enumerate}
+
+        \item Para ilustrar as diferenças entre as abordagens imperativa e funcional, será
+            apresentado um código C++ que capitaliza strings
+
+        \item Em seguida, será apresentado um código equivalente em Haskell, utilizando
+            recursão em substituição ao laço
+
+        \item Para focar apenas no processo de capitalização, o parâmetro das funções será uma
+            lista de palavras, de modo a abstração o processo de tokenização
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da capitalização em C++}
+    \inputsnippet{c++}{5}{25}{codes/capitalize.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da capitalização em Haskell}
+    \inputcode{haskell}{codes/capitalize.hs}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso de recursão: Lista de Aprovados}
+
+    \begin{itemize}
+        \item Um segundo exemplo de uso de recursão em substituição a laços é o de gerar
+            uma lista de aprovados, a partir de uma lista de alunos e suas menções
+
+        \item O critério de aprovação é ter nota final igual ou superior a 5 pontos
+
+        \item Os alunos serão representados por uma estrutura que contém o nome do aluno e
+            sua nota final
+
+        \item Novamente será apresentado um código em C++, que utiliza laços
+
+        \item O código em Haskell novamente substituirá o laço por recursão
+
+        \item Atente que neste exemplo, e no anterior, a recursão é composta por um (ou mais)
+            caso(s) base(s), e uma chamada recursiva
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da lista de aprovados em C++}
+    \inputsnippet{c++}{5}{20}{codes/aprovados.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da lista de aprovados em Haskell}
+    \inputcode{haskell}{codes/aprovados.hs}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso de recursão: Produto Escalar}
+
+    \begin{itemize}
+        \item O terceiro exemplo de uso de recursão em substituição aos laços é o cálculo do
+            produto escalar entre dois vetores
+
+        \item Segundo a Álgebra Linear, dados dois vetores $\vec{u}, \vec{v}\in \mathbb{R}^n$,
+            o produto escalar entre $\vec{u}$ e $\vec{v}$ é dado por
+        \[
+            \vec{u}\cdot \vec{v} = \sum_{i = 1}^n u_iv_i
+        \]
+
+        \item Observe que a própria definição sugere o uso de um laço, representado pelo 
+            somatório
+
+        \item Para utilizar a recursão, é preciso reinterpretar esta solução
+
+        \item No caso base, se $\vec{u}, \vec{v}\in \mathbb{R}^0$, então $\vec{u}\cdot\vec{v} = 0$
+
+        \item Se  $\vec{u}, \vec{v}\in\mathbb{R}^n$, então
+        \[
+            \vec{u}\cdot\vec{v} = u_1v_1 + \vec{r}\cdot\vec{s},
+        \]
+        onde $\vec{r} = (u_2, u_3, \ldots, u_n)$ e $\vec{s} = (v_2, v_3, \ldots, v_n)$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação do produto interno em C++}
+    \inputsnippet{c++}{5}{13}{codes/dotproduct.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação do produto interno em Haskell}
+    \inputcode{haskell}{codes/dotproduct.hs}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso de recursão: Verificação de primalidade}
+
+    \begin{itemize}
+        \item O último exemplo de uso de recursão para substituir laços é o teste de
+            primalidade
+
+        \item Dado um inteiro positivo $n$, a função \code{haskell}{is_prime(n)} deve
+            retornar verdadeiro se $n$ é primo, e falso, caso contrário
+
+        \item A complexidade da função que será apresentada é $O(\sqrt{n})$, pois se vale do
+            fato de que, se $n$ é composto, ele tem ao menos um divisor próprio $d$ tal que
+            $d \leq \sqrt{n}$
+
+        \item Contudo, para evitar erros de precisão, a função \code{haskell}{sqrt} não é 
+            utilizada explicitamente
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da verificação de primalidade em C++}
+    \inputsnippet{c++}{5}{21}{codes/isprime.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da verificação de primalidade em Haskell}
+    \inputcode{haskell}{codes/isprime.hs}
+\end{frame}
+
 \begin{frame}[fragile]{Mapas, filtros e reduções}
 
     \begin{itemize}
@@ -47,6 +172,27 @@
 
 \end{frame}
 
+\begin{frame}[fragile]{Mapas}
+
+    \begin{itemize}
+        \item Em Haskell, os mapas são implementados por meio da função \code{haskell}{map}
+        
+            \inputsyntax{haskell}{codes/map.hs}
+        
+        \item Um mapa recebe uma função \code{haskell}{f} que transforma um elemento do tipo 
+            \code{haskell}{a} em um elemento do tipo \code{haskell}{b} e uma lista de elementos
+            do tipo \code{haskell}{a}
+
+        \item O retorno é uma lista de elementos do tipo \code{haskell}{b}, onde
+            $b_i = f(a_i)$
+        
+        \item O uso de mapas simplifica o código e o torna mais legível
+ 
+            \inputsyntax{haskell}{codes/capitalize_map.hs}
+    \end{itemize}
+
+\end{frame}
+
 \begin{frame}[fragile]{Filtros}
 
     \begin{itemize}
@@ -66,3 +212,56 @@
     \end{itemize}
 
 \end{frame}
+
+\begin{frame}[fragile]{Lista de aprovados usando filtros e mapas}
+    \inputcode{haskell}{codes/aprovados_filter.hs}
+\end{frame}
+
+\begin{frame}[fragile]{Recursão de cauda}
+
+    \begin{itemize}
+        \item Uma função é dita \textbf{recursiva de cauda} (\textit{tail recursive}) se ela ou 
+            retorna valores (casos-base) ou retorna chamadas de si mesma, com diferentes parâmetros
+
+        \item Nem toda função recursiva é recursiva de cauda
+
+        \item Por exemplo, a definição da função fatorial abaixo é recursiva, mas não recursiva
+            de cauda:
+        \[
+            n! = \left\lbrace \begin{array}{ll} 1,& \mbox{se}\ n = 0\ \mbox{ou}\ n = 1 \\
+                n\cdot (n - 1)!,& \mbox{caso contrário} \end{array}\right.
+        \]
+
+        \item Isto porque, na chamada recursiva, o retorno consiste no produto da chamada 
+            de $(n - 1)!$ pelo parâmetro $n$ 
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Recursão de cauda}
+
+    \begin{itemize}
+        \item Contudo, esta definição pode ser modificada para que se torne recursiva de cauda:
+        \[
+            f(n, m) = \left\lbrace \begin{array}{ll} m,& \mbox{se}\ n = 0\ \mbox{ou}\ n = 1 \\
+                f(n - 1, n\cdot m),& \mbox{caso contrário} \end{array}\right.
+        \]
+
+        \item Desde modo, $n! = f(n, 1)$
+
+        \item Observe que a chamada recursiva agora consiste apenas em uma invocação da função
+            $f$
+
+        \item O parâmetro $m$ é denominado \textbf{acumulador}
+
+        \item A recursão de cauda permite a \textbf{otimização de chamada de cauda}
+            (\textit{tail call optimization -- TCO})
+
+        \item Isto porque, neste caso, é possível evitar o uso da pilha de execução, reaproveitando
+            um único registro de ativação a cada chamada
+    \end{itemize}
+
+\end{frame}
+
+%\begin{frame}[fragile]{Reduções: {\it left fold}}
