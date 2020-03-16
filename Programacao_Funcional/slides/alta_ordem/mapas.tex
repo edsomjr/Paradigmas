@@ -264,7 +264,7 @@
 
 \end{frame}
 
-\begin{frame}[fragile]{Reduções: {\it left fold}}
+\begin{frame}[fragile]{Reduções}
 
     \begin{itemize}
         \item Em Haskel, as reduções são implementadas por meio de \textbf{dobras} (\textit{folds})
@@ -292,7 +292,7 @@
 
 \end{frame}
 
-\begin{frame}[fragile]{Reduções: {\it left fold}}
+\begin{frame}[fragile]{Dobra à esquerda}
 
     \begin{itemize}
         \item A função \code{haskell}{step} atualizará o acumulador, utilizando o valor acumulado
@@ -393,8 +393,42 @@
 
             \inputsyntax{haskell}{codes/folds.hs}
 
-        \item Observe a expansão abaixo:
-            \inputsyntax{haskell}{codes/foldl_as_foldr.hs}
+        \item Esta definição não é óbvia, e envolve a aplicação parcial de funções 
+            (\textit{currying})
+
+        \item Para compreender esta equivalência, o ideal é escrever as equivalências de uma
+            aplicação
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de expansão de \code{haskell}{foldl} definido como 
+\code{haskell}{foldr}}
+    \inputcode{haskell}{codes/foldl_as_foldr.hs}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de produto escalar definido usando \code{haskell}{foldr}}
+    \inputcode{haskell}{codes/dotproduct_foldr.hs}
+\end{frame}
+
+\begin{frame}[fragile]{\code{haskell}{foldl} e evaluação não-estrita}
+
+    \begin{itemize}
+        \item A função \code{haskell}{foldl} deve ser usada como cuidado, por causa da evaluação
+            não-estrita
+
+        \item Isto significa que, até que o caso baso seja atingido, todas as expressões
+            intermediárias sejam armazenadas sem serem computadas
+        
+        \item Estas expressões ocupam mais memória do que os valores que elas representam
+
+        \item Se a expressão for muito extensa, a pilha de execução pode estourar
+
+            \inputsyntax{haskell}{codes/stack_overflow.hs}
+
+        \item Este tipo de erro é denominado \textit{space overflow}, pois o programa consome
+            muito mais espaço (em memória) do que deveria
+
     \end{itemize}
 
 \end{frame}

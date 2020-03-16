@@ -1,0 +1,36 @@
+\section{Funções anônimas}
+
+\begin{frame}[fragile]{Funções lambda}
+
+    \begin{itemize}
+        \item Haskell permite a definição de funções anônimas, denominadas \textbf{funções lambda}
+
+        \item A sintaxe para a definição de uma função lambda é
+
+            \inputsyntax{haskell}{codes/lambda.hs}
+
+        \item A lista de parâmetros \texttt{var1, var2, ..., varN} pode conter casamentos de
+            padrões
+
+        \item A expressão, contudo, não pode conter guardas
+
+        \item A depender do contexto, pode ser necessário usar parêntesis para delimitar o
+            corpo da função lambda
+
+        \item Por exemplo, a função abaixo imprime os inteiros de 1 a $n$, substituindo os 
+            múltiplos de $m$ pela palavra \code{haskell}{"Pim"}
+
+            \inputsyntax{haskell}{codes/pim.hs}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{\it Currying}
+
+    \begin{itemize}
+        \item A aplicação parcial de uma função (\textit{currying}) é uma técnica de programação
+            funcional que permite obter uma nova função através da aplicação incompleta de
+            seus parâmetros
+    \end{itemize}
+
+\end{frame}
