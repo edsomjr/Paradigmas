@@ -28,9 +28,152 @@
 \begin{frame}[fragile]{\it Currying}
 
     \begin{itemize}
-        \item A aplicação parcial de uma função (\textit{currying}) é uma técnica de programação
+        \item A aplicação parcial de uma função (\textit{currying}, termo derivado do nome
+            do lógico Haskell Curry) é uma técnica de programação
             funcional que permite obter uma nova função através da aplicação incompleta de
             seus parâmetros
+
+        \item Na sintaxe de tipo de uma função, as setas (\texttt{->}) indicam a sequência de
+            aplicações parciais
+
+        \item Por exemplo, o tipo da função \code{haskell}{take} é
+
+            \inputsyntax{haskell}{codes/take.hs}
+
+        \item Uma leitura possível deste tipo seria: ``a função \code{haskell}{take} recebe dois
+            parâmetros -- um inteiro e uma lista de elementos do tipo \code{haskell}{a}''
+
+        \item Porém, efetivamente este tipo significa que a função \code{haskell}{take}, ao receber
+            como parâmetro um número inteiro, retorna uma função \code{haskell}{f} cujo tipo
+            é \code{haskell}{[a] -> [a]}
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{\it Currying}
+
+    \begin{itemize}
+        \item Por exemplo, 
+
+            \inputsyntax{haskell}{codes/take3.hs}
+
+        \item De fato, em Haskell, todas as funções recebem um único parâmetro
+
+        \item A cada aplicação de um parâmetro, o retorno é uma nova função, que recebe 
+            ``um parâmetro a menos'' que a anterior
+
+        \item Outra forma de interpretar este comportamento é pensar que, se $f$ é uma 
+            função com múltiplos parâmetros, a cada aplicação um dos parâmetros tem seu
+            valor fixado, e os parâmetros ainda não definidos são os parâmetros da função
+            resultante
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{\it Currying}
+
+    \begin{itemize}
+        \item A aplicação parcial permite a definição de novas funções baseadas em funções
+            preexistentes, simplificando o código e facilitando a leitura do mesmo
+
+        \item Por exemplo, a função \code{haskell}{head} pode ser definida em termos de uma
+            aplicação parcial de \code{haskell}{take}
+
+            \inputsyntax{haskell}{codes/head.hs}
+
+        \item De fato, o parâmetro \code{haskell}{xs} pode ser omitido desta definição,
+            resultando em
+
+            \inputsyntax{haskell}{codes/head_xs.hs}
+
+        \item Outro exemplo de função definida por meio de aplicação parcial:
+
+            \inputsyntax{haskell}{codes/odd.hs}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Seções}
+
+    \begin{itemize}
+        \item Haskell tem uma sintaxe especial para aplicação parcial de funções em notação
+            infixada, denominada \code{haskell}{seção}
+
+        \item Para tal, basta envolver o operador entre parêntesis, e fornecer o operador da
+            esquerda ou da direita 
+
+            \inputsyntax{haskell}{codes/double.hs}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Padrão `como'}
+
+    \begin{itemize}
+        \item Ao escrever funções que recebem listas como parâmetros, é comum checar dois
+            padrões: a lista vazia (\code{haskell}{[]}) e a lista com ao menos um elemento
+            (padrão \code{haskell}{(x:xs)})
+
+        \item Este segundo padrão desconstrói a lista, de modo que se a lista toda for necessária
+            na expressão que se segue, ela precisa se reconstruída
+
+        \item O padrão `\textbf{como}' (\textit{as-pattern}) permite checar este segundo caso, 
+            preservando
+            a lista original, de modo que ela pode ser utilizada na expressão diretamente, evitando
+            novas reconstruções
+
+        \item Por exemplo, a função abaixo lista todos os sufixos não nulos de uma string dada:
+
+            \inputsyntax{haskell}{codes/suffixes.hs}
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Composição de funções}
+
+    \begin{itemize}
+        \item Algumas funções podem ser implementadas através de uma cadeia de chamadas de
+            funções, onde o resultado da aplicação da função anterior ao parâmetro da chamada
+            é o parâmetro de entrada da próxima função da cadeia
+
+        \item Por exemplo, a função \code{haskell}{tails} do módulo \code{haskell}{Data.List}
+            tem comportamento quase idêntico ao da função \code{haskell}{suffixes} implementada
+            anteriormente:
+
+            \inputsyntax{haskell}{codes/tails.hs}
+
+        \item Assim, a função \code{haskell}{suffixes} pode ser implementada utilizando-se as
+            funções \code{haskell}{tails} e \code{haskell}{init}:
+
+            \inputsyntax{haskell}{codes/suffixes2.hs}
+
+        \item Este padrão corresponde à composição de funções em matemática
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Composição de funções}
+
+    \begin{itemize}
+        \item Em Haskell, funções podem ser compostas por meio do operador ponto final
+            (`\code{haskell}{.}')
+
+        \item De fato, ele é um operador como os demais operadores da linguagens, associativo
+            à esquerda, como nível 9 de precedência:
+
+            \inputsyntax{haskell}{codes/dot.hs}
+        \item Assim, a função \code{haskell}{suffixes} pode ser implementada como
+
+            \inputsyntax{haskell}{codes/suffixes3.hs}
+
+        \item A função abaixo contabiliza o número de palavras de uma string que começam em
+            maiúscula:
+
+            \inputsyntax{haskell}{codes/capCount.hs}
+
     \end{itemize}
 
 \end{frame}
