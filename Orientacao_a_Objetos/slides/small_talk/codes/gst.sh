@@ -1,0 +1,1 @@
+    $ gst -I nomedaimagem.im

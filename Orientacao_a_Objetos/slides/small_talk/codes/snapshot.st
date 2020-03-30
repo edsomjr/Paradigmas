@@ -1,0 +1,1 @@
+    ObjectMemory snapshot: 'nomedaimagem.im'
