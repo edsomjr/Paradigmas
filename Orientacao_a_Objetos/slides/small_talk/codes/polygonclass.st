@@ -9,7 +9,7 @@ Object subclass: Polygon [
 
     init: n [ sides := n ]
 
-    sides [ ^sides ]
+    getSides [ ^sides ]
 
     printOn: stream [
         super printOn: stream .

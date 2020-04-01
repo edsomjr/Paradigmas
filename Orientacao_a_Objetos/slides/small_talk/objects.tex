@@ -115,15 +115,17 @@
 \begin{frame}[fragile]{Classes}
 
     \begin{itemize}
-        \item Para criar novas instâncias da classe, é preciso definir o método \code{smalltalk}{new}
+        \item Para criar novas instâncias da classe, é preciso definir o método \textbf{construtor}
 
-        \item Este método, em sua implementação, deve
+        \item O construtor é um método de \textbf{classe}, não de instância
+
+        \item Em sua implementação, o construtor deve
         \begin{enumerate}
-            \item Criar uma variável que conterá o espaço de memória da instância
-            \item Inicializar este espaço invocando o método \code{smalltalk}{new} de sua
+            \item criar uma variável que conterá o espaço de memória da instância
+            \item inicializar este espaço invocando o método \code{smalltalk}{new} de sua
                 superclasse
-            \item Inicializar as variáveis de instância da classe
-            \item Retornar a variável que contém a instância
+            \item inicializar as variáveis de instância da classe
+            \item retornar a variável que contém a instância
         \end{enumerate}
 
         \item Para \textbf{retornar} um valor ao término da execução de um método, deve-se
@@ -145,6 +147,94 @@
 
 \begin{frame}[fragile]{Definição completa da classe \code{smalltalk}{Polygon}}
     \inputcode{smalltalk}{codes/polygonclass.st}
+\end{frame}
+
+\begin{frame}[fragile]{Subclasses}
+
+    \begin{itemize}
+        \item A sintaxe para declarar uma \textbf{subclasse} em Smalltalk é
+
+            \inputsyntax{smalltalk}{codes/subclass.st}
+
+        \item As subclasses herdam os métodos e membros da classe base
+
+        \item Elas também podem ter membros e métodos específicos
+
+        \item Se necessário, um ou mais métodos da classe base podem ser \textbf{sobrescritos},
+            dando a eles uma nova implementação
+
+        \item Esta nova implementação \textbf{prevalecerá} em relação à implementação herdada do 
+            pai, no momento da invocação 
+
+        \item Os métodos da classe base podem ser invocados na subclasse por meio da palavra
+            reservada \code{smalltalk}{super}
+
+        \item Métodos da própria classe podem ser invocados usando a palavra reservada
+            \code{smalltalk}{self}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de subclasse em Smalltalk}
+    \inputcode{smalltalk}{codes/square.st}
+\end{frame}
+
+\begin{frame}[fragile]{Outro exemplo de subclasse em Smalltalk}
+    \inputcode{smalltalk}{codes/rectangle.st}
+\end{frame}
+
+
+\begin{frame}[fragile]{Polimorfismo}
+
+    \begin{itemize}
+        \item Na orientação a objetos, o \textbf{polimorfismo} permite utilizar uma referência a 
+            uma instância de uma subclasse onde se espera uma referência de uma classe base
+
+        \item Na maior parte das linguagens, uma \textbf{referência} (ponteiro) para a classe base 
+            pode apontar para uma instância de qualquer subclasse desta classe base
+
+        \item Em Smalltalk as variáveis e referências não tem tipo explícito, de modo que esta
+            característica não fica evidente como nas demais linguagens
+
+        \item Ainda assim, é possível observar o comportamento polimórfico das instâncias de 
+            subclasses que \textbf{sobreescreveram} métodos da classe base
+
+        \item Importante ressaltar que, no processo de sobrescrita de um método da classe base,
+            a \textbf{assinatura} do mesmo (nome e lista de parâmetros) deve permanecer a mesma
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de polimorfismo em Smalltalk}
+    \inputcode{smalltalk}{codes/polimorfismo.st}
+\end{frame}
+
+\begin{frame}[fragile]{Sobrecarga}
+
+    \begin{itemize}
+        \item Outra importante característica da orientação a objetos é a \textbf{sobrecarga} de
+            métodos
+
+        \item A sobrecarga permite escrever vários métodos com o \textbf{mesmo nome}, porém
+            com \textbf{parâmetros distintos}
+
+        \item A sintaxe para definição de métodos em Smalltalk permite a sobrecarga, mas assim
+            como no caso do polimorfismo, o conceito não fica explícito como em outras linguagens
+
+        \item Os métodos construtores, que inicializam uma instância de uma classe, fornecem
+            bons exemplos deste conceito na prática
+
+        \item Cada construtor pode ter um número \textbf{distinto} de parâmetros
+
+        \item De fato, como Smalltalk associa um \textbf{nome} a cada parâmetro, o qual deve ser 
+            usado na invocação do construtor, uma escolha adequada para estes nomes pode aumentar 
+            a \textbf{legibilidade} do código
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de sobrecarga em Smalltalk}
+    \inputsnippet{smalltalk}{1}{21}{codes/overload.st}
 \end{frame}
 
 \begin{frame}[fragile]{{\tt gst}, arquivos e imagens}
@@ -172,3 +262,4 @@
     \end{itemize}
 
 \end{frame}
+
