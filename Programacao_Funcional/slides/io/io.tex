@@ -1,0 +1,45 @@
+\section{Entrada e saída em console}
+
+\begin{frame}[fragile]{Código puro e código impuro}
+
+    \begin{itemize}
+        \item Haskell determina uma clara separação entre código puro e código impuro
+
+        \item Esta estratégia permite que código puro fique isento de efeitos colaterais
+
+        \item Além de facilitar a divisão semântica do código, ela permite aos compiladores
+            otimizar e paralelizar trechos de código automaticamente
+
+        \item Como as rotinas de entrada e saída interagem com o mundo externo, todas elas
+            produzem ou estão suscetíveis a efeitos colaterais, sendo assim, códigos impuros
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Leitura e escrita de strings em console}
+
+    \begin{itemize}
+        \item Haskell provê um conjunto de funções para escrita e leitura de dados a partir 
+            do console
+
+        \item No que diz respeito à strings, duas funções básicas são \code{haskell}{putStrLn}
+            e \code{smalltalk}{getLine}
+
+        \item A função \code{haskell}{putStrLn} escreve uma string no console, seguida de uma
+            quebra de linha, e tem tipo
+
+            \inputsyntax{haskell}{codes/putstrln.hs}
+
+        \item Já a função \code{haskell}{getLine} lê uma string do console até encontrar uma 
+            quebra de linha e a retorna, sem a quebra
+
+        \item O tipo da função \code{haskell}{getLine} é
+
+            \inputsyntax{haskell}{codes/getline.hs}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de leitura e escrita de strings em console}
+    \inputcode{haskell}{codes/echo.hs}
+\end{frame}
