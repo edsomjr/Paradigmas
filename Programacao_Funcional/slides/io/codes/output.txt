@@ -1,0 +1,6 @@
+Inicia com espaço
+Termina com espaço extra
+Espaço extra entre palavras
+Espaço no início e no fim
+
+Linha anterior somente com espaços
