@@ -74,3 +74,139 @@
     \inputsnippet{haskell}{1}{21}{codes/filesize.hs}
 \end{frame}
 
+\begin{frame}[fragile]{Entrada e saída padrão do sistema}
+
+    \begin{itemize}
+        \item Em Haskell há três \textit{handles} pré-definidos, associados a entrada e a
+            saída-padrão do sistema
+
+        \item O \textit{handle} \code{haskell}{stdin} corresponde à entrada padrão, que usualmente
+            está associada ao teclado
+
+        \item O \textit{handle} \code{haskell}{stdout} corresponde à saída padrão, em geral 
+            associada ao terminal
+
+        \item Por fim o \textit{handle} \code{haskell}{stderr} corresponde à saída de erro padrão,
+            que pode ser o próprio terminal ou ser direcionada ao um arquivo específico
+
+        \item As funções de I/O sem o prefixo \code{haskell}{h} são definidas em termos destes
+            \code{haskell}{handles}:
+
+            \inputsyntax{haskell}{codes/io.hs}
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Removendo e renomeando arquivos}
+
+    \begin{itemize}
+        \item A biblioteca \code{haskell}{System.Directory} oferece funções que permitem
+            manipular os arquivos diretamente
+
+        \item A função \code{haskell}{removeFile} recebe como argumento o caminho para um arquivo
+            e o remove
+
+            \inputsyntax{haskell}{codes/removefile.hs}
+
+        \item Já a função \code{haskell}{renameFile} recebe dois parâmetros: o caminho do arquivo
+            a ser renomeado e o caminho do seu novo nome/destino
+
+            \inputsyntax{haskell}{codes/renamefile.hs}
+
+        \item Se o arquivo de destino já existir, ele será removido para que então o arquivo
+            original assuma seu caminho/nome
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de manipulação de nome de arquivo}
+    \inputsnippet{haskell}{1}{21}{codes/normalize.hs}
+\end{frame}
+
+\begin{frame}[fragile]{\textit{Lazy} I/O}
+
+    \begin{itemize}
+        \item Haskell também oferece funções para utilizar o \textit{lazy evaluation} no contexto
+            de I/O
+
+        \item A função \code{haskell}{hGetContents} recebe um \textit{handle} e retorna uma
+            string com o todo conteúdo a partir do ponto onde está localizado o cursor de
+            leitura:
+
+            \inputsyntax{haskell}{codes/hgetcontents.hs}
+
+        \item Contudo, o acesso a este conteúdo é feito por demanda: a string não contém, 
+            necessariamente, todo o conteúdo de uma só vez em memória
+
+        \item Este acesso é feito de forma transparente ao usuário que, para fins de código,
+            terá uma string que pode ser utilizada em código puro
+
+        \item  Assim é possível escrever código com I/O mais próximos da abordagem funcional,
+            sem a necessidade de laços para processamento de blocos de informações, como é feito
+            nas linguagens imperativas
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de I/O no estilo funcional}
+    \inputsnippet{haskell}{1}{21}{codes/stripFileLazy.hs}
+\end{frame}
+
+\begin{frame}[fragile]{\textit{Lazy} I/O}
+
+    \begin{itemize}
+        \item O idioma de abrir um arquivo, ler seu conteúdo, processar este conteúdo, escrever
+            o resultado em um arquivo de saída e fechar os \textit{handles} é tão comum que
+            Haskell oferece duas funções que abstraem este processo
+
+        \item A primeira delas é a função \code{haskell}{readFile}, que recebe o caminho do
+            arquivo a ser aberto e retorna uma string que pode acessar o conteúdo por meio de
+            \textit{lazy evaluation}
+
+            \inputsyntax{haskell}{codes/readfile.hs}
+
+        \item A segunda é a função \code{haskell}{writeFile}, que recebe o caminho do arquivo de
+            saída e o conteúdo a ser escrito:
+
+            \inputsyntax{haskell}{codes/writefile.hs}
+
+        \item Ambas funções fazem parte da biblioteca \code{haskell}{System.IO}
+
+        \item Estas funções mantém o \textit{handle} dos arquivos internamente, dispensando a
+            chamada da função \code{haskell}{hClose}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de I/O no estilo funcional sem \textit{handles}}
+    \inputsnippet{haskell}{1}{21}{codes/stripfile.hs}
+\end{frame}
+
+\begin{frame}[fragile]{Interações}
+
+    \begin{itemize}
+        \item Quando os arquivos a serem processados são a entrada e a saída padrão, o idioma
+            abstraído pelas funções \code{haskell}{readFile} e \code{haskell}{writeFile}
+            pode ser condensado em uma única função
+
+        \item A função \code{haskell}{interact} tem como parâmetro uma função que recebe e retorna
+            strings:
+
+            \inputsyntax{haskell}{codes/interact.hs}
+
+        \item Todo o conteúdo da entrada padrão é passado como parâmetro desta função, e o retorno
+            dela é escrito na saída padrão
+
+        \item Esta função também faz parte da biblioteca \code{haskell}{System.IO}
+
+        \item Quando utilizada em conjunto com filtros, esta função permite escrever programas
+            concisos, com poucas linhas, que processam arquivos de diferentes maneiras
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de interação com filtro}
+    \inputsnippet{haskell}{1}{21}{codes/stripcomments.hs}
+\end{frame}
+
