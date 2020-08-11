@@ -30,4 +30,5 @@ Material didático da disciplina Paradigmas de Programação, ministrada pelo pr
     1. [Fundamentos](Programacao_Funcional/slides/fundamentos/fundamentos.pdf)
     1. [Funções e Tipos de Dados de Usuário](Programacao_Funcional/slides/funcoes/funcoes.pdf)
     1. [Funções de Alta Ordem](Programacao_Funcional/slides/alta_ordem/alta_ordem.pdf)
+    1. [Entrada e Saída](Programacao_Funcional/slides/io/io.pdf)
 
