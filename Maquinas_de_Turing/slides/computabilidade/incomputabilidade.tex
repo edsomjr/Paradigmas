@@ -7,7 +7,7 @@
             inteiros positivos não é enumerável
 
         \item Por outro lado, o conjunto de todas as máquinas de Turing é enumerável: cada 
-            máquina pode ser especificado por uma sequência de quádruplas, que equivale a 
+            máquina pode ser especificada por uma sequência de quádruplas, que equivale a 
             uma cadeira finita de símbolos de um alfabeto finito, e o conjunto de tais cadeias
             é enumerável
 
@@ -90,7 +90,7 @@
 \begin{frame}[fragile]{Exemplo de codificação de uma máquina de Turing}
 
     \begin{itemize}
-        \item A lista de quádruplas da máquina que retorna zero para qualquer $k$-upla dada abaixo
+        \item A lista de quádruplas da máquina que retorna um para qualquer $k$-upla dada abaixo
         \[
             q_1S_0Rq_3, \ \ q_1S_1S_0q_2, \ \ q_2S_0Rq_1, \ \ q_3S_0S_1q_4, \ \ q_3S_1S_0q_2
         \]
@@ -126,6 +126,11 @@
         \item Codificando esta máquina o resultado é o inteiro positivo:
         \[
             2^4\cdot 3^3\cdot 5\cdot 7^2\cdot 11^4\cdot 13\cdot 17^2\cdot 19^4\cdot 23^2\cdot 29^4\cdot 31\cdot 37^2
+        \]
+
+        \item Em notação decimal, a máquina seria representada pelo inteiro
+        \[
+            12047279224912544432864883318480
         \]
     \end{itemize}
 

@@ -1,0 +1,121 @@
+\section{Entrada e saída em console}
+
+\begin{frame}[fragile]{Código puro e código impuro}
+
+    \begin{itemize}
+        \item Haskell determina uma clara separação entre código puro e código impuro
+
+        \item Esta estratégia permite que código puro fique isento de efeitos colaterais
+
+        \item Além de facilitar a divisão semântica do código, ela permite aos compiladores
+            otimizar e paralelizar trechos de código automaticamente
+
+        \item Como as rotinas de entrada e saída interagem com o mundo externo, todas elas
+            produzem ou estão suscetíveis a efeitos colaterais, sendo assim, códigos impuros
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Leitura e escrita de strings em console}
+
+    \begin{itemize}
+        \item Haskell provê um conjunto de funções para escrita e leitura de dados a partir 
+            do console
+
+        \item No que diz respeito à strings, duas funções básicas são \code{haskell}{putStrLn}
+            e \code{smalltalk}{getLine}
+
+        \item A função \code{haskell}{putStrLn} escreve uma string no console, seguida de uma
+            quebra de linha:
+
+            \inputsyntax{haskell}{codes/putstrln.hs}
+
+        \item Já a função \code{haskell}{getLine} lê uma string do console até encontrar uma 
+            quebra de linha e a retorna, sem a quebra
+
+        \item O tipo da função \code{haskell}{getLine} é
+
+            \inputsyntax{haskell}{codes/getline.hs}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de leitura e escrita de strings em console}
+    \inputcode{haskell}{codes/echo.hs}
+\end{frame}
+
+\begin{frame}[fragile]{Ações de entrada e saída}
+
+    \begin{itemize}
+        \item O identificador \code{haskell}{IO} nas assinaturas das funções
+            \code{haskell}{getLine()} e \code{haskell}{putStrLn()} indicam que estas funções
+            ou tem efeitos colaterais, ou podem retornar valores distintos mesmo que invocadas
+            com os mesmos parâmetros
+
+        \item Portanto, a presença de \code{haskell}{IO} na assinatura das funções indicam 
+            código impuro
+
+        \item Uma ação de entrada e saída (I/O) tem tipo \code{haskell}{IO} \textit{tipo}
+
+        \item Uma ação pode ser declarada e armazenada, mas só pode ser executada dentro de outra
+            ação de I/O
+
+        \item \code{haskell}{()} é a tupla vazia e indica a ausência de retorno (similar ao tipo
+            \code{cpp}{void} de C/C++)
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Ações de entrada e saída}
+
+    \begin{itemize}
+        \item Assim, a função \code{haskell}{putStrLn()} não tem retorno: escrever a string no
+            terminal é seu efeito colateral
+
+        \item Executar uma ação do tipo \code{haskell}{IO} \code{haskell}{t} pode gerar algum tipo
+            de I/O e, eventualmente, retornar um valor do tipo \code{haskell}{t}
+
+        \item Já a função \code{haskell}{getLine()} retorna uma ação do tipo \code{haskell}{IO
+            String}
+
+        \item O operator \code{haskell}{<-} executa a ação e extrai o retorno do ação, unindo-o
+            a variável indicada
+
+        \item A função \code{haskell}{main()}, ponto de início da execução dos programas em
+            Haskell, tem tipo \code{haskell}{IO ()}
+
+        \item A palavra reservada \code{haskell}{do} define uma sequência de ações de I/O
+
+        \item O valor do bloco \code{haskell}{do} é dado pelo valor da última ação executada
+
+        \item A palavra reservada \code{haskell}{let} permite armazenar o resultado de código
+            puro em uma acão (ou bloco de ações) de I/O
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de código puro em um bloco de I/O}
+    \inputsnippet{haskell}{1}{20}{codes/greetings.hs}
+\end{frame}
+
+\begin{frame}[fragile]{Código Puro vs. Código Impuro}
+
+    \begin{itemize}
+        \item Haskell distingue e separa os trechos de código puro e impuro
+
+        \item Código puro não tem efeitos colaterais, não altera estados e tem mesmo retorno
+            para o mesmo conjunto de parâmetros
+
+        \item Código impuro não tem garantias sobre o retorno, pode interagir com o sistema,
+            alterando seu estado, e ter efeitos colaterais
+
+        \item Código puro pode invocar código puro
+
+        \item Já o contrário não é possível
+
+        \item As garantias dadas por um código puro tem vantanges, como a possibilidade de
+            paralelismo automático, por exemplo
+    \end{itemize}
+
+\end{frame}

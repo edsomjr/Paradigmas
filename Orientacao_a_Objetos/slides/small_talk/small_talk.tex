@@ -1,0 +1,194 @@
+\section{\it GNU Smalltalk}
+
+\begin{frame}[fragile]{GNU Smalltalk}
+
+    \begin{itemize}
+        \item GNU Smalltalk é uma implementação livre da linguagem Smalltalk-80
+
+        \item Esta está disponível na maioria das distribuições Linux, e outras plataformas
+            que suportam o padrão POSIX
+
+        \item Ela utiliza a licença GNU GPL v2 em algumas partes, e a GNU Lesser GPL v2 em outra
+
+        \item Ela pode ser instalada através do comando
+
+            \inputsyntax{bash}{codes/smalltalk.sh}
+
+        \item Para validar a instalação, pode-se utilizar o comando
+
+            \inputsyntax{bash}{codes/version.sh}
+
+        \item O ambiente interativo pode ser iniciado com o comando
+
+            \inputsyntax{bash}{codes/run.sh}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{\it Hello World!}
+
+    \begin{itemize}
+        \item Para imprimir a mensagem `\textit{Hello World!}' no ambiente interativo basta
+            invocar o método \code{smalltalk}{printNl}
+
+            \inputsyntax{smalltalk}{codes/helloworld.st}
+
+        \item A mensagem é impressa duas vezes: a primeira por conta do método 
+            \code{smalltalk}{printNl}, a segunda por conta do ambiente interativo, que imprime
+            o valor resultante a expressão inserida
+
+        \item Observe que a mensagem antecede o método
+
+        \item Isto por que, em Smalltalk, a sintaxe para passar uma mensagem para um objeto é
+
+            \inputsyntax{smalltalk}{codes/syntax.st}
+
+        \item Note a ausência de parêntesis e do notação que utiliza o ponto final, comum em
+            muitas outras linguagens que suportam a programação orientada a objetos
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Operadores lógicos e aritméticos}
+
+    \begin{itemize}
+        \item Em Smalltalk, todos os tipos são objetos
+
+        \item O código abaixo ilustra o polimorfismo do método \code{smalltalk}{printNl}
+
+            \inputsyntax{smalltalk}{codes/printint.st}
+
+        \item Por conta do comportamento do ambiente interativo, o método \code{smalltalk}{printNl}
+            será omitido dos demais código
+
+        \item A linguagem tem suporte para os operadores lógicos
+
+            \inputsyntax{smalltalk}{codes/logical.st}
+
+        \item E também para os operadores aritméticos
+
+            \inputsyntax{smalltalk}{codes/arithmetic.st}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Vetores}
+
+    \begin{itemize}
+        \item Em Smalltalk a sintaxe para a declaração de vetores é
+
+            \inputsyntax{smalltalk}{codes/array.st}
+        onde $N$ é a quantidade de elementos
+
+        \item Inicialmente, todos os elementos estão vazios (\code{smalltalk}{nil})
+
+        \item O tamanho do vetor é fixo, e não pode ser alterado
+
+        \item A mensagem \code{smalltalk}{at: i} permite o acesso ao elemento que ocupa a
+            $i$-ésima posição
+
+            \inputsyntax{smalltalk}{codes/at.st}
+
+        \item Para modificar o valor do elemento que ocupa a $i$-ésima posição, é preciso
+            combinar as mensagens \code{smalltalk}{at: i} e \code{smalltalk}{put: value}
+
+            \inputsyntax{smalltalk}{codes/put.st}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Vetores}
+
+    \begin{itemize}
+        \item Ao contrário de C e outras linguagens, Smalltalk segue o padrão da matemática
+            e atribui a posição 1 ao primeiro elemento do vetor
+
+        \item Os elementos do vetor pode ser de quaisquer tipos
+
+            \inputsyntax{smalltalk}{codes/fill.st}
+        
+        \item Em Smalltalk, os comentários são delimitados por aspas duplas (\texttt{"})
+
+        \item A tentativa de acessso a um índice fora do intervalo $[1, N]$ resulta em um
+            erro do tipo `\textit{index out of range}'
+
+        \item Um vetor também pode ser construído com a sintaxe
+
+            \inputsyntax{smalltalk}{codes/const_array.st}
+
+        \item A mensagem \code{smalltalk}{size} retorna o número de elementos do vetor
+
+            \inputsyntax{smalltalk}{codes/size.st}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Conjuntos}
+
+    \begin{itemize}
+        \item Em Smalltalk o conjunto (\code{smalltalk}{set}) representa uma coleção de elementos
+            únicos
+
+        \item A sintaxe para a declaração de um conjunto é
+
+            \inputsyntax{smalltalk}{codes/set.st}
+
+        \item A mensagem \code{smalltalk}{add: value} adiciona o valor indicado ao conjunto
+
+        \item Várias expressões podem ser concatenadas para serem executadas simultaneamente
+            por meio do operador ponto final (\texttt{.})
+
+            \inputsyntax{smalltalk}{codes/add.st}
+
+        \item Se as várias expressões tem o mesmo objeto como destinatário, a notação
+            de ponto pode ser simplificada por meio do uso do operador ponto-e-vírgula
+            (\texttt{;})
+
+            \inputsyntax{smalltalk}{codes/semicolon.st}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Conjuntos}
+
+    \begin{itemize}
+
+        \item Para testar se o elemento $y$ pertence ao conjunto, basta usar a mensagem
+            \code{smalltalk}{includes: y}
+
+            \inputsyntax{smalltalk}{codes/includes.st}
+
+        \item A mensagem \code{smalltalk}{remove: y} permite remover um elemento do
+            conjunto
+
+            \inputsyntax{smalltalk}{codes/remove.st}
+
+        \item Se $y$ não pertence ao conjunto, será emitido um erro do tipo `\textit{object
+            not found}'
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Dicionários}
+
+    \begin{itemize}
+        \item Os dicionários permitem armazenar elementos (valores) indexados por
+            chaves
+
+        \item A sintaxe para a declaração de um dicionário é
+
+            \inputsyntax{smalltalk}{codes/dict.st}
+
+        \item Tanto as chaves quanto os valores podem ser de tipos arbitrários
+
+            \inputsyntax{smalltalk}{codes/key_values.st}
+
+        \item A mensagem \code{smalltalk}{includes: y} verifica se $y$ está entre os
+            valores do dicionário, enquanto que a mensagem \code{smalltalk}{includesKey: z}
+            procura $z$ entre suas chaves
+
+            \inputsyntax{smalltalk}{codes/includeskey.st}
+    \end{itemize}
+
+\end{frame}
+

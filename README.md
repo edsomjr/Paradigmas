@@ -19,6 +19,8 @@ Material didático da disciplina Paradigmas de Programação, ministrada pelo pr
 1. Programação Estruturada
     1. [Conceitos Elementares](Programacao_Estruturada/slides/conceitos_elementares/conceitos_elementares.pdf)
     1. [Estruturas e Funções](Programacao_Estruturada/slides/estruturas_e_funcoes/estruturas_e_funcoes.pdf)
+1. Programação Orientada a Objetos
+    1. [Fundamentos](Orientacao_a_Objetos/slides/small_talk/small_talk.pdf)
 1. Cálculo Lambda
     1. [Definição](Lambda_Calculus/slides/definicao/definicao.pdf)
     1. [Lógica Booleana](Lambda_Calculus/slides/logica_booleana/logica_booleana.pdf)
@@ -27,4 +29,6 @@ Material didático da disciplina Paradigmas de Programação, ministrada pelo pr
 1. Programação Funcional
     1. [Fundamentos](Programacao_Funcional/slides/fundamentos/fundamentos.pdf)
     1. [Funções e Tipos de Dados de Usuário](Programacao_Funcional/slides/funcoes/funcoes.pdf)
+    1. [Funções de Alta Ordem](Programacao_Funcional/slides/alta_ordem/alta_ordem.pdf)
+    1. [Entrada e Saída](Programacao_Funcional/slides/io/io.pdf)
 
