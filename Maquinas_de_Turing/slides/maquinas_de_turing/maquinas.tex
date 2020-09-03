@@ -47,8 +47,8 @@
     \begin{enumerate}[(1)]
         \item \textbf{Apagar:} escrever $S_0$ no quadrado, independente de seu estado
         \item \textbf{Escrever:} escrever $S_1$ no quadrado, independente de seu estado
-        \item \textbf{Mover} para à esquerda ($R$)
-        \item \textbf{Mover} para à direita ($L$)
+        \item \textbf{Mover} para à esquerda ($L$)
+        \item \textbf{Mover} para à direita ($R$)
         \item \textbf{Parar} a computação
     \end{enumerate}
 
@@ -135,6 +135,7 @@
             \draw[->] (q2) edge node[anchor=south] { \footnotesize $S_1 : L$ } (q3);
             \draw[->] (q1) edge[loop above] node[anchor=south] { \footnotesize $S_0 : S_1$ } (q1);
             \draw[->] (q2) edge[loop above] node[anchor=south] { \footnotesize $S_0 : S_1$ } (q2);
+            \draw[->] (q3) edge[loop above] node[anchor=south] { \footnotesize $S_0 : S_1$ } (q3);
 
         \end{tikzpicture}
     \end{figure}
