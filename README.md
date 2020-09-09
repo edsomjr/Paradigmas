@@ -21,6 +21,7 @@ Material didático da disciplina Paradigmas de Programação, ministrada pelo pr
     1. [Estruturas e Funções](Programacao_Estruturada/slides/estruturas_e_funcoes/estruturas_e_funcoes.pdf)
 1. Programação Orientada a Objetos
     1. [Fundamentos](Orientacao_a_Objetos/slides/small_talk/small_talk.pdf)
+    1. [Blocos e Exceções](Orientacao_a_Objetos/slides/blocos_e_excecoes/blocos_e_excecoes.pdf)
 1. Cálculo Lambda
     1. [Definição](Lambda_Calculus/slides/definicao/definicao.pdf)
     1. [Lógica Booleana](Lambda_Calculus/slides/logica_booleana/logica_booleana.pdf)
