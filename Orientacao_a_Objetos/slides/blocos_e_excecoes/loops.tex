@@ -57,3 +57,30 @@
 \begin{frame}[fragile]{Exemplo de uso de blocos repetidos em SmallTalk}
     \inputsnippet{smalltalk}{1}{21}{codes/fib.st}
 \end{frame}
+
+\begin{frame}[fragile]{Travessia em contêineres}
+
+    \begin{itemize}
+        \item Em SmallTalk os contêineres oferecem o método \code{smalltalk}{do}, o qual 
+            recebe um bloco de comandos como argumento e o executa para cada um dos elementos
+            do contêiner
+
+        \item Os valores destes elementos serão passados como argumentos dos blocos
+
+        \item O contêiner \code{smalltalk}{Interval}, que abstrai uma sequência de inteiros,
+            pode ser utilizado para simular um laço \texttt{for} das linguagens imperativas:
+
+            \inputsyntax{smalltalk}{codes/interval_do.st}
+
+        \item Os valores $a$ e $b$ representam os valores iniciais e finais da variável $i$
+
+        \item A partir de $a$, os valores serão incrementados em $step$ a cada iteração
+
+        \item Se o método \code{smalltalk}{by} não for utilizado, $step$ terá valor igual a 1
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso de travessia de contêineres}
+    \inputsnippet{smalltalk}{1}{21}{codes/primes.st}
+\end{frame}
