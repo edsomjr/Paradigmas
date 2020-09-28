@@ -3,7 +3,7 @@
 ;
 ;       EDX     Tamanho máximo, em bytes, a ser preenchido
 ;       ECX     Endereço da variável a ser preenchida
-;       EBX     Arquivo onde a string será carregada (STDIN = 0)
+;       EBX     Arquivo do qual a string será carregada (STDIN = 0)
 SECTION .data
 msg     db  'Hello, ', 0  ; mensagem + zero terminador
 
@@ -30,7 +30,7 @@ _start:
     mov ecx, name   ; name contém o endereço do buffer
     mov ebx, 1      ; A saída é o console
     mov eax, 4      ; Optcode de SYS_WRITE
-    int 80h         ; Imprime msg, sem quebra de linha
+    int 80h         ; Imprime name, conforme foi lido
 
     mov ebx, 0      ; Encerra o programa com sucesso
     mov eax, 1
