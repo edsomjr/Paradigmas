@@ -6,7 +6,7 @@ SECTION .text
 global _start
 
 _start:
-    mov bl,[msg+1]  ; Torna maiúsulca a segunda letra de msg
+    mov bl,[msg+1]  ; Torna maiúscula a segunda letra de msg
     sub bl, 20h     ; bl tem 1 byte de tamanho
     mov [msg+1], bl
 
