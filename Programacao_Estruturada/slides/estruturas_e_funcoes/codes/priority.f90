@@ -18,7 +18,6 @@ program priority
             prioridade = 'minima'
         case default
             write(*,*) 'Idade inválida!'
-            return
     end select
 
     ! Imprime a prioridade do paciente

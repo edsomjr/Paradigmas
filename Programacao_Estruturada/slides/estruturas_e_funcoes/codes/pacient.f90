@@ -1,4 +1,4 @@
-! Exemplifica a declaração e instãnciação de um dado derivado
+! Exemplifica a declaração e instânciação de um dado derivado
 program pacient
 
     type Paciente
