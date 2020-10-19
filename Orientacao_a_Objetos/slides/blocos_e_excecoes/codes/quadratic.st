@@ -7,7 +7,7 @@ Object subclass: QuadraticPolynomial [
     ]
 
     setA: av [
-        (a == 0) ifTrue: [ ^self error: 'a must be non-zero' ] .
+        (av == 0) ifTrue: [ ^self error: 'a must be non-zero' ] .
         a := av
     ]
 
