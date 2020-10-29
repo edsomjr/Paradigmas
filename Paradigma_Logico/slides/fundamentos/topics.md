@@ -95,3 +95,46 @@ onde `pred` é o nome do fato, e `arg1, arg2, ..., argN` são os argumento, send
 - Os predicados podem ser inseridos diretamente no _listener_, mas não são gravados entre as sessões
 - Os nomes utilizados no fato são indiferentes para o Prolog, mas para a aplicação as relações devem ser compatíveis com a semântica dos identificadores escolhidos
 - Prolog considera distintos os fatos `fato(a, b)` e `fato(b, a)`
+
+### Simple Queries
+
+- Uma vez que o programa alimente a base de dados com fatos, o programa pode ser consultado no _listener_ e responder a consultas (_queries_) a respeito dos fatos
+- As consultas em Prolog funcionam por meio do casamento de padrões (_pattern matching_)
+- O padrão de uma consulta é denominado **objetivo** (_goal_)
+- Se algum fato atinge o objetivo, a consulta é bem sucedida e o _listener_ responde "Sim" (_true_)
+- Caso contrário, a consulta falha e o _listener_ responde "Não" (_false_)
+- O casamento de padrões do Prolog é denominado **unificação**
+- Se o programa contém apenas fatos, a unificação é bem sucedida se as 3 condições são satisfeitas:
+    1. O predicado citado no objetivo e na base de dados é o mesmo
+    2. Ambos tem a mesma aridade
+    3. Todos os argumentos são os mesmos
+- Exemplos de queries:
+```
+door(office, hall) .
+door(hall, office) .
+```
+- Objetivos podem ser generalizados por meio de variáveis do Prolog
+- Estas variáveis não se comportam como variáveis em outras linguagens, e são denominadas variáveis lógicas
+- Elas substituem um ou mais argumentos no objetivo
+- O nome e a aridade do predicado devem permanecer o mesmo, porém o argumento substituído pela variável casará positivamente com qualquer termo
+- Após uma unificação bem sucedida, a variável terá como valor os termos os quais casaram com ele
+- Este processo ata (_binding_) os valores à variável
+- Estes valores serão o retorno da consulta pelo _listener_
+- Um valor será retornado: caso mais de um valor seja casado com a variável, Prolog fornece mecanismos para a extração de todos os demais
+- Após uma resposta você pode inserir um ponto-e-vírgula (';'): isto faz com que Prolog procure por _bindings_ alternativos para as variáveis
+- Qualquer outra entrada encerra a consulta
+- Se não houveram mais alternativas, o retorno será "Não" (não acontece na versão GNU)
+- Variáveis devem iniciar em maiúsculas
+- Todos os argumentos podem ser substituídos por variáveis
+- Exemplos:
+```
+room(X) .
+location(Thing, kitchen) .
+location(Thing, Place) .
+```
+- Quando Prolog tenta satisfazer um objetivo a respeito de um predicado, ele percorre todas as cláusulas que definem o predicado
+- Uma vez que há um casamento (argumentos e/ou variáveis), a cláusula em questão é marcada indicando que ela satisfez o objetivo e retorna
+- Se o usuário solicitar mais respostas, ele retoma a busca entre as cláusulas a partir do ponto em que ele parou
+- Neste resume o _binding_ da variável é desfeito e a busca é retomada
+- Este processo é denominado **backtracking**
+- 
