@@ -1,6 +1,10 @@
 customer('Pedro Diniz', gama, 7) .
 customer('Maria Beatriz', sobradinho, 10) .
 customer('Lucas Vieira', taguatinga, 4) .
+customer('Paulo Ramos', gama, 5) .
+customer('Caio Cesar', gama, 5) .
+customer('Denis Costa', taguatinga, 7) .
+customer('Ana Rosa', gama, 10) .
 
 onsale(1, livro, 20) .
 onsale(2, dvd, 10) .

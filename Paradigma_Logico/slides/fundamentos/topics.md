@@ -25,6 +25,10 @@ consult(source)
 prolog -s source.pdb
 ```
 as afirmações são carregadas do arquivo e o terminal fica pronto para consultas
+- Para fazer uma consulta sem entrar no modo iterativo, use a opção `-g` para estabelecer o objetivo e a opção `-t` para encerrar o Prolog:
+```
+$ prolog -s source.pl -g "goal(X),print(X),nl,fail." -t halt
+```
 - A proposição _Todas as pessoas são mortais_ ou _Para todo X, X é mortal se X é um pessoa_ é escrita em Prolog como
 ```
     mortal(X) :- person(X) .
@@ -137,4 +141,63 @@ location(Thing, Place) .
 - Se o usuário solicitar mais respostas, ele retoma a busca entre as cláusulas a partir do ponto em que ele parou
 - Neste resume o _binding_ da variável é desfeito e a busca é retomada
 - Este processo é denominado **backtracking**
-- 
+- O controle de fluxo da avaliação de um objetivo tem 4 portas: chamada (_call_), saída (_exit_), retomada (_redo_) e falha (_fail_)
+- Inicialmente a roina de avaliação é chamada
+- Se bem sucedida, ela saí (encerra, _exit_), atando as variáveis com os resultados obtidos
+- Caso contrário, ela falha: não há mais valores que possam satisfazer o objetivo
+- Se bem sucedida e é seguida de um ';', ela retoma (_redo_) a execução do ponto que parou 
+- As variáveis são desatadas de seus valores e se busca por novas valores que também satisfaçam o objetivo
+- Para acompanhar este processo, use o comando trace
+```
+?- trace .
+```
+- Para finalizar o trace, use o predicado `notrace/0` (se preciso, use também `nodebug/0`
+- Para fazer uma afirmação geral, como "todos dormem", a sintaxe é
+```
+?- assert(sleeps(X)) .
+```
+- `assert/1` permite definir fatos diretamente no interpretador
+- A consulta `pred(X, X)` procura por valores iguais em ambos argumentos
+
+## Consultas compostas
+
+- Consultas simples podem ser combinadas em consultas compostas por meio do operador ',', que corresponde ao 'and' lógico
+- Exemplo:
+```
+?- location(X, kitchen), edible(X).
+```
+- Se a mesma variável aparece em mais de um predicado da consulta composta, ela deve ter o mesmo valor em todos eles para que exista um casamento de padrão para a consulta
+- O escopo de uma variável lógica é uma consulta
+- Se a mesma variável é utilizada em consultas distintas, cada consulta tem sua própria cópia da variável
+- O processo de _backtracking_ é utilizado para tentar casar todos os padrões, da esquerda para a direita
+- Ele encerra (sai) com sucesso apenas se ele sai do predicado mais à direita com sucesso
+- No caso _redo_, apenas as variáveis presentes no predicado mais à direita são desatadas (as variáveis associadas aos predicados anteriores permanecem atadas)
+- Se a consulta falha para um dos predicados, ela falha como um todo
+- Exemplo: todas as coisas localizadas em salas adjacentes à cozinha:
+```
+?- door(kitchen, R), location(T, R).
+```
+## Built-in predicates
+
+- Built-in (evaluable) predicates são pré-definidos em Prolog
+- Não há cláusulas para tais predicados
+- Quando um objetivo casa com um built-in predicate, ele chamda uma rotina pré-definida
+- Estas rotinas, em geral, são implementadas na mesma linguagem que implementou o listener
+- Elas realizam tarefas que estão fora do contexto da prova de teoremas lógicos, como escrever no console
+- Por esta razão, também são denominados predicados extra-lógicos (PEL)
+- Ele respondem tanto na chamada (_left_) quando no _redo_ (_right_)
+- A resposta no caso _redo_ é denominada comportamento no _backtracking_
+- PEL de I/O:
+    1. `write/1`: sempre casa com qualquer padrão, e tem como efeito colateral escrever seu argumento no console. Sempre falha no _backtracking_
+    2. `nl/0`: sempre é bem sucedido, e inicia uma nova linha. Também falha no _backtracking_
+    3. `tab/1`: avança n espaços, onde n é seu argumento. Mesmo comportamento dos anteriores
+- Eles não afetam o fluxo de controle, transferindo-o controle adiante (_left_) ou para trás (_backtracking_)
+- Também não alteram as variáveis
+- O PEL `fail/0` sempre falha
+- Se ele recebe o controle vindo da esquerda, ele passa o controle imediatamente para a porta _redo_ do objetivo da esquerda
+- Ele nunca recebe o controle da direita, pois nunca deixa o fluxo avançar para lá
+- Obs: **Inserir figuras de controle de fluxo (Cap. 4, pág 40 approx.)**
+- Exemplo: imprimir todas as soluções, sem precisar do ';':
+```
+?- location(X, kitchen), write(X), nl, fail.
+``
