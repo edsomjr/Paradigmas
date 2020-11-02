@@ -200,4 +200,50 @@ location(Thing, Place) .
 - Exemplo: imprimir todas as soluções, sem precisar do ';':
 ```
 ?- location(X, kitchen), write(X), nl, fail.
-``
+```
+
+### Regras (**rules**)
+
+- Um predicado é definido por cláusulas, as quais podem ser fatos ou regras
+- Uma regra é uma consulta armazenada. A sintaxe é
+```
+    head :- body.
+```
+onde `head` é um predicado, `:-` é o **neck symbol**, lido como **se** e `body` é composto por um ou mais objetivos (uma consulta)
+- Exemplo: a regra `where_food/2` pode ser definida por
+```
+    where_food(X, Y) :- location(X, Y), edible(X).
+```
+- Consultas possíveis:
+```
+    where_food(X, kitchen).
+    where_food(Thing, 'dining room').
+```
+- Uma mesma regra pode ser definida múltiplas vezes, cada uma com um corpo diferente
+- Uma regra é processada da seguinte maneira:
+    1. Inicialmente, o padrão do objetivo é unificado com a cabeça _head_ da regra
+    2. Se a unificação é bem sucedida, inicia-se uma consulta com os objetivos listados no corpo da regra
+- Deste modo, regras permitem consultas em múltiplos níveis
+- O primeiro nível é composto pelos objetivos iniciais
+- O segundo são os objetivos que aparecem no corpo da regra
+- No corpo da regra pode ser utilizadas novas regras, aumentando o nível da consulta
+- Regras podem ser usadas para definir conexões não-direcionadas:
+```
+    connect(X, Y) :- door(X, Y).
+    connect(X, Y) :- door(Y, X).
+```
+- Note o "ou" implícito na definição das duas regras
+- Regras/predicados que sempre falham não pode ser utilizadas em consultas compostas, porque não transferem o fluxo de execução adiante, via porta "Exit"
+- Nestes casos, é útil adicionar uma nova definição à regra que retorna verdadeiro sempre.
+- Um predicado/regra como uma única variável (sem corpo) é sempre bem sucedido
+- Nestes caso, pode se usar a variável especial **anônima** (undescore, `_`)
+- Relembrando: 
+    1. a unificação é o processo de _pattern matching_ do Prolog, e é utilizada na comunicação entre regras e predicados
+    2. A execução é controlada pelo mecanismo de _backtracking_ do Prolog
+    3. `fail/0` pode ser usado para forçar o retorno do _backtracking_ (via porta Fail)
+    4. Pode se forçar o sucesso de uma definição extra com variáveis anônimas e sem corpo
+    5. O _backtracking_ substitui os laços de outras linguagens
+    6. O _pattern matching_ substitui os testes condicionais e as estruturas de seleção
+    7. As regras podem ser testadas individualmente, permitindo o desenvolvimento modular
+    8. Regras que usam outras regras encoragjam a abstração de procedimentos e dados
+
