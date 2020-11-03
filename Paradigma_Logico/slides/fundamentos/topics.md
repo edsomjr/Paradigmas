@@ -247,3 +247,101 @@ onde `head` é um predicado, `:-` é o **neck symbol**, lido como **se** e `body
     7. As regras podem ser testadas individualmente, permitindo o desenvolvimento modular
     8. Regras que usam outras regras encoragjam a abstração de procedimentos e dados
 
+### Aritmética
+
+- Para computar expressões aritméticas, Prolog disponibiliza o predicado _built-in_ `is`
+- Sintaxe:
+```
+    X is <arithmetic expression>
+```
+- A variável `X` recebe o valor da expressão, e é desatada no _backtracking_
+- As expressões são semelhantes às utilizadas em outras linguagens
+- Exemplos:
+```
+?- X is 2 + 2.
+?- X is 3*4 + 2.
+```
+- Parêntesis podem ser utilizado para evitar ambiguidades e alterar a ordem de precedência
+```
+?- X is 3*(4 + 2).
+```
+- Para evitar que os operadores relacionais se assemelhem às setas, a ordem dos símbolos é diferente do usual:
+```
+    X > Y
+    Y < Y
+    X >= Y
+    X =< Y
+```
+- Exemplos: conversão de Celsius para Fahrenheit:
+```
+c_to_f(C, F) :-
+    F is C*9/5 + 32.
+
+freezing(F) :-
+    F =< 32.
+```
+
+### Manipulando dados
+
+- Prolog permite a manipulação direta da base de dados por meio de predicados _built-in_:
+    1. `asserta(X)`: adiciona a cláusula `X` como primeira cláusula para o seu predicado. Como as rotinas de I/O, sempre falha no _backtracking_ e não desfaz seu trabalho
+    2. `assertz(X)`: igual a anterior, mas adiciona como última cláusula do predicado
+    3. `retract(X)`: remove a cláusula `X` da base de dados
+- Para remover uma clásula, é preciso marcar o predicado como dinâmico, antes da definição do mesmo. Ex.:
+```
+:- dynamic
+    pred/1.
+```
+- Não há variáveis globais em Prolog: as variáveis são locais às cláusulas
+- A base de dados "substitui" as variáveis locais
+- Ela permite que as cláusulas compartilhem informações entre si
+- `asserts` e `retracts` são as ferramentas para manipular estes dados globais
+- Naturalmente, este recursos deve ser utilizado com parcimônio e cuidado, pois ele modifica o estado do programa
+- Alguns programadores tentam eliminar dados globais e o uso de `assert` e `retract` em seus códigos Prolog
+- É possível escrever programas que não modificam a base de dados, o que elimina o problema das variáveis globais
+- Isto pode ser feito passando as informações necessárias por meio dos argumentos dos predicados
+- Versão de `assert` que desfaz seu trabalho no _backtracking_:
+```
+backtracking_assert(X):-
+    asserta(X).
+backtracking_assert(X):-
+    retract(X), fail.
+```
+- Inicialmente, a primeira cláusula é executada. Se um objetivo posterior falhar, o _backtracking_ vai tentar a segunda cláusula, que desfará o trabalho da primeira e falhar, resultando no efeito desejado.
+
+### Recursão
+
+- Em Prolog, a recursão acontece quando um predicado contém um objetivo que se refere ao próprio predicado
+- Como a cada consulta Prolog usa o corpo da regra para criar uma nova consulta com novas variáveis, a recursão acontece naturalmente
+- Uma chamada recursiva é composta por duas partes:
+    1. Casos-base
+    2. Chamada recursiva
+- Os casos-base são condições limítrofes (de contorno) que são sabidamente verdadeiras
+- O caso recursivo simplifica o problema por meio da remoção de um nível de complexidade, e chamando a regra novamente
+- A cada nível, os casos-base são verificados: caso ocorram, a recursão termina; caso contrário, a recursão continua
+- Exemplo:
+```
+is_contained_in(T1, T2):-   % Caso-base
+    location(T1, T2).
+is_contained_in(T1, T2):-   % Chamada recursiva
+    location(X, T2),
+    is_contained_in(T1, X).
+```
+- O escopo das variáveis de uma regra é a própria regra
+- Cada nível da recursão tem seu próprio conjunto de variáveis
+- A unificação entre o objetivo e o _head_ da cláusula forçam as relações entre as variáveis de diferentes níveis
+- Para garantir que os casos base sejam sempre testados, os casos-base devem ser definidos antes da chamada recursiva
+- A forma em que a chamada recursiva é implementada afeta a performance das consultas
+- Por exemplo:
+```
+is_contained_in(T1, T2):-   % Chamada recursiva
+    location(X, T2),
+    is_contained_in(T1, X).
+is_contained_in(T1, T2):-   % Chamada recursiva
+    location(T1, X),
+    is_contained_in(X, T2).
+```
+- Chamadas do tipo `is_contained_in(X, office)` roda mais rapidamente na primeira versão, pois `T2` é atada em `location(X, T2)`
+- Chamadas do tipo `is_contained_in(key, X)` roda mais rapidamente na segunda versão
+
+### Estruturas de Dados
