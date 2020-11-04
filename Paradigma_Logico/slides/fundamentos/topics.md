@@ -345,3 +345,198 @@ is_contained_in(T1, T2):-   % Chamada recursiva
 - Chamadas do tipo `is_contained_in(key, X)` roda mais rapidamente na segunda versão
 
 ### Estruturas de Dados
+
+- Uma estrutura de dados combina tipos primitivos (átomos, inteiros, etc) e estruturas em tipos compostos
+- A sintaxe é 
+```
+functor(arg1, arg2, ..., argN).
+```
+- Cada argumento pode ser um tipo primitivo ou outra estrutura
+- Sintaticamente, a declaração de uma estrutura é semelhante à declaração de um fato ou regra
+- Ex.:
+```
+car(peugeot, black, 2).
+car(honda, red, 4).
+```
+- A ordem dos argumentos é importante nas consultas
+- Ex.:
+```
+car(X, red, _).
+```
+- Campos podem ser ignorados com a variável anônima
+- Estruturas podem ser utilizadas em outras estruturas com o intuito de aumentar a legibilidade
+- Ex.:
+```
+car(honda, color(red), doors(4)).
+```
+- O predicado `not/1` recebe um objetivo como argumento e é bem sucedida quando o objetivo falha, e falha quando o objetivo é bem sucedido
+
+### Unificação
+
+- Processos de unificação:
+    1. variável & qualquer termo: a variável unificada e atada com qualquer termo, inclusive com outras variáveis
+    2. primitivas & primitivas: dois termos primitivos (átomos ou inteiros) só se unificam se ambos são idênticos
+    3. structure & structure: se unificam se tem mesmo functor e mesma aridade, e cada par de argumentos correspondentes se unifica
+- O predicado _built-in_ `=/2` é bem sucedido se ambos argumentos se unificam, e falha em caso contrário
+- Ex.:
+```
+?- a = a.
+true.
+
+?- a = b.
+false.
+
+?- p(a, b) = p(a, b).
+true
+
+?- p(a, b) = p(a, c).
+false.
+
+?- x(y, z(i, j)) = x(y, z(i, j)).
+true.
+
+?- x(y, z(i, j)) = x(y, z(j, i)).
+false.
+```
+- Se uma variável se unificar com uma primitiva, ela assume seu valor
+- Ex.:
+```
+?- X = a.
+X = a.
+
+?- 2 = Y.
+Y = 2.
+
+?- f(x, y) = f(X, y).
+X = x.
+
+?- f(x, y) = f(X, z).
+false.
+
+?- f(x, y) = f(X, Y).
+X = x.
+Y = y.
+```
+- Variáveis também se unem:
+```
+?- A = B.
+A = B.
+
+?- f(X, y) = f(Z, y).
+X = Z.
+
+?- X = Y, Y = teste.
+X = Y, Y = test.
+
+?- X = Y, a(Z) = a(Y), X = teste.
+X = Y, Y = Z, Z = teste.
+
+?- X = Y, Y = 2, write(X).
+2
+X = Y, Y = 2.
+
+?- f(A, B) = C, write(C), nl, A = a, B = 8, write(C).
+f(_6142,_6144)
+f(a,8)
+A = a,
+B = 8,
+C = f(a, 8).
+
+?- f(b, X) = f(b, c(Y, d)), X = teste.
+false.
+
+?- f(X) = f(x, y).
+false.
+
+?- f(x, y, z) = f(X, X, z).
+false.
+```
+- A variável anônima é um _wildcard_, e não ata a valor algum
+- Múltiplas instâncias não implicam em valores iguais
+
+### Listas
+
+- Em Prolog, uma lista é uma coleção de termos
+- Os termos podem ser qualquer tipo de dados do Prolog, incluindo estruturas e outras listas
+- Sintaxe:
+```
+[term1, term2, ..., termN]
+```
+- A lista vazia é denotada por `[]`, e também denominada `nil`
+- A unificação funciona em listas da mesma forma que funciona para estruturas de dados
+```
+?- asserta(f([a, b, c], d)).
+true.
+
+?- f(X, d).
+X = [a, b, c].
+
+?- [_, X, _] = [1, 2, 3].
+X = 2.
+```
+- A notação `[X | Y]` ata `X` ao primeiro elemento da lista, chamado **head**, e ata `Y` a uma lista com todos os demais, denominada **tail**
+```
+?- [H|T] = [1, 2, 3, 4, 5].
+H = 1,
+T = [2, 3, 4, 5].
+
+?- [H|T] = [1].
+H = 1,
+T = [].
+
+?- [H|T] = [].
+false.
+```
+- Podem ser listados vários elementos antes da barra, separados por vírgulas
+- Contudo, após a barra deve haver um único elemento (uma lista)
+```
+?- [A, B, C | T] = [1, 2, 3, 4, 5].
+A = 1,
+B = 2,
+C = 3,
+T = [4, 5].
+```
+- Embora tenha uma sintaxe especial, uma lista é, de fato, um predicado de dois argumentos
+- O primeiro argumento do predicado `./2` é o **head** da lista, e o segundo é o **tail**
+- No SWI-Prolog, este operador foi substituído por `'[|]'`
+```
+?- L = '[|]'(1, '[|]'(2, '[|]'(3, []))).
+L = [1, 2, 3].
+```
+- A estrutura interna da lista é adequada para rotinas recursivas
+- O predicado `member/2` determina se um termo é ou não membro da lista
+- Ela pode implementada da seguinte maneira:
+```
+member(H, [H|T]).
+member(X, [H|T]) := member(X, T).
+```
+- A primeira representa o caso base: o elemento pertence a lista se ele for o **head**
+- Um fato com variáveis como argumentos funciona como uma regra
+- A segunda é a chamada recursiva.
+- Observe que o caso base é declarado antes da chamada recursiva
+- O caso base da lista vazia já está incluso na segunda clásula: `member(X, [])` falha, pois
+`[]` e `[H|T]` não unificam
+- O predicado `append/3` anexa o segundo argumento ao primeiro, guardando o resultado no terceiro:
+```
+?- append([1, 2], [3, 4, 5], X).
+X = [1, 2, 3, 4, 5].
+```
+- Ela pode ser implementada da seguinte forma:
+```
+append([], X, X).
+append([H|T1], X, [H, T2]):-
+    append(T1, X, T2).
+```
+- Um resultado possível de `append/3` é decompor listas:
+```
+?- append(X, Y, [1, 2, 3]).
+X = [],
+Y = [1, 2, 3] ;
+X = [1],
+Y = [2, 3] ;
+X = [1, 2],
+Y = [3] ;
+X = [1, 2, 3],
+Y = [] ;
+false.
+```
