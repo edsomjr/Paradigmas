@@ -540,3 +540,105 @@ X = [1, 2, 3],
 Y = [] ;
 false.
 ```
+- É possível criar vários fatos a partir de uma única lista, chamando `assertz/1` no **head** da lista recursivamente:
+```
+list_to_facts([]).
+list_to_facts([H|T]):-
+    assertz(fact(H)),
+    list_to_facts(T).
+```
+- O processo inverso é mais complicado (fatos para lista)
+- Para isto, Prolog fornece o predicado `findall/3`: o primeiro argumento é o padrão para os teremos da lista resultante, o segundo o objetivo, e o terceiro a lista resultante
+- Exemplo:
+```
+findall(X, fact(X), L).
+L = [fact1, fact2, ..., factN].
+```
+
+### Operadores
+
+- Os operadores aritméticos em Prolog são _functors_ (por exemplo, `+/2`)
+```
+?- display(2 + 2).
++(2,2)
+true.
+
+?- display(1*2 + 3).
++(*(1,2),3)
+true.
+```
+
+- Qualquer _functor_ pode ser um operador, de modo que Prolog pode ler a estrutura em um formato diferente
+- Os operadores podem ser
+    1. infixados: ex. `3 + 4`
+    2. prefixado: ex. `-7`
+    3. pós-fixado: ex. `8 factorial`
+- A cada operador é associado uma precedência, representada por um inteiro entre 1 e 1200
+- Quanto maior a precedência, menor o número
+- Operadores podem ser definidos por meio do predicado `op/3`, cujos argumentos são a precedência, associatividade e o nome do operador
+- A associatividade é definida pelos padrões `'fxx', 'xfx', 'xxf'`, por exemplo, onde `f` indica a posição do operador
+- Para declarar um operador em um arquivo fonte, a sintaxe é
+```
+:- op(precedencia, associatividade, nome).
+```
+pois `op/3` é uma diretiva, não um predicado
+- Ex.:
+``` 
+f(x, y).
+:- op(100, 'xfx', f).
+
+?- a f b.
+false.
+
+?- x f y.
+true.
+
+% Ver o arquiv polyon.pl.
+```
+- É possível adicionar fatos com a notação de operadores
+- A notação de operadores, em conjunto com a ordem de precedência dos operadores, podem levar a resultados inesperados
+- Por outro lado eles permitem interfaces mais naturais para o usuário, dispensando o uso de vírgulas e parêntesis
+- No caso de dois operadores de mesma precedência, a ordem de associatividade fica a cargo do _listener_ Prolog
+- O caractere 'y' no parâmetro que descreve a associatividade descreve se o operador é não-associativo (ausência de 'y') ou a direção da associatividade (posição do 'y'):
+    1. infixo: 'xfx' (não associativo), 'xfy' (R to L), 'yfx' (L to R)
+    2. pré-fixa: 'fx' (não associativo), 'fy' à (L to R)
+    3. pós-fixada: 'xf' (não associativo), 'yf' (R to L)
+- Ver `codes/ops.pl` 
+- Os parêntesis podem ser utilizados para modificar a ordem de precedência ou a associatividade
+- O predicado _built-in_ `is` computa a expressão dada, enquanto o predicado `=/2` unifica os resultados sem computá-los.
+```
+?- X is 2 + 3.
+X = 5.
+
+?- X = 2 + 3.
+X = 2+3.
+
+?- 5 = 2 + 3.
+false.
+```
+- Em Prolog, as cláusulas são estruturas de dados escritas com sintaxe de operadores
+- O _functor_ **neck** `:-` é um operador infixado de dois argumentos
+```
+:-(Head, Body).
+```
+- O corpo é uma estrutura de dados com o _functor_ `and` (vírgula):
+```
+,(objetivo1, ,(objetivo2, ..., ,(objetivoN))).
+```
+- Note a ambiguidade semântica do operador vírgula na expressão acima: ele tanto é o separador dos argumentos quando o 'e' lógico
+
+### Cut
+
+- O predicado **cut** (`!`, ponto de exclamação) permite interromper o processo de _backtracking_
+- Ele congela todas as decisões tomadas pelo _backtracking_ até o momento
+- O principal motivo para o uso deste operador é o aumento de performance
+- Ele é motivo de controvérsia entre os puristas do paradigma lógico e os pragmáticos
+- O operador **cut** é considerado o **goto** do paradigma
+- Ele habilita a poda no _backtracking_ do _listener_ Prolog
+- O predicado `not/1` é implementado em termos do operador **cut** e do predicado `call/1`, o qual invoca um predicado:
+```
+not(X) :- call(X), !, fail.
+not(X).
+```
+
+### Estruturas de controle
