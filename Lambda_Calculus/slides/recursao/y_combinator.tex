@@ -3,17 +3,17 @@
 \begin{frame}[fragile]{Teorema do Ponto Fixo}
 
     \begin{block}{Teorema do Ponto Fixo}
-        Para qualquer termo-$\lambda$ $F$ existe um termo $X$ tal que $FX\equiv X$.
+        Para qualquer termo-$\lambda$ $G$ existe um termo $X$ tal que $GX\equiv X$.
     \end{block}
 
     \vspace{0.2in}
 
     \begin{block}{Demonstração}
-        Seja $F$ um termo-$\lambda$ qualquer. Defina $W\equiv (\lambda x.F(xx))$ e $X=WW$. 
+        Seja $G$ um termo-$\lambda$ qualquer. Defina $W\equiv (\lambda x.G(xx))$ e $X=WW$. 
 
         Deste modo,
         \[
-            X\equiv WW \equiv (\lambda x.F(xx))W \equiv F(WW)\equiv FX
+            X\equiv WW \equiv (\lambda x.G(xx))W \equiv G(WW)\equiv GX
         \]
     \end{block}
 \end{frame}
@@ -25,21 +25,21 @@
     \[
         \mathbf{Y}\equiv \lambda f.(\lambda x.f(xx))(\lambda x.f(xx))
     \]
-    é um termo-$\lambda$ tal que, para qualquer termo $F$,
+    é um termo-$\lambda$ tal que, para qualquer termo $G$,
     \[
-        \mathbf{Y}F\equiv F(\mathbf{Y}F)
+        \mathbf{Y}G\equiv G(\mathbf{Y}G)
     \]
     \end{block}
 
     \vspace{0.1in}
 
     \begin{block}{Demonstração}
-        Seja $F$ um termo-$\lambda$ qualquer. Daí
+        Seja $G$ um termo-$\lambda$ qualquer. Daí
         \begin{align*}
-            \mathbf{Y}F &\equiv (\lambda f.(\lambda x.f(xx))(\lambda x.f(xx)))F \\
-             &\equiv (\lambda x.F(xx))(\lambda x.F(xx)) \\
-             &\equiv F((\lambda x.F(xx))(\lambda x.F(xx))) \\
-             &\equiv F(\lambda f.(\lambda x.f(xx))(\lambda x.f(xx)))F) \equiv F(\mathbf{Y}F)
+            \mathbf{Y}G &\equiv (\lambda f.(\lambda x.f(xx))(\lambda x.f(xx)))G \\
+             &\equiv (\lambda x.G(xx))(\lambda x.G(xx)) \\
+             &\equiv G((\lambda x.G(xx))(\lambda x.G(xx))) \\
+             &\equiv G(\lambda f.(\lambda x.f(xx))(\lambda x.f(xx)))G) \equiv G(\mathbf{Y}G)
         \end{align*}
     \end{block}
 \end{frame}
@@ -47,18 +47,18 @@
 \begin{frame}[fragile]{Observações sobre o combinador $\mathbf{Y}$}
 
     \begin{itemize}
-        \item Veja que, para qualquer termo-$\lambda$ $F$, $\mathbf{Y}F$ é um ponto fixo de $F$
+        \item Veja que, para qualquer termo-$\lambda$ $G$, $\mathbf{Y}G$ é um ponto fixo de $G$
 
         \item Esta propriedade é o que faltava para a definição completa da recursão, pois
-            ao aplicar $(\mathbf{Y}F)$ ao parâmetro $x$ da recursão, o resultado é 
+            ao aplicar $(\mathbf{Y}G)$ ao parâmetro $x$ da recursão, o resultado é 
         \[
-            (\mathbf{Y}F)x \equiv F(\mathbf{Y}F)x,
+            (\mathbf{Y}G)x \equiv G(\mathbf{Y}G)x,
         \]
-        ou seja, o termo $F$ é aplicado aos parâmetros $\mathbf{Y}F$ e $x$, o que permite invocar
-        $F$ novamente quantas vezes forem necessárias
+        ou seja, o termo $G$ é aplicado aos parâmetros $\mathbf{Y}G$ e $x$, o que permite invocar
+        $G$ novamente quantas vezes forem necessárias
 
-        \item Assim, para definir uma função recursiva $\mathbf{Y}F$ no cálculo-$\lambda$, basta 
-        determinar o predicado $P$ e as funções $g$ e $h$ que compõem a função $F$
+        \item Assim, para definir uma função recursiva $\mathbf{Y}\Gamma$ no cálculo-$\lambda$, basta 
+        determinar o predicado $P$ e as funções $g$ e $H$ que compõem a função $\Gamma$
     \end{itemize}
 
 \end{frame}
@@ -67,38 +67,41 @@
 
     \begin{huge}
     \[
-        F(n) =  \left\lbrace \begin{array}{ll}
+        !n =  \left\lbrace \begin{array}{ll}
                     1, & \mbox{se}\ n = 0, \\
-                    nF(n - 1), & \mbox{caso contrário}
+                    n \times !(n - 1), & \mbox{caso contrário}
                 \end{array} \right.
     \]
     \end{huge}
 
-    \vspace{0.5in}
+    \begin{itemize}
+        \item A notação está ``invertida'' para ficar consistem com a notação prefixada
+            do cálculo lambda
 
-    Neste caso, $P\equiv Z, g \equiv 1$ e $h\equiv \lambda fx.\times x(f(Px))$, onde
-    $\times ab$ é a multiplicação dos naturais $a$ e $b$, e $Pn$ é o predecessor do natural $n$. 
+        \item Na notação de recursão do cálculo lambda, $P\equiv Z, g \equiv 1$ e 
+            $H\equiv \lambda fx.\times x(f(Px))$, onde $\times ab$ é a multiplicação dos 
+            naturais $a$ e $b$ e $Pn$ é o antecessor do natural $n$. 
 
-    \vspace{0.1in}
-    Deste modo,
-    \[
-        F \equiv \lambda fx.(Zx)1(\times x(f(Px)))
-    \]
+        \item Deste modo, $! = \mathbf{Y} \Gamma$, onde
+        \[
+            \Gamma\equiv \lambda fx.(Zx)1(\times x(f(Px)))
+        \]
+    \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]{Exemplo de aplicação do fatorial}
 
     \begin{align*}
-        3! \equiv (\mathbf{Y}F)3 &\equiv F(\mathbf{Y}F)3 \\
-        &\equiv (\lambda fx.(Zx)1(\times n(f(Pn))))(\mathbf{Y}F)3 \\
-        &\equiv (Z3)1(\times 3((\mathbf{Y}F)(P3))) \\
-        &\equiv F1(\times 3((\mathbf{Y}F)(P3))) \\
-        &\equiv \times 3((\mathbf{Y}F)2)) \equiv \times 3(F(\mathbf{Y}F)2)) \\
-        &\equiv \times 3((Z2)1(\times 2((\mathbf{Y}F)(P2)))) \\
-        &\equiv \times 3(\times 2((\mathbf{Y}F)1)) \equiv \times 3(\times 2(F(\mathbf{Y}F)1)) \\
-        &\equiv \times 3(\times 2((Z1)1(\times 1((\mathbf{Y}F)(P1))) \\
-        &\equiv \times 3(\times 2(\times 1((\mathbf{Y}F)0))) \\
-        &\equiv \times 3(\times 2(\times 1((Z0)1(\times 0((\mathbf{Y}F)(P0)))))) \\
+        !3 \equiv (\mathbf{Y}\Gamma )3 &\equiv \Gamma (\mathbf{Y}\Gamma )3 \\
+        &\equiv (\lambda fx.(Zx)1(\times n(f(Pn))))(\mathbf{Y}\Gamma )3 \\
+        &\equiv (Z3)1(\times 3((\mathbf{Y}\Gamma )(P3))) \\
+        &\equiv F1(\times 3((\mathbf{Y}\Gamma )(P3))) \\
+        &\equiv \times 3((\mathbf{Y}\Gamma )2)) \equiv \times 3(\Gamma (\mathbf{Y}\Gamma )2)) \\
+        &\equiv \times 3((Z2)1(\times 2((\mathbf{Y}\Gamma )(P2)))) \\
+        &\equiv \times 3(\times 2((\mathbf{Y}\Gamma )1)) \equiv \times 3(\times 2(\Gamma (\mathbf{Y}\Gamma )1)) \\
+        &\equiv \times 3(\times 2((Z1)1(\times 1((\mathbf{Y}\Gamma )(P1))) \\
+        &\equiv \times 3(\times 2(\times 1((\mathbf{Y}\Gamma )0))) \\
+        &\equiv \times 3(\times 2(\times 1((Z0)1(\times 0((\mathbf{Y}\Gamma )(P0)))))) \\
         &\equiv \times 3(\times 2(\times 1(1))) \\
         &\equiv \times 3(\times 2(1)) \\
         &\equiv \times 3(2) \equiv 6

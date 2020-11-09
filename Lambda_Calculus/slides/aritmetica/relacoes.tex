@@ -43,14 +43,14 @@
     \begin{itemize}
         \item Assim,
         \begin{align*}
-            Z0 &\equiv (\lambda.xF\lnot F)0 \\
+            Z0 &\equiv (\lambda x.xF\lnot F)0 \\
             &\equiv 0F\lnot F \equiv (0F\lnot)F \\
             &\equiv \lnot F \equiv T
         \end{align*}
             
         \item Para um natural $N$ qualquer,
         \begin{align*}
-            ZN &\equiv (\lambda.xF\lnot F)N \\
+            ZN &\equiv (\lambda x.xF\lnot F)N \\
             &\equiv NF\lnot F \equiv (NF\lnot)F \\
             &\equiv \mathbf{I} F \equiv F,
         \end{align*}
@@ -111,7 +111,7 @@
     \begin{block}{Proposição}
     A expressão-$\lambda$
     \[
-        P \equiv (\lambda n.n\Phi (\lambda z.z00))F
+        P \equiv (\lambda n.n\Phi (\lambda z.z00)F)
     \]
     computa o \textbf{antecessor} de qualquer natural $N$ maior que zero, e $P0 = 0$.
     \end{block}
