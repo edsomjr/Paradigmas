@@ -44,7 +44,7 @@
 
     \begin{huge}
     \[
-        \Gamma\equiv (\lambda \gamma x.(Px)(gx)(\lambda \gamma x.H))
+        \Gamma\equiv (\lambda \gamma x.(Px)(gx)(h))
     \]
     \end{huge}
 
@@ -55,8 +55,7 @@
         \item Se o predicado $(Px)$ retornar verdadeiro, o retorno será o primeiro parâmetro 
             $(gx)$, que corresponde ao valor de $\Gamma$ para o caso base
 
-        \item Se falso, será avaliada a função $H = H(x, \gamma)$, que tem como parâmetros $x$ 
-            e $\gamma$
+        \item Se falso, será avaliada a função $h = h(x, \gamma)$
 
         \item Não há garantias, contudo, que $\Gamma\equiv \gamma$, pois no cálculo $\lambda$ 
             os termos são anônimos
