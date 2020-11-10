@@ -1,1 +1,102 @@
 \section{Fatos}
+
+\begin{frame}[fragile]{Fatos em Prolog}
+
+    \begin{itemize}
+        \item Os fatos são os predicados mais simples do Prolog
+
+        \item Eles se assemelham a registros em um banco de dados relacional
+
+        \item A sintaxe para a declaração de um fato é
+
+            \inputsyntax{prolog}{codes/pred.pl}
+
+        onde \code{prolog}{pred} é o nome do fato, e \code{prolog}{arg1, arg2, ..., argN}
+        são os argumento, sendo $N$ a aridade
+
+        \item O ponto final (`\texttt{.}') encerra todas as cláusulas de Prolog
+
+        \item Se a aridade do predicado for zero, a sintaxe se reduz a
+
+            \inputsyntax{prolog}{codes/pred_0.pl}
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Termos}
+
+    \begin{itemize}
+        \item Os argumentos podem ser quaisquer termos válidos de Prolog
+
+        \item Os termos básicos do Prolog são
+
+        \begin{itemize}
+            \item \textbf{inteiro}: número positivo, negativo ou zero, com valor absoluto 
+                máximo dependendo da implementação
+
+            \item \textbf{átomo}: uma constante de texto iniciada com letra minúscula
+
+            \item \textbf{variável}: começa com letra maiúscula ou sublinhado (`\texttt{\_}')
+
+            \item \textbf{estrutura}: termos complexos
+        \end{itemize}
+
+        \item Algumas implementações podem estender esta lista, com strings e ponto flutuante, 
+            por exemplo
+
+        \item O uso de aspas simples permitem a construção de átomos por meio de qualquer 
+            combinação válida de caracteres
+
+        \item Os nomes dos predicados seguem as mesmas regras dos átomos
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Fatos em programas em Prolog}
+
+    \begin{itemize}
+        \item Os fatos são frequentemente utilizados para inserir informações no programa
+
+        \item Por exemplo, para o predicato \code{prolog}{paciente/3} podem ser atestados os 
+            seguintes fatos:
+
+            \inputsyntax{prolog}{codes/paciente.pl}
+
+        \item As aspas foram usadas nos nomes porque começam em maiúsculas e porque tem espaços
+
+        \item Um interpretador Prolog deve fornecer meios de inserção de fatos e regras em uma 
+            base de dados dinâmica, a qual pode ser consultada
+
+        \item A base de dados é atualizada por meio de consultas (\code{prolog}{consult/1} ou
+            \code{prolog}{reconsult/1}
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Fatos em programas em Prolog}
+
+    \begin{itemize}
+        \item Os predicados podem ser inseridos diretamente no interpretador, mas não são
+            gravados entre as sessões
+
+        \item Isto pode ser feito por meio do predicados \code{prolog}{asserta/1} e
+            \code{prolog}{assertz/1}
+
+        \item O primeiro insere um novo fato como primeiro dentre os fatos declarados para
+            o predicado
+
+        \item O segundo insere o novo fato como o último dentre os já declarados
+
+        \item Os nomes utilizados no fato são indiferentes para o Prolog, mas para a aplicação 
+            as relações devem ser compatíveis com a semântica dos identificadores escolhidos
+
+        \item Prolog considera distintos os fatos \code{prolog}{fato(a, b)} e 
+            \code{prolog}{fato(b, a)}
+
+
+
+    \end{itemize}
+
+\end{frame}

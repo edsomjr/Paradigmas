@@ -1,0 +1,46 @@
+\section{Consultas simples}
+
+\begin{frame}[fragile]{Consultas simples}
+
+    \begin{itemize}
+        \item Uma vez que a base de dados do interpretador Prolog seja alimentado com fatos, o
+            este interpretador pode responder a consultas (\textit{queries}) a respeito dos
+            fatos
+
+        \item As consultas em Prolog funcionam por meio do casamento de padrões
+            (\textit{pattern matching})
+
+        \item O padrão de uma consulta é denominado \textbf{objetivo} (\textit{goal})
+
+        \item Se algum fato atinge o objetivo, a consulta é bem sucedida e o interpretador
+            responde ``\texttt{Sim}'' (\code{prolog}{true.})
+
+        \item Caso contrário, a consulta falha e o interpretador responde ``\texttt{Não}''
+            (\code{prolog}{false.})
+
+        \item O casamento de padrões do Prolog é denominado \textbf{unificação}
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Unificação}
+
+    \begin{block}{Unificação (versão simplificada)}
+        Se o programa contém apenas fatos, a unificação é bem sucedida se as três condições
+            abaixo são satisfeitas:
+        \begin{enumerate}
+            \item o predicado citado no objetivo e na base de dados é o mesmo,
+            \item ambos tem a mesma aridade,
+            \item todos os argumentos são os mesmos.
+        \end{enumerate}
+
+    \end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplos de unificação}
+
+    \inputsnippet{prolog}{1}{21}{codes/matching.pl}
+
+\end{frame}
