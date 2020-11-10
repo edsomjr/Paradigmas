@@ -1,0 +1,2 @@
+    ?- consult(students).
+    true.

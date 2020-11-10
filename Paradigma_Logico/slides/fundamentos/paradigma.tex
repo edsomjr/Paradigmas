@@ -1,0 +1,256 @@
+\section{Paradigma Lógico}
+
+
+\begin{frame}[fragile]{Paradigma Lógico}
+
+    \begin{itemize}
+        \item O paradigma lógico foi elaborado a partir de um teorema proposto no contexto
+            do processamento de linguagens naturais
+
+        \item Ele permite prototipamento e desenvolvimento rápidos devido sua proximidade
+            semântica com a especificação lógica do problema ser resolvido
+
+        \item A programação, sob o viés do paradigma lógico, é declarativa
+
+        \item Os programas são compostos por uma série de relações lógicas e consultas, as
+            quais questionam se uma determinada proposição é ou não verdadeira
+
+        \item Caso seja verdadeira, também é possível determinar qual atribuição de valores
+            lógicos às variáveis da proposição a torna verdadeira
+
+        \item Para se tornar um paradigma prático, é necessário o apoio de subrotinas
+            extra-lógicas que controlem os processos de entrada e saída de dados e que 
+            manipulem o fluxo de execução do programa
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Prolog}
+
+    \begin{itemize}
+        \item A linguagem de programação lógica Prolog foi proposta em 1972 por 
+           Alain Colmerauer e Philippe Roussel, tendo como base os trabalhos de Robert Kowalski 
+
+        \item Prolog é uma contração da expresssão ``\textit{PROgramming in LOGic}''
+
+        \item Ela tem raízes na lógica de primeira ordem
+
+        \item O SWI Prolog pode ser instalado em distribuições com suporte ao
+            \texttt{apt} por meio do comando
+
+            \inputsyntax{bash}{codes/install.sh}
+
+        \item O interpretador (\textit{listener}) Prolog pode ser invocado com o comando
+
+            \inputsyntax{sh}{codes/prolog.sh}
+
+        \item Para validar a instalação, utilize o comando
+
+            \inputsyntax{sh}{codes/version.sh}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Programas em Prolog}
+
+    \begin{itemize}
+
+        \item Um programa em Prolog é composto de uma coleção de pequenas unidades modulares, 
+            denominadas \textbf{predicatos}
+
+        \item Os predicatos são semelhantes às subrotinas de outras linguagens
+
+        \item Eles podem ser testados e adicionados separadamente em um programa, de modo que 
+            é possível construir programas incrementalmente
+
+        \item O ato de inserir de códigos no interpretador Prolog é denonimado
+            \textbf{consultar}
+
+        \item É possível consultar diretamente um arquivo-fonte no interpretador Prolog por
+            meio do predicado \code{prolog}{consult()}:
+
+            \inputsyntax{prolog}{codes/consult.pl}
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Programas em Prolog}
+
+    \begin{itemize}
+        \item Se o arquivo for modificado, ele deve ser relido através do predicado 
+            \code{prolog}{reconsult()}:
+
+            \inputsyntax{prolog}{codes/reconsult.pl}
+
+        \item A extensão dos arquivos-fonte deve ser `\code{prolog}{.pl}'
+
+        \item Usando o comando
+
+            \inputsyntax{sh}{codes/run.sh}
+
+        o conteúdo de \texttt{source.pl} é carregado no interpretador e o terminal fica 
+        pronto para consultas
+
+        \item Para fazer uma consulta sem entrar no modo iterativo, use a opção `\texttt{-g}'
+            para estabelecer o objetivo e a opção `\texttt{-t}' para encerrar o Prolog:
+
+            \inputsyntax{sh}{codes/bash.sh}
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de programa em Prolog}
+
+    \begin{itemize}
+        \item A proposição ``\textit{Todo estudante da FGA é estudante da UnB}'' pode
+            ser declarada em Prolog da seguinte forma:
+
+            \inputsyntax{prolog}{codes/unbfga.pl}
+
+        \item Outra forma de ler esta mesma proposição seria ``\textit{Para todo X, X é aluno               da UnB se X estuda na FGA}''
+
+        \item Afirmações sobre estudantes da FGA pode ser feitas por meio do predicado
+            \code{prolog}{fga/1}:
+
+            \inputsyntax{prolog}{codes/fga.pl}
+    
+        \item Observe o ponto final (`\texttt{.}') que encerrada cada proposição/predicado
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de arquivo-fonte em Prolog}
+
+    \inputsnippet{prolog}{1}{6}{codes/students.pl}
+
+\end{frame}
+
+
+\begin{frame}[fragile]{Exemplo de programa em Prolog}
+
+    \begin{itemize}
+        \item Se estes predicados forem inseridos em um arquivo denominado 
+            `\texttt{students.pl}', ele pode ser consultado no interpretador Prolog
+            através do predicado \code{prolog}{consult/1}:
+
+            \inputsyntax{prolog}{codes/students_1.pl}
+
+        \item Para saber checar se Ana é estudante da UnB, basta utilizar a consulta
+
+            \inputsyntax{prolog}{codes/students_2.pl}
+
+        \item Para saber se Diana também é estudante da UnB, a consulta deve ser 
+
+            \inputsyntax{prolog}{codes/students_3.pl}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de programa em Prolog}
+
+    \begin{itemize}
+        \item Para listar todos os estudantes conhecidos da UnB, faça a consulta
+
+            \inputsyntax{prolog}{codes/students_4.pl}
+
+        \item Observe que a consulta atribuiu corretamente \code{prolog}{X = ana}, pois
+            Ana é estudante da UnB
+
+        \item A consulta retorna o primeiro valor encontrado para \code{prolog}{X} que
+            torna a sentença aberta \code{prolog}{unb(X).} verdadeira
+
+        \item Para obter os demais valores de \code{prolog}{X} que também tornam tal sentença
+            verdadeira, utilize o operador ponto-e-vírgula (`\texttt{;}') após cada retorno:
+
+            \inputsyntax{prolog}{codes/students_5.pl}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de programa em Prolog}
+
+    \begin{itemize}
+        \item É possível formatar a lista de todos os estudantes da UnB por meio dos 
+            predicados \code{prolog}{write/1} e \code{prolog}{nl/0}
+
+        \item O predicado \code{prolog}{write/1} escreve seu argumento no terminal
+
+        \item O predicado \code{prolog}{nl/0} inicia uma nova linha no terminal
+
+        \item Estes predicados podem ser combinados com a consulta sobre os estudantes da
+            UnB para formar o predicado \code{prolog}{unb_report/0}:
+
+            \inputsyntax{prolog}{codes/unbreport.pl}
+
+        \item Este novo predicado por ser consultado no interpretador da seguinte forma:
+
+            \inputsyntax{prolog}{codes/unbreport_call.pl}
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Arquivo-fonte completo do exemplo}
+
+    \inputsnippet{prolog}{1}{21}{codes/students.pl}
+
+\end{frame}
+
+\begin{frame}[fragile]{Terminologia}
+
+    \begin{itemize}
+        \item O jargão de Prolog é composto por termos de programação, termos de bancos de 
+            dados e termos lógicos
+
+        \item Não há uma divisão clara, em Prolog, entre dados e procedimentos
+
+        \item Um programa em Prolog é um banco de dados Prolog
+
+        \item Sinômios para um termo são introduzidos entre parêntesis
+
+        \item Por exemplo, no nível mais alto temos \code{prolog}{program(database)}
+
+        \item Um programa é composto por predicados (procedimentos, registros, relações)
+
+        \item Cada predicado é definido um nome e um número (\textbf{aridade})
+
+        \item A aridade é o número de argumentos (atributos, campos) do predicado
+
+        \item Dois predicados com nomes diferentes, mais aridades distintas, são considerados 
+            distintos
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Terminologia}
+
+    \begin{itemize}
+        \item No exemplo anterior são três os predicados: \code{prolog}{unb/1},
+            \code{prolog}{unb_report/0} e \code{prolog}{fga/1}
+
+        \item \code{prolog}{fga/1} lembra um registro com um campo de outras linguagens
+
+        \item \code{prolog}{unb_report/0} se assemelha a uma subrotina sem argumentos
+
+        \item \code{prolog}{mortal/1} remete a uma regra ou proposição, e está em algum lugar 
+            entre dados e procedimentos
+
+        \item Cada predicado do programa é definido pela existência de uma ou mais cláusulas 
+            no banco de dados
+
+        \item No exemplo, \code{prolog}{fga/1} tem 3 cláusulas, os demais predicatos apenas 
+            uma cláusula
+
+        \item Cada cláusula pode ser uma \textbf{regra} ou um \textbf{fato}
+
+        \item As quatro cláusulas de \code{prolog}{fga/1} são fatos
+
+        \item As demais são regras
+    \end{itemize}
+
+\end{frame}
+
+
