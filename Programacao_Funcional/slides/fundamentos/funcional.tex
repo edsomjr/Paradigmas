@@ -12,10 +12,11 @@
             imperativo
 
         \item O conceito principal é de que o retorno de uma função depende única e exclusivamente
-            de suas entradas
+            de seus parâmetros (ou argumentos)
 
-        \item Isto significa que uma função chamada duas ou mais vezes, com os mesmos argumentos, 
-            produzirá sempre o mesmo retorno, o que não necessariamente ocorre em paradigmas
+        \item Isto significa que uma função chamada duas ou mais vezes, com os mesmos
+            argumentos, 
+            terá sempre o mesmo retorno, o que não necessariamente ocorre em paradigmas
             imperativos
 
     \end{itemize}
@@ -34,10 +35,10 @@
         \item Na década de 1950, Lisp foi uma das primeiras linguagens a incorporar conceitos e
             características da programação funcional
 
-        \item Na década de 1960 a APL (\textit{A Programming Language}) foi desenvolvida, e 
-            influenciou o desenvolvimento da FP na década seguinte
+        \item Na década de 1960 a APL (\textit{A Programming Language}) foi desenvolvida e 
+            influenciou o desenvolvimento da programação funcional na década seguinte
 
-        \item Também na décade de 1970 foi desenvolvida a linguagem ML, e em 1987 iniciou o
+        \item Também na décade de 1970 foi desenvolvida a linguagem ML e em 1987 teve início o
             desenvolvimento da linguagem Haskell
 
         \item Na década de 1990 surgiram as linguagens J, K e Q
@@ -97,7 +98,7 @@
 
     \begin{itemize}
         \item \textbf{Funções de primeira classe} são funções que recebem o mesmo tratamento que
-            os objetos da linguagem
+            os tipos primitivos da linguagem
 
         \item Assim, elas podem ser parâmetros ou retornos de outras funções, ou podem ser
             armazenadas em variáveis
@@ -127,7 +128,7 @@
         \item \textbf{Funções anônimas} são funções que não possuem um nome
 
         \item Há dois tipos de funções anônimas: \textbf{funções lambda} e 
-            \textbf{\textit{closures}}
+            \textit{\textbf{closures}}
 
         \item Em geral, funções anônimas são utilizadas como parâmetros de funções de alta ordem,
             ou para a construção dos retornos destas
@@ -136,7 +137,7 @@
             retorno
 
         \item \textit{Closures} são semelhantes às funções lambda, exceto pelo fato de que elas
-            referenciam variáveis foram do escopo do seu corpo e lista de parâmetros
+            referenciam variáveis foram do escopo do seu corpo e de sua lista de parâmetros
 
         \item Em geral, os \textit{closures} são implementados como estruturas de dados que
             contém um ponteiro para o código da função e para todas as variáveis necessárias para
@@ -152,7 +153,7 @@
             valor de retorno, ela modifica o estado do programa
 
         \item Os efeitos colaterais mais comuns são: alteração de variáveis globais, estáticas ou
-            parâmetros, escrita ou leitura em periféricos, ou invocação de funções que tenham
+            parâmetros, escrita ou leitura em periféricos, e invocação de funções que tenham
             efeitos colaterais
 
         \item A ausência de efeitos colaterais é uma condição necessária, porém não suficiente,
@@ -161,10 +162,9 @@
         \item A \textbf{transparência referencial} significa que uma expressão pode ser substituída
             por seu valor
 
-        \item Funções \textbf{puras} não tem efeitos colaterais e gera o mesmo retorno para uma
-            mesma entrada
+        \item Funções \textbf{puras} não tem efeitos colaterais e geram o mesmo retorno para o mesmo conjunto de parâmetros
 
-        \item Em outras palavras, o retorno depende única e exclusivamente da entrada
+        \item Em outras palavras, o retorno depende única e exclusivamente dos parâmetros
             
     \end{itemize}
 
@@ -201,7 +201,8 @@
 \begin{frame}[fragile]{Valoração não-estrita}
 
     \begin{itemize}
-        \item Valoração é o processo de computar o valor de uma expressão
+        \item No contexto de implementação de linguagens de programação, valoração é o 
+            processo de computar o valor de uma expressão
 
         \item Valoração \textbf{estrita} significa que as expressões são valoradas imediatamente e
             atribuídas à variável que conterá o retorno tão logo esta última seja definida
@@ -225,8 +226,8 @@
 \begin{frame}[fragile]{\it Pattern matching}
 
     \begin{itemize}
-        \item Em programação funcional, \textit{pattern matching} diz respeito ao verificação de
-            objeto contra objeto
+        \item Em programação funcional, \textit{pattern matching} diz respeito ao processo de
+            verificação de objeto contra objeto
 
         \item Ela é utilizada para extrair membros dos objetos ou verificar se os objetos tem
             um tipo específico em uma única expressão

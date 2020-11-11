@@ -1,0 +1,1 @@
+    ?- reconsult(source)

@@ -1,0 +1,2 @@
+    ?- unb(ana).
+    true.

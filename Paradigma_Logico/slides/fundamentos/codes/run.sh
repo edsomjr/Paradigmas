@@ -1,0 +1,1 @@
+    $ prolog -s source.pl
