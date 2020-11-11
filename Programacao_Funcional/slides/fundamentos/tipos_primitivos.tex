@@ -13,7 +13,14 @@
 
             \inputsyntax{haskell}{codes/sub.hs}
 
-        \item O operador \texttt{\^} representa a divisão em ponto flutuante, não inteira
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Operadores Aritméticos}
+
+    \begin{itemize}
+        \item O operador \texttt{/} representa a divisão em ponto flutuante, não inteira
 
         \item Os resultados não geram \textit{overflow}, sendo a aritmética estendida
             implementada nativamente
@@ -40,7 +47,7 @@
             \textbf{maior} (\texttt{>}) e \textbf{maior ou igual} (\texttt{>=})
 
         \item No ghci, a precedência dos operadores pode ser consultada por meio do comando
-            `\texttt{:info}'
+            \code{haskell}{:info}
 
         \item O valor 1 significa a menor precedência possível; 9 é a maior precedência possível
 
@@ -121,8 +128,8 @@
         \item Em um sistema forte, as regras identificação, conversão e validação dos tipos
             são estritas e aplicadas em tempo de compilação
 
-        \item Em Haskeel, se uma expressão violar as regras de tipagem ela será considerada mal 
-            formada, e levará a um erro de tipo
+        \item Em Haskell, se uma expressão violar as regras de tipagem ela será considerada mal 
+            formada e levará a um erro de tipo
 
         \item Também não há promoção de tipos ou conversões implícitas de tipos dentro de 
             uma expressão
@@ -143,7 +150,7 @@
         \item O fato de ter um sistema forte e estático torna Haskell uma linguagem segura; a 
             inferência de tipos a torna uma linguagem concisa
 
-        \item A convenção em Haskell é que tipos de dados iniciem em letras maísculas, e
+        \item A convenção em Haskell é que tipos de dados iniciem em letras maísculas e
             as variáveis iniciem em letra minúscula
 
         \item No ghci, o tipo de uma expressão pode ser determinado por meio do comando
