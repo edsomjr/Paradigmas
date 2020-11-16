@@ -1,0 +1,18 @@
+\begin{frame}[fragile]{Visualização do fluxo em Prolog}
+
+    \begin{figure}[h]
+        \centering
+        \begin{tikzpicture}
+            \draw[thick] (0, 0) rectangle (5, 5);
+
+            \draw[-latex] (-1, 4) node[anchor=east] {\it call} -- (0, 4);
+            \draw[latex-] (-1, 1) node[anchor=east] {\it fail} -- (0, 1);
+            \draw[latex-] (6, 4) node[anchor=west] {\it exit} -- (5, 4);
+            \draw[-latex] (6, 1) node[anchor=west] {\it redo} -- (5, 1);
+
+            \node at (2.5, 2.5) { Objetivo };
+
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}

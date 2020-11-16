@@ -1,0 +1,122 @@
+\section{Consultas compostas}
+
+\begin{frame}[fragile]{Consultas compostas}
+
+    \begin{itemize}
+        \item Consultas simples podem ser combinadas em consultas compostas por meio do 
+            operador '\code{prolog}{,}', que corresponde ao \textbf{e} lógico
+
+        \item A sintaxe para consultas compostas é
+
+            \inputsyntax{prolog}{codes/compound.pl}
+
+        \item Se uma mesma variável aparece em mais de um predicado da consulta composta, ela 
+            deve ter o mesmo valor em todos eles para que exista um casamento de padrão para a 
+            consulta composta
+
+        \item O escopo de uma variável lógica é uma consulta, seja simples ou composta
+
+        \item Se a mesma variável é utilizada em consultas distintas, cada consulta tem sua 
+            própria cópia da variável
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Consultas compostas}
+
+    \begin{itemize}
+        \item O processo de \textit{backtracking} é utilizado para tentar casar todos os 
+            padrões, da esquerda para a direita
+
+        \item Ele encerra (porta \code{prolog}{exit}) com sucesso apenas se ele sai do 
+            predicado mais à direita com sucesso
+
+        \item Neste caso, ele imprima o conjunto de variáveis cujas atribuições tornaram
+            a consulta composta verdadeira
+
+        \item Se uma consulta sai pela porta \code{prolog}{redo}, apenas as variáveis presentes 
+            no predicado mais à direita são desatadas (as variáveis associadas aos predicados 
+            anteriores permanecem atadas)
+
+        \item Se a consulta falha para um dos predicados, ela falha como um todo
+
+        \item O operador ponto-e-vírgula (`\code{prolog}{;}') força uma reentrada no
+            último predicado pela porta \code{prolog}{redo}
+
+    \end{itemize}
+
+\end{frame}
+
+\input{composto_view}
+
+\begin{frame}[fragile]{Exemplo de consultas compostas}
+
+    \inputsnippet{prolog}{1}{21}{codes/capitais.pl}
+
+\end{frame}
+
+\begin{frame}[fragile]{Predicatos pré-definidos}
+
+    \begin{itemize}
+        \item Prolog oferece uma série de predicados pré-definidos (\textit{built-in})
+
+        \item Não há cláusulas para tais predicados
+
+        \item Quando um objetivo casa com um predicado pré-definido, ele chama uma rotina 
+            pré-definida
+
+        \item Estas rotinas, em geral, são implementadas na mesma linguagem que implementou o 
+            interpretador Prolog 
+
+        \item Elas realizam tarefas que estão fora do contexto da prova de teoremas lógicos, 
+            como escrever no console 
+
+        \item Por esta razão, também são denominados predicados extra-lógicos 
+
+        \item Ele respondem tanto na porta \code{prolog}{call} (\textit{left}) quando na 
+            porta \code{prolog}{redo} (\textit{right})
+
+        \item A resposta no caso \code{prolog}{redo} é denominada comportamento no 
+            \textit{backtracking}
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Predicados extra-lógicos}
+
+    \begin{itemize}
+        \item Exemplos de predicados extra-lógicos de I/O:
+
+        \begin{enumerate}
+            \item \code{prolog}{write/1}: sempre casa com qualquer padrão, e tem como efeito 
+                colateral escrever seu argumento no console. Sempre falha no
+                \textit{backtracking}
+
+            \item \code{prolog}{nl/0}: sempre é bem sucedido, e inicia uma nova linha. Também 
+                falha no \textit{backtracking}
+
+            \item \code{prolog}{tab/1}: avança $n$ espaços, onde $n$ é seu argumento. Mesmo 
+                comportamento dos anteriores
+        \end{enumerate}
+
+            \item Estes predicados não afetam o fluxo de controle, transferindo-o controle 
+                adiante (\textit{left}) ou para trás (\textit{backtracking})
+
+            \item Eles também não alteram as variáveis
+
+            \item O predicado \code{prolog}{fail/0} sempre falha
+
+            \item Se ele recebe o controle vindo da esquerda, ele passa o controle 
+                imediatamente para a porta \textit{redo} do objetivo à sua esquerda
+
+            \item Ele nunca recebe o controle da direita, pois nunca deixa o fluxo avançar 
+                para lá
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de consultas que utilizam predicados extra-lógicos}
+
+    \inputsnippet{prolog}{1}{21}{codes/quadrilaterals.pl}
+
+\end{frame}

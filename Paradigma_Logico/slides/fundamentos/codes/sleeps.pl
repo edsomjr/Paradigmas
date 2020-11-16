@@ -1,0 +1,1 @@
+    ?- assert(sleeps(X)).

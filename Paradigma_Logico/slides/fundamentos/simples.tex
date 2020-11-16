@@ -44,3 +44,149 @@
     \inputsnippet{prolog}{1}{21}{codes/matching.pl}
 
 \end{frame}
+
+\begin{frame}[fragile]{Variáveis lógicas}
+
+    \begin{itemize}
+        \item Objetivos podem ser generalizados por meio de variáveis do Prolog
+
+        \item Estas variáveis não se comportam como variáveis em outras linguagens, e são 
+            denominadas variáveis lógicas
+
+        \item Elas substituem um ou mais argumentos no objetivo
+
+        \item O nome e a aridade do predicado devem permanecer os mesmos, porém o argumento 
+            substituído pela variável casará positivamente com qualquer termo
+
+        \item Após uma unificação bem sucedida, a variável terá como valor os termos os quais 
+            casaram com ela
+
+        \item Este processo ata (\textit{to bind}) os valores (termos) à variável
+
+        \item Estes valores serão o retorno da consulta
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Variáveis lógicas}
+
+    \begin{itemize}
+        \item Um valor será retornado: caso mais de um valor seja casado com a variável, 
+            Prolog fornece mecanismos para a extração de todos eles
+
+        \item Após uma resposta pode ser inserido o ponto-e-vírgula (`\texttt{;}'): isto faz 
+            com que Prolog procure por casamentos alternativos para as variáveis
+
+        \item Qualquer outra entrada encerra a consulta
+
+        \item Se não houveram mais alternativas, o retorno será ``\texttt{Não}'' 
+
+        \item Os nomes das variáveis devem iniciar em maiúsculas
+
+        \item Todos os argumentos da consulta podem ser substituídos por variáveis
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso de variáveis lógicas}
+
+    \inputsnippet{prolog}{1}{21}{codes/variables.pl}
+
+\end{frame}
+
+\begin{frame}[fragile]{\it Backtracking}
+
+    \begin{itemize}
+        \item Quando Prolog tenta satisfazer um objetivo a respeito de um predicado, ele 
+            percorre todas as cláusulas que definem o predicado
+
+        \item Uma vez que há um casamento (entre argumentos ou variáveis), a cláusula em 
+            questão é marcada, indicando que ela satisfez o objetivo
+
+        \item  O interpretador retorna o valor deste casamento, no caso de variáveis, ou 
+            ``\texttt{Sim}'', no caso de argumentos
+
+        \item Se o usuário solicitar mais respostas, ele retoma a busca entre as cláusulas a 
+            partir do ponto em que ele parou
+
+        \item Nesta retomada a última variável que foi casada é desatada 
+
+        \item Este processo é denominado \textit{backtracking}
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Objetivos e fluxo de controle}
+
+    \begin{itemize}
+        \item Um objetivo em Prolog tem quatro portas que representam o fluxo de controle
+            quando este avalia o objetivo: chamada 
+            (\textit{call}), saída (\textit{exit}), retomada (\textit{redo}) e falha 
+            (\textit{fail})
+
+        \item A avaliação do objetivo inicia na chamada
+
+        \item Se a chamada é bem sucedida (há um casamento de padrão), a avaliação saí 
+            (encerra, \textit{exit}), atando as variáveis com os resultados obtidos
+
+        \item Caso contrário, a avaliação falha: não há mais valores que possam satisfazer o 
+            objetivo
+
+        \item Se bem sucedida e é seguida de um ';', a avaliação é retomada (\textit{redo}) a
+            partir do ponto que parou 
+
+        \item As variáveis são desatadas de seus valores e se busca por novas valores que 
+            também satisfaçam o objetivo
+    \end{itemize}
+
+\end{frame}
+
+\input{fluxo_view}
+
+\begin{frame}[fragile]{Rastreamento}
+
+    \begin{itemize}
+        \item É possível rastrear (\textit{to trace}) o fluxo de controle do Prolog por meio
+            do predicado \code{prolog}{trace/0}
+
+        \item Todas as consultas subsequentes serão rastreadas
+
+        \item O comando \code{prolog}{creep} avança para o próximo passo da execução, de modo
+            semelhante ao comando \texttt{step} dos depuradores das linguagens procedurais
+
+        \item No SWI-Prolog, este comando pode ser inserido através da barra de espaço
+
+        \item Para desativar o modo \code{prolog}{trace}, use o predicado 
+            \code{prolog}{notrace/0}, seguido do predicado \code{prolog}{nodebug/0}
+
+    \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}[fragile]{Generalizações}
+
+    \begin{itemize}
+        \item As variáveis lógicas permite a declaração de generalizações
+
+        \item Generalizações são fatos que casam com qualquer outro valor 
+
+        \item Por exemplo, a afirmtação ``Todos dormem'' pode ser declarada como
+
+            \inputsyntax{prolog}{codes/sleeps.pl}
+
+        \item Outro fato importante relativo às variáveis lógicas é que se uma mesma variável
+            é utilizada em vários argumentos, o casamento só será bem sucedido se esta variável
+            casar com o mesmo valor em todas as suas ocorrências
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de mesma variável lógica em múltiplos argumentos}
+
+    \inputsnippet{prolog}{1}{21}{codes/same_var.pl}
+
+\end{frame}
