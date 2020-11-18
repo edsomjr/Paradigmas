@@ -1,0 +1,49 @@
+\section{Aritmética}
+
+\begin{frame}[fragile]{Operadores aritméticos}
+
+    \begin{itemize}
+        \item Para computar expressões aritméticas, Prolog disponibiliza o predicado 
+            pré-definido \code{prolog}{is}, cuja sintaxe é:
+
+            \inputsyntax{prolog}{codes/in.pl}
+
+        \item A variável \code{prolog}{X} recebe o valor da expressão, e é desatada no 
+            \textit{backtracking}
+
+        \item As expressões são semelhantes às utilizadas em outras linguagens
+
+        \item Exemplos de expressões:
+
+            \inputsyntax{prolog}{codes/expressions.pl}
+
+        \item Parêntesis podem ser utilizado para evitar ambiguidades e alterar a ordem de 
+            precedência dos operadores
+
+            \inputsyntax{prolog}{codes/parenthesis.pl}
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Operadores relacionais}
+
+    \begin{itemize}
+        \item Para evitar que os operadores relacionais se assemelhem às setas, a ordem dos 
+            símbolos é diferente do usual:
+
+            \inputsyntax{prolog}{codes/relational.pl}
+
+        \item Exemplos de regras baseadas em expressões aritméticas:
+
+            \inputsyntax{prolog}{codes/juros.pl}
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso de operadores ariméticos e relacionais}
+
+    \inputsnippet{prolog}{1}{21}{codes/roots.pl}
+
+\end{frame}

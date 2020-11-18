@@ -1,0 +1,43 @@
+\section{Estruturas de Dados}
+
+\begin{frame}[fragile]{Estruturas de dados em Prolog}
+
+    \begin{itemize}
+        \item Uma estrutura de dados combina tipos primitivos (átomos, inteiros, etc) e 
+            estruturas em tipos compostos
+
+        \item A sintaxe de declaração de uma estrutura de dados é 
+
+            \inputsyntax{prolog}{codes/structures.pl}
+
+        \item Cada argumento pode ser um tipo primitivo ou outra estrutura
+
+        \item Sintaticamente, a declaração de uma estrutura é semelhante à declaração de um 
+            fato ou regra
+
+            \inputsyntax{prolog}{codes/cars.pl}
+
+   \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Consultas envolvendo estruturas de dados}
+
+    \begin{itemize}
+        \item A ordem dos argumentos é importante nas consultas
+
+            \inputsyntax{prolog}{codes/car_query.pl}
+
+        \item Campos podem ser ignorados com a variável anônima
+
+        \item Estruturas podem ser utilizadas em outras estruturas com o intuito de aumentar a 
+            legibilidade
+
+            \inputsyntax{prolog}{codes/car_struct.pl}
+
+        \item O predicado \code{prolog}{not/1} recebe um objetivo como argumento e é bem 
+            sucedida quando o objetivo falha, e falha quando o objetivo é bem sucedido
+
+    \end{itemize}
+
+\end{frame}
