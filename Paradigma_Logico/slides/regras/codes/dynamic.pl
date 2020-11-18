@@ -1,0 +1,2 @@
+    :- dynamic
+        pred/N.

@@ -1,0 +1,116 @@
+\section{Regras}
+
+\begin{frame}[fragile]{Regras}
+
+    \begin{itemize}
+        \item Um predicado é definido por cláusulas, as quais podem ser fatos ou regras
+
+        \item Uma regra é uma consulta armazenada. A sintaxe é
+
+            \inputsyntax{prolog}{codes/rules_syntax.pl}
+
+        onde \code{prolog}{head} é um predicado, \code{prolog}{:-} é o pescoço 
+        (\textit{neck symbol}), lido como ``se'' e \code{prolog}{body} é composto por uma
+        consulta
+
+        \item Exemplo: a regra `capital/2`, que lista as capitais $X$ de uma região $Y$,
+            pode ser definida por
+
+            \inputsyntax{prolog}{codes/capitais.pl}
+
+        \item Consultas possíveis seriam:
+
+            \inputsyntax{prolog}{codes/consultas.pl}
+
+        \item Uma mesma regra pode ser definida múltiplas vezes, cada uma com um corpo diferente
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Processamento das regras}
+
+    \begin{itemize}
+        \item Uma regra é processada da seguinte maneira:
+
+        \begin{enumerate}
+            \item Inicialmente, o padrão do objetivo é unificado com a cabeça (\textit{head}) 
+                regra
+            \item Se a unificação é bem sucedida, inicia-se uma consulta com os objetivos 
+                listados no corpo da regra
+        \end{enumerate}
+
+        \item Deste modo, regras permitem consultas em múltiplos níveis
+        
+        \item O primeiro nível é composto pelos objetivos iniciais
+
+        \item O segundo são os objetivos que aparecem no corpo da regra
+
+        \item No corpo da regra pode ser utilizadas novas regras, aumentando o nível da 
+            consulta
+
+        \item Regras podem ser usadas para definir conexões não-direcionadas
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Processamento das regras}
+
+    \begin{itemize}
+        \item Por exemplo:
+
+            \inputsyntax{prolog}{codes/edges.pl}
+
+        \item Note o ``ou'' implícito na definição das duas regras
+
+        \item Regras ou predicados que sempre falham não pode ser utilizadas em consultas 
+            compostas, porque não transferem o fluxo de execução adiante, via porta 
+            \code{prolog}{exit}
+
+        \item Nestes casos, é útil adicionar uma nova definição a tal regra ou predicado que 
+            retorna verdadeiro sempre.
+
+        \item Um predicado ou regra como uma única variável (sem corpo) é sempre bem sucedido
+
+        \item Nestes caso, pode se usar uma variável especial, denominada variável anônima,
+            representada pelo símbolo `\code{prolog}{_}' (\textit{undescore})
+
+    \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}[fragile]{Exemplo de definição regras e consultas envolvendo regras}
+
+    \inputsnippet{prolog}{1}{21}{codes/simpsons.pl}
+
+\end{frame}
+
+\begin{frame}[fragile]{Unificação em regras}
+
+    \begin{enumerate}
+        \item A unificação é o processo de \textit{pattern matching} do Prolog, utilizada na 
+            comunicação entre regras e predicados
+
+        \item A execução é controlada pelo mecanismo de \textit{backtracking} do Prolog
+
+        \item \code{prolog}{fail/0} pode ser usado para forçar o retorno do 
+            \textit{backtracking} (via porta \code{prolog}{fail})
+
+        \item Pode se forçar o sucesso de um predicado ou regra por meio de uma definição 
+            extra com variáveis anônimas e sem corpo
+
+        \item O \textit{backtracking} substitui os laços de outras linguagens
+
+        \item O \textit{pattern matching} substitui os testes condicionais e as estruturas de 
+            seleção
+
+        \item As regras podem ser testadas individualmente, permitindo o desenvolvimento 
+            modular
+
+        \item Regras que usam outras regras encoragjam a abstração de procedimentos e dados
+
+    \end{enumerate}
+
+\end{frame}

@@ -1,0 +1,76 @@
+\section{Manipulação da base de dados}
+
+\begin{frame}[fragile]{Manipulação da base de dados}
+
+    \begin{itemize}
+        \item Prolog permite a manipulação direta da base de dados por meio de predicados 
+            pré-definidos:
+
+        \begin{enumerate}
+            \item \code{prolog}{asserta(X)}: adiciona a cláusula \code{prolog}{X} como primeira 
+            cláusula para o seu predicado. Como as rotinas de I/O, sempre falha no 
+            \textit{backtracking} e não desfaz seu trabalho
+
+            \item \code{prolog}{assertz(X)}: igual a anterior, mas adiciona como última 
+                cláusula do predicado
+
+            \item \code{prolog}{retract(X)}: remove a cláusula \code{prolog}{X} da base de dados
+        \end{enumerate}
+
+        \item Para remover uma clásula, é preciso marcar o predicado como dinâmico, antes da 
+            definição do mesmo
+
+        \item A sintaxe para tal é
+
+            \inputsyntax{prolog}{codes/dynamic.pl}
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Prolog e variáveis globais}
+
+    \begin{itemize}
+        \item Não há variáveis globais em Prolog: as variáveis são locais às cláusulas
+
+        \item A base de dados ``substitui'' as variáveis globais
+
+        \item Ela permite que as cláusulas compartilhem informações entre si
+
+        \item \code{prolog}{asserts} e \code{prolog}{retracts} são as ferramentas para 
+            manipular os dados da base, dados estes que correpondem à variáveis globais
+
+        \item Naturalmente, este recursos deve ser utilizado com parcimônio e cuidado, pois 
+            ele modifica o estado do programa
+
+        \item Alguns programadores tentam eliminar dados globais e o uso de 
+            \code{prolog}{asserts} e \code{prolog}{retracts} em seus códigos Prolog
+ 
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Programas sem variáveis globais}
+
+    \begin{itemize}
+
+        \item É possível escrever programas que não modificam a base de dados, o que elimina o 
+            problema das variáveis globais
+
+        \item Isto pode ser feito passando as informações necessárias por meio dos argumentos 
+            dos predicados
+
+        \item A versão de \code{prolog}{assert} apresenta a seguir desfaz seu trabalho no 
+            \code{prolog}{backtracking}:
+
+            \inputsyntax{prolog}{codes/assert.pl}
+
+        \item Inicialmente, a primeira cláusula é executada
+
+        \item Se um objetivo posterior falhar, o \textit{backtracking} vai tentar a segunda 
+            cláusula, que desfará o trabalho da primeira e falhar, resultando no efeito 
+            desejado
+
+    \end{itemize}
+
+\end{frame}

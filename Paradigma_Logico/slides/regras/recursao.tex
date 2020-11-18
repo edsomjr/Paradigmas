@@ -1,0 +1,75 @@
+\section{Recursão}
+
+\begin{frame}[fragile]{Recursão em Prolog}
+
+    \begin{itemize}
+        \item Em Prolog, a recursão acontece quando um predicado contém um objetivo que se 
+            refere ao próprio predicado
+
+        \item Como a cada consulta Prolog usa o corpo da regra para criar uma nova consulta 
+            com novas variáveis, a recursão acontece naturalmente
+
+        \item Uma chamada recursiva é composta por duas partes:
+
+        \begin{enumerate}
+            \item casos-base, e
+            \item chamada recursiva
+        \end{enumerate}
+
+        \item Os casos-base são condições limítrofes (de contorno) que são sabidamente 
+            verdadeiras
+
+        \item O caso recursivo resolve o problema por meio de nova chamada da regra, em uma
+            versão reduzida do problema
+
+        \item A cada etapa da recursão, os casos-base são verificados: caso ocorram, a recursão 
+            termina; caso contrário, a recursão continua
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de recursão em Prolog}
+
+    \inputsnippet{prolog}{1}{21}{codes/fact.pl}
+
+\end{frame}
+
+\begin{frame}[fragile]{Características da recursão em Prolog}
+
+    \begin{itemize}
+        \item O escopo das variáveis de uma regra é a própria regra
+
+        \item Cada nível da recursão tem seu próprio conjunto de variáveis
+
+        \item A unificação entre o objetivo e a cabeça cláusula forçam as relações entre as 
+            variáveis de diferentes níveis
+
+        \item Para garantir que os casos base sejam sempre testados, eles devem ser definidos 
+            antes da chamada recursiva
+
+        \item Cuidado: na cláusula correspondente à chamada recursiva, é preciso garantir que
+            que os valores não correspondem ao casos bases
+
+        \item Isto porque, devido ao fluxo de \textit{backtracking}, o retorno à porta
+            \code{prolog}{redo} por meio de um ponto-e-vírgula pode fazer com que um valor
+            que casas com um dos casos-base também seja testado na chamada recursiva!
+            
+        \item Importante: a ordem dos predicados na chamada recursiva pode afetar a 
+            performance das consultas
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de estruturas recursivas}
+
+    \inputsnippet{prolog}{1}{18}{codes/matrioskas.pl}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de estruturas recursivas}
+
+    \inputsnippet{prolog}{19}{38}{codes/matrioskas.pl}
+
+\end{frame}
