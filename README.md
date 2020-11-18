@@ -34,3 +34,4 @@ Material didático da disciplina Paradigmas de Programação, ministrada pelo pr
     1. [Entrada e Saída](Programacao_Funcional/slides/io/io.pdf)
 1. Paradigma Lógico
     1. [Fundamentos](Paradigma_Logico/slides/fundamentos/fundamentos.pdf)
+    1. [Regras, arimética e estruturas de dados](Paradigma_Logico/slides/regras/regras.pdf)
