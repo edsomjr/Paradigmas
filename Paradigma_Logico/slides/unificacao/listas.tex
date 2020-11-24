@@ -1,0 +1,132 @@
+\section{Listas}
+
+\begin{frame}[fragile]{Listas em Prolog}
+
+    \begin{itemize}
+        \item Em Prolog, uma lista é uma coleção de termos
+
+        \item Os termos podem ser qualquer tipo de dados do Prolog, incluindo estruturas e 
+            outras listas
+
+        \item A sintaxe para declaração de uma lista é:
+
+            \inputsyntax{prolog}{codes/lists.pl}
+
+        \item A lista vazia é denotada por \code{prolog}{[]} e é também denominada 
+            \code{prolog}{nil}
+
+        \item A unificação trata as listas de forma semelhante às estruturas de dados
+
+            \inputsyntax{prolog}{codes/lists_ex.pl}
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Casamento de padrão em listas}
+
+    \begin{itemize}
+        \item A notação \code{prolog}{[X | Y]} ata \code{prolog}{X} ao primeiro elemento da 
+            lista, chamado \textit{head}, e ata \code{prolog}{Y} a uma lista com todos os 
+            demais, denominados \textit{tail}
+
+            \inputsyntax{prolog}{codes/head_tail.pl}
+
+        \item Podem ser listados vários elementos antes da barra, separados por vírgulas
+
+        \item Contudo, após a barra deve haver um único elemento (uma lista)
+
+            \inputsyntax{prolog}{codes/head_tail2.pl}
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Listas e predicados}
+
+    \begin{itemize}
+        \item Embora tenha uma sintaxe especial, uma lista é, de fato, um predicado de dois 
+            argumentos
+
+        \item O primeiro argumento do predicado \code{prolog}{./2} é o \textit{head} da lista, 
+            e o segundo é o \textit{tail}
+
+        \item No SWI-Prolog, este operador foi substituído pelo operador
+            \code{prolog}{'[|]'}
+
+            \inputsyntax{prolog}{codes/dot_operator.pl}
+
+        \item A estrutura interna da lista é adequada para rotinas recursivas
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Teste de pertinência}
+
+    \begin{itemize}
+        \item O predicado \code{prolog}{member/2} determina se um termo é ou não membro da 
+            lista
+
+        \item Ela pode implementada da seguinte maneira:
+
+            \inputsyntax{prolog}{codes/member.pl}
+
+        \item A primeira representa o caso base: o elemento pertence a lista se ele for o 
+            \textit{head}
+
+        \item Um fato com variáveis como argumentos funciona como uma regra
+
+        \item A segunda é a chamada recursiva.
+
+        \item Observe que o caso base é declarado antes da chamada recursiva
+
+        \item O caso base da lista vazia já está incluso na segunda clásula: 
+            \code{prolog}{member(X, [])} falha, pois \code{prolog}{[]} e 
+            \code{prolog}{[H|T]} não unificam
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Concatenação de listas}
+
+    \begin{itemize}
+        \item O predicado \code{prolog}{append/3} anexa o segundo argumento ao primeiro, 
+            guardando o resultado no terceiro:
+
+            \inputsyntax{prolog}{codes/append.pl}
+
+        \item Ele pode ser implementada da seguinte forma:
+
+            \inputsyntax{prolog}{codes/append_impl.pl}
+
+        \item \code{prolog}{append/3} também pode ser utilizado para decompor listas:
+
+            \inputsyntax{prolog}{codes/decomp.pl}
+    \end{itemize}
+
+
+\end{frame}
+
+\begin{frame}[fragile]{Listas e fatos}
+
+    \begin{itemize}
+        \item É possível criar vários fatos a partir de uma única lista, chamando 
+           \code{prolog}{assertz/1} no \textit{head} da lista recursivamente:
+
+            \inputsyntax{prolog}{codes/list_to_facts.pl}
+
+        \item O processo inverso é mais complicado (fatos para lista)
+
+        \item Para isto, Prolog fornece o predicado \code{prolog}{findall/3}: o primeiro 
+            argumento é o padrão para os termos da lista resultante, o segundo o objetivo e o 
+            terceiro a lista resultante
+
+        \item Exemplo:
+
+            \inputsyntax{prolog}{codes/findall.pl}
+
+    \end{itemize}
+
+\end{frame}
