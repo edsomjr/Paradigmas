@@ -35,3 +35,10 @@ Material didático da disciplina Paradigmas de Programação, ministrada pelo pr
 1. Paradigma Lógico
     1. [Fundamentos](Paradigma_Logico/slides/fundamentos/fundamentos.pdf)
     1. [Regras, arimética e estruturas de dados](Paradigma_Logico/slides/regras/regras.pdf)
+    1. [Unificação e listas](Paradigma_Logico/slides/unificacao/unificacao.pdf)
+
+<!-- TODO:
+    - Adicionar em Prolog:
+        1. Estruturas de controle
+        2. Linguagens naturais
+-->

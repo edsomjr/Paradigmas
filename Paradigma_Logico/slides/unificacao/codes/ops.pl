@@ -1,0 +1,1 @@
+    :- op(precedencia, associatividade, nome).

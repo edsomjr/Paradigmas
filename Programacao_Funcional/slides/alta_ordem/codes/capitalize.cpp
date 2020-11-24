@@ -14,7 +14,7 @@ vector<string> capitalize(const vector<string>& xs)
         {
             y[0] = toupper(x[0]);
 
-            for (size_t i = 1; i <= x.size(); ++i)
+            for (size_t i = 1; i < x.size(); ++i)
                 y[i] = tolower(x[i]);
         }
 

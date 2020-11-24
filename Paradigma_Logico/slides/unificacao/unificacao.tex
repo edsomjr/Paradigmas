@@ -1,0 +1,75 @@
+\section{Unificação}
+
+\begin{frame}[fragile]{Processos de unificação}
+
+    \begin{table}
+        \centering
+
+        \begin{tabularx}{0.9\textwidth}{cX}
+            \toprule
+            \textbf{Elementos} & \textbf{Comportamento} \\            
+            \midrule
+
+            variável e qualquer termo & a variável é unificada e atada com qualquer termo, 
+                inclusive outras variáveis \\
+            \midrule
+
+            primitivo e primitivo & dois termos primitivos (átomos ou inteiros) só se unificam 
+                se ambos são idênticos \\
+            \midrule
+
+            estrutura e estrutura & se unificam se tem mesmo construtor, mesma aridade e cada 
+                par de argumentos correspondentes se unifica \\
+            \bottomrule
+        \end{tabularx}
+    \end{table}
+
+\end{frame}
+
+\begin{frame}[fragile]{Igualdade}
+
+    \begin{itemize}
+        \item O predicado pré-definido \code{prolog}{=/2} é bem sucedido se ambos argumentos 
+            se unificam e falha, caso contrário
+
+            \inputsyntax{prolog}{codes/equals.pl}
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Variáveis e unificação}
+
+    \begin{itemize}
+        \item Se uma variável se unificar com uma primitiva, ela assume seu valor
+
+            \inputsyntax{prolog}{codes/variables.pl}
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Variáveis e unificação}
+
+    \begin{itemize}
+        \item Variáveis também se unificam:
+
+            \inputsyntax{prolog}{codes/variables2.pl}
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Variáveis e unificação}
+
+    \begin{itemize}
+        \item A variável anônima é um \textit{wildcard} e não ata a valor algum
+
+        \item Múltiplas instâncias de uma variável não implicam em valores iguais
+
+        \item o predicado \code{prolog}{\=/2} unifica apenas se os valores são distintos
+
+            \inputsyntax{prolog}{codes/variables3.pl}
+    \end{itemize}
+
+\end{frame}

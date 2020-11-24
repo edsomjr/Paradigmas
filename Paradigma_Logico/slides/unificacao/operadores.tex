@@ -1,0 +1,133 @@
+\section{Operadores}
+
+\begin{frame}[fragile]{Operadores e construtores}
+
+    \begin{itemize}
+        \item Os operadores aritméticos em Prolog são construtores (\textit{functors})
+
+        \item Por exemplo, o predicado adição \code{prolog}{+/2} é um construtor:
+
+            \inputsyntax{prolog}{codes/add.pl}
+
+        \item Qualquer construtor pode ser um operador, de modo que Prolog pode ler a 
+           estrutura de dados em um formato diferente
+
+        \item Os operadores podem ser
+        \begin{enumerate}
+            \item infixados (por exemplo, \code{prolog}{3 + 4})
+            \item prefixados (por exemplo, \code{prolog}{-7})
+            \item pós-fixados (por exemplo, \code{prolog}{8 factorial})
+        \end{enumerate}
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Ordem de precedência}
+
+    \begin{itemize}
+        \item A cada operador é associado uma precedência, representada por um inteiro entre 1 
+            e 1200
+
+        \item Quanto maior a precedência, menor o número
+
+        \item Operadores podem ser definidos por meio da diretiva \code{prolog}{op/3}, cujos 
+            argumentos são a precedência, associatividade e o nome do operador
+
+        \item A associatividade é definida por padrões (por exemplo, \code{prolog}{'fxx'},
+            \code{prolog}{'xfx'} e \code{prolog}{'xxf'}),  onde \code{prolog}{f} indica a 
+            posição do operador
+
+        \item Para declarar um operador em um arquivo fonte, a sintaxe é
+
+            \inputsyntax{prolog}{codes/ops.pl}
+
+        pois \code{prolog}{op/3} é uma diretiva, não um predicado
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de declaração e uso de operadores}
+    \inputsnippet{prolog}{1}{21}{codes/polygon.pl}
+\end{frame}
+
+\begin{frame}[fragile]{Fatos e operadores}
+
+    \begin{itemize}
+        \item É possível adicionar fatos com a notação de operadores
+
+        \item A notação de operadores, em conjunto com a ordem de precedência dos operadores, 
+            podem levar a resultados inesperados
+
+        \item Por outro lado eles permitem interfaces mais naturais para o usuário, dispensando 
+            o uso de vírgulas e parêntesis
+
+        \item No caso de dois operadores de mesma precedência, a ordem de associatividade fica 
+            a cargo do interpretador Prolog
+
+            \inputsyntax{prolog}{codes/facts.pl}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Associatividade de operadores}
+
+    \begin{itemize}
+        \item O caractere \code{prolog}{'y'} no parâmetro associatividade de \code{prolog}{op/3}
+        descreve a associatividade do operador 
+
+        \item Se o operador é não-associativo (ausência de \code{prolog}{'y'}) ou a direção da 
+            associatividade (posição do \code{prolog}{'y'}):
+
+        \begin{enumerate}
+            \item infixo: \code{prolog}{'xfx'} (não associativo), \code{prolog}{'xfy'} (R to L),                \code{prolog}{'yfx'} (L to R)
+            \item pré-fixa: \code{prolog}{'fx'} (não associativo), \code{prolog}{'fy'} à (L to 
+                R)
+            \item pós-fixada: \code{prolog}{'xf'} (não associativo), \code{prolog}{'yf'} (R to 
+                L)
+        \end{enumerate}
+
+        \item Os parêntesis podem ser utilizados para modificar a ordem de precedência ou a associatividade
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de associatividade em Prolog}
+    \inputsnippet{prolog}{1}{21}{codes/associativity.pl}
+\end{frame}
+
+\begin{frame}[fragile]{Predicado {\tt is}}
+
+    \begin{itemize}
+        \item O predicado pré-definido \code{prolog}{is} computa a expressão dada
+
+            \inputsyntax{prolog}{codes/is.pl}
+
+    \item Observe que o predicado \code{prolog}{=/2} unifica os resultados sem computá-los
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Operador pescoço}
+
+    \begin{itemize}
+        \item Em Prolog, as cláusulas são estruturas de dados escritas com sintaxe de 
+        operadores
+
+        \item O construtor pescoço (\textit{neck}) \code{prolog}{:-} é um operador infixado de 
+            dois argumentos
+
+            \inputsyntax{prolog}{codes/neck.pl}
+
+        \item O corpo é uma estrutura de dados com o construtor \code{prolog}{and} (vírgula):
+
+            \inputsyntax{prolog}{codes/body.pl}
+
+        \item Note a ambiguidade semântica do operador vírgula na expressão acima: ele tanto é 
+            o separador dos argumentos quando o ``e'' lógico
+
+    \end{itemize}
+
+\end{frame}

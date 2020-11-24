@@ -1,0 +1,47 @@
+\section{\it Cut}
+
+\begin{frame}[fragile]{Predicato {\tt cut}}
+
+    \begin{itemize}
+        \item O predicado \textit{cut} (\code{prolog}{!}, ponto de exclamação) permite 
+            a interrupção o processo de \textit{backtracking}
+
+        \item Ele congela todas as decisões tomadas pelo \textit{backtracking} até o momento
+
+        \item O principal motivo para o uso deste operador é o aumento de performance, pois
+            habilita a poda no \textit{backtracking}
+
+        \item Ele é motivo de controvérsia entre os puristas do paradigma lógico e os 
+            pragmáticos
+
+        \item Ele é considerado o \texttt{goto} do paradigma
+
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Negação}
+
+    \begin{itemize}
+        \item O predicado \code{prolog}{not/1} é implementado em termos do operador 
+            \textit{cut} e do predicado \code{prolog}{call/1}, o qual invoca um predicado:
+
+            \inputsyntax{prolog}{codes/not.pl}
+
+        \item Observe que se a chamada do predicado \code{prolog}{X} for bem sucedida, ela
+            seguirá para a direita, via porta \code{prolog}{exit}
+
+        \item Daí a execução encontrará o \textit{cut}, interrompendo o \textit{backtracking}
+
+        \item Por fim o predicado \code{prolog}{fail/0} é encontrado, determinando que a 
+            consulta retorne falso
+
+        \item Por outro lado, caso a chamada de \code{prolog}{X} falhe, será avaliada a 
+            segunda cláusula, a qual sempre é verdadeira
+
+        \item Assim, o predicado \code{prolog}{not/1} inverte o resultado da consulta
+            \code{prolog}{X}
+    \end{itemize}
+
+\end{frame}

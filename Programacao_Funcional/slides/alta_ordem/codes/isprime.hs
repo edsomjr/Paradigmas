@@ -1,5 +1,5 @@
+is_prime 2 = True
 is_prime n  | n < 2         = False
-            | n == 2        = True
             | mod n 2 == 0  = False  
             | otherwise     = test n 3
             where test n d | d * d > n      = True
