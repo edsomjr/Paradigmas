@@ -1,1 +1,0 @@
-    X is <expressão arimética>

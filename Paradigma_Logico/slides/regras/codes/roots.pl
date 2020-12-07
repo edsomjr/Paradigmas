@@ -1,4 +1,4 @@
-% Calcula as raizes reias deu do polinômio
+% Calcula as raizes reais do polinômio
 %
 % p(x) = ax^2 + bx + c
 

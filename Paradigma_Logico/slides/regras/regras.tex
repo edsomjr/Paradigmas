@@ -13,8 +13,8 @@
         (\textit{neck symbol}), lido como ``se'' e \code{prolog}{body} é composto por uma
         consulta
 
-        \item Exemplo: a regra `capital/2`, que lista as capitais $X$ de uma região $Y$,
-            pode ser definida por
+        \item Exemplo: a regra \code{prolog}{capitais/2}, que lista as capitais $X$ de uma região 
+            $Y$, pode ser definida por
 
             \inputsyntax{prolog}{codes/capitais.pl}
 
@@ -35,7 +35,7 @@
 
         \begin{enumerate}
             \item Inicialmente, o padrão do objetivo é unificado com a cabeça (\textit{head}) 
-                regra
+                da regra
             \item Se a unificação é bem sucedida, inicia-se uma consulta com os objetivos 
                 listados no corpo da regra
         \end{enumerate}
@@ -46,7 +46,7 @@
 
         \item O segundo são os objetivos que aparecem no corpo da regra
 
-        \item No corpo da regra pode ser utilizadas novas regras, aumentando o nível da 
+        \item No corpo da regra podem ser utilizadas novas regras, aumentando o nível da 
             consulta
 
         \item Regras podem ser usadas para definir conexões não-direcionadas
@@ -64,17 +64,17 @@
 
         \item Note o ``ou'' implícito na definição das duas regras
 
-        \item Regras ou predicados que sempre falham não pode ser utilizadas em consultas 
+        \item Regras ou predicados que sempre falham não podem ser utilizados em consultas 
             compostas, porque não transferem o fluxo de execução adiante, via porta 
             \code{prolog}{exit}
 
         \item Nestes casos, é útil adicionar uma nova definição a tal regra ou predicado que 
-            retorna verdadeiro sempre.
+            retorna verdadeiro sempre
 
         \item Um predicado ou regra como uma única variável (sem corpo) é sempre bem sucedido
 
         \item Nestes caso, pode se usar uma variável especial, denominada variável anônima,
-            representada pelo símbolo `\code{prolog}{_}' (\textit{undescore})
+            representada pelo símbole `\code{prolog}{_}' (\textit{underscore})
 
     \end{itemize}
 
@@ -89,7 +89,7 @@
 
 \begin{frame}[fragile]{Unificação em regras}
 
-    \begin{enumerate}
+    \begin{itemize}
         \item A unificação é o processo de \textit{pattern matching} do Prolog, utilizada na 
             comunicação entre regras e predicados
 
@@ -109,8 +109,8 @@
         \item As regras podem ser testadas individualmente, permitindo o desenvolvimento 
             modular
 
-        \item Regras que usam outras regras encoragjam a abstração de procedimentos e dados
+        \item Regras que usam outras regras encorajam a abstração de procedimentos e dados
 
-    \end{enumerate}
+    \end{itemize}
 
 \end{frame}
