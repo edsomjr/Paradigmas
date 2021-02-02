@@ -9,7 +9,7 @@
         dadas a seguir:
         \begin{enumerate}
             \item $x\in V \Rightarrow x\in \Lambda$ (expressão)
-            \item $M, N\in V \Rightarrow MN\in \Lambda$ (aplicação)
+            \item $M, N\in \Lambda \Rightarrow MN\in \Lambda$ (aplicação)
             \item $M\in \Lambda, x\in V \Rightarrow \lambda x.M$ (abstração)
         \end{enumerate}
     \end{block}
@@ -114,9 +114,8 @@
             (\lambda x.xy)[z:=N] = \lambda x.xy
         \]
 
-        \item $(\lambda x.xy)[x:=N]$ não é uma expressão lambda válida, pois as substituições
-            devem ser feitas em termos de variáveis livres, e $x$ é atada na expressão entre
-            parêntesis
+        \item $(\lambda x.xy)[x:=N] = \lambda x.xy$, pois as substituições só ocorrem em
+            variáveis livres, e $x$ é atada na expressão entre parêntesis
     \end{enumerate}
 
 \end{frame}
