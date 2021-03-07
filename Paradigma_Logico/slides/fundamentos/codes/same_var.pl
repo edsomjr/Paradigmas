@@ -12,10 +12,10 @@ g(1, a).
 
 % Exemplos de consultas
 %
-% f(X. X).
+% ?- f(X, X).
 % X = 1 ;
 % X = 2 ;
 % false.
 %
-% g(X, X).
+% ?- g(X, X).
 % false.

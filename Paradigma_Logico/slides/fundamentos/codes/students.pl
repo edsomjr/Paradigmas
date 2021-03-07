@@ -7,7 +7,6 @@ fga(carlos).
 
 unb_report :-
     write('Estudantes da UnB: '), nl,
-    unb(henrique),
-    write('Ok'), nl,
+    unb(X),
+    write(X), nl,
     fail.
-unb_report :- write('Nenhum estudante encontrado'), fail.
