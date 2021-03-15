@@ -17,4 +17,4 @@ right_angles(rectangle).
 % Exemplos de query que imprime todos os resultados
 % possíveis sem interação
 %
-% ?- quadrilateral(X), equal_sides(X), print(X), nl, fail.
+% ?- quadrilateral(X), equal_sides(X), write(X), nl, fail.
