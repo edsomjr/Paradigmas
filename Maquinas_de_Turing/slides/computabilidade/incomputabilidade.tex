@@ -247,12 +247,11 @@
         \item A partir da configuração inicial, esta máquina apaga o traço que está no bloco e,
             ao o reexaminar, segue para o estado ($\mathbf{2}$)
 
-        \item Como ($\mathbf{2}$) é o estado final, e o quadrado está em branco, a máquina parou
-            em um configuração final que não é a padrão
+        \item Como ($\mathbf{2}$) é o estado final, e o quadrado está em branco, então se o 
+            argumento é maior do que 1, a máquina para em um configuração final que não é a padrão
 
         \item As três máquinas exemplificadas correspondem aos menores inteiros positivos 
-            associados à uma máquina de Turing (isto é, $M_1, M_2, M_3$), e todas elas computam
-            a função vazia 
+            associados à uma máquina de Turing (isto é, $M_1, M_2, M_3$)
     \end{itemize}
 
 \end{frame}
@@ -284,8 +283,8 @@
 
         \vspace{0.1in}
 
-        No caso em que $n = m$, porém, surge uma contradição: se $f_m(n) = 1$ então, por definição,
-        $d(m) = 2$; caso contrário, se $f_m(n)\neq 1$ ou se $f_m(n)$ não for definida, $d(m) = 1$.
+        No caso em que $n = m$, porém, surge uma contradição: se $f_m(m) = 1$ então, por definição,
+        $d(m) = 2$; caso contrário, se $f_m(m)\neq 1$ ou se $f_m(m)$ não for definida, $d(m) = 1$.
         Em todos os casos, $d(m) \neq f_m(m)$, o que contradiz a hipótese de $d$ ser Turing
         computável.
      
@@ -306,10 +305,10 @@
             argumento $n$
 
         \item Por exemplo, para as três primeiras máquinas de Turing, apresentadas anteriormente,
-            $f_1, f_2$ e $f_3$ são iguais a função vazia, de modo que $d(1) = d(2) = d(3) = 1$
+            $d(1) = d(2) = d(3) = 1$
 
         \item Se $f_n(m)$ está definida para $m$, o valor de $d(m)$ será $1$, se $f_n(m) = 1$, ou
-            $d(m) = 2$, se $f_(m) \neq 1$
+            $d(m) = 2$, se $f_n(m) \neq 1$
 
         \item Se $f_n(m)$ parar em uma configuração final diferente da padrão, $d_n(m) = 1$
 
