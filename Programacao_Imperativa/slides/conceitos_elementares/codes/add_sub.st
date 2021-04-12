@@ -1,5 +1,5 @@
-    ADD reg, reg
-    ADD reg, imm
+    ADD regA, regB        ; regA = regA + regB
+    ADD reg, imm          ; reg = reg + imm
 
-    SUB reg, reg
-    SUB reg, imm
+    SUB regA, regB        ; regA = regA - regB
+    SUB reg, imm          ; reg = reg + imm
