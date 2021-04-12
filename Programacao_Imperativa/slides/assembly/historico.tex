@@ -214,7 +214,7 @@
             \node at (12.5, 7.75) { \footnotesize $0$ };
             \node at (12.5, 7.25) { \footnotesize $1$ };
             \node at (12.5, 6.75) { \footnotesize $2$ };
-            \node at (12.85, -0.25) { \footnotesize $65.535$ };
+            \node at (13.25, -0.25) { \footnotesize $1.048.575$ };
             \node at (10, 3.5) { \footnotesize $\vdots$ };
         
             \draw[->,very thick] (4, 6) -- node[anchor=south] { \footnotesize 20-\textit{bit} } (8, 6);
@@ -391,7 +391,7 @@
             \midrule
             \multirow{2}{*}[-2em]{\it Pointer Register} & \texttt{ESP} & \textit{Stack Pointer} & Contém 
                                                     o endereço do topo da pilha \\
-            & \cellcolor[gray]{0.9}\texttt{SBP} & \cellcolor[gray]{0.9}\textit{Base Pointer} & \cellcolor[gray]{0.9}Contém o endereço da base da pilha \\
+            & \cellcolor[gray]{0.9}\texttt{EBP} & \cellcolor[gray]{0.9}\textit{Base Pointer} & \cellcolor[gray]{0.9}Contém o endereço da base da pilha \\
             \midrule
             \multirow{2}{*}[-2em]{\it Index Register} & \texttt{ESI} & \textit{Source Index} & 
                 Ponteiro/índice inicial da contagem  \\
