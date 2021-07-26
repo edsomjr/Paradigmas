@@ -16,7 +16,7 @@
 
     \vspace{0.1in}
 
-    \textbf{Observação}: informalmente, a aplicação equivale ao cálculo da função 
+    \textbf{Observação}: informalmente, a aplicação equivale a avaliação da função 
         $M$ com argumento $N$, isto é $M(N)$; a abstração corresponde a definição da função 
         $f(x) = M$.
 
@@ -25,7 +25,7 @@
 \begin{frame}[fragile]{Exemplos de termos-$\lambda$}
 
     \begin{enumerate}
-        \item O termo-$\lambda$ mais simples possível é composto por uma única variável (por 
+        \item O termo-$\lambda$ mais simples possível é formado por uma única variável (por 
             exemplo, $x$)
 
         \item A função identidade $\lambda x.x$ é um exemplo de abstração
@@ -33,7 +33,7 @@
         \item Parêntesis podem ser utilizados para clarificar uma expressão, ou para remover
             ambiguidades
 
-        \item O termo $(\lambda x.x)y$ é a aplicação da função identidade ao termo $y$
+        \item O termo $(\lambda x.x)y$ corresponde a aplicação da função identidade ao termo $y$
 
         \item A aplicação é associativa à esquerda:
         \[
@@ -49,7 +49,7 @@
 
         \item A abstração é associativa à direita:
         \[
-            \lambda x_1x_2\ldots x_N.M = \lambda x_1.(\lambda x_2.(\ldots \lambda x_N.M))
+            \lambda x_1x_2\ldots x_N.M = \lambda x_1.(\lambda x_2.(\ldots (\lambda x_N.M)))
         \]
     \end{enumerate}
 
@@ -59,7 +59,7 @@
 
     \begin{itemize}
         \item A abstração $\lambda x.M$ une (ata, \textit{to bind}) a variável livre $x$ ao
-            termo (expressão) lambda $M$
+            termo-$\lambda$ $M$
 
         \item Uma variável não precedida por um símbolo $\lambda$ que a une a uma expressão
             é denominada variável \textbf{livre}
@@ -75,7 +75,8 @@
         \[
             (\lambda x.xy)(\lambda y.y)
         \]
-        a variável $y$ é livre no termo entre parêntesis à esquerda, e atada no termo da direita
+        a variável $y$ é livre no termo entre parêntesis à esquerda, e atada no termo entre
+        parêntesis à  direita
 
     \end{itemize}
 
@@ -84,11 +85,11 @@
 \begin{frame}[fragile]{Substituições}
 
     \begin{block}{Substituição}
-    A \textbf{substituição} de todas as ocorrências da variável livre $x$ por $N$ em $M$, cuja
-    notação é $M[x:=N]$, é definida por
+    A \textbf{substituição} de todas as ocorrências da variável livre $x$ em $M$ por $N$, cuja
+    notação é $M[x:=N]$, é definida pelas quatro regras apresentadas a seguir:
     \begin{enumerate}[i.]
         \item $x[x:=N] = N$
-        \item $y[x:=N] = y$, se $y\neq x$
+        \item $y[x:=N] = y$
         \item $(M_1M_2)[x:=N] = (M_1[x:=N])(M_2[x:=N])$
         \item $(\lambda y.M_1)[x:=N] = \lambda y.(M_1[x:=N])$
     \end{enumerate}
@@ -114,38 +115,40 @@
             (\lambda x.xy)[z:=N] = \lambda x.xy
         \]
 
-        \item $(\lambda x.xy)[x:=N] = \lambda x.xy$, pois as substituições só ocorrem em
-            variáveis livres, e $x$ é atada na expressão entre parêntesis
+        \item A substituição de $x$ por $N$ não se aplica no termo $\lambda x.xy$,
+            pois as substituições só ocorrem em variáveis livres, e $x$ é atada neste termo
     \end{enumerate}
 
 \end{frame}
 
 \begin{frame}[fragile]{Reduções}
 
+    \begin{footnotesize}
     \begin{block}{Axiomas de Redução}
         \begin{enumerate}
-            \item A conversão-$\alpha$ permite a troca das variáveis atadas de uma expressão,
+            \item A conversão-$\alpha$ permite renomear uma variável atada em um termo,
             evitando colisões de nomes:
             \[
                 \lambda x.M \equiv_\alpha \lambda y.(M[x:=y])
             \]
 
-            \item A redução-$\beta$ associa a aplicação com a substituição:
+            \item A redução-$\beta$ estabelece uma relação entre aplicação e substituição:
             \[
                 (\lambda x.M)N \equiv_\beta M[x:=N]
             \]
 
             \item A  conversão-$\eta$ elimina de redundâncias em expressões cujo
-                propósito é apenas passar um argumento para uma função:
+                propósito é apenas repassar o argumento para um termo:
             \[
                 (\lambda x.Mx) \equiv_\eta M,
             \]
-            se $x$ não é uma variável livre em $M$.
+            se $x$ não é variável livre em $M$.
         \end{enumerate}
     \end{block}
 
     \textbf{Observação}: Se a expressão-$\lambda$ $N$ pode ser obtida através de sucessivas 
-        aplicações dos três axiomas acima ao termo $M$, escreveremos $M\equiv N$.
+        aplicações dos três axiomas acima ao termo $M$, escrevemos $M\equiv N$.
+    \end{footnotesize}
 \end{frame}
 
 \begin{frame}[fragile]{Exemplos de aplicação dos axiomas de redução}
@@ -187,7 +190,7 @@
         \end{align*}
 
         Observe que, sem o uso da conversão-$\alpha$, a aplicação resultaria em $(\lambda y.yy)$,
-        termo que não é equivalente ao resultado correto.
+        termo que não é equivalente ao termo obtido.
 
     \end{enumerate}
 
@@ -206,7 +209,7 @@
 
         Aqui novamente a conversão-$\alpha$ foi usada por que $y$ é uma variável atada na
         expressão $\lambda y.(x\lambda x.xy)$. Além disso, observe que somente a ocorrência
-        livre de $x$ é substituída, conforme a regra de substituição apresentada 
+        livre de $x$ é substituída, conforme dita a regra de substituição apresentada 
         anteriormente.
     \end{enumerate}
 
@@ -230,7 +233,7 @@
     \vspace{0.1in}
 
     \begin{block}{Igualdade Extensional}
-        Duas expressões $\lambda$ $E_1, E_2$ são \textbf{extensionamente iguais} se, 
+        Os termos-$\lambda$ $E_1, E_2$ são \textbf{extensionamente iguais} se, 
         $\forall x\in\Lambda$, $E_1x \equiv E_2x$.
     \end{block}
 
