@@ -99,8 +99,7 @@
         \Phi ((n, n - 1)) &\equiv  (\lambda pz.z(S(pT))(pT))(\lambda z.z(n)(n-1)) \\
         &\equiv  (\lambda z.z(S((\lambda z.z(n)(n-1))T))((\lambda z.z(n)(n-1))T)) \\
         &\equiv  (\lambda z.z(S(Tn(n-1)))(Tn(n-1))) \\
-        &\equiv  (\lambda z.z(Sn)n) \\
-        &\equiv  (\lambda z.z(n + 1)n) \equiv (n + 1, n)
+        &\equiv  (\lambda z.z(Sn)n) \equiv  (\lambda z.z(n + 1)n) \equiv (n + 1, n)
     \end{align*}
     \end{block}
 
@@ -124,8 +123,7 @@
     \]
     Seja $N$ um natural maior do que zero. Daí
     \begin{align*}
-        PN &\equiv ((\lambda n.n\Phi (\lambda z.z00))F)N \equiv N\Phi (\lambda z.z00) F \\
-        &\equiv (\lambda z.zN(N - 1))F \equiv N - 1,
+        PN &\equiv ((\lambda n.n\Phi (\lambda z.z00))F)N \equiv N\Phi (\lambda z.z00) F \equiv (\lambda z.zN(N - 1))F \equiv N - 1,
     \end{align*}
     pois $N\Phi (\lambda z.z00)$ corresponde a $N$ aplicações do termo $\Phi$ ao par $(0, 0)$.
     \end{block}
