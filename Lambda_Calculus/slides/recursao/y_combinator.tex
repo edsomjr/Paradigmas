@@ -37,8 +37,7 @@
         Seja $G$ um termo-$\lambda$ qualquer. Daí
         \begin{align*}
             \mathbf{Y}G &\equiv (\lambda f.(\lambda x.f(xx))(\lambda x.f(xx)))G \\
-             &\equiv (\lambda x.G(xx))(\lambda x.G(xx)) \\
-             &\equiv G((\lambda x.G(xx))(\lambda x.G(xx))) \\
+             &\equiv (\lambda x.G(xx))(\lambda x.G(xx)) \equiv G((\lambda x.G(xx))(\lambda x.G(xx))) \\
              &\equiv G(\lambda f.(\lambda x.f(xx))(\lambda x.f(xx)))G) \equiv G(\mathbf{Y}G)
         \end{align*}
     \end{block}
@@ -75,7 +74,7 @@
     \end{huge}
 
     \begin{itemize}
-        \item A notação está ``invertida'' para ficar consistem com a notação prefixada
+        \item A notação está ``invertida'' para ficar consistente com a notação prefixada
             do cálculo lambda
 
         \item Na notação de recursão do cálculo lambda, $P\equiv Z, g \equiv 1$ e 
@@ -102,9 +101,7 @@
         &\equiv \times 3(\times 2((Z1)1(\times 1((\mathbf{Y}\Gamma )(P1))) \\
         &\equiv \times 3(\times 2(\times 1((\mathbf{Y}\Gamma )0))) \\
         &\equiv \times 3(\times 2(\times 1((Z0)1(\times 0((\mathbf{Y}\Gamma )(P0)))))) \\
-        &\equiv \times 3(\times 2(\times 1(1))) \\
-        &\equiv \times 3(\times 2(1)) \\
-        &\equiv \times 3(2) \equiv 6
+        &\equiv \times 3(\times 2(\times 1(1))) \equiv \times 3(\times 2(1)) \equiv \times 3(2) \equiv 6
     \end{align*}
 
 \end{frame}
