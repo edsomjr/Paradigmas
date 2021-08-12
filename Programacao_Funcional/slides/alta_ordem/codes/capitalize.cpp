@@ -2,16 +2,13 @@
 
 using namespace std;
 
-vector<string> capitalize(const vector<string>& xs)
-{
+vector<string> capitalize(const vector<string>& xs) {
     vector<string> ys;
 
-    for (auto x : xs)
-    {
+    for (auto x : xs) {
         auto y = x;
 
-        if (not y.empty())
-        {
+        if (not y.empty()) {
             y[0] = toupper(x[0]);
 
             for (size_t i = 1; i < x.size(); ++i)
