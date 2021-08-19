@@ -9,12 +9,9 @@ g(2).
 %% Exemplos de consultas
 % ?- f(1, 2).
 % true.
-%
 % ?- f(2, 1).
 % false.
-%
 % ?- f(1).
 % false.
-%
 % ?- g(1, 2).
 % false.
