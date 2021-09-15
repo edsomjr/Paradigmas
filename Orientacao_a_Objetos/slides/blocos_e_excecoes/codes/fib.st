@@ -14,4 +14,4 @@ Object subclass: Math [
 (Math fib: 3) printNl .
 (Math fib: 4) printNl .
 (Math fib: 5) printNl .
-(Math fib: 6) printNl
+(Math fib: 100) printNl

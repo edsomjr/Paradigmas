@@ -12,9 +12,6 @@ algoritmo(gulosos, kruskall).
 % X = kmp ;
 % X = z-function ;
 % X = lcs.
-% 
 % ?- algoritmo(Area, kruskall).
 % Area = grafos ;
 % Area = gulosos.
-%
-% ?- algoritmo(Area, Nome).

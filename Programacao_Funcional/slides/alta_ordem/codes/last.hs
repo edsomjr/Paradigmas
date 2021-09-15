@@ -1,2 +1,1 @@
-    ghci> last "ABC"
-    'C'
+    ghci> last "ABC"                    --  'C'

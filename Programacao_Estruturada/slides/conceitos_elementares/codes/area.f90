@@ -11,6 +11,6 @@ program area
 
     A = pi * r ** 2     ! Área do círculo
 
-    write(*,*) 'Area = ', a
+    write(*,*) 'Area = ', A
 
 end program area

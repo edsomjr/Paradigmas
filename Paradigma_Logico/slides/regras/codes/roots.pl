@@ -1,11 +1,7 @@
-% Calcula as raizes reais do polinômio
-%
-% p(x) = ax^2 + bx + c
-
+% Calcula as raizes reais do polinômio p(x) = ax^2 + bx + c
 root_signal(S, Delta) :-
     Delta >= 0,
     S is 1.
-
 root_signal(S, Delta) :-
     Delta > 0,
     S is -1.

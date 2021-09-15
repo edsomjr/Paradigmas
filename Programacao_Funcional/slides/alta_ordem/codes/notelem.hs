@@ -1,2 +1,1 @@
-    ghci> 'x' `notElem` "Teste"
-    True
+    ghci> 'x' `notElem` "Teste"         -- True

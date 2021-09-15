@@ -1,6 +1,6 @@
 \ProvidesClass{slides}
 
-\LoadClass[10pt,xcolor=svgnames,handout]{beamer}
+\LoadClass[11pt,xcolor=svgnames,handout,aspectratio=169]{beamer}
 
 % packages
 \usepackage{lean_progress}
