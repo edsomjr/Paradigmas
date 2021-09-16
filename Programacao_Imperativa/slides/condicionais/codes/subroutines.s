@@ -1,5 +1,4 @@
 ; Subrotinas utilizadas no programa FizzBuzz
-
 ; Calcula o tamanho, em bytes, da string s, cujo endereço 
 ; de memória contido em EAX
 string_len:

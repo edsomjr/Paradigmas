@@ -1,7 +1,4 @@
-; Computa o número de raizes reais do polinômio
-;
-;   p(x) = ax^2 + bx + c
-;
+; Computa o número de raizes reais do polinômio  p(x) = ax^2 + bx + c
 ; Como exemplo, serão utilizados os valores a = 1, b = -5 e c = 6
 SECTION .data
 a       dd  1               ; dd = variáveis com 4 bytes
