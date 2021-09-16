@@ -49,6 +49,12 @@
         * em matemática a ordem de precedência dos operadores não é sempre clara: cos xy significa cos (xy) ou (cos x) y ? Como avaliar a expressão a / bx ?
         * em APL, a ordem de precedência é única: tudo à direita de um operador é seu único argumentoà esquerda
         * parêntesis podem ser utilizados para mudar a ordem de precedência
+    - Versões monádicas dos operadores aritméticos:
+        * +: conjugado complexo
+        * -: simétrico
+        * ×: vetor unitário na direção do argumento complexo (signum para argumentos reais)
+        * ÷: recíproco 
+        * *: $e$ elevado ao seu argumento
 
 * TryAPL - Arrays
     - Todo array tem um depth e um rank
@@ -66,8 +72,33 @@
         * se há dados em excesso o que sobra é ignorado
         * se faltam dados ele retorna ciclicamente ao início dos dados
         * matrizes também podem ser aninhadas, contendo vetores e matrizes
-    
-TODO: continuar no depth de matrizes
+    - A função ⍴ também pode ser usada monadicamente, onde retorna o comprimento de suas dimensões
+    - A string vazia é representada por ''
+    - Matrizes com uma única linha e vetores são distintos
+    - Identidade: `X ≡ ⍴ (X ⍴ A)`
+    - O rank de um vetor é igual ao comprimento do seu shape. Assim, o rank pode ser computado por meio do operator `⍴⍴`
+    - A função ⍴ pode ser usada para conversões entre um escalar x e um vetor v = {x} com um único componentes
+        * `1 ⍴ x`   ⍝ de x para v`
+        * `⍬ ⍴ (1 ⍴ x))     ⍝ de v para x`
+            
+* TryAPL - Funções
+    - Uma função pode ser aplicada monadicamente ou diadicamente (um ou dois argumentos)
+    - Por exemplo, diadicamente a função - é a subtração, monadicamente ela produz o simétrico em relação à adição
+    - Há dois tipos de funções: escalares e mistas
+        * Funções escalares navegam nos diferentes níveis dos arrays até localizar e operar nos escalares. Ex.: - monádico)
+        * A estrutura se mantem, e apenas o conteúdo é alterado
+        * Funções escalares diádicas obtém seus operandos das localizações correspondentes de seus argumentos. Se as formas dos argumentos diferem ocorre um erro
+        * Se um dos argumentos é escalar, ele é replicado para todos os escalares do outro argumento
+        * O mesmo vale para escalares dentro do argumento, após o pareamento
+        * Funções mistas tomam seus argumentos na íntegra, ou em subestruturas
+        * Por exemplo, ⍴ monádico considera todo seu argumento
+    - Funções definidas pelo programador: 3 tipos
+    - Uma função definida pelo usuário se comporta como as funções primitivas: no máximo dois argumentos e são chamadas monadicamente (prefixada) ou diadicamente (pós-fixada)
+        * Dfns: uma dfn (dynamica-function) é delimitada por chaves e seus argumentos à esquerda e à direita são representados pelas letras gregas alpha (⍺) e omega (⍵ ), respecivamente
+        * Na versão monádica, apenas o ⍵ é utilizado
+        * São funções anônimas (lambdas), podem ser usadas inline
+
+TODO: if then else, funções
 
 * Símbolos
     - Comentários, up shoe jot: ⍝ (U+235D, TAB: o n <tab>, PREFIX: <prefix>,)
@@ -84,6 +115,9 @@ TODO: continuar no depth de matrizes
     - Valor absoluto: | (monádico, PREFIX: <prefix> m)
     - Depth: ≡ (identical to, U+2261, TAB: = = <tab>, PREFIX: <prefix> <shift> ç) 
     - Reshape: ⍴ (diádico, rho, U+2374, TAB: r r <tab>, p p <tab>, PREFIX: <prefix> r)
+    - Empty vector: ⍬ (U+236C, zilde, constante, TAB: 0 ~ <tab> PREFIX: <prefix> <shift> {)
+    - Alpha: ⍺ (argumento à esquerda, U+237A, TAB: a a <tab>, PREFIX: <prefix> a)
+    - Omega: ⍵ (argumento à direita, U+2375, TAB: w w <tab>, PREFIX: <prefix> w)
 
 ### Commands
 
@@ -247,4 +281,80 @@ ABA
           2 2 ⍴ ((1 2) (3 4 5)) (1 2 ⍴ 0 1 0) 7.5
  1 2   3 4 5    0 1
          7.5    1 2   3 4 5
+```
+
+1. Shape
+```APL
+    ⍴ 'teste'
+5
+    ⍴ (2 3 ⍴ 1 2 3 4 5 6)
+2 3
+    ⍴ ⍬
+0
+```
+
+1. Matrizes de uma única linha e vetores
+```APL
+    ⍴ 1 2 3 4 5
+5
+    ⍴ (1 5 ⍴ 1 2 3 4 5)
+1 5
+```
+
+1. Rank
+```APL
+    ⍴ 1
+
+    ⍴⍴ 1
+0
+    ⍴⍴ 1 2 3 4 5
+1
+    ⍴⍴ (1 ⍴ 2)      ⍝ Escalar 2 para vetor v com um único componente 2
+1
+    ⍴⍴ (⍬ ⍴ (1 ⍴ 2) )   ⍝ Conversão e v para o escalar 2
+0
+```
+
+1. Diádico x monádico
+```APL
+    1 - 2
+¯1
+    -2
+¯2
+    - 1 ¯2 3
+¯1 2 ¨3
+    - (2 2 ⍴ ¯1 2 3 ¯4)
+ 1 ¯2
+¯3  4
+    1 2 3 × 4 5 6
+4 10 18
+    1 2 ÷ 3 4 5
+LENGTH ERROR: Mismatched left and right argument shapes
+      (1 2) (3 4 5) 6 + (7 8) (9 10 11) 12
+8 10   12 14 16   18
+    1 2 3 4 × 5
+5 10 15 20
+    1 2 3 + (4 5 6) (7 8 9) 10
+5 6 7   9 10 11   13
+```
+
+1. Versões monádicas das funções aritméticas:
+```APL
+     + 0J1 (1J2 ¯3) 0.4 5J¯6 7e¯9
+0J¯1  1J¯2 ¯3  0.4 5J6 7E¯9
+      - 0J1 (1J2 ¯3) 0.4 5J¯6 7e¯9
+0J¯1  ¯1J¯2 3  ¯0.4 ¯5J6 ¯7E¯9
+      × 0J1 (1J2 ¯3) 0.4 5J¯6 7e¯9
+0J1  0.4472135955J0.894427191 ¯1  1 0.6401843997J¯0.7682212796 1
+      ÷ 0J1 (1J2 ¯3) 0.4 5J¯6 7e¯9
+0J¯1  0.2J¯0.4 ¯0.3333333333  2.5 0.08196721311J0.09836065574 142857142.9
+```
+
+1. Dfns
+```APL
+      plus ← {⍺+⍵}
+      1 plus 2
+3
+    1 {⍺+⍵} 2
+3
 ```
