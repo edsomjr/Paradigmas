@@ -94,11 +94,33 @@
         * Por exemplo, ⍴ monádico considera todo seu argumento
     - Funções definidas pelo programador: 3 tipos
     - Uma função definida pelo usuário se comporta como as funções primitivas: no máximo dois argumentos e são chamadas monadicamente (prefixada) ou diadicamente (pós-fixada)
-        * Dfns: uma dfn (dynamica-function) é delimitada por chaves e seus argumentos à esquerda e à direita são representados pelas letras gregas alpha (⍺) e omega (⍵ ), respecivamente
+    - Dfns: uma dfn (dynamica-function) é delimitada por chaves e seus argumentos à esquerda e à direita são representados pelas letras gregas alpha (⍺) e omega (⍵ ), respecivamente
         * Na versão monádica, apenas o ⍵ é utilizado
         * São funções anônimas (lambdas), podem ser usadas inline
+        * É possível replicar o construto if-then-else dentro de uma dfn por meio da sintaxe { a : b ⋄ c }, que equivale a if a then b else c, e a tem que ser um valor booleano (0 ou 1)
+        * As funções relacionais retornam booleanos e são funções escalares
+    - Funções tácitas (tacit): são expressões sem dados à direta (livre de pontos?)
+        * Uma úníca função é sempre tácita (ex. f←×)
+        * Funções tácitas mais longas são chamadas trens, onde cada vagão é uma função ou vetor
+        * Trens podem ser monádicos ou diádicos (dependem da combinação interna dos operadores)
+        * Um trem com dois carros monádicos é chamado atop (tradução?) 
+            * (f g) X é equivalente a f (g X). f é evaluada (avaliada?) "atop" o resultado de g
+            * um trem não nomeado deve ser colocado entre parêntesis)
+        * Um trem com três carros monádico é um fork. Há duas versões
+            * (f g h) X equivale a (f X) g (h X) (S combinator?)
+            * (A g h) X equivale a A g (h X) (S combinator?), A é um array
+            * Em geral (sempre?), g deve ser diádica, e f e h monádicas)
+        * Os trens diádicos estão relacionados aos monádicos
+            * X (f g) Y equivale a f (X g Y)
+            * X (f g h) Y equivale a (X f Y) g (X h Y)
+            * X (A g h) Y equivale a A g (X h Y)
+        * Dentro de um trem os operadores ⊣ e ⊢ , diadicamente, retornam os argumentos à esquerda e a direita, respectivamente. Monadicamente retornam sempre o argumento da direita
+        * Para trens de tamanho quatro ou maior, a regra é simples: os últimos 3 se tornam um trem de tamanho 3 e são tratados como uma única função. O que resta será um atop, um fork ou é preciso repetir a operação. Ex.:
+            * (p q r s) X equivale a (p (q r s)) X = p ((q r s) X) = p ((q X) r (s X))
+            * X (p q r s t) Y = (X p Y) q ((X r Y) s (X t Y))
+        * Trens podem ser usados para simplificar ((cond1 x) and (cond2 x) and ... and (condN x)) para cond1 ∧ cond2 ∧ ... ∧condN
 
-TODO: if then else, funções
+TODO: continuar em reduce/scan
 
 * Símbolos
     - Comentários, up shoe jot: ⍝ (U+235D, TAB: o n <tab>, PREFIX: <prefix>,)
@@ -118,6 +140,14 @@ TODO: if then else, funções
     - Empty vector: ⍬ (U+236C, zilde, constante, TAB: 0 ~ <tab> PREFIX: <prefix> <shift> {)
     - Alpha: ⍺ (argumento à esquerda, U+237A, TAB: a a <tab>, PREFIX: <prefix> a)
     - Omega: ⍵ (argumento à direita, U+2375, TAB: w w <tab>, PREFIX: <prefix> w)
+    - Desigualdade: ≠ (diádico, U+2260, TAB: = / <tab>, PREFIX: <prefix> 8)
+    - Maior: > (diádico, PREFIX: <prefix> 7)
+    - Menor: < (diádico, PREFIX: <prefix> 3)
+    - Menor ou igual: ≤ (diádico, U+2264, TAB: < = <tab>, PREFIX: <prefix> 4)
+    - Maior ou igual: ≥ (diádico, U+2265, TAB: > = <tab>, PREFIX: <prefix> 6)
+    - Argumento à esquerda: ⊣  (diádico, U+22a3, TAB: - | <tab>, PREFIX: <prefix> |, <prefix> <shift> \)
+    - Argumento à direita: ⊢  (diádico, U+22a2, TAB: | - <tab>, PREFIX: <prefix> \)
+    - E lógico: ∧ (diádico, U+2227, PREFIX: <prefix> 0, TAB: ^ ^ <tab>
 
 ### Commands
 
@@ -357,4 +387,66 @@ LENGTH ERROR: Mismatched left and right argument shapes
 3
     1 {⍺+⍵} 2
 3
+```
+
+1. Funções relacionais
+```APL
+      1 2 1 3 1 4 = 1 2 2 3 3 3
+1 1 0 1 0 0
+      1 2 1 3 1 4 ≠ 1 2 2 3 3 3
+0 0 1 0 1 1
+      1 2 1 3 1 4 > 1 2 2 3 3 3
+0 0 0 0 0 1
+      1 2 1 3 1 4 < 1 2 2 3 3 3 
+0 0 1 0 1 0
+      1 2 1 3 1 4 ≥ 1 2 2 3 3 3
+1 1 0 1 0 1
+      1 2 1 3 1 4 ≤ 1 2 2 3 3 3
+1 1 1 1 1 0
+```
+
+1. If-then-else
+```APL
+      max ← {⍺ > ⍵ : ⍺ ⋄ ⍵ }
+      1 max 2
+2
+```
+
+1. Recursão em lambdas
+```APL
+     {⍵ = 1 : 1 ⋄ ⍵ + ∇ ⍵ - 1} 10       ⍝ soma dos n primeiros positivos
+55
+```
+
+1. Atop
+```APL
+      (÷-) 1 ¯2 3 ¯4 5
+¯1 0.5 ¯0.3333333333 0.25 ¯0.2
+```
+
+1. Forks
+```APL
+    ⍝ Exemplos do tutorial: pensar em exemplos melhores
+  (⍴+≡) 4 6⍴1 (2 3) 3 3  ⍝ The shape plus the depth
+2 4
+      (1-×)1 0 10 ¯4
+0 1 0 2
+```
+
+1. Trens diádicos
+```APL
+    ⍝ Exemplos do tutorial
+      3 (×-) 6  ⍝ The sign of the difference
+¯1
+      4 (×-+) 3   ⍝ The product minus the sum
+5
+      3 2 0 (2 4 1×+) 11 7 20
+28 36 2
+```
+
+1. Direita e esquerda
+```APL
+    ⍝ Exemplos do tutorial
+(⊢×1-⊢) 20
+3 (⊢⍴⊣) 4 4  ⍝ 4 4⍴3
 ```
