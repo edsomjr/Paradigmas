@@ -2,12 +2,6 @@
 
 ### CLI
 
-- é preciso instalar um teclado APL: https://stackoverflow.com/questions/68065520/add-apl-keyboard-layout-on-linux-20-04
-    * Adicione um segundo layout extra (Braile, por exemplo, em System -> Region & Language
-    * adicione esta linha no .bashrc
-        setxkbmap -layout br,apl -variant ,dyalog -option grp:switch
-    * A tecla alt right, quando pressionada, mudará entre os dois layouts possíveis
-
 - para encerrar, é preciso chamar a funçã off (quad + off, com quad = right atl + l) https://help.dyalog.com/12.0/index.html?page=html%2Fexit%20from%20apl.htmac
 
 ### Símbolos

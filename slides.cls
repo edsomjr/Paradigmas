@@ -1,6 +1,6 @@
 \ProvidesClass{slides}
 
-\LoadClass[11pt,xcolor=svgnames,handout,aspectratio=169]{beamer}
+\LoadClass[11pt,xcolor=svgnames,aspectratio=169]{beamer}
 
 % packages
 \usepackage{lean_progress}
@@ -8,6 +8,7 @@
 \usepackage[portuges,brazil]{babel}
 \usepackage{datetime}
 \usepackage{appendixnumberbeamer}
+\usepackage[accumulated]{beamerseminar}
 
 \usepackage{tikz}
 \usepackage{xcolor}
@@ -32,6 +33,7 @@
 \usepackage{amsmath}
 \usepackage{algorithm}
 \usepackage[noend]{algpseudocode}
+\usepackage{fontspec}
 
 % Setup
 \usetikzlibrary{calc}
