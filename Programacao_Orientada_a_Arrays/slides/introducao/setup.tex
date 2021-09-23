@@ -1,8 +1,36 @@
 \section{Ambiente de Desenvolvimento}
 
+\begin{frame}[fragile]{Dyalog APL}
+
+    \begin{itemize}
+        \item A empresa Dyalog disponibiliza um ambiente de desenvolvimento baseado em APL, livre para uso não comercial
+        \pause
+
+        \item A versão mais recente é a 18.0
+        \pause
+
+        \item Há implementações disponíveis para Windows, MacOS, Linux e Raspberry Pi
+        \pause
+ 
+        \item O download pode ser feito na página oficial: \href{dyalog.com}{dyalog.com}
+        \pause
+
+        \item Em ambiente Linux, uma vez instalado, pode-se iniciar uma nova sessão por meio do
+            comando
+
+            \inputsyntax{bash}{codes/dyalog.sh}
+        \pause
+
+        \item \textbf{Cuidado!} Não execute este comando agora (caso contrário você terá que
+            matar o processo para encerrar a sessão!)
+
+    \end{itemize}
+
+\end{frame}
+
 \begin{frame}[fragile]{Teclado APL}
 
-    Para inserir os glifos APL, é preciso ou um teclado especializado ou a instalação de um \textit{layout} compatível.
+    Para inserir os glifos APL é preciso ou um teclado especializado ou a instalação de um \textit{layout} compatível.
         \pause
 
     \begin{figure}
@@ -69,6 +97,39 @@
     \end{itemize}
 
 \end{frame}
+
+\begin{frame}[fragile]{Encerrando a sessão do Dyalog}
+
+    \begin{itemize}
+        \item Uma vez instalado o \textit{layout}, é possível encerrar corretamente uma seção do Dyalog
+        \pause
+
+        \item Basta utilizar a função de sistema \texttt{OFF}
+        \pause
+
+        \item Em APL, as funções de sistema tem seus nomes prefixados pelo símbolo \texttt{⎕} (quad)
+        \pause
+
+        \item A dificuldade em encerrar a sessão citada anteriormente provém do fato da necessidade
+            da inserção de um glifo para acessar a função de sistema, tarefa complicada sem o
+            \textit{layout} previamente configurado
+
+        \pause
+
+        \item Portanto, basta invocar a função de sistema \texttt{OFF} em uma sessão ativa do Dyalog:
+
+            \inputsyntax{apl}{codes/off.apl}
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Novo símbolo}
+
+    \newAPLsymbol{⎕}{quad}{monádico}{Prefixo das funções de sistema}{U+2395}{[ ] <tab>}{APL + l}
+
+\end{frame}
+
 %- é preciso instalar um teclado APL: https://stackoverflow.com/questions/68065520/add-apl-keyboard-layout-on-linux-20-04
 %    * Adicione um segundo layout extra (Braile, por exemplo, em System -> Region & Language
 %    * adicione esta linha no .bashrc
