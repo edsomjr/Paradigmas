@@ -1,9 +1,5 @@
 ## APL
 
-### CLI
-
-- para encerrar, é preciso chamar a funçã off (quad + off, com quad = right atl + l) https://help.dyalog.com/12.0/index.html?page=html%2Fexit%20from%20apl.htmac
-
 ### Símbolos
 
 - http://xahlee.info/comp/unicode_APL_symbols.html
@@ -33,14 +29,6 @@
     - O caractere 'J' separa a parte real da parte imaginária em números complexos
     - Atribuições são feitas por meio do operador diádico seta ( ← ), e comparações de igualdade com o operador =
     - Diferenças entre APL e notação matemática convencional:
-        * na matemática, o símbolo - e o fatorial ! ficam em posições diferentes em relação aos seus argumentos
-        * a exponenciação não tem um símbolo: o expoente fica superescrito
-        * módulo usa duas barras entre o argumento
-        * em APL há uma consistência de notação com símbolos pré ou infixados:
-            - fatorial: !b
-            - expoencial: a * b
-            - módulo: |b
-        * em matemática a ordem de precedência dos operadores não é sempre clara: cos xy significa cos (xy) ou (cos x) y ? Como avaliar a expressão a / bx ?
         * em APL, a ordem de precedência é única: tudo à direita de um operador é seu único argumentoà esquerda
         * parêntesis podem ser utilizados para mudar a ordem de precedência
     - Versões monádicas dos operadores aritméticos:

@@ -9,6 +9,7 @@
 \usepackage{datetime}
 \usepackage{appendixnumberbeamer}
 \usepackage[accumulated]{beamerseminar}
+\usepackage{genealogytree}
 
 \usepackage{tikz}
 \usepackage{xcolor}
