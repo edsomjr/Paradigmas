@@ -3,16 +3,9 @@
 ### Símbolos
 
 - http://xahlee.info/comp/unicode_APL_symbols.html
-- Fonte:  APL385 font
 
-### Características
+### Arrays
 
-* TryAPL - APL Expressions
-    - É uma notação matemática que também é executável por máquina
-    - Composta por funções, vetores e atribuições
-    - Qualquer código que pode ser aplicado a dados é chamado função (ex.: operadores adição + e subtração -)
-    - Números negativos são indicados por meio de um símbolo de negativo em posição elevada (¯, macron, U+af, TAB: - - <tab>, PREFIX: <prefix> 2)
-    - Muitas funções de APL podem ser aplicadas monadicamente (prefixada, um operando) ou diadicamente (infixada, dois operando, um à esquerda e outro à direita)
     - Todos os dados estão contidos em arrays
     - Um array é uma coleção retangular de números, caracteres e arrays, arranjados ao longo de um ou mais eixos
     - Os elementos de um array podem ter tipos distintos
@@ -22,23 +15,7 @@
         * matriz: um array bidimensional
     - Vetores são declarados separando seus elementos por espaços
     - Parêntesis podem ser utilizados para agrupar vetores
-    - Strings são vetores de caracteres
-    - Tanto caracteres quanto strings são delimitadas por aspas simples
-    - Números são tratados internamente pela APL quanto ao tamanho e tipo e podem ser misturados sem problemas (inteiros, booleanos (zero ou um), floats e complexos), inclusive tratando problemas de precisão
-    - Notação científica é utilizada para números muito grandes ou pequenos
-    - O caractere 'J' separa a parte real da parte imaginária em números complexos
-    - Atribuições são feitas por meio do operador diádico seta ( ← ), e comparações de igualdade com o operador =
-    - Diferenças entre APL e notação matemática convencional:
-        * em APL, a ordem de precedência é única: tudo à direita de um operador é seu único argumentoà esquerda
-        * parêntesis podem ser utilizados para mudar a ordem de precedência
-    - Versões monádicas dos operadores aritméticos:
-        * +: conjugado complexo
-        * -: simétrico
-        * ×: vetor unitário na direção do argumento complexo (signum para argumentos reais)
-        * ÷: recíproco 
-        * *: $e$ elevado ao seu argumento
 
-* TryAPL - Arrays
     - Todo array tem um depth e um rank
     - Depth: nível de profundidade/recursão
         * um vetor de escalares tem depth = 1
@@ -121,13 +98,6 @@
 TODO: continuar em scan
 
 * Símbolos
-    - Comentários, up shoe jot: ⍝ (U+235D, TAB: o n <tab>, PREFIX: <prefix>,)
-    - Adição: + (binário, diádico)
-    - Subtração: - (binário, diádico)
-    - Diamante, statament separator: ⋄ (U+22C4, TAB: < > <tab>, ^ v <tab>, PREFIX: <prefix> ')
-    - Simétrico: - (monádico), -b equivale a 0-b
-    - Multiplicação: × (multiplicação, U+d7, TAB: x x <tab>, PREFIX: <prefix> -)
-    - Divisão: ÷ (diádico, U+f7, TAB: : - <tab>, PREFIX: <prefix> =)
     - Atribuição: ← (left arrow, U+2190, TAB: <- <tab>, PREFIX: <prefix> `)
     - Igualdade: = (diádico, PREFIX: <prefix> 5)
     - Fatorial: ! (monádico, PREFIX: <prefix> _)
@@ -159,39 +129,6 @@ TODO: continuar em scan
 
 ### Códigos
 
-1. Apenas um comentário
-
-```APL
-    ⍝ comment
-```
-
-1. Adição
-```APL
-    1 + 2
-3
-```
-
-1. Subtração
-```APL
-    1 - 2
-¯1
-```
-
-1. Duas expressões em uma mesma linha
-
-```APL
-    1 + 2 ⋄ 3 - 4
-3
-¯1
-```
-
-1. Simétrico da adição
-```APL
-    -2 ⋄ 0 - 2
-¯2
-¯2
-```
-
 1. Vetor
 ```APL
     1 2 3 4 5
@@ -214,44 +151,12 @@ c
 string
 ```
 
-1. Números
-```APL
-    1 > 2
-0
-    1 + (2 < 3)
-2
-    1÷2
-0.5
-    2×(1÷2)
-1
-```    
-
-1. Notação científica
-```APL
-    2000000000000000000÷3000      
-6.666666667E14
-    5E¯3
-0.005
-```
-
-1. Complexos
-```APL
-    1j1÷1j¯1
-0J1
-```
-
 1. Atribuições
 ```APL
     times ← ×
     two ← 2
     two times two
 4
-```
-
-1. Igualdade
-```APL
-    1 = 2
-0
 ```
 
 1. Notação APL
@@ -262,16 +167,6 @@ string
 8
     |¯3         ⍝ valor absoluto de -3
 3
-```
-
-1. Ordem de precedência
-```APL
-    2+3×5
-17
-    2×3+5
-16
-    (2×3)+5
-11
 ```
 
 1. Depth

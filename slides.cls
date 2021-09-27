@@ -93,8 +93,8 @@
     \textcolor{white}{\textbf{Símbolo}} & \textcolor{white}{\textbf{Aridade}} & \textcolor{white}{\textbf{Descrição}} \\
     \midrule
     \\
-    \vspace*{1pt}{\huge \texttt{#1}} & \multirow{2}{*}{#3} & \multirow{2}{*}{#4} \\
-    (#2) \\
+    \vspace*{1pt}{\huge \texttt{#1}} & \multirow{2}{*}{#3} & \multirow{2}{=}{#4} \\
+    (\textit{#2}) \\
     \\
     \midrule
     \rowcolor{SBlue}
