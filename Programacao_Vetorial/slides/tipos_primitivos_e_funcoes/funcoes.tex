@@ -1,0 +1,298 @@
+\section{Funções}
+
+\begin{frame}[fragile]{Funções escalares monádicas}
+
+    \begin{itemize}
+        \item Em APL uma função pode ser aplicada monadicamente (um argumento) ou diadicamente (dois argumentos)
+        \pause
+
+        \item Há dois tipos de funções: escalares e mistas
+        \pause
+
+        \item Funções escalares monádicas navegam nos diferentes níveis dos \textit{arrays} até localizar e operar nos escalares
+        \pause
+
+        \item A estrutura se mantem e apenas o conteúdo é alterado:
+            \inputsyntax{apl}{codes/scalar_function_monadic.apl}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Novo símbolo}
+
+   \newAPLsymbol{!}{factorial}{monádico}{computa o fatorial (função gama) de $x$}{U+0021}{-}{APL + Shift + -} 
+
+\end{frame}
+
+\begin{frame}[fragile]{Novo símbolo}
+
+   \newAPLsymbol{|}{magnitude}{monádico}{computa o valor absoluto (norma) de $x$}{U+007C}{-}{APL + m} 
+\end{frame}
+
+\begin{frame}[fragile]{Funções escalares diádicas}
+
+    \begin{itemize}
+        \item Funções escalares diádicas obtém seus operandos das localizações correspondentes de seus argumentos
+            \inputsyntax{apl}{codes/scalar_function_diadic.apl}
+        \pause
+
+        \item Se as formas dos argumentos diferem ocorre um erro
+            \inputsyntax{apl}{codes/scalar_function_diadic2.apl}
+        \pause
+
+        \item Se um dos argumentos é escalar, ele é replicado para todos os escalares do outro argumento
+        \pause
+
+        \item O mesmo vale para escalares dentro do argumento, após o pareamento
+            \inputsyntax{apl}{codes/scalar_function_diadic3.apl}
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Funções mistas e definidas pelo programador}
+
+    \begin{itemize}
+        \item Funções mistas consideram seus argumentos na íntegra, ou suas subestruturas
+        \pause
+
+        \item Por exemplo, a função \code{apl}{⍴} monádica considera todo seu argumento
+            \inputsyntax{apl}{codes/mixed.apl}
+        \pause
+
+        \item Há três tipos de funções definidas pelo programador: \textit{dfns}, \textit{tradfns}
+            e funções tácitas (implícitas)
+        \pause
+
+        \item Desde 2010 os dialetos da APL baseados no Dyalog removeram as \textit{tradfns} em 
+            favor das \textit{dfns}
+        \pause
+
+        \item Uma função definida pelo usuário se comporta como as funções primitivas: no máximo dois argumentos e são chamadas monadicamente (prefixadas) ou diadicamente (pós-fixadas)
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{\it dfns}
+
+    \begin{itemize}
+        \item Uma \textit{dfn} (\textit{dynamic-function}) é delimitada por chaves e seus argumentos à esquerda e à direita são representados pelas letras gregas alpha (\code{apl}{⍺}) e omega (\code{apl}{⍵}), respecivamente
+            \inputsyntax{apl}{codes/dfns.apl}
+        \pause
+
+        \item Na versão monádica, apenas o \code{apl}{⍵ } é utilizado
+            \inputsyntax{apl}{codes/cube.apl}
+        \pause
+
+        \item  \textit{Dfns} são funções anônimas (lambdas)
+            \inputsyntax{apl}{codes/lambda.apl}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Novo símbolo}
+
+   \newAPLsymbol{⍺}{alpha}{-}{Argumento à esquerda de uma \textit{dfns}}{U+237A}{a a <tab>}{APL + a} 
+
+\end{frame}
+
+\begin{frame}[fragile]{Novo símbolo}
+
+   \newAPLsymbol{⍵}{omega}{-}{Argumento à direita de uma \textit{dfns}}{U+2375}{w w <tab>}{APL + w} 
+
+\end{frame}
+
+
+\begin{frame}[fragile]{\tt if-then-else}
+
+    \begin{itemize}
+        \item É possível replicar o construto \texttt{if-then-else} de outras linguagens por meio de uma \textit{dfn}
+        \pause
+
+        \item A sintaxe é
+            \inputsyntax{apl}{codes/if.apl}
+        \pause
+
+        \item Esta \textit{dfn} equivale a 
+            \inputsyntax{pascal}{codes/if.pascal}
+        onde \code{pascal}{a} tem que ser uma expressão booleana
+
+        \pause
+
+        \item Exemplo de uso:
+            \inputsyntax{apl}{codes/max.apl}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Recursão}
+
+    \begin{itemize}
+        \item Mesmo sendo anônimas, é possível implementar funções recursivas usando \textit{dfns}
+        \pause
+
+        \item Uma maneira é nomeando a \textit{dfns} por meio de uma atribuição
+            \inputsyntax{apl}{codes/gcd.apl}
+        \pause
+
+        \item A segunda maneira é utilizar o símbolo \code{apl}{∇}, que idenfica a função anônima e permite a chamada recursiva
+            \inputsyntax{apl}{codes/sum2.apl}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Novo símbolo}
+
+   \newAPLsymbol{|}{residue}{diádico}{Computa o resto da divisão euclidiana do argumento à direita pelo argumento à esquerda}{U+007C}{-}{APL + m} 
+
+\end{frame}
+
+\begin{frame}[fragile]{Novo símbolo}
+
+   \newAPLsymbol{∇}{recursion}{-}{Representa uma \textit{dfns} em uma chamada recursiva}{U+2207}{V V <tab>}{APL + g} 
+
+\end{frame}
+
+\begin{frame}[fragile]{Funções tácitas}
+
+    \begin{itemize}
+        \item Funções tácitas (\textit{tacit}, implícitas) são expressões sem referências aos argumentos
+        \pause
+
+        \item Códigos que usam apenas funções tácitas são ditos livre de pontos
+        \pause
+
+        \item A omissão dos parâmaetros remete à conversão $\eta$ do cálculo lambda
+        \pause
+
+        \item Uma úníca função é sempre uma função tácita
+
+            \inputsyntax{apl}{codes/tacit.apl}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Trens}
+
+    \begin{itemize}
+        \item Funções tácitas com dois ou mais símbolos são chamadas \textbf{trens}, onde cada vagão é uma função ou vetor
+        \pause
+
+        \item Trens podem ser monádicos ou diádicos
+        \pause
+
+        \item Um trem com dois carros monádicos é chamado \textit{atop} (sobre, em cima)
+        \pause
+
+        \item \code{apl}{(f g) X} é equivalente a \code{apl}{f (g X)}, onde \code{apl}{f} e \code{apl}{g} são funções monádicas
+            \inputsyntax{apl}{codes/simconj.apl}
+        \pause
+
+        \item Isto quer dize que \code{apl}{f} é avaliada ``\textit{atop}'' (sobre) o resultado de \code{apl}{g}
+        \pause
+
+        \item Este trem corresponde a composição de funções em outras linguagens
+        \pause
+
+        \item Um trem não nomeado deve ser delimitado entre parêntesis
+            \inputsyntax{apl}{codes/atop.apl}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{\it forks}
+
+    \begin{itemize}
+        \item Um trem com três carros monádico é um \textit{fork} (garfo, bifurcação)
+        \pause
+
+        \item Há duas variantes de \textit{forks}:
+
+        \begin{enumerate}[(a)]
+            \item \code{apl}{(f g h) X} equivale a \code{apl}{(f X) g (h X)}
+                \inputsyntax{apl}{codes/fork1.apl}
+            \pause
+
+            \item  \code{apl}{(A g h) X} equivale a \code{apl}{A g (h X)} onde \code{apl}{A} é um \textit{array}
+                \inputsyntax{apl}{codes/fork2.apl}
+        \end{enumerate}
+        \pause
+
+        \item Em ambos casos, \code{apl}{g} deve ser diádica e \code{apl}{f} e \code{apl}{h} monádicas
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Novo símbolo}
+
+   \newAPLsymbol{,}{catenate,laminate}{diádico}{Concatena ambos argumentos}{U+002C}{-}{-} 
+
+\end{frame}
+
+\begin{frame}[fragile]{Novo símbolo}
+
+   \newAPLsymbol{○}{pi times}{monádico}{Multiplica o argumento por $\pi$}{U+25CB}{o o <tab>}{APL + o}
+\end{frame}
+
+\begin{frame}[fragile]{Trens diádicos}
+
+    \begin{itemize}
+        \item Os trens diádicos estão relacionados aos monádicos
+        \pause
+
+        \begin{enumerate}[(a)]
+            \item \code{apl}{X (f g) Y} equivale a \code{apl}{f (X g Y)}, com \code{apl}{f} monádica,
+\code{apl}{g} diádica
+        \pause
+
+            \item \code{apl}{X (f g h) Y} equivale a \code{apl}{(X f Y) g (X h Y)}, todas diádicas
+        \pause
+            \item \code{apl}{X (A g h) Y} equivale a \code{apl}{A g (X h Y)}, \code{apl}{g}, ambas diádicas
+        \end{enumerate}
+        \pause
+
+        \item Dentro de um trem diádicos os símbolos \code{apl}{⊣ } e \code{apl}{⊢ } retornam os argumentos à esquerda e a direita, respectivamente
+                \inputsyntax{apl}{codes/fork3.apl}
+        \pause
+
+        \item Em trens monádicos ambos retornam sempre o argumento à direita
+ 
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Novo símbolo}
+   \newAPLsymbol{⊣}{left}{monádico/diádico}{Em um trem, retorna o argumento à esquerda (ou a direita, no caso monádico)}{U+22A3}{- | <tab>}{APL + Shift + |}
+\end{frame}
+
+\begin{frame}[fragile]{Novo símbolo}
+   \newAPLsymbol{⊢}{right}{monádico/diádico}{Em um trem, retorna o argumento à direita}{U+22A2}{| - <tab>}{APL + |}
+\end{frame}
+
+\begin{frame}[fragile]{Trens de tamanho 4 ou maior}
+
+    \begin{itemize}
+        \item Para trens de tamanho quatro ou maior, a regra é simples: os últimos 3 símbolos se tornam um trem de tamanho 3 e são tratados como uma única função
+        \pause
+
+        \item O que resta será um \textit{atop}, um \textit{fork} ou é preciso repetir a operação
+        \pause
+
+        \item Por exemplo,  \code{apl}{(p q r s) X} equivale a 
+                \inputsyntax{apl}{codes/example1.apl}
+        \pause
+        
+        \item Outro exemplo:
+                \inputsyntax{apl}{codes/example2.apl}
+        \pause
+
+        \item Trens podem ser usados para simplificar expressões do tipo \code{apl}{((cond1 x) and (cond2 x) and ... and (condN x))} para \code{apl}{cond1 ∧ cond2 ∧ ... ∧ condN}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Novo símbolo}
+
+   \newAPLsymbol{∧}{and}{diádico}{Conjunção (e) lógica escalar}{U+2227}{\^ \^ <tab>}{APL + 0} 
+
+\end{frame}

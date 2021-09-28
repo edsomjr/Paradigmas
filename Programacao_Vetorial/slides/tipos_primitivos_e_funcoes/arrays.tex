@@ -1,1 +1,181 @@
 \section{\it Arrays}
+
+\begin{frame}[fragile]{\it Arrays}
+
+    \begin{itemize}
+        \item Em APL, a estrutura de dados fundamental é o \textit{array}, e todos os dados estão contidos em \textit{arrays}
+        \pause
+
+        \item Um \textit{array} é uma coleção retangular de números, caracteres e \textit{arrays}, arranjados ao longo de um ou mais eixos
+        \pause
+
+        \item Os elementos de um \textit{array} podem ter tipos distintos
+        \pause
+
+        \item \textit{Arrays} especiais:
+            \begin{enumerate}[(a)]
+                \item \textbf{escalar}: um único número, dimensão zero
+                \item \textbf{vetor}: um \textit{array} unidimensional
+                \item \textbf{matriz}: um \textit{array} bidimensional
+            \end{enumerate}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Declaração de {\it arrays}}
+
+    \begin{itemize}
+        \item \textit{Arrays} são declarados separando seus elementos por espaços
+            \inputsyntax{apl}{codes/arrays.apl}
+        \pause
+
+        \item Parêntesis podem ser utilizados para agrupar vetores
+            \inputsyntax{apl}{codes/arrays2.apl}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Novo símbolo}
+
+   \newAPLsymbol{⍳}{iota}{monádico}{Gera os primeiros $n$ naturais}{U+2373}{i i <tab>}{APL + i} 
+
+\end{frame}
+
+\begin{frame}[fragile]{Profundidade}
+
+    \begin{itemize}
+        \item A profundidade (\textit{depth}) de um \textit{array} corresponde a o seu nível de profundidade/recursão
+        \pause
+
+        \item um vetor de escalares tem profundidade igual a 1
+        \pause
+
+        \item um vetor cujos elementos são vetores de profundidade 1 tem profundidade igual a 2
+        \pause
+
+        \item um escalar tem profundidade zero
+        \pause
+
+        \item APL atribuí a um vetor que mistura escalares e vetores uma profundidade negativa
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Profundidade}
+
+    \begin{itemize}
+        \item A profundidade de um \textit{array} pode ser obtida por meio da função \code{apl}{≡}
+            \inputsyntax{apl}{codes/depth.apl}
+        \pause
+
+        \item Strings vazias são representadas por \code{apl}{''}
+            \inputsyntax{apl}{codes/empty.apl}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Novo símbolo}
+
+   \newAPLsymbol{≡}{depth}{monádico}{Retorna a profundidade do \textit{array}}{U+2261}{= = <tab>}{APL + Shift + ç} 
+
+\end{frame}
+
+\begin{frame}[fragile]{\it Rank}
+
+    \begin{itemize}
+        \item O \textit{rank} é definido como o número de dimensões de um \textit{array}
+        \pause
+
+        \item Escalares tem \textit{rank} igual a zero
+        \pause
+
+        \item Vetores tem \textit{rank} igual a 1
+        \pause
+
+        \item Matrizes tem \textit{rank} igual a 2
+        \pause
+
+        \item Em APL os  \textit{arrays} são retangulares: cada linha de uma matriz deve ter o mesmo número de colunas
+        \pause
+
+        \item Para criar \textit{arrays} com rank maior do que 1 é preciso usar a função \code{apl}{⍴} (\textit{reshape}), que recebe como argumento à esquerda um vetor dos comprimentos das dimensões e os dados como argumento à direita
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Novo símbolo}
+
+   \newAPLsymbol{⍴}{reshape}{diádico}{Retorna um \textit{array} com as dimensões e dados indicados}{U+2374}{r r <tab>}{APL + r} 
+
+\end{frame}
+
+\begin{frame}[fragile]{Declarando \textit{arrays} multidimensionais}
+
+    \begin{itemize}
+        \item A função \code{apl}{⍴} retorna \textit{arrays} multidimensionais
+            \inputsyntax{apl}{codes/matrix.apl}
+        \pause
+
+        \item Se há dados em excesso o que sobra é ignorado
+            \inputsyntax{apl}{codes/matrix2.apl}
+        \pause
+
+        \item Se faltam dados a função \code{apl}{⍴} retorna ciclicamente ao início dos dados indicados
+            \inputsyntax{apl}{codes/matrix3.apl}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Forma de um \textit{array}}
+
+    \begin{itemize}
+        \item Em sua versão monádica, a função \code{apl}{⍴} os comprimentos das dimensões (forma) do \textit{array}
+            \inputsyntax{apl}{codes/shape.apl}
+        \pause
+
+        \item Matrizes com uma única linha e vetores são distintos
+            \inputsyntax{apl}{codes/shape2.apl}
+        \pause
+
+        \item Vale a identidade \code{apl}{v ≡ ⍴ (v ⍴ A)}, onde \code{apl}{v} é um vetor e \code{apl}{A} um \textit{array} qualquer
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Novo símbolo}
+
+   \newAPLsymbol{⍴}{shape}{monádico}{Retorna a forma (comprimento das dimensões) de um \textit{array} }{U+2374}{r r <tab>}{APL + r} 
+
+\end{frame}
+
+\begin{frame}[fragile]{Novo símbolo}
+
+   \newAPLsymbol{⍬}{empty numeric vector}{-}{Vetor numérico vazio}{U+236C}{0 - <tab>}{APL + Shift + [} 
+
+\end{frame}
+
+
+\begin{frame}[fragile]{Novo símbolo}
+
+   \newAPLsymbol{≡}{match}{diádico}{Retorna verdadeiro se ambos argumentos são idênticos (conteúdo e forma)}{U+2361}{= = <tab>}{APL + Shift + ç} 
+
+\end{frame}
+
+\begin{frame}[fragile]{Cálculo do {\it rank}}
+
+    \begin{itemize}
+        \item O \textit{rank} de um vetor é igual ao comprimento da sua forma
+        \pause
+
+        \item Assim, o \textit{rank} de um \textit{array} pode ser computado por meio da dupla
+        aplicação da função \code{apl}{⍴}
+            \inputsyntax{apl}{codes/shape3.apl}
+        \pause
+
+        \item A função \code{apl}{⍴} pode ser usada para conversões entre um escalar \code{apl}{s} e um vetor \code{apl}{v} com um único componente igual a \code{apl}{x}:
+            \inputsyntax{apl}{codes/scalar_to_vector.apl}
+ 
+    \end{itemize}
+
+\end{frame}

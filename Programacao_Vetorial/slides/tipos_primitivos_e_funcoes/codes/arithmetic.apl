@@ -6,5 +6,5 @@
 0.5547001962J0.8320502943
       ÷2                    ⍝ inverso multiplicativo
 0.5
-      *2                    ⍝ e elevado ao quadrado
+      *2                    ⍝ função exponencial
 7.389056099
