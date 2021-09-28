@@ -23,19 +23,15 @@
 TODO: continuar em scan
 
 * Símbolos
-    - E lógico: ∧ (diádico, U+2227, PREFIX: <prefix> 0, TAB: ^ ^ <tab>
     - Ou lógico: ∨ (diádico, U+2228, PREFIX: <prefix> 9, TAB: v v <tab>
     - Reduce: / (operador, monádico)
     - Iota: ⍳ (monádico, U+2373, ⍳n = 1 2 3 4 ... n)
     - Enclose: ⊂ (subset, monádico, U+2282 PREFIX: <prefix> z)
 
+* Comparar o desempenho do fatorial primitivo !, da implementação recursiva dfns e por redução com iota
+
 ### Códigos
 
-1. Recursão em lambdas
-```APL
-     {⍵ = 1 : 1 ⋄ ⍵ + ∇ ⍵ - 1} 10       ⍝ soma dos n primeiros positivos
-55
-```
 1. Reduções
 ```APL
     +/1 2 3 4 5
