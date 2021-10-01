@@ -1,0 +1,125 @@
+\section{Ordenação}
+
+\begin{frame}[fragile]{Ranqueamento ascendente}
+
+    \begin{itemize}
+        \item APL não disponibiliza uma primitiva para a ordenação dos elementos de um
+            \textit{array}
+        \pause
+
+        \item Para ordenar um vetor é preciso recorrer as funções de ranqueamento
+        \pause
+
+        \item A função monádica \code{apl}{⍋} (\textit{grade up}) ranqueia um vetor
+            ascendentemente
+        \pause
+
+        \item Ela retorna um vetor de índices, cujo $i$-ésimo elemento indica
+            o índice do $i$-ésimo menor elemento do argumento
+                \inputsyntax{apl}{codes/gradeup.apl}
+        \pause
+
+        \item A ordenação de um vetor pode ser obtida por meio da expressão \code{apl}{a[⍋a]}
+                \inputsyntax{apl}{codes/sortup.apl}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Novo símbolo}
+
+   \newAPLsymbol{⍋}{grade up}{monádico}{Ranqueia o argumento de forma ascendente}{U+234B}{ A | <tab>}{APL + Shift + 4} 
+
+\end{frame}
+
+\begin{frame}[fragile]{Novo símbolo}
+
+   \newAPLsymbol{[ ]}{square brackets}{-}{\code{apl}{v[u]} retorna os elementos do vetor \code{apl}{v} que ocupam os índices indicado pelo vetor \code{apl}{u}}{U+005[BD]}{-}{-}
+
+\end{frame}
+
+\begin{frame}[fragile]{Ordenação lexicográfica}
+
+    \begin{itemize}
+        \item A ordenação apresentada ordena os elementos de um \textit{array} segundo a ordem
+            lexicográfica
+                \inputsyntax{apl}{codes/lexicographic.apl}
+        \pause
+
+        \item A função diádica \code{apl}{⌷} (\textit{index}) permite, em conjunto com uma cisão,
+            ordenar um \textit{array} de forma arbitrária
+                \inputsyntax{apl}{codes/sort.apl}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Novo símbolo}
+
+   \newAPLsymbol{⌷}{index}{diádico}{Retorna os índices do argumento à direita indicados pelo escalar à esquerda}{U+2337}{ [ | <tab>}{APL + Shift + l} 
+
+\end{frame}
+
+\begin{frame}[fragile]{Ranqueamento descendente}
+
+    \begin{itemize}
+        \item  A função monádica \code{apl}{⍒} (\textit{grade down}) retorna o ranqueamento descendente de seu argumento
+                \inputsyntax{apl}{codes/rankdown.apl}
+        \pause
+
+        \item Strings são ordenadas de acordo com os valores dos caracteres na tabela Unicode
+                \inputsyntax{apl}{codes/sortStrings.apl}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Novo símbolo}
+
+   \newAPLsymbol{⍒}{grade down}{monádico}{Ranqueia o argumento de forma descendente}{U+2352}{ V | <tab>}{APL + Shift + 3} 
+
+\end{frame}
+
+\begin{frame}[fragile]{Aplicações do ranqueamento}
+
+    \begin{itemize}
+        \item É possível obter o índice do menor ou do maior elemento de um \textit{array} usando 
+            os \textit{atops} \code{apl}{⊂⍋} e \code{apl}{⊃⍒}, respectivamente
+                \inputsyntax{apl}{codes/minimax.apl}
+        \pause
+
+        \item O duplo ranqueamento permite obter as posições que cada elemento do \textit{array}
+            ocupará após a ordenação
+                \inputsyntax{apl}{codes/doublerank.apl}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Ranqueamentos diádicos}
+
+    \begin{itemize}
+        \item As funções de ranqueamento também tem formas diádicas
+        \pause
+
+        \item O parâmetro à esquerda indicará o alfabeto \code{apl}{⍺} que será utilzado como
+            critério de ordenação
+        \pause
+
+        \item No exemplo a seguir os caracteres ímpares devem anteceder os caracteres pares na
+            ordenação
+                \inputsyntax{apl}{codes/dyadicGrade.apl}
+        \pause
+
+        \item Caracteres que não forem indicado no alfabeto serão considerados equivalentes, 
+            ocupando a posição logo após o último caractere indicado
+    \end{itemize}
+
+\end{frame}
+\begin{frame}[fragile]{Novo símbolo}
+
+   \newAPLsymbol{⍋}{grade up}{diádico}{Ranqueia o argumento de forma ascendente, de acordo com o alfabeto indicado}{U+2352}{ V | <tab>}{APL + Shift + 4} 
+
+\end{frame}
+
+\begin{frame}[fragile]{Novo símbolo}
+
+   \newAPLsymbol{⍒}{grade down}{diádico}{Ranqueia o argumento descendentemente, de acordo com o alfabeto indicado}{U+2352}{ V | <tab>}{APL + Shift + 3} 
+
+\end{frame}

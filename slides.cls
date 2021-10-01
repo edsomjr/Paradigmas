@@ -109,3 +109,13 @@
     \end{tabularx}
     \end{table}
 }
+
+\newcommand\inputmintinline[3][]{%
+  \begingroup\everyeof{}%
+  \CatchFileDef\temp{#3}{}%
+  \scantokens\expandafter{%
+    \expandafter\processinputmintinline\expandafter{\temp}{#1}{#2}%
+  }\unskip
+  \endgroup
+}
+\newcommand{\processinputmintinline}[3]{\mintinline[#2]{#3}{#1}}
