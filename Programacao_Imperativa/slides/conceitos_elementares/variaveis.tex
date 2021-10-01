@@ -57,8 +57,7 @@
 
         \item A seção \texttt{.data} contém as variáveis inicializadas
 
-        \item Cada variável da seção \texttt{.data} é associada a um nome, que será
-            acessível em toda seção \texttt{.text}
+        \item Cada variável da seção \texttt{.data} é associada a um nome, acessível em \texttt{.text}
 
         \item As pseudo-instruções \code{nasm}{DB}, \code{nasm}{DW} e \code{nasm}{DD} 
             (\textit{define byte, define word} e \textit{define double word}) são 
@@ -128,11 +127,11 @@
 \end{frame}
 
 \begin{frame}[fragile]{Hello World com entrada de usuário}
-    \inputsnippet{nasm}{1}{22}{codes/hello2.s}
+    \inputsnippet{nasm}{1}{19}{codes/hello2.s}
 \end{frame}
 
 \begin{frame}[fragile]{Hello World com entrada de usuário}
-    \inputsnippet{nasm}{23}{42}{codes/hello2.s}
+    \inputsnippet{nasm}{21}{42}{codes/hello2.s}
 \end{frame}
 
 \begin{frame}[fragile]{Variáveis e memória}

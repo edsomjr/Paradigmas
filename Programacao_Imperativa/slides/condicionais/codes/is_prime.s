@@ -34,7 +34,6 @@ _start:
 
 to_int:
     mov cl, [esi]
-
     cmp cl, '0'     ; Se o caractere está fora da faixa [0-9] finaliza
     jl done
 

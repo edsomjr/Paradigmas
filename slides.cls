@@ -1,6 +1,6 @@
 \ProvidesClass{slides}
 
-\LoadClass[11pt,xcolor=svgnames,handout,aspectratio=169]{beamer}
+\LoadClass[11pt,xcolor=svgnames,aspectratio=169]{beamer}
 
 % packages
 \usepackage{lean_progress}
@@ -8,6 +8,8 @@
 \usepackage[portuges,brazil]{babel}
 \usepackage{datetime}
 \usepackage{appendixnumberbeamer}
+\usepackage[accumulated]{beamerseminar}
+\usepackage{genealogytree}
 
 \usepackage{tikz}
 \usepackage{xcolor}
@@ -32,6 +34,7 @@
 \usepackage{amsmath}
 \usepackage{algorithm}
 \usepackage[noend]{algpseudocode}
+\usepackage{fontspec}
 
 % Setup
 \usetikzlibrary{calc}
@@ -76,3 +79,43 @@
 \renewcommand{\algorithmicensure}{\textbf{Output:}}
 \newcommand{\forto}{\ \mbox{\bf to}\ }
 \newcommand{\algand}{\ \mbox{\bf and}\ }
+
+\definecolor{SBlue}{HTML}{4C82AF}
+
+\newcommand{\newAPLsymbol}[7]{
+\setlength{\aboverulesep}{0pt}
+\setlength{\belowrulesep}{0pt}
+    \begin{table}
+        \centering
+    \begin{tabularx}{0.9\textwidth}{ccX}
+    \toprule
+    \rowcolor{SBlue}
+    \textcolor{white}{\textbf{Símbolo}} & \textcolor{white}{\textbf{Aridade}} & \textcolor{white}{\textbf{Descrição}} \\
+    \midrule
+    \\
+    \vspace*{1pt}{\huge \texttt{#1}} & \multirow{2}{*}{#3} & \multirow{2}{=}{#4} \\
+    (\textit{#2}) \\
+    \\
+    \midrule
+    \rowcolor{SBlue}
+    \textcolor{white}{\textbf{Unicode}} & 
+    \textcolor{white}{\textbf{TAB}} &
+    \textcolor{white}{\textbf{APL}} \\
+    \midrule
+    \\
+    \texttt{#5} & \texttt{#6} & \texttt{#7} \\
+    \\
+    \bottomrule
+    \end{tabularx}
+    \end{table}
+}
+
+\newcommand\inputmintinline[3][]{%
+  \begingroup\everyeof{}%
+  \CatchFileDef\temp{#3}{}%
+  \scantokens\expandafter{%
+    \expandafter\processinputmintinline\expandafter{\temp}{#1}{#2}%
+  }\unskip
+  \endgroup
+}
+\newcommand{\processinputmintinline}[3]{\mintinline[#2]{#3}{#1}}

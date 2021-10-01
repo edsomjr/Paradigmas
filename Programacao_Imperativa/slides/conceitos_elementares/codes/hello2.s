@@ -1,6 +1,4 @@
-; 'Hello, World!' parametrizado. A entrada é feita por meio da 
-; chamada de sistema SYS_READ (optcode 3). Os parâmetros são
-;
+; A entrada é feita por meio da chamada de sistema SYS_READ (optcode 3):
 ;       EDX     Tamanho máximo, em bytes, a ser preenchido
 ;       ECX     Endereço da variável a ser preenchida
 ;       EBX     Arquivo do qual a string será carregada (STDIN = 0)

@@ -14,7 +14,6 @@ global _start
 
 _start:
     pop ecx             ; ECX = número de argumentos passados
-
     cmp ecx, 2          ; Checa se o argumento foi passado
     jl  .error
 
@@ -78,7 +77,6 @@ _start:
 .endl:
     mov eax, endl
     call print_string
-
     inc esi
     jmp .fizzbuzz
 

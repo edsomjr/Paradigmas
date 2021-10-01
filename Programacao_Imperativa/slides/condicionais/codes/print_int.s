@@ -39,8 +39,7 @@ print_int:
     jmp print_int
 
 done:
-    ; Imprime a quebra de linha
-    mov edx, 0Ah
+    mov edx, 0Ah    ; Imprime a quebra de linha
     push dx
 
     mov edx, 1
@@ -50,7 +49,6 @@ done:
     pop dx          ; Remove a quebra de linha da pilha
 
 exit:
-    ; Encerra o programa com sucesso
     mov ebx, 0
     mov eax, 1
     int 80h

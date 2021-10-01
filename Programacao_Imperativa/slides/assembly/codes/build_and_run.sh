@@ -1,9 +1,5 @@
 #!/bin/bash
-
-#######################################################################
-# Monta o código assembly indicado no parâmetro de entrada e executa  # 
-# o programa de mesmo nome.                                           #
-#######################################################################
+# Monta o código assembly indicado no entrada e executa o programa de mesmo nome.                                         
 if [ "$#" -lt 1 ]; then
     echo "Usage: $0 {source.s}"
     exit
