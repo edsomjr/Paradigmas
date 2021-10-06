@@ -1,5 +1,4 @@
-! Calcula o imposto de renda mensal
-program IRRF
+program IRRF            ! Calcula o imposto de renda mensal
 
     implicit none
 
@@ -25,7 +24,6 @@ program IRRF
         deducao = 869.36
     end if
 
-    ! Imprime o imposto a ser pago
     if (aliquota == 0) then
         write(*,*) 'Isento'
     else

@@ -1,5 +1,4 @@
-! Verifica se o inteiro n é ou não primo
-program is_prime
+program is_prime    ! Verifica se o inteiro n é ou não primo
     use primes
     integer :: n
 
@@ -13,10 +12,8 @@ program is_prime
     end if
 
     write(*,4) get_primes(10)
-
 1   format('Insira o inteiro n: ')
 2   format(I7, ' é primo')
 3   format(I7, ' não é primo')
 4   format('10 primeiros primos:', 10I4)
-
 end program is_prime

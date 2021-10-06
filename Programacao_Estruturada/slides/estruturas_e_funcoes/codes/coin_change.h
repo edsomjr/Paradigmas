@@ -1,6 +1,5 @@
-/* As diretivas de pré-processador ifndef, define e endif permitem
- * a múltipla inclusão deste arquivo via #include sem erro de 
- * duplicidade de declarações */
+/* As diretivas de pré-processador ifndef, define e endif permitem a múltipla inclusão 
+ * deste arquivo via #include sem erro de duplicidade de declarações */
 #ifndef COIN_CHANGE_H
 #define COIN_CHANGE_H
 

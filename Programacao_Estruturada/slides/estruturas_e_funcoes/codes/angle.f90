@@ -1,6 +1,4 @@
-! Calcula o ângulo entre dois vetores
-program angle
-
+program angle       ! Calcula o ângulo entre dois vetores
     real, parameter :: pi = acos(-1.0)
     real :: theta, xlen, ylen
     real :: xs(2) = (/ 1, 0 /), ys(2) = 1   ! ys = (1, 1)
@@ -18,5 +16,4 @@ program angle
     theta = theta * 180 / pi
 
     write(*,*) 'Ângulo após rotação, em graus: ', theta
-
 end program angle

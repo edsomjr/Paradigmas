@@ -1,8 +1,5 @@
-! Implementa o selection sort
-program selection
-
+program selection           ! Implementa o selection sort
     implicit none
-
     integer, allocatable :: xs(:)
     integer :: n
 
@@ -21,9 +18,7 @@ program selection
     deallocate(xs)
 
 contains
-
     subroutine sort(n, xs)
-
         integer :: i, j, k, n, xs(:)
 
         do i = 1, n - 1
@@ -41,13 +36,11 @@ contains
     end subroutine sort
 
     subroutine swap(x, y)
-
         integer :: x, y, z
 
         z = x
         x = y
         y = z
-
     end subroutine swap
 
 end program selection

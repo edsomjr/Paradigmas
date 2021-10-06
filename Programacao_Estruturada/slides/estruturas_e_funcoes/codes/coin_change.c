@@ -29,13 +29,11 @@ static int dp(int c, int i, const int *coins)
     res = dp(c, i - 1, coins);
     ps[c][i] = 0;
 
-    if (coins[i - 1] <= c)
-    {
+    if (coins[i - 1] <= c) {
         /* Escolhe uma moeda com valor coins[i] */
         int r = dp(c - coins[i - 1], i, coins) + 1;
 
-        if (r < res)
-        {
+        if (r < res) {
             res = r;
             ps[c][i] = 1;
         }

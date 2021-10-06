@@ -1,8 +1,5 @@
-! Computa a^n com complexidade O(log n)
-program fast_exp
-
+program fast_exp                            ! Computa a^n em O(log n)
     implicit none
-
     integer(16) :: a, n, res = 1, base      ! Inteiros de 128-bits
     read(*,*) a, n
 
@@ -18,5 +15,4 @@ program fast_exp
     end do
 
     write(*,*) res
-
 end program fast_exp

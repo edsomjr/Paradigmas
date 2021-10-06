@@ -1,16 +1,11 @@
-! Calcula o coeficiente binominal (n, m)
-program binomial
-
+program binomial        ! Calcula o coeficiente binominal (n, m)
     implicit none
     integer(8) :: n, m
 
     write(*,*) 'Insira os valores de n e m: '
     read(*,*) n, m
-
     write(*,*) binom(n, m)
-
 contains
-
     function factorial(n)
         integer(8) :: i, n, factorial
         factorial = 1

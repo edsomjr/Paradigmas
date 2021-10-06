@@ -1,8 +1,5 @@
-! Módulo com funções relacionadas a números primos
-module primes
-
+module primes   ! Módulo com funções relacionadas a números primos
     implicit none
-
     integer, parameter :: max_value = 10 ** 7
     logical, private :: sieve(max_value), ready = .false.
 
@@ -11,7 +8,6 @@ module primes
     private :: erasthotenes
 
 contains
-
     function primality_check(n)
         integer :: n
         logical :: primality_check 
@@ -31,12 +27,9 @@ contains
         end if
 
         primality_check = sieve(n)
-
     end function primality_check
 
-    ! Implementa o crivo de Erastótenes
-    subroutine erasthotenes()
-
+    subroutine erasthotenes()       ! Implementa o crivo de Erastótenes
         integer(8) :: i, j, step = 4
 
         sieve = .true.
@@ -59,13 +52,10 @@ contains
             end if
 
             step = 6 - step
-
         end do
-
     end subroutine erasthotenes
 
     function get_primes(n)
-
         integer :: i, n, total = 0, get_primes(n)
 
         if (.not. ready) then
@@ -82,7 +72,5 @@ contains
                 return
             end if
         end do
-
     end function get_primes
-
 end module primes

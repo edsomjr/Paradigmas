@@ -1,6 +1,4 @@
-! Obtém os n próximos números de Fibonacci
-program fibonacci
-
+program fibonacci       ! Obtém os n próximos números de Fibonacci
     write(*,1) next_fib(8, .false.)
     write(*,2) next_fib(5, .false.)
     write(*,3) next_fib(10, .true.)

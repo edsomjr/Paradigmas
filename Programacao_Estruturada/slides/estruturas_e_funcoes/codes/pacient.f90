@@ -1,6 +1,4 @@
-! Exemplifica a declaração e instânciação de um dado derivado
-program pacient
-
+program pacient     ! Exemplifica a declaração e instânciação de um dado derivado
     type Paciente
         character(len=256)  :: nome
         integer             :: idade
@@ -13,10 +11,8 @@ program pacient
     read(*,1) p%nome
     write(*,*) 'Insira a idade, peso e altura, nesta ordem: '
     read(*,*) p%idade, p%peso, p%altura
-
     write(*,2) p%nome, p%idade
 
 1   format (A10)
 2   format ('Paciente "', A10, '" (', I3, ' anos) registrado com sucesso')
-
 end program pacient
