@@ -1,5 +1,4 @@
-! Verifica se um competidor pode ou não participar da Maratona
-! no ano de 2020
+! Verifica se um competidor pode ou não participar da Maratona no ano de 2020
 program maratona
 
     implicit none

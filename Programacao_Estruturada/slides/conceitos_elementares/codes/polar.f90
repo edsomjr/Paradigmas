@@ -4,8 +4,7 @@ program polar
     implicit none
 
     complex :: c = complex (0.5, sqrt(3.0)/2)
-
-    real :: p, theta        ! Parâmetros da forma polar
+    real :: p, theta                            ! Parâmetros da forma polar
 
     write(*,*) 'c = ', c
 

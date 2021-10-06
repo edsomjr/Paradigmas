@@ -7,14 +7,11 @@ program financiamento
     real :: R, j, P
     integer :: N
 
-    ! Leitura dos dados
-    read(*,*) R, j, N
+    read(*,*) R, j, N                   ! Leitura dos dados
 
-    ! Cálculo da prestação
-    P = R*(j/(1 - 1/((1 + j) ** N)))
+    P = R*(j/(1 - 1/((1 + j) ** N)))    ! Cálculo da prestação
 
-    ! Saída formatada
-    write(*,1) P
+    write(*,1) P                        ! Saída formatada
 
 1   format ('Prestacao: ', F9.2)
 
