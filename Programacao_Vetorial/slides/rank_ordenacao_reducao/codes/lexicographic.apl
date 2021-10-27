@@ -6,4 +6,4 @@ A ← 5 3 ⍴ a
 6 9 3
 1 4 7
       ⍋A
-2 5 3 1 4           ⍝ Ordem lexicográfica das colunas
+2 5 3 1 4           ⍝ Ordem lexicográfica das linhas
