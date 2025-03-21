@@ -3,10 +3,10 @@
 Material didático da disciplina Paradigmas de Programação, ministrada pelo professor Edson Alves na Faculdade UnB Gama.
 
 1. Fundamentos
-    1. [Introdução](Fundamentos/slides/introducao/introducao.pdf)
-    1. [Lógica Proposicional Booleana](Fundamentos/slides/logica_booleana/logica_booleana.pdf)
-    1. [Teoria dos Conjuntos](Fundamentos/slides/teoria_dos_conjuntos/teoria_dos_conjuntos.pdf)
-    1. [Funções](Fundamentos/slides/funcoes/funcoes.pdf)
+    1. [Introdução](Fundamentos/introducao/introducao.pdf)
+    1. [Lógica Proposicional Booleana](Fundamentos/logica_booleana/logica_booleana.pdf)
+    1. [Teoria dos Conjuntos](Fundamentos/teoria_dos_conjuntos/teoria_dos_conjuntos.pdf)
+    1. [Funções](Fundamentos/funcoes/funcoes.pdf)
 1. Máquinas de Turing
     1. [Enumerabilidade](Maquinas_de_Turing/slides/enumerabilidade/enumerabilidade.pdf)
     1. [Máquinas de Turing](Maquinas_de_Turing/slides/maquinas_de_turing/maquinas_de_turing.pdf)
