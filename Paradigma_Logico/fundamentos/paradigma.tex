@@ -16,7 +16,7 @@
             quais questionam se uma determinada proposição é ou não verdadeira
 
         \item Caso seja verdadeira, também é possível determinar qual atribuição de valores
-            lógicos às variáveis da proposição a torna verdadeira
+            lógicos às variáveis da sentença a torna verdadeira
 
         \item Para se tornar um paradigma prático, é necessário o apoio de subrotinas
             extra-lógicas que controlem os processos de entrada e saída de dados e que 
@@ -104,15 +104,16 @@
 \begin{frame}[fragile]{Exemplo de programa em Prolog}
 
     \begin{itemize}
-        \item A proposição ``\textit{Todo estudante da FGA é estudante da UnB}'' pode
+        \item A proposição ``\textit{Todo estudante da FCTE é estudante da UnB}'' pode
             ser declarada em Prolog da seguinte forma:
 
             \inputsyntax{prolog}{codes/unbfga.pl}
 
-        \item Outra forma de ler esta mesma proposição seria ``\textit{Para todo X, X é aluno               da UnB se X estuda na FGA}''
+        \item Outra forma de ler esta mesma proposição seria ``\textit{Para todo X, X é aluno 
+            da UnB se X estuda na FCTE}''
 
         \item Afirmações sobre estudantes da FGA pode ser feitas por meio do predicado
-            \code{prolog}{fga/1}:
+            \code{prolog}{fcte/1}:
 
             \inputsyntax{prolog}{codes/fga.pl}
     
@@ -209,8 +210,6 @@
 
         \item Um programa em Prolog é um banco de dados Prolog
 
-        \item Sinônimos para um termo são introduzidos entre parêntesis
-
         \item Por exemplo, no nível mais alto temos \code{prolog}{program(database)}
 
         \item Um programa é composto por predicados (procedimentos, registros, relações)
@@ -236,7 +235,7 @@
         \item \code{prolog}{unb_report/0} se assemelha a uma subrotina sem argumentos
 
         \item \code{prolog}{unb/1} remete a uma regra ou proposição, e está em algum lugar 
-            entre dados e procedimentos
+            entre dado e procedimento
 
         \item Cada predicado do programa é definido pela existência de uma ou mais cláusulas 
             no banco de dados

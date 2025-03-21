@@ -1,9 +1,9 @@
 % Exemplo de arquivo-fonte Prolog
-unb(X) :- fga(X).
+unb(X) :- fcte(X).
 
-fga(ana).
-fga(beto).
-fga(carlos).
+fcte(ana).
+fcte(beto).
+fcte(carlos).
 
 unb_report :-
     write('Estudantes da UnB: '), nl,

@@ -1,0 +1,244 @@
+\ProvidesPackage{beamerleanprogress}[2011/04/11 Beamer theme.]
+
+\RequirePackage{xifthen, tikz}
+
+\newlength\lpg@logoht
+\newlength\lpg@logomg
+
+\newlength\lpg@lineoff
+\newlength\lpg@lineht
+\newlength\lpg@linewd
+\newlength\lpg@linepos
+
+\newlength\lpg@rulethickness
+
+\newcount\lpg@framecnt
+\newcount\lpg@frametot
+
+\usebeamerfont{normal text}
+\setbox0=\hbox{\strut}
+\newlength\strutht \strutht\ht0
+\newlength\strutdp \strutdp\dp0
+
+\def\num(#1){\numexpr#1\relax}
+\def\dim(#1){\dimexpr#1\relax}
+
+
+%<< ~~[· frametitle   ·]~~ >>
+
+\setbeamertemplate{frametitle}{%
+  \vskip-1ex
+  \begin{beamercolorbox}
+    [wd=\lpg@linewd, ht=\strutht, dp=\strutdp] {frametitle}
+    \usebeamerfont{frametitle}\strut\insertframetitle
+  \end{beamercolorbox}
+  \ifx\insertframesubtitle\@empty
+  \else
+    \vskip-.8ex
+    \begin{beamercolorbox}
+      [wd=\lpg@linewd, ht=\strutht, dp=\strutdp] {framesubtitle}
+      \usebeamerfont{framesubtitle}\strut\insertframesubtitle
+    \end{beamercolorbox}
+  \fi}
+
+%>>
+%<< ~~[· headline     ·]~~ >>
+
+\setbeamertemplate{headline}{%
+  \lpg@framecnt=\num(\insertframenumber-2)
+  \lpg@frametot=\num(\inserttotalframenumber-2)
+  \lpg@linepos=\dim(\lpg@linewd*\lpg@framecnt/\lpg@frametot)
+  \begin{beamercolorbox}
+    [wd=\textwidth, ht=\strutht, dp=\strutdp,
+     leftskip=\lpg@lineoff, rightskip=\lpg@lineoff] {headline}
+    \ifnum\insertframenumber=1
+    \else
+      \insertsectionnavigationhorizontal{\lpg@linewd}
+        {\hskip-.3cm}{\hskip-.3cm}\par% remove space inserted by beamer
+      \begin{tikzpicture}
+        \usebeamercolor{lower separation line head}%
+        \shade [left color=bg, right color=fg, middle color=bg]
+          (0,0) rectangle (\lpg@linepos,\lpg@lineht);
+        \shade [left color=fg, right color=bg, middle color=bg]
+          (\lpg@linepos,0) rectangle (\lpg@linewd,\lpg@lineht);
+      \end{tikzpicture}
+    \fi
+  \end{beamercolorbox}}
+
+%>>
+%<< ~~[· footline     ·]~~ >>
+
+\setbeamertemplate{footline}{%
+  \ifnum\insertframenumber=1
+  \else
+    \begin{beamercolorbox}
+      [ht=\lpg@lineht, colsep*=-\lpg@lineoff]
+      {upper separation line foot}
+    \end{beamercolorbox}
+    \begin{beamercolorbox}
+      [wd=\lpg@linewd, ht=\dim(\lpg@logoht+\lpg@logomg),
+       leftskip=\lpg@lineoff, rightskip=\lpg@lineoff] {footline}
+      \vskip1ex\strut
+      \hbox to \lpg@linewd{%
+        \rlap{\usebeamerfont{author in head/foot}\insertshortauthor}
+        \hfil\hbox{%
+          \usebeamerfont{title in head/foot}\insertshorttitle}\hfil
+        \llap{\pgfbox[right,base]{%
+            \ifx\lpg@logo\@empty\else\pgfuseimage{logo}\fi}}}
+      \vskip.4ex
+  \end{beamercolorbox}
+  \fi}
+
+%>>
+%<< ~~[· bibliography ·]~~ >>
+
+\setbeamertemplate{bibliography item}{%
+  \begin{tikzpicture}[rounded corners=1pt, x=9mm, y=9mm]
+    \useasboundingbox (0, 0.2) rectangle (0.5, 0.7);
+    \path [fill=bg!85!blue]
+      (0, 0.25) rectangle (0.4, 0.5);
+    \path [shade, bottom color=bg, top color=bg!85!blue]
+      (0, 0) -- (0.3, 0) -- (0.4, 0.12) -- (0.4, 0.3) -- (0, 0.3) -- cycle;
+    \path [shade, left color=bg, right color=bg!85!blue]
+      (0,0.27) .. controls (0.25,0.25) .. (0.4,0.5) -- (0,0.5) -- cycle;
+    \path [fill=bg!90!blue]
+      (0,0) rectangle (0.3,0.05);
+    \path [shade, left color=bg!95!blue, right color=bg!90!blue]
+      (0,0) rectangle (0.05,0.5);
+    \path [shade, left color=bg,right color=bg!80!black, shading angle=45]
+      (0.3,0) -- (0.3,0.12) -- (0.4,0.12) -- cycle;
+    \path [draw=fg!35!bg]
+      (0,0) -- (0.3,0) -- (0.4,0.12) -- (0.4,0.5) -- (0,0.5) -- cycle;
+    \path [draw=fg!35!bg]
+      (0.3,0) -- (0.3,0.12) -- (0.4,0.12);
+  \end{tikzpicture}}
+
+%>>
+%<< ~~[· blocks       ·]~~ >>
+
+\newcommand\defblock[1][]{%
+  \edef\doit{%
+    \noexpand\dodefblock
+    {block \ifx#1\@empty\else#1\space\fi begin}
+    {block \ifx#1\@empty\else#1\space\fi end}
+    {block title\ifx#1\@empty\else\space#1\fi}
+    {block body\ifx#1\@empty\else\space#1\fi}}
+  \doit}
+
+\def\dodefblock#1#2#3#4{%
+  \setbeamertemplate{#1}{%
+    \setbox\beamer@tempbox=
+    \hbox to 0.95\textwidth\bgroup
+    \vbox\bgroup\raggedright
+    \begin{minipage}{0.95\textwidth}
+      \ifx\insertblocktitle\@empty\else
+        {\usebeamerfont{#3}\usebeamercolor[fg]{#3}\insertblocktitle}
+        \vskip-2ex
+        \begin{tikzpicture}
+          \usebeamercolor{#3}
+          \path [draw=fg!50!bg, line width=\lpg@rulethickness]
+            (0 ,0) -- (\textwidth,0);
+        \end{tikzpicture}\par\fi
+      \usebeamerfont{#4}\usebeamercolor[fg]{#4}}
+  \setbeamertemplate{#2}{%
+    \end{minipage}\egroup\egroup% close \vbox then \hbox
+    \usebeamercolor{#3}
+    \begin{center}
+      \begin{tikzpicture}
+        \node [draw=fg!50!bg, fill=bg, rounded corners=2pt,
+               line width=\lpg@rulethickness] {\box\beamer@tempbox};
+      \end{tikzpicture}
+    \end{center}}}
+
+%>>
+
+\useinnertheme{default}
+
+\defblock
+\defblock[example]
+\defblock[alerted]
+
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{section in head/foot shaded}[default][15]
+\setbeamertemplate{subsection in head/foot shaded}[default][75]
+
+%<< ~~[· macros       ·]~~ >>
+
+\let\lpg@logo\@empty
+\def\lpglogo#1{%
+  \def\lpg@logo{#1}
+  \pgfdeclareimage[height=\lpg@logoht]{logo}{#1}}
+\def\lpglogoheight{\setlength\lpg@logoht}
+\def\lpglogomargin{\setlength\lpg@logomg}
+
+\def\lpgrulethickness{\setlength\lpg@rulethickness}
+
+\def\lpglineoffset{\setlength\lpg@lineoff}
+\def\lpglineheight{\setlength\lpg@lineht}
+\def\lpglinewidth{\setlength\lpg@linewd}
+
+\let\bibliographyorig\bibliography
+\def\bibliography#1{%
+  \begin{center}
+    \begin{tikzpicture}
+      \usebeamercolor{bibliography structure}
+      \node [draw=fg!30!bg, fill=bg, rounded corners=2pt]
+        {\parbox{0.95\textwidth}{\bibliographyorig{#1}\vskip2mm}};
+    \end{tikzpicture}
+  \end{center}}
+
+\renewcommand{\emph}[1]{\textcolor{structure.fg}{\em #1}}
+
+%>>
+%<< ~~[· fonts        ·]~~ >>
+
+\setbeamerfont{structure}{series=\bfseries}
+\setbeamerfont{author}{series=\bfseries,size=\normalsize}
+\setbeamerfont{date}{size=\tiny}
+\setbeamerfont{normal text}{size=\small}% not used, so it is useless
+\setbeamerfont{frametitle}{size=\large}
+\setbeamerfont{framesubtitle}{parent=frametitle, size=\small, shape=\itshape, series=\mdseries}
+\setbeamerfont{title in head/foot}{shape=\slshape,size=\tiny,series=\mdseries}
+\setbeamerfont{author in head/foot}{size=\Tiny}
+\setbeamerfont{section in head/foot}{size=\Tiny,series=\bfseries}
+\setbeamerfont{subsection in head/foot}{size=\Tiny,series=\bfseries}
+\setbeamerfont{block title}{size=\normalsize}
+\setbeamerfont{bibliography entry author}{series=\bfseries,size=\footnotesize}
+\setbeamerfont{bibliography entry title}{series=\mdseries}
+
+%>>
+%<< ~~[· colors       ·]~~ >>
+
+\definecolor{darkorange}{RGB}{188,90,18}
+\definecolor{bibstruct}{rgb}{.95,.95,.85}
+
+\setbeamercolor{structure}{fg=SteelBlue!90!gray}
+\setbeamercolor{normal text}{fg=gray!40!black, bg=gray!5}
+\setbeamercolor{alerted text}{fg=darkorange, bg=darkorange!20}
+\setbeamercolor{example text}{fg=green!50!black, bg=green!50!black!20}
+
+\setbeamercolor{section in head/foot}{fg=gray!50!black}
+\setbeamercolor{subsection in head/foot}{parent=section in head/foot}
+\setbeamercolor{item projected}{bg=structure}
+
+\setbeamercolor{block title}{fg=structure, bg=structure!20}
+\setbeamercolor{block title alerted}{parent=alerted text}
+\setbeamercolor{block title example}{parent=example text}
+\setbeamercolor{block body}{parent=block title, fg=normal text.fg}
+\setbeamercolor{block body alerted}{parent=block title alerted, fg=normal text.fg}
+\setbeamercolor{block body example}{parent=block title example, fg=normal text.fg}
+
+\setbeamercolor{lower separation line head}{parent=structure}
+\setbeamercolor{upper separation line foot}{use=structure, bg=structure.fg}
+\setbeamercolor{bibliography structure}{fg=normal text.fg, bg=bibstruct}
+
+%>>
+
+\lpgrulethickness{.6pt}
+\lpglineheight\lpg@rulethickness
+
+\lpglineoffset{.5em}
+\lpglinewidth{\dim(\paperwidth-2\lpg@lineoff)}
+
+\lpglogoheight{2mm}
+\lpglogomargin{2mm}
