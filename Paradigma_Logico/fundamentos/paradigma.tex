@@ -7,7 +7,7 @@
         \item O paradigma lógico foi elaborado a partir de um teorema proposto no contexto
             do processamento de linguagens naturais
 
-        \item Ele permite prototipamento e desenvolvimento rápidos devido sua proximidade
+        \item Ele permite prototipação e desenvolvimento rápidos devido sua proximidade
             semântica com a especificação lógica do problema ser resolvido
 
         \item A programação, sob o viés do paradigma lógico, é declarativa
@@ -16,7 +16,7 @@
             quais questionam se uma determinada proposição é ou não verdadeira
 
         \item Caso seja verdadeira, também é possível determinar qual atribuição de valores
-            lógicos às variáveis da sentença a torna verdadeira
+            lógicos às variáveis da sentença aberta a torna uma proposição verdadeira
 
         \item Para se tornar um paradigma prático, é necessário o apoio de subrotinas
             extra-lógicas que controlem os processos de entrada e saída de dados e que 
@@ -31,7 +31,7 @@
         \item A linguagem de programação lógica Prolog foi proposta em 1972 por 
            Alain Colmerauer e Philippe Roussel, tendo como base os trabalhos de Robert Kowalski 
 
-        \item Prolog é uma contração da expresssão ``\textit{PROgramming in LOGic}''
+        \item Prolog é uma contração da expressão ``\textit{PROgramming in LOGic}''
 
         \item Ela tem raízes na lógica de primeira ordem
 
@@ -112,7 +112,7 @@
         \item Outra forma de ler esta mesma proposição seria ``\textit{Para todo X, X é aluno 
             da UnB se X estuda na FCTE}''
 
-        \item Afirmações sobre estudantes da FGA pode ser feitas por meio do predicado
+        \item Afirmações sobre estudantes da FCTE podem ser feitas por meio do predicado
             \code{prolog}{fcte/1}:
 
             \inputsyntax{prolog}{codes/fga.pl}
@@ -210,11 +210,9 @@
 
         \item Um programa em Prolog é um banco de dados Prolog
 
-        \item Por exemplo, no nível mais alto temos \code{prolog}{program(database)}
-
         \item Um programa é composto por predicados (procedimentos, registros, relações)
 
-        \item Cada predicado é definido um nome e um número (\textbf{aridade})
+        \item Cada predicado é definido por um nome e por um número (\textbf{aridade})
 
         \item A aridade é o número de argumentos (atributos, campos) do predicado
 
