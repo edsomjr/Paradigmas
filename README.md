@@ -33,9 +33,9 @@ Material didático da disciplina Paradigmas de Programação, ministrada pelo pr
     1. [Funções de Alta Ordem](Programacao_Funcional/slides/alta_ordem/alta_ordem.pdf)
     1. [Entrada e Saída](Programacao_Funcional/slides/io/io.pdf)
 1. Paradigma Lógico
-    1. [Fundamentos](Paradigma_Logico/slides/fundamentos/fundamentos.pdf)
-    1. [Regras, arimética e estruturas de dados](Paradigma_Logico/slides/regras/regras.pdf)
-    1. [Unificação e listas](Paradigma_Logico/slides/unificacao/unificacao.pdf)
+    1. [Fundamentos](Paradigma_Logico/fundamentos/fundamentos.pdf)
+    1. [Regras, arimética e estruturas de dados](Paradigma_Logico/regras/regras.pdf)
+    1. [Unificação e listas](Paradigma_Logico/unificacao/unificacao.pdf)
 1. Programação Vetorial
     1. [Introdução](Programacao_Vetorial/slides/introducao/introducao.pdf)
     1. [Tipos primitivos e funções](Programacao_Vetorial/slides/tipos_primitivos_e_funcoes/tipos_primitivos_e_funcoes.pdf)
