@@ -45,4 +45,9 @@ Material didático da disciplina Paradigmas de Programação, ministrada pelo pr
     - Adicionar em Prolog:
         1. Estruturas de controle
         2. Linguagens naturais
+
+Exercícios:
+
+1. Paradigma Lógico
+    1. [Wedding Woes](https://exercism.org/tracks/prolog/exercises/wedding-woes)
 -->
