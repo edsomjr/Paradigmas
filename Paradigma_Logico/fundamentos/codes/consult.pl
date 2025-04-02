@@ -1,1 +1,1 @@
-    ?- consult(source)
+    ?- consult(source).

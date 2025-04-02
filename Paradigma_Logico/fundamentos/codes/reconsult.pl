@@ -1,1 +1,1 @@
-    ?- reconsult(source)
+    ?- reconsult(source).
