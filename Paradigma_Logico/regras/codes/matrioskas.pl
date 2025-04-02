@@ -16,6 +16,17 @@ matrioska(e, f).
 matrioska(f, g).
 matrioska(f, h).
 
+% Lista todas as matrioskas contidas em M a partir do nível L
+list(M, L) :-
+    nl,
+    tab(L),
+    print(->),
+    tab(1),
+    print(M),
+    matrioska(M, X),
+    NewL is L + 4,
+    list(X, NewL).
+
 % Determina se X é uma matrioska ou não
 doll(X) :- matrioska(X, _).
 doll(X) :- matrioska(_, X).
@@ -31,13 +42,3 @@ list_all :-
     list(D, 0).
 list_all.
 
-% Lista todas as matrioskas contidas em M a partir do nível L
-list(M, L) :-
-    nl,
-    tab(L),
-    print(->),
-    tab(1),
-    print(M),
-    matrioska(M, X),
-    NewL is L + 4,
-    list(X, NewL).
