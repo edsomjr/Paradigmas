@@ -5,7 +5,7 @@
 
 %% Exemplos de consultas
 %
-% ?- a f b f c = f(a, f(b, c).
+% ?- a f b f c = f(a, f(b, c)).
 % ERROR: Syntax error: Operator expected
 % ERROR: a f b f c = f(a, f(b, c)
 % ERROR: ** here **
