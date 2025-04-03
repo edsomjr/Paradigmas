@@ -50,4 +50,8 @@ Exercícios:
 
 1. Paradigma Lógico
     1. [Wedding Woes](https://exercism.org/tracks/prolog/exercises/wedding-woes)
+    2. [Queen Attack](https://exercism.org/tracks/prolog/exercises/queen-attack)
+    3. [Triangle](https://exercism.org/tracks/prolog/exercises/triangle)
+    4. [Binary](https://exercism.org/tracks/prolog/exercises/binary)
+    5. [Pascal's Triangle](https://exercism.org/tracks/prolog/exercises/pascals-triangle)
 -->
