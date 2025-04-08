@@ -13,6 +13,7 @@
 \usepackage{amsmath}
 \usepackage{fontspec}
 \usepackage{fontawesome5}
+\usepackage[theorems]{tcolorbox}
 
 % Setup
 \usetikzlibrary{calc}
