@@ -834,9 +834,42 @@ a função de fusão $S$.}
 
 \end{tikzpicture}
 
+## Scene
+
+title => Node
+    @title.x = 0
+    @title.y = 6.5
+    @title.text = \Large \bbbold{Referências}
+    @title.anchor = west
+
+a => Node
+    @a.x = 1
+    @a.y = 5
+    @a.text = $\star$ \bbbold{SCHÖNFINKEL}\bbtext{, Moses.} \bbenglish{On the building blocks of the mathematical logic.} 
+    @a.anchor = west
+
+a1 => Node
+    @a1.x = 0.5
+    @a1.y = 4.25
+    @a1.text = \bbtext{Mathematische Annalen (in German). 92 (3–4): 305–316, 1924.}
+    @a1.anchor = west
+
+b => Node
+    @b.x = 1
+    @b.y = 3.5
+    @b.text = $\star$ \bbbold{O'LEARY}\bbtext{, Daniel J.} \bbenglish{The Propositional Logic of Principia Mathematica and Some}
+    @b.anchor = west
+
+b1 => Node
+    @b1.x = 0.5
+    @b1.y = 2.75
+    @b1.text = \bbenglish{of Its Forerunners·} \bbtext{Russell: The Journal of Bertrand Russell Studies 8 (1) (1988).}
+    @b1.anchor = west
+
+c => Node
+    @c.x = 1
+    @c.y = 2
+    @c.text = $\star$ \bbbold{FILHO}\bbtext{, Edgard de Alencar.} \bbenglish{Introdução à Lógica Matemática.} \bbtext{Nobel, 2009.}
+    @c.anchor = west
 
 ## End
-
-% The propositional logic of Principia Mathematica and some of its forerunners by Daniel J. O'Leary
-% Introdução à Lógica Matemática, Edgard de Alencar Filho. Nobel, 2009.
-
