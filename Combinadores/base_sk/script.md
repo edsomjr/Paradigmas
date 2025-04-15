@@ -619,21 +619,204 @@ e1 => Node
     @e1.text = \bbtext{necessariamente, iguais}
     @e1.anchor = west
 
+## Scene
 
+title => Node
+    @title.x = 0
+    @title.y = 7
+    @title.text = \Large \bbbold{\textit{The Significance of the Mockinbird}}
+    @title.anchor = west
 
+---
+a => Node
+    @a.x = 1
+    @a.y = 6
+    @a.text = $\star$ \bbtext{Se, ao ouvir o nome do pássaro $B$, a responde $B$, dizemos que $A$ gosta de $B$}
+    @a.anchor = west
 
+---
+b => Node
+    @b.x = 1
+    @b.y = 5
+    @b.text = $\star$ \bbtext{Em notação simbólica, $A$ gosta de $B$ se $AB = B$}
+    @b.anchor = west
 
+---
+c => Node
+    @c.x = 1
+    @c.y = 4
+    @c.text = $\star$ \bbtext{Assuma que, na floresta, para quaisquer dois pássaros $A$ e $B$ existe um pássaro $C$}
+    @c.anchor = west
 
+c1 => Node
+    @c1.x = 0.5
+    @c1.y = 3.5
+    @c1.text = \bbtext{tal que, para qualquer pássaro $x$, $Cx = A(Bx)$}
+    @c1.anchor = west
 
+---
+d => Node
+    @d.x = 1
+    @d.y = 2.5
+    @d.text = $\star$ \bbtext{Assuma também que o tordo-imitador $M$ mora na floresta}
+    @d.anchor = west
+
+---
+e => Node
+    @e.x = 1
+    @e.y = 1.5
+    @e.text = $\star$ \bbtext{Há dois rumores na floresta: $(a)$ que todo pássaro da floresta gosta de alguém; e }
+    @e.anchor = west
+
+e1 => Node
+    @e1.x = 0.5
+    @e1.y = 1.0
+    @e1.text = \bbtext{$(b)$ que existe ao menos um pássaro que não gosta de ninguém}
+    @e1.anchor = west
+
+---
+g => Node
+    @g.x = 1
+    @g.y = 0
+    @g.text = $\star$ \bbtext{Qual dos dois rumores é verdadeiro?}
+    @g.anchor = west
+
+## Scene
+
+title => Node
+    @title.x = 0
+    @title.y = 7
+    @title.text = \Large \bbbold{Solução}
+    @title.anchor = west
+
+---
+a => Node
+    @a.x = 1
+    @a.y = 6
+    @a.text = $\star$ \bbtext{Seja $C$ o pássaro que compõem $A$ e $M$, isto é, $Cx = A(Mx)$ para qualquer}
+    @a.anchor = west
+
+a1 => Node
+    @a1.x = 0.5
+    @a1.y = 5.5
+    @a1.text = \bbtext{pássaro $x$}
+    @a1.anchor = west
+
+---
+b => Node
+    @b.x = 1
+    @b.y = 4.5
+    @b.text = $\star$ \bbtext{Quando $C$ escuta seu próprio nome, qual é o pássaro que ele responde?}
+    @b.anchor = west
+
+---
+c => Node
+    @c.x = 1
+    @c.y = 3.5
+    @c.text = $\star$ \bbtext{Temos que $CC = A(MC)$, o que equivale a $A(MC) = CC$}
+    @c.anchor = west
+
+---
+d => Node
+    @d.x = 1
+    @d.y = 2.5
+    @d.text = $\star$ \bbtext{Quando ouve $C$, o tordo-imitador responde $MC = CC$}
+    @d.anchor = west
+
+---
+e => Node
+    @e.x = 1
+    @e.y = 1.5
+    @e.text = $\star$ \bbtext{Assim, quando ouve o nome do pássaro $MC$, o pássaro $A$ responde}
+    @e.anchor = west
+
+e1 => Node
+    @e1.x = 7
+    @e1.y = 0.75
+    @e1.text = $A(MC) = CC = MC$
+
+---
+f => Node
+    @f.x = 1
+    @f.y = 0
+    @f.text = $\star$ \bbtext{Portanto, o primeiro rumor é o verdadeiro}
+    @f.anchor = west
+
+## Scene
+
+title => Node
+    @title.x = 0
+    @title.y = 6.5
+    @title.text = \Large \bbbold{Referências}
+    @title.anchor = west
+
+a => Node
+    @a.x = 1
+    @a.y = 5
+    @a.text = $\star$ \bbbold{USDA.} \href{https://www.aphis.usda.gov/operational-wildlife-activities/starlings-blackbirds}{\bbenglish{Operational Activities: Starlings and Blackbirds}}\bbtext{. Acesso em 07/04/2025.}
+    @a.anchor = west
+
+b => Node
+    @b.x = 1
+    @b.y = 4
+    @b.text = $\star$ \bbbold{CornellLab.} \href{https://www.allaboutbirds.org/guide/American_Kestrel/id}{\bbenglish{American Kestrel: Identification}}\bbtext{. Acesso em 07/04/2025.}
+    @b.anchor = west
+
+c => Node
+    @c.x = 1
+    @c.y = 3
+    @c.text = $\star$ \bbbold{HAYASHI}\bbtext{, Tobias.} \href{https://www.tobiashayashi.com/blog/2019/1/23/the-rare-idiot-bird}{\bbenglish{The rare `idiot bird'}}\bbtext{. Acesso em 07/04/2025}.
+    @c.anchor = west
+
+d => Node
+    @d.x = 1
+    @d.y = 2
+    @d.text = $\star$ \bbbold{Wikipédia.} \href{https://en.wikipedia.org/wiki/Bluebird}{\bbenglish{Bluebird}}\bbtext{. Acesso em 07/04/2025.}
+    @d.anchor = west
+
+e => Node
+    @e.x = 1
+    @e.y = 1
+    @e.text = $\star$ \bbbold{Tucson Bird Alliance.} \href{https://tucsonbirds.org/bird_profile/northern-cardinal/?ref=tas}{\bbenglish{Northern Cardinal}}\bbtext{. Acesso em 08/04/2025.}
+    @e.anchor = west
+
+## Scene
+
+title => Node
+    @title.x = 0
+    @title.y = 6.5
+    @title.text = \Large \bbbold{Referências}
+    @title.anchor = west
+
+a => Node
+    @a.x = 1
+    @a.y = 5
+    @a.text = $\star$ \bbbold{Wikipédia.} \href{https://en.wikipedia.org/wiki/Combinatory_logic}{\bbenglish{Combinatory Logic}}\bbtext{. Acesso em 08/04/2025.}
+    @a.anchor = west
+
+b => Node
+    @b.x = 1
+    @b.y = 4
+    @b.text = $\star$ \bbbold{AMIKO}\bbtext{, Komi.} \href{https://komiamiko.me/math/ordinals/2020/06/21/ski-numerals.html}{\bbenglish{Large Numbers in the SKI combinador calculus}}\bbtext{. Acesso em 10/04/2025.}
+    @b.anchor = west
+
+c => Node
+    @c.x = 1
+    @c.y = 3
+    @c.text = $\star$ \bbbold{CornellLab.} \href{https://www.allaboutbirds.org/guide/Northern_Mockingbird/id}{\bbenglish{Northern Mockingbird}}\bbtext{. Acesso em 11/04/2025.}
+    @c.anchor = west
+
+d => Node
+    @d.x = 1
+    @d.y = 2
+    @d.text = $\star$ \bbbold{SMULLYAN}\bbtext{, Raymond M.} \href{https://www.amazon.com.br/Mock-Mockingbird-Other-Logic-Puzzles/dp/0192801422}{\bbenglish{To Mock a Mockingbird and Other Logic Puzzles}}\bbtext{. Oxford}
+    @d.anchor = west
+
+d1 => Node
+    @d1.x = 0.5
+    @d1.y = 1.5
+    @d1.text = \bbtext{Press, 2000.}
+    @d1.anchor = west
 
 
 ## End
-
-% https://www.aReduções de Schönfinkel}phis.usda.gov/operational-wildlife-activities/starlings-blackbirds
-% https://www.allaboutbirds.org/guide/American_Kestrel/id
-% https://www.tobiashayashi.com/blog/2019/1/23/the-rare-idiot-bird
-% https://en.wikipedia.org/wiki/Bluebird
-% https://tucsonbirds.org/bird_profile/northern-cardinal/?ref=tas
-% https://en.wikipedia.org/wiki/Combinatory_logic
-% https://www.allaboutbirds.org/guide/Northern_Mockingbird/id
-% https://www.amazon.com.br/Mock-Mockingbird-Other-Logic-Puzzles/dp/0192801422
