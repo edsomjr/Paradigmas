@@ -230,13 +230,13 @@ b1 => Node
 b2 => Node
     @b2.x = 2
     @b2.y = 3.25
-    @b2.text = $= (Sf)(Ky)y = B(Sf)Kyx = (Sf)(Ky)y$
+    @b2.text = $= (Sf)(Ky)x = B(Sf)Kyx$
     @b2.anchor = west
 
 b3 => Node
     @b3.x = 2
     @b3.y = 2.5
-    @b3.text = $= B(Sf)Kyx = BBSfKyx = (BBSf)Kyx$
+    @b3.text = $= BBSfKyx = (BBSf)Kyx$
     @b3.anchor = west
 
 b4 => Node
@@ -610,7 +610,7 @@ d => Node
 e => Node
     @e.x = 1
     @e.y = 1.5
-    @e.text = $\star$ \bbtext{Para três pássaros quaisquer $A, B, C$, temos que $(AB)C$ e $(AB)C$ não são,}
+    @e.text = $\star$ \bbtext{Para três pássaros quaisquer $A, B, C$, temos que $(AB)C$ e $A(BC)$ não são,}
     @e.anchor = west
 
 e1 => Node
@@ -631,7 +631,7 @@ title => Node
 a => Node
     @a.x = 1
     @a.y = 6
-    @a.text = $\star$ \bbtext{Se, ao ouvir o nome do pássaro $B$, a responde $B$, dizemos que $A$ gosta de $B$}
+    @a.text = $\star$ \bbtext{Se, ao ouvir o nome do pássaro $B$, $A$ responde $B$, dizemos que $A$ gosta de $B$}
     @a.anchor = west
 
 ---
