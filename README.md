@@ -25,10 +25,10 @@ Material didático da disciplina Paradigmas de Programação, ministrada pelo pr
 1. Combinadores
     1. [Introdução](Combinadores/introducao/introducao.pdf)
 1. Cálculo Lambda
-    1. [Definição](Lambda_Calculus/slides/definicao/definicao.pdf)
-    1. [Lógica Booleana](Lambda_Calculus/slides/logica_booleana/logica_booleana.pdf)
-    1. [Aritmética](Lambda_Calculus/slides/aritmetica/aritmetica.pdf)
-    1. [Recursão](Lambda_Calculus/slides/recursao/recursao.pdf)
+    1. [Definição](Lambda_Calculus/definicao/definicao.pdf)
+    1. [Lógica Booleana](Lambda_Calculus/logica_booleana/logica_booleana.pdf)
+    1. [Aritmética](Lambda_Calculus/aritmetica/aritmetica.pdf)
+    1. [Recursão](Lambda_Calculus/recursao/recursao.pdf)
 1. Programação Funcional
     1. [Fundamentos](Programacao_Funcional/slides/fundamentos/fundamentos.pdf)
     1. [Funções e Tipos de Dados de Usuário](Programacao_Funcional/slides/funcoes/funcoes.pdf)
