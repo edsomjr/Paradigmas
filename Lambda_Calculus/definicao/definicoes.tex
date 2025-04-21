@@ -30,7 +30,7 @@
 
         \item A função identidade $\lambda x.x$ é um exemplo de abstração
 
-        \item Parêntesis podem ser utilizados para clarificar uma expressão, ou para remover
+        \item Parêntesis podem ser utilizados para clarificar uma expressão ou para remover
             ambiguidades
 
         \item O termo $(\lambda x.x)y$ corresponde a aplicação da função identidade ao termo $y$
@@ -127,7 +127,7 @@
     \begin{block}{Axiomas de Redução}
         \begin{enumerate}
             \item A conversão-$\alpha$ permite renomear uma variável atada em um termo,
-            evitando colisões de nomes:
+                evitando colisões de nomes ($y$ não pode ocorrer em $M$):
             \[
                 \lambda x.M \equiv_\alpha \lambda y.(M[x:=y])
             \]
@@ -182,7 +182,7 @@
         \setcounter{enumi}{3}
         \item Uso da conversão-$\alpha$ para evitar colisão de nomes, pois a variável $y$, que
         irá substituir a variável livre $x$ no termo $\lambda y.yx$, tem mesmo nome que a
-        variável atada $y$ :
+        variável atada $y$:
         \begin{align*}
             (\lambda x.(\lambda y.xy))y & \equiv (\lambda x.(\lambda z.xz))y \\
             & \equiv (\lambda z.xz)[x:=y] \\
@@ -254,7 +254,7 @@
     \vspace{0.1in}
 
     \begin{block}{Completude da base $\mathbf{S}$-$\mathbf{K}$}
-        Dado uma expressão lambda $E$, é possível gerar um novo combinador $C$ a partir dos
+        Dado um combinador $E$, é possível gerar um novo combinador $C$ a partir dos
         combinadores $\mathbf{S}$ e $\mathbf{K}$ de tal modo que $E$ e $C$ são
         extensionalmente iguais.
     \end{block}
