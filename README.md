@@ -24,6 +24,7 @@ Material didático da disciplina Paradigmas de Programação, ministrada pelo pr
     1. [Blocos e Exceções](Orientacao_a_Objetos/slides/blocos_e_excecoes/blocos_e_excecoes.pdf)
 1. Combinadores
     1. [Introdução](Combinadores/introducao/introducao.pdf)
+    1. [Base SK](Combinadores/base_sk/base_sk.pdf)
 1. Cálculo Lambda
     1. [Definição](Lambda_Calculus/definicao/definicao.pdf)
     1. [Lógica Booleana](Lambda_Calculus/logica_booleana/logica_booleana.pdf)
