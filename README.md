@@ -31,10 +31,10 @@ Material didático da disciplina Paradigmas de Programação, ministrada pelo pr
     1. [Aritmética](Lambda_Calculus/aritmetica/aritmetica.pdf)
     1. [Recursão](Lambda_Calculus/recursao/recursao.pdf)
 1. Programação Funcional
-    1. [Fundamentos](Programacao_Funcional/slides/fundamentos/fundamentos.pdf)
-    1. [Funções e Tipos de Dados de Usuário](Programacao_Funcional/slides/funcoes/funcoes.pdf)
-    1. [Funções de Alta Ordem](Programacao_Funcional/slides/alta_ordem/alta_ordem.pdf)
-    1. [Entrada e Saída](Programacao_Funcional/slides/io/io.pdf)
+    1. [Fundamentos](Programacao_Funcional/fundamentos/fundamentos.pdf)
+    1. [Funções e Tipos de Dados de Usuário](Programacao_Funcional/funcoes/funcoes.pdf)
+    1. [Funções de Alta Ordem](Programacao_Funcional/alta_ordem/alta_ordem.pdf)
+    1. [Entrada e Saída](Programacao_Funcional/io/io.pdf)
 1. Paradigma Lógico
     1. [Fundamentos](Paradigma_Logico/fundamentos/fundamentos.pdf)
     1. [Regras, arimética e estruturas de dados](Paradigma_Logico/regras/regras.pdf)
