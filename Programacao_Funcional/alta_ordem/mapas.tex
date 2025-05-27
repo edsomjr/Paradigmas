@@ -68,7 +68,7 @@
         \item O código em Haskell novamente substituirá o laço por recursão
 
         \item Atente que neste exemplo, e no anterior, a recursão é composta por um (ou mais)
-            caso(s) base(s), e uma chamada recursiva
+            caso(s) base(s) e uma chamada recursiva
     \end{itemize}
 
 \end{frame}
@@ -124,7 +124,7 @@
             primalidade
 
         \item Dado um inteiro positivo $n$, a função \code{haskell}{is_prime(n)} deve
-            retornar verdadeiro se $n$ é primo, e falso, caso contrário
+            retornar verdadeiro, se $n$ é primo, e falso, caso contrário
 
         \item A complexidade da função que será apresentada é $O(\sqrt{n})$, pois se vale do
             fato de que, se $n$ é composto, ele tem ao menos um divisor próprio $d$ tal que
@@ -269,7 +269,7 @@
     \begin{itemize}
         \item Em Haskel, as reduções são implementadas por meio de \textbf{dobras} (\textit{folds})
 
-        \item A \textbf{dobra à esquerda} (\textit{left fold}) abstraí o seguinte padrão:
+        \item A \textbf{dobra à esquerda} (\textit{left fold}) abstrai o seguinte padrão:
         \begin{enumerate}[i.]
             \item fazer algo a cada elemento da lista;
             \item atualizar o acumulador a cada ação; e
