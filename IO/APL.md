@@ -12,9 +12,9 @@ Dentre as diferentes formas de se escrever na saída padrão, APL disponibiliza 
 ⎕←'Hello, World!'
 ```
 
-Há, porém, duas características importante a ser destacada. A primeira é que a saída produzida pelo símbolo `⎕` termina com `\r` (`0x0D`), e não com `\n` (`Ox0A`), que é o terminador de linha usando com maior frequência em juízes online, de modo que o código acima pode receber o veredito `PE` (_Presentation Error_). A segunda característica importante é que há uma limitação do número máximo de caracteres que podem ser impressos na saída padrão por meio do símbolo `⎕`: a partir deste limite, a saída fica truncada, o que pode levar a um veredito `WA` (_Wrong Answer_) quando a saída superior este limite.
+Há, porém, duas características importante a ser destacada. A primeira é que a saída produzida pelo símbolo `⎕` termina com `\r` (`0x0D`), e não com `\n` (`Ox0A`), que é o terminador de linha usando com maior frequência em juízes online, de modo que o código acima pode receber o veredito `PE` (_Presentation Error_). A segunda característica importante é que há uma limitação do número máximo de caracteres que podem ser impressos na saída padrão por meio do símbolo `⎕`: a partir deste limite, a saída fica truncada, o que pode levar a um veredito `WA` (_Wrong Answer_) quando a saída for superior a este limite.
 
-Ambas situações podem ser evitadas usando a função de sistema `⎕NPUT`).
+Ambas situações podem ser evitadas usando a função de sistema `⎕NPUT`.
 
 #### Função `⎕NPUT`
 
@@ -34,7 +34,7 @@ R ← X ⎕NPUT Y
 No caso de juízes online que utilizam ambiente Unix, o arquivo deve ser `/dev/stdout` e o modo de escrita `2`. O código abaixo apresenta outra versão do `Hello, World!`, usando a função `⎕NPUT`:
 
 ```apl
-'Ola Mundo'⎕NPUT '/dev/stdout' 2
+'Ola Mundo' ⎕NPUT '/dev/stdout' 2
 ```
 
-A função `⎕NPUT` usa o caractere `\n` (`⎕UCS 10` em APL) como terminador de linhas e não tem a limitação de tamanho do símbolo `⎕`. Contudo, `X` deve ser uma string, demandando conversões para string caso a saída contenha outros tipos (inteiros, complexos, etc) ou sejam multidimensionais.
+A função `⎕NPUT` usa o caractere `\n` (`⎕UCS 10` em APL) como terminador de linhas e não tem a limitação de tamanho do símbolo `⎕`. Contudo, `X` deve ser uma string, demandando conversões para string caso a saída contenha outros tipos (inteiros, complexos, etc) ou seja multidimensional.
