@@ -16,7 +16,7 @@ putStr :: String -> IO ()
 A diferença entre ambas é que a primeira adiciona um caractere de fim de linha (`\n`) à string passada como parâmetro. Abaixo segue uma implementação do tradicional `Hello, World!` em Haskell:
 
 ```haskell
-main = putStrLn "Ola Mundo"
+main = putStrLn "Hello, World!"
 ```
 
 Como o parâmetro destas funções é do tipo string, a impressão de outros tipos demanda a conversão para string, geralmente feita por meio da função `show`, cujo tipo é 

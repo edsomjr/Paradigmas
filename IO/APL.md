@@ -34,7 +34,7 @@ R ← X ⎕NPUT Y
 No caso de juízes online que utilizam ambiente Unix, o arquivo deve ser `/dev/stdout` e o modo de escrita `2`. O código abaixo apresenta outra versão do `Hello, World!`, usando a função `⎕NPUT`:
 
 ```apl
-'Ola Mundo' ⎕NPUT '/dev/stdout' 2
+'Hello, World!' ⎕NPUT '/dev/stdout' 2
 ```
 
 A função `⎕NPUT` usa o caractere `\n` (`⎕UCS 10` em APL) como terminador de linhas e não tem a limitação de tamanho do símbolo `⎕`. Contudo, `X` deve ser uma string, demandando conversões para string caso a saída contenha outros tipos (inteiros, complexos, etc) ou seja multidimensional.
