@@ -16,4 +16,4 @@ Há, porém, duas características importante a ser destacada. A primeira é que
 
 Ambas situações podem ser evitadas usando a função de sistema `⎕NPUT`).
 
-### Função `⎕NPUT`
+#### Função `⎕NPUT`
