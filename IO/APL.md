@@ -17,3 +17,24 @@ Há, porém, duas características importante a ser destacada. A primeira é que
 Ambas situações podem ser evitadas usando a função de sistema `⎕NPUT`).
 
 #### Função `⎕NPUT`
+
+A função _Write Text File_ (`⎕NPUT`) é uma função diádica escreve uma string em um arquivo. A sua sintaxe de uso é 
+```apl
+R ← X ⎕NPUT Y
+```
+
+`Y` é um vetor de duas posições, onde a primeira é o nome do arquivo onde a string será escrita e o segundo é um escalar inteiro especificando o modo de escrita: 
+
+- `0` indica que o arquivo será criado, sinalizando um erro caso já exista;
+- `1` indica que o arquivo será criado ou sobrescrito, caso já exista; e
+- `2` a string é anexada ao arquivo, caso exista.
+
+`X` é a string a ser escrita e `R` é o número de _bytes_ escritos no arquivo.
+
+No caso de juízes online que utilizam ambiente Unix, o arquivo deve ser `/dev/stdout` e o modo de escrita `2`. O código abaixo apresenta outra versão do `Hello, World!`, usando a função `⎕NPUT`:
+
+```apl
+'Ola Mundo'⎕NPUT '/dev/stdout' 2
+```
+
+A função `⎕NPUT` usa o caractere `\n` (`⎕UCS 10` em APL) como terminador de linhas e não tem a limitação de tamanho do símbolo `⎕`. Contudo, `X` deve ser uma string, demandando conversões para string caso a saída contenha outros tipos (inteiros, complexos, etc) ou sejam multidimensionais.
