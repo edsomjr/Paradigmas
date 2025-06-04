@@ -40,9 +40,9 @@ Material didático da disciplina Paradigmas de Programação, ministrada pelo pr
     1. [Regras, arimética e estruturas de dados](Paradigma_Logico/regras/regras.pdf)
     1. [Unificação e listas](Paradigma_Logico/unificacao/unificacao.pdf)
 1. Programação Vetorial
-    1. [Introdução](Programacao_Vetorial/slides/introducao/introducao.pdf)
-    1. [Tipos primitivos e funções](Programacao_Vetorial/slides/tipos_primitivos_e_funcoes/tipos_primitivos_e_funcoes.pdf)
-    1. [_Rank_, ordenação e redução](Programacao_Vetorial/slides/rank_ordenacao_reducao/rank_ordenacao_reducao.pdf)
+    1. [Introdução](Programacao_Vetorial/introducao/introducao.pdf)
+    1. [Tipos primitivos e funções](Programacao_Vetorial/tipos_primitivos_e_funcoes/tipos_primitivos_e_funcoes.pdf)
+    1. [_Rank_, ordenação e redução](Programacao_Vetorial/rank_ordenacao_reducao/rank_ordenacao_reducao.pdf)
 
 <!-- TODO:
     - Adicionar em Prolog:
