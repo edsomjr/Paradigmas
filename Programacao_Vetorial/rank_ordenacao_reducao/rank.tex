@@ -1,0 +1,130 @@
+\section{Modificação do {\it rank} e da profundidade}
+
+\begin{frame}[fragile]{Mistura}
+
+    \begin{itemize}
+        \item A função monádica \code{apl}{↑} (\textit{mix}, mistura) permite a criação de 
+            \textit{arrays} de \textit{rank} maior
+        \pause
+
+        \item Ela rearranja os elementos de um \textit{array} em um novo \textit{array} de 
+            \textit{rank} uma unidade maior, com um nível a menos de aninhamento
+            \inputsyntax{apl}{codes/mix.apl}
+        \pause
+
+        \item Se os elementos tem formas distintas, serão utilizados elementos para preencher os
+            espaços em branco, de acordo com o tipo do primeiro componente do elemento
+        \pause
+
+        \item Em geral, inteiros são preenchidos com zero e caracteres com o espaço em branco
+            \inputsyntax{apl}{codes/mix_fill.apl}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Novo símbolo}
+
+   \newAPLsymbol{↑}{mix}{monádico}{Rearranja os elementos do \textit{array} em um novo \textit{array} com \textit{rank} uma unidade maior}{U+2191}{\^{} | <tab>}{APL + y} 
+
+\end{frame}
+
+\begin{frame}[fragile]{Cisão}
+
+    \begin{itemize}
+        \item A função monádica \code{apl}{↓} (\textit{split}, cisão) gera, a partir do argumento,
+            um novo \textit{array} aninhado, com \textit{rank} uma unidade menor do que o argumento 
+        \pause
+
+        \item Caso o argumento seja escalar, o retorno terá \textit{rank} zero
+        \pause
+
+        \item Se o argumento tem forma $d_1\ d_2\ \ldots\ d_N$, então o retorno terá forma
+            $d_1\ d_2\ \ldots\ d_{N-1}$, cujos elemento de profundidade 1 tem forma $d_N$
+            \inputsyntax{apl}{codes/split.apl}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Novo símbolo}
+
+   \newAPLsymbol{↓}{split}{monádico}{Rearranja os elementos do \textit{array} em um novo \textit{array} com \textit{rank} uma unidade menor}{U+2193}{v | <tab>}{APL + u} 
+
+\end{frame}
+
+\begin{frame}[fragile]{Vetores inclusos}
+
+    \begin{itemize}
+        \item Aplicar a cisão em um vetor \code{apl}{v} (\textit{array} de dimensão 1) resultará em 
+            um \textit{array} de dimensão zero cujo conteúdo é próprio \code{apl}{v}
+            \inputsyntax{apl}{codes/split_vector.apl}
+        \pause
+
+        \item Neste caso, o retorno de \code{apl}{↓v} tem a mesma forma do vetor \code{apl}{⍬}
+        \pause
+
+        \item Este retorno é denominado vetor incluso (\textit{enclosed vector}) ou escalar 
+            aninhado (\textit{nested scalar})
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Escalares aninhados}
+
+    \begin{itemize}
+        \item Aplicar uma cisão em um escalar simples (profundidade zero) produz o próprio escalar
+            \inputsyntax{apl}{codes/split_scalar.apl}
+        \pause
+
+        \item Aplicar uma cisão em um escalar aninhado aumenta sua profundidade em uma unidade
+            \inputsyntax{apl}{codes/split_nested.apl}
+        \pause
+
+        \item Aplicar uma mistura em um escalar aninhado reduz sua profundidade em uma unidade
+            \inputsyntax{apl}{codes/mix_nested.apl}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Inclusão}
+
+    \begin{itemize}
+        \item A função monádica \code{apl}{⊂} (\textit{enclose}) gera um escalar a partir de qualquer \textit{array}, incluindo-o em um vetor aninhado (escalar incluso)
+            \inputsyntax{apl}{codes/enclose.apl}
+        \pause
+
+        \item A inclusão é usada principalmente em funções escalares, ou que tratam os escalares de
+            forma diferenciada
+            \inputsyntax{apl}{codes/enclose2.apl}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Novo símbolo}
+
+   \newAPLsymbol{⊂}{enclose}{monádico}{Retorna um escalar incluso que contém o  \textit{array} passado como parâmetro}{U+2282}{c c <tab>}{APL + z} 
+
+\end{frame}
+
+\begin{frame}[fragile]{Extração}
+
+    \begin{itemize}
+        \item A função monádica \code{apl}{⊃} (\textit{disclose, first}) faz o trabalho inverso da inclusão
+        \pause
+
+        \item Quando aplicada em um vetor aninhado, ela desfaz a inclusão e retorna o vetor
+            \inputsyntax{apl}{codes/disclose.apl}
+        \pause
+
+        \item Se for aplicada em um \textit{array}, ela extrai o primeiro elemento do nível de profundidade 1
+            \inputsyntax{apl}{codes/first.apl}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Novo símbolo}
+
+   \newAPLsymbol{⊃}{disclose, first}{monádico}{Retorna o primeiro elemento no nível de profundidade 1}{U+2283}{) ) <tab>}{APL + x} 
+
+\end{frame}
+
+
