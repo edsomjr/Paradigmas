@@ -52,7 +52,7 @@ line←⍞
 ⎕←line
 ```
 
-Observe que o símbolo `⍞` lê uma linha por vez (sendo a linha delimitada por um caractere de quebra de linha), sendo que o delimitador não é incluído em seu retorno. Assim como o símbolo `⎕`, há um limite para o tamanho da linha, e caso este limite seja superado a leitura é interrompida com o sinal `EOF INTERRUPT`.
+Observe que o símbolo `⍞` lê uma linha por vez (sendo a linha delimitada por um caractere de quebra de linha), sendo que o delimitador não é incluído em seu retorno. Assim como o símbolo `⎕`, há um limite para o tamanho da linha e, caso este limite seja superado, a leitura é interrompida com o sinal `EOF INTERRUPT`.
 
 É possível ler todo o conteúdo da entrada de uma só vez, sem a restrição citada, usando a função `⎕NGET`.
 
@@ -65,14 +65,14 @@ R ← {X} ⎕NGET Y
 
 `Y` pode assumir duas formas:
 
-1. ou é uma string contendo o caminho do arquivo a ser aberto; ou
-2. é um vetor de dois elementos, onde o primeiro é o caminho do arquivo a ser aberto e o segundo é uma _flag_ que sinalizar o formato da saída: `0` (valor _default_) indica que a saída será uma string, enquanto que `1` indica que a saída será um vetor de strings, onde cada elemento é uma linha da entrada.
+1. uma string contendo o caminho do arquivo a ser aberto; ou
+2. um vetor de dois elementos, onde o primeiro é o caminho do arquivo a ser aberto e o segundo é uma _flag_ que sinalizar o formato da saída: `0` (valor _default_) indica que a saída será uma string, enquanto que `1` indica que a saída será um vetor de strings, onde cada elemento é uma linha da entrada.
 
-Em sua forma diádica, o argumento `X` (opcional) pode ser usado para indicar a codificação de caracteres da entrada. Veja mais detalhes em `https://help.dyalog.com/19.0/#Language/System%20Functions/nget.htm?Highlight=NGET`.
+Em sua forma diádica, o argumento `X` (opcional) pode ser usado para indicar a codificação de caracteres da entrada. Veja mais detalhes na [documentação oficial da linguagem](https://help.dyalog.com/19.0/#Language/System%20Functions/nget.htm?Highlight=NGET).
 
 O retorno `R` da função é um vetor de 3 elementos, onde o primeiro é o conteúdo do arquivo, no formato determinado pela _flag_, o segundo indica a codificação de caracteres do conteúdo e o terceiro é um vetor numérico com as primeiras ocorrências dos caracteres de fim de linha.
 
-O código abaixo lê o conteúdo da entrada padrão (em ambientes Linux) como um vetor de strings e imprime, na saída padrão, o vetor obtido e o número de linhas lidas.
+O código abaixo lê o conteúdo da entrada padrão (em ambiente Linux) como um vetor de strings e imprime, na saída padrão, o vetor obtido e o número de linhas lidas.
 
 ```apl
 content←⊃⎕NGET '/dev/stdin' 1
