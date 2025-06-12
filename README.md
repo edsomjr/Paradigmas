@@ -56,7 +56,7 @@ Material didático da disciplina Paradigmas de Programação, ministrada pelo pr
 Exercícios:
 
 1. Paradigma Lógico
-    1. [Prolog](https://exercism.org/tracks/prolog/exercises/wedding-woes)
+    1. [Wedding Woes](https://exercism.org/tracks/prolog/exercises/wedding-woes)
     2. [Queen Attack](https://exercism.org/tracks/prolog/exercises/queen-attack)
     3. [Triangle](https://exercism.org/tracks/prolog/exercises/triangle)
     4. [Binary](https://exercism.org/tracks/prolog/exercises/binary)
