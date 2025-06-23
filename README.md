@@ -8,10 +8,10 @@ Material didático da disciplina Paradigmas de Programação, ministrada pelo pr
     1. [Teoria dos Conjuntos](Fundamentos/teoria_dos_conjuntos/teoria_dos_conjuntos.pdf)
     1. [Funções](Fundamentos/funcoes/funcoes.pdf)
 1. Máquinas de Turing
-    1. [Enumerabilidade](Maquinas_de_Turing/slides/enumerabilidade/enumerabilidade.pdf)
-    1. [Máquinas de Turing](Maquinas_de_Turing/slides/maquinas_de_turing/maquinas_de_turing.pdf)
-    1. [Computabilidade](Maquinas_de_Turing/slides/computabilidade/computabilidade.pdf)
-    1. [Ábacos](Maquinas_de_Turing/slides/abacos/abacos.pdf)
+    1. [Enumerabilidade](Maquinas_de_Turing/enumerabilidade/enumerabilidade.pdf)
+    1. [Máquinas de Turing](Maquinas_de_Turing/maquinas_de_turing/maquinas_de_turing.pdf)
+    1. [Computabilidade](Maquinas_de_Turing/computabilidade/computabilidade.pdf)
+    1. [Ábacos](Maquinas_de_Turing/abacos/abacos.pdf)
 1. Programação Imperativa
     1. [Assembly](Programacao_Imperativa/slides/assembly/assembly.pdf)
     1. [Conceitos Elementares](Programacao_Imperativa/slides/conceitos_elementares/conceitos_elementares.pdf)
