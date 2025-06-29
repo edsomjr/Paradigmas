@@ -74,7 +74,7 @@
             com $q_iS_j$, com $i = 1, 2, \ldots, n, j = 0, 1$
 
         \item De acordo com \textbf{(c)}, se as quádruplas forem listadas em ordem crescente de
-            $i$ e de $j$, os dois primeiros símbolos de cada quádrupla são previsíveis, e poderão
+            $i$ e de $j$, os dois primeiros símbolos de cada quádrupla são previsíveis e poderão
             ser omitidos
 
         \item Os estados $q_i$ devem ser representados pelo inteiro $i$, os símbolos $S_j$ por
@@ -82,7 +82,7 @@
             respectivamente
     \end{enumerate}
 
-    \textbf{Observação}: uma máquina de Turing descrita por uma lista de quádruplas que atende a
+    \textbf{Observação}: uma máquina de Turing descrita por uma lista de quádruplas que atenda a
         especificação acima corresponde a um inteiro positivo, de acordo com a codificação baseada
         no Teorema Fundamental da Aritmética.
 \end{frame}
@@ -90,7 +90,7 @@
 \begin{frame}[fragile]{Exemplo de codificação de uma máquina de Turing}
 
     \begin{itemize}
-        \item A lista de quádruplas da máquina que retorna um para qualquer $k$-upla dada abaixo
+        \item A lista de quádruplas da máquina que retorna 1 para qualquer $k$-upla dada abaixo
         \[
             q_1S_0Rq_3, \ \ q_1S_1S_0q_2, \ \ q_2S_0Rq_1, \ \ q_3S_0S_1q_4, \ \ q_3S_1S_0q_2
         \]
@@ -247,7 +247,7 @@
         \item A partir da configuração inicial, esta máquina apaga o traço que está no bloco e,
             ao o reexaminar, segue para o estado ($\mathbf{2}$)
 
-        \item Como ($\mathbf{2}$) é o estado final, e o quadrado está em branco, então se o 
+        \item Como ($\mathbf{2}$) é o estado final e o quadrado está em branco, então se o 
             argumento é maior do que 1, a máquina para em um configuração final que não é a padrão
 
         \item As três máquinas exemplificadas correspondem aos menores inteiros positivos 
