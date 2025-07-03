@@ -1,3 +1,0 @@
-    Polygon extend [
-        | name |
-    ]
