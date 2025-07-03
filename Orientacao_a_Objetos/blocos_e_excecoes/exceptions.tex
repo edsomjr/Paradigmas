@@ -1,0 +1,84 @@
+\section{Exceções}
+
+\begin{frame}[fragile]{Tratamento padrão de erros}
+
+    \begin{itemize}
+        \item O mecanismo padrão de SmallTalk-80 para sinalizar erros é o método
+            \code{smalltalk}{error}
+
+        \item Ele recebe como argumento a mensagem que será exibida caso o erro ocorra
+
+        \item Se invocado, ele finalizará a execução do programa imediatamente
+
+        \item Uma série de mensagens de erros, iniciada pela mensagem passada como parâmetros,
+            indicarão os possíveis erros
+
+        \item Algumas informações nestas mensagens podem ser utilizadas por ferramentas de
+            diagnóstico
+
+        \item Contudo, às vezes o erro a ser sinalizado por não ser fatal, permitindo que a 
+            execução do programa continue
+
+        \item Nestas situações, SmallTalk permite o uso de exceções
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exceções}
+
+    \begin{itemize}
+        \item Em SmallTalk, todas as exceções são subclasses da classe \code{smalltalk}{Exception}
+
+        \item O método \code{smalltalk}{printHierarchy} da classe \code{smalltalk}{Exception} lista
+            todas as exceções já definidas pela linguagem
+
+        \item Para tratar uma exceção, as mensagens \code{smalltalk}{on} e 
+            \code{smalltalk}{do} devem ser passadas para o bloco que gera a exceção
+
+        \item O primeiro indica a exceção que será tratada
+
+        \item O segundo recebe como parâmetro o bloco de comandos que tratará a exceção
+
+        \item Há seis ações básicas para o tratamento de exceções, todas elas passadas como
+            mensagens para a instância da exceção
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de tratamento de exceções em SmallTalk}
+    \inputsnippet{smalltalk}{1}{21}{codes/division_by_zero.st}
+\end{frame}
+
+
+\begin{frame}[fragile]{Ações básicas de tratamento de exceções}
+
+    \begin{itemize}
+        \item \code{smalltalk}{return}: encerra o bloco passado para o método \code{smalltalk}{do},
+            retornando o valor indicado. Se o valor for omitido, o retorno será igual a 
+            \code{smalltalk}{nil}
+
+        \item \code{smalltalk}{retry}: reinicia a execução do bloco que gerou a exceção. Deve ser
+            usado com cuidado, pois pode gerar um laço infinito
+
+        \item \code{smalltalk}{retryUsing}: reinicia a execução usando o bloco indicado, ao
+            invés do bloco original
+
+        \item \code{smalltalk}{pass}: repassa a exceção para o objeto que está acima do objeto
+            original na hierarquia. Equivale ao \texttt{rethrow} de outras linguagens
+
+        \item As outras duas ações básicas são \code{smalltalk}{resume} e \code{smalltalk}{outer}
+
+        \item Se nenhuma das seis forem utilizadas, SmallTalk assumirá que o tratamento será
+            \code{smalltalk}{sig return}
+
+        \item Contudo, o indicado é que o tratamento seja dado explicitamente
+
+        \item Para tratar mais de uma exceção com o mesmo bloco, separe com vírgulas os argumentos de
+            \code{smalltalk}{on}
+     \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de tratamento de execeções}
+    \inputsnippet{smalltalk}{1}{21}{codes/inverses.st}
+\end{frame}
