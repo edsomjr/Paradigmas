@@ -71,6 +71,249 @@
 
 \end{frame}
 
+\begin{frame}[fragile]{Tabela-Verdade}
+    \begin{block}{Tabela-Verdade}
+        Uma \textbf{tabela-verdade} é uma representação visual na qual figuram todos os possíveis
+        valores lógicos de uma proposição composta correspondentes a todas as possíveis atribuições
+        de valores lógicos às proposições simples componentes.
+    \end{block}
+
+    \vspace{0.2in}
+
+    \begin{block}{Proposição}
+        Seja $P(q_1, q_2, \ldots, q_N)$ uma proposição composta. Então a tabela verdade de $P$ contém
+        $2^N$ linhas.
+    \end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo: tabela-verdade de $P = p \land q \to r$}
+
+    \begin{table}
+        \centering
+        \begin{tabular}{>{\tt}c>{\tt}c>{\tt}c>{\tt}c>{\tt}c}
+            \hline
+            $p$ & $q$ & $r$ & \textcolor{white}{$p\land q$} & \textcolor{white}{$P$}\\
+            \hline
+            \textcolor{white}{V} & \textcolor{white}{V} & \textcolor{white}{V} & \textcolor{white}{V} & \textcolor{white}{V} \\
+            \hline
+            \textcolor{white}{V} & \textcolor{white}{V} & \textcolor{white}{V} & \textcolor{white}{V} & \textcolor{white}{V} \\
+            \hline
+            \textcolor{white}{V} & \textcolor{white}{V} & \textcolor{white}{V} & \textcolor{white}{V} & \textcolor{white}{V} \\
+            \hline
+            \textcolor{white}{V} & \textcolor{white}{V} & \textcolor{white}{V} & \textcolor{white}{V} & \textcolor{white}{V} \\
+            \hline
+            \textcolor{white}{V} & \textcolor{white}{V} & \textcolor{white}{V} & \textcolor{white}{V} & \textcolor{white}{V} \\
+            \hline
+            \textcolor{white}{V} & \textcolor{white}{V} & \textcolor{white}{V} & \textcolor{white}{V} & \textcolor{white}{V} \\
+            \hline
+            \textcolor{white}{V} & \textcolor{white}{V} & \textcolor{white}{V} & \textcolor{white}{V} & \textcolor{white}{V} \\
+            \hline
+            \textcolor{white}{V} & \textcolor{white}{V} & \textcolor{white}{V} & \textcolor{white}{V} & \textcolor{white}{V} \\
+            \hline
+        \end{tabular}
+    \end{table}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo: tabela-verdade de $P = p \land q \to r$}
+
+    \begin{table}
+        \centering
+        \begin{tabular}{>{\tt}c>{\tt}c>{\tt}c>{\tt}c>{\tt}c}
+            \hline
+            $p$ & $q$ & $r$ & \textcolor{white}{$p\land q$} & \textcolor{white}{$P$}\\
+            \hline
+            \textcolor{black}{V} & \textcolor{white}{V} & \textcolor{white}{V} & \textcolor{white}{V} & \textcolor{white}{V} \\
+            \hline
+            \textcolor{black}{V} & \textcolor{white}{V} & \textcolor{white}{V} & \textcolor{white}{V} & \textcolor{white}{V} \\
+            \hline
+            \textcolor{black}{V} & \textcolor{white}{V} & \textcolor{white}{V} & \textcolor{white}{V} & \textcolor{white}{V} \\
+            \hline
+            \textcolor{black}{V} & \textcolor{white}{V} & \textcolor{white}{V} & \textcolor{white}{V} & \textcolor{white}{V} \\
+            \hline
+            \textcolor{white}{V} & \textcolor{white}{V} & \textcolor{white}{V} & \textcolor{white}{V} & \textcolor{white}{V} \\
+            \hline
+            \textcolor{white}{V} & \textcolor{white}{V} & \textcolor{white}{V} & \textcolor{white}{V} & \textcolor{white}{V} \\
+            \hline
+            \textcolor{white}{V} & \textcolor{white}{V} & \textcolor{white}{V} & \textcolor{white}{V} & \textcolor{white}{V} \\
+            \hline
+            \textcolor{white}{V} & \textcolor{white}{V} & \textcolor{white}{V} & \textcolor{white}{V} & \textcolor{white}{V} \\
+            \hline
+        \end{tabular}
+    \end{table}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo: tabela-verdade de $P = p \land q \to r$}
+
+    \begin{table}
+        \centering
+        \begin{tabular}{>{\tt}c>{\tt}c>{\tt}c>{\tt}c>{\tt}c}
+            \hline
+            $p$ & $q$ & $r$ & \textcolor{white}{$p\land q$} & \textcolor{white}{$P$}\\
+            \hline
+            \textcolor{black}{V} & \textcolor{white}{V} & \textcolor{white}{V} & \textcolor{white}{V} & \textcolor{white}{V} \\
+            \hline
+            \textcolor{black}{V} & \textcolor{white}{V} & \textcolor{white}{V} & \textcolor{white}{V} & \textcolor{white}{V} \\
+            \hline
+            \textcolor{black}{V} & \textcolor{white}{V} & \textcolor{white}{V} & \textcolor{white}{V} & \textcolor{white}{V} \\
+            \hline
+            \textcolor{black}{V} & \textcolor{white}{V} & \textcolor{white}{V} & \textcolor{white}{V} & \textcolor{white}{V} \\
+            \hline
+            \textcolor{black}{F} & \textcolor{white}{V} & \textcolor{white}{V} & \textcolor{white}{V} & \textcolor{white}{V} \\
+            \hline
+            \textcolor{black}{F} & \textcolor{white}{V} & \textcolor{white}{V} & \textcolor{white}{V} & \textcolor{white}{V} \\
+            \hline
+            \textcolor{black}{F} & \textcolor{white}{V} & \textcolor{white}{V} & \textcolor{white}{V} & \textcolor{white}{V} \\
+            \hline
+            \textcolor{black}{F} & \textcolor{white}{V} & \textcolor{white}{V} & \textcolor{white}{V} & \textcolor{white}{V} \\
+            \hline
+        \end{tabular}
+    \end{table}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo: tabela-verdade de $P = p \land q \to r$}
+
+    \begin{table}
+        \centering
+        \begin{tabular}{>{\tt}c>{\tt}c>{\tt}c>{\tt}c>{\tt}c}
+            \hline
+            $p$ & $q$ & $r$ & \textcolor{white}{$p\land q$} & \textcolor{white}{$P$}\\
+            \hline
+            \textcolor{black}{V} & \textcolor{black}{V} & \textcolor{white}{V} & \textcolor{white}{V} & \textcolor{white}{V} \\
+            \hline
+            \textcolor{black}{V} & \textcolor{black}{V} & \textcolor{white}{V} & \textcolor{white}{V} & \textcolor{white}{V} \\
+            \hline
+            \textcolor{black}{V} & \textcolor{black}{F} & \textcolor{white}{V} & \textcolor{white}{V} & \textcolor{white}{V} \\
+            \hline
+            \textcolor{black}{V} & \textcolor{black}{F} & \textcolor{white}{V} & \textcolor{white}{V} & \textcolor{white}{V} \\
+            \hline
+            \textcolor{black}{F} & \textcolor{white}{V} & \textcolor{white}{V} & \textcolor{white}{V} & \textcolor{white}{V} \\
+            \hline
+            \textcolor{black}{F} & \textcolor{white}{V} & \textcolor{white}{V} & \textcolor{white}{V} & \textcolor{white}{V} \\
+            \hline
+            \textcolor{black}{F} & \textcolor{white}{V} & \textcolor{white}{V} & \textcolor{white}{V} & \textcolor{white}{V} \\
+            \hline
+            \textcolor{black}{F} & \textcolor{white}{V} & \textcolor{white}{V} & \textcolor{white}{V} & \textcolor{white}{V} \\
+            \hline
+        \end{tabular}
+    \end{table}
+\end{frame}
+
+
+\begin{frame}[fragile]{Exemplo: tabela-verdade de $P = p \land q \to r$}
+
+    \begin{table}
+        \centering
+        \begin{tabular}{>{\tt}c>{\tt}c>{\tt}c>{\tt}c>{\tt}c}
+            \hline
+            $p$ & $q$ & $r$ & \textcolor{white}{$p\land q$} & \textcolor{white}{$P$}\\
+            \hline
+            \textcolor{black}{V} & \textcolor{black}{V} & \textcolor{white}{V} & \textcolor{white}{V} & \textcolor{white}{V} \\
+            \hline
+            \textcolor{black}{V} & \textcolor{black}{V} & \textcolor{white}{V} & \textcolor{white}{V} & \textcolor{white}{V} \\
+            \hline
+            \textcolor{black}{V} & \textcolor{black}{F} & \textcolor{white}{V} & \textcolor{white}{V} & \textcolor{white}{V} \\
+            \hline
+            \textcolor{black}{V} & \textcolor{black}{F} & \textcolor{white}{V} & \textcolor{white}{V} & \textcolor{white}{V} \\
+            \hline
+            \textcolor{black}{F} & \textcolor{black}{V} & \textcolor{white}{V} & \textcolor{white}{V} & \textcolor{white}{V} \\
+            \hline
+            \textcolor{black}{F} & \textcolor{black}{V} & \textcolor{white}{V} & \textcolor{white}{V} & \textcolor{white}{V} \\
+            \hline
+            \textcolor{black}{F} & \textcolor{black}{F} & \textcolor{white}{V} & \textcolor{white}{V} & \textcolor{white}{V} \\
+            \hline
+            \textcolor{black}{F} & \textcolor{black}{F} & \textcolor{white}{V} & \textcolor{white}{V} & \textcolor{white}{V} \\
+            \hline
+        \end{tabular}
+    \end{table}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo: tabela-verdade de $P = p \land q \to r$}
+
+    \begin{table}
+        \centering
+        \begin{tabular}{>{\tt}c>{\tt}c>{\tt}c>{\tt}c>{\tt}c}
+            \hline
+            $p$ & $q$ & $r$ & \textcolor{white}{$p\land q$} & \textcolor{white}{$P$}\\
+            \hline
+            \textcolor{black}{V} & \textcolor{black}{V} & \textcolor{black}{V} & \textcolor{white}{V} & \textcolor{white}{V} \\
+            \hline
+            \textcolor{black}{V} & \textcolor{black}{V} & \textcolor{black}{F} & \textcolor{white}{V} & \textcolor{white}{V} \\
+            \hline
+            \textcolor{black}{V} & \textcolor{black}{F} & \textcolor{black}{V} & \textcolor{white}{V} & \textcolor{white}{V} \\
+            \hline
+            \textcolor{black}{V} & \textcolor{black}{F} & \textcolor{black}{F} & \textcolor{white}{V} & \textcolor{white}{V} \\
+            \hline
+            \textcolor{black}{F} & \textcolor{black}{V} & \textcolor{black}{V} & \textcolor{white}{V} & \textcolor{white}{V} \\
+            \hline
+            \textcolor{black}{F} & \textcolor{black}{V} & \textcolor{black}{F} & \textcolor{white}{V} & \textcolor{white}{V} \\
+            \hline
+            \textcolor{black}{F} & \textcolor{black}{F} & \textcolor{black}{V} & \textcolor{white}{V} & \textcolor{white}{V} \\
+            \hline
+            \textcolor{black}{F} & \textcolor{black}{F} & \textcolor{black}{F} & \textcolor{white}{V} & \textcolor{white}{V} \\
+            \hline
+        \end{tabular}
+    \end{table}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo: tabela-verdade de $P = p \land q \to r$}
+
+    \begin{table}
+        \centering
+        \begin{tabular}{>{\tt}c>{\tt}c>{\tt}c>{\tt}c>{\tt}c}
+            \hline
+            $p$ & $q$ & $r$ & \textcolor{black}{$p\land q$} & \textcolor{white}{$P$}\\
+            \hline
+            \textcolor{black}{V} & \textcolor{black}{V} & \textcolor{black}{V} & \textcolor{black}{V} & \textcolor{white}{V} \\
+            \hline
+            \textcolor{black}{V} & \textcolor{black}{V} & \textcolor{black}{F} & \textcolor{black}{V} & \textcolor{white}{V} \\
+            \hline
+            \textcolor{black}{V} & \textcolor{black}{F} & \textcolor{black}{V} & \textcolor{black}{F} & \textcolor{white}{V} \\
+            \hline
+            \textcolor{black}{V} & \textcolor{black}{F} & \textcolor{black}{F} & \textcolor{black}{F} & \textcolor{white}{V} \\
+            \hline
+            \textcolor{black}{F} & \textcolor{black}{V} & \textcolor{black}{V} & \textcolor{black}{F} & \textcolor{white}{V} \\
+            \hline
+            \textcolor{black}{F} & \textcolor{black}{V} & \textcolor{black}{F} & \textcolor{black}{F} & \textcolor{white}{V} \\
+            \hline
+            \textcolor{black}{F} & \textcolor{black}{F} & \textcolor{black}{V} & \textcolor{black}{F} & \textcolor{white}{V} \\
+            \hline
+            \textcolor{black}{F} & \textcolor{black}{F} & \textcolor{black}{F} & \textcolor{black}{F} & \textcolor{white}{V} \\
+            \hline
+        \end{tabular}
+    \end{table}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo: tabela-verdade de $P = p \land q \to r$}
+
+    \begin{table}
+        \centering
+        \begin{tabular}{>{\tt}c>{\tt}c>{\tt}c>{\tt}c>{\tt}c}
+            \hline
+            $p$ & $q$ & $r$ & \textcolor{black}{$p\land q$} & \textcolor{black}{$P$}\\
+            \hline
+            \textcolor{black}{V} & \textcolor{black}{V} & \textcolor{black}{V} & \textcolor{black}{V} & \textcolor{black}{V} \\
+            \hline
+            \textcolor{black}{V} & \textcolor{black}{V} & \textcolor{black}{F} & \textcolor{black}{V} & \textcolor{black}{F} \\
+            \hline
+            \textcolor{black}{V} & \textcolor{black}{F} & \textcolor{black}{V} & \textcolor{black}{F} & \textcolor{black}{V} \\
+            \hline
+            \textcolor{black}{V} & \textcolor{black}{F} & \textcolor{black}{F} & \textcolor{black}{F} & \textcolor{black}{V} \\
+            \hline
+            \textcolor{black}{F} & \textcolor{black}{V} & \textcolor{black}{V} & \textcolor{black}{F} & \textcolor{black}{V} \\
+            \hline
+            \textcolor{black}{F} & \textcolor{black}{V} & \textcolor{black}{F} & \textcolor{black}{F} & \textcolor{black}{V} \\
+            \hline
+            \textcolor{black}{F} & \textcolor{black}{F} & \textcolor{black}{V} & \textcolor{black}{F} & \textcolor{black}{V} \\
+            \hline
+            \textcolor{black}{F} & \textcolor{black}{F} & \textcolor{black}{F} & \textcolor{black}{F} & \textcolor{black}{V} \\
+            \hline
+        \end{tabular}
+    \end{table}
+\end{frame}
+
+
+
 \begin{frame}[fragile]{Sentença aberta}
 
     \begin{block}{Sentença aberta (informal)}
