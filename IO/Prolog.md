@@ -5,6 +5,8 @@
 Em Prolog, a escrita na saída padrão (`stdout`) pode ser feita por meio do predicado `writeln/1`, cujo
 parâmetro `X` é a variável cujo conteúdo será escrito. A impressão termina com uma quebra de linha.
 
+Por exemplo, o código abaixo imprime a mensagem `"Hello"` no terminal.
+
 ```prolog
 writeln('Hello').
 ```
@@ -24,7 +26,7 @@ read_string(+Stream, ?Length, -String)
 
 `Stream` é o fluxo de dados de onde a string será lida: o valor `user_input` pode ser utilizado para
 indicar a entrada padrão. Se tiver valor inteiro definido, `Length` indicará a quantidade máxima de
-caracteres a serem lidos: caso não esteja definida, ao final da leitura será feita até o fim de arquivo e
+caracteres a serem lidos: caso não esteja definida, a leitura será feita até o fim de arquivo e
 esta variável conterá o número de caracteres lidos. `String` indica a variável que conterá a string lida.
 
 O código abaixo exemplifica a leitura de todo o conteúdo da entrada padrão na string `S`:
