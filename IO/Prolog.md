@@ -71,7 +71,7 @@ main :-
     writeln(X).
 ```
 
-### String para lista de string
+#### String para lista de string
 
 O predicado `split_string/4` recebe um string como parâmetro e retorna uma lista de substrings, 
 delimitadas a partir dos caracteres separadores indicados. Sua assinatura é 
@@ -93,7 +93,7 @@ main :-
     writeln(L).
 ```
 
-### Lista de strings para lista de inteiros
+#### Lista de strings para lista de inteiros
 
 Dada uma lista de elementos do tipo $A$, é possível obter uma lista de elementos do tipo $B$, de mesmo
 tamanho, onde $b_i = f(a_i)$, onde $f: A\to B$ é uma função, por meio do predicado `map_list/3`, cuja assinatura é
