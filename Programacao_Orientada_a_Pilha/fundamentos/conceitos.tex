@@ -1,0 +1,27 @@
+\section{Conceitos elementares de Forth}
+
+\begin{frame}[fragile]{Palavras}
+
+    \begin{itemize}
+        \item Forth organiza seus códigos por meio de comandos nomeados, que abstram tarefas
+            ou ações correlacionadas por meio de um nome comum
+
+        \item Estes comandos nomeados seriam os equivalentes a funções em outras linguagem
+
+        \item A sintaxe para a criação de um novo comando é
+
+            \inputsyntax{forth}{codes/word.fs}
+        
+        ou seja, inicia com dois-pontos, segue com o nome e continua com a definição, que termina
+        com ponto-e-vírgula
+
+        \item Comandos definidos dessa forma são denominados \textbf{palavras} (\textit{words})
+
+        \item O padrão ANS da linguagem disponibiliza um conjunto grande (mais de 200) palavras
+            pré-definidas, que podem ser usadas para definir novas palavras
+
+        \item A habilidade de definir palavras por meio de palavras já definidas é denominada
+            \textbf{extensibilidade}
+    \end{itemize}
+
+\end{frame}

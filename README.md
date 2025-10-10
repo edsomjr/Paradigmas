@@ -49,6 +49,9 @@ Material didático da disciplina Paradigmas de Programação, ministrada pelo pr
         1. Estruturas de controle
         2. Linguagens naturais
 
+    - Programação orientada a pilha (Forth)
+        1. https://learnxinyminutes.com/forth/
+
 Exercícios:
 
 1. Paradigma Lógico

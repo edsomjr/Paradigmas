@@ -1,0 +1,69 @@
+\section{Forth}
+
+\begin{frame}[fragile]{Forth}
+
+    \begin{itemize}
+        \item Forth é uma linguagem baseada em pilhas, desenvolvida por Charles H. Moore nos anos 70
+
+        \item Segundo o próprio autor, ela foi desenvolvida enquanto ele trabalhava em um IBM 1130, 
+            um computador de terceira geração
+
+        \item Ele considerou que os resultados que tinha até momento eram tão bons que ele 
+            considerou que estava desenvolvendo uma ``\textit{fourth-generation computer language}''
+
+        \item Daí surgiu a ideia de nomeá-la FOURTH
+
+        \item Porém o IBM 1130 permita identificadores com, no máximo, cinco caracteres
+
+        \item Por este motivo ele deu à linguagem o nome FORTH
+
+        \item Forth foi utilizada pela NASA no desenvolvimento de aplicações para missões espaciais
+
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{GForth}
+
+    \begin{itemize}
+        \item GForth é uma implementação \textit{open source} da linguagem
+
+        \item Em Linux, ele pode ser instalado com o comando
+
+            \inputsyntax{bash}{codes/install.sh}
+
+        \item Para checar se a instalação foi bem sucedida, rode o comando
+
+            \inputsyntax{haskell}{codes/forth.sh}
+
+        \item O GForth tem dois modos de operação: o interativo (REPL) e o modo interpretador,
+            onde ele lê e executa as instruções contidas em um \textit{script} Forth
+
+        \item Para entrar no modo REPL, basta invocar o interpretador com o comando abaixo
+
+            \inputsyntax{haskell}{codes/repl.sh}
+
+        \item Para encerrar a sessão, utilize a palavra \code{forth}{bye}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Interpretador GForth}
+
+    \begin{itemize}
+
+        \item Para utilizar o GForth no modo interpretador, deve se escrever os comandos Forth
+            em um arquivo de texto (\textit{script})
+
+        \item A extensão adotada para \textit{scripts} Forth é \texttt{.fs}
+
+        \item Para interpretar um \textit{script} Forth basta invocar o GForth, passando como 
+            argumento o nome do \textit{script}
+
+            \inputsyntax{bash}{codes/run.sh}
+
+        \item O \textit{script} abaixo implementa o tradicional ``\textit{Hello World!}'' em Forth:
+
+            \inputcode{forth}{codes/hello.fs}
+    \end{itemize}
+
+\end{frame}
