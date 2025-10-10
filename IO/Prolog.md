@@ -38,10 +38,86 @@ read_string(user_input, _, S).
 O predicado `read_string/5` tem a seguinte assinatura:
 
 ```prolog
-read_string(+Stream, +SepChars, +PadChars, -Sep, -String).
+read_string(+Stream, +SepChars, +PadChars, -Sep, -String)
 ```
 
 `SepChars` é uma string com os caracteres delimitadores: a leitura será feita até que um desses 
 caracteres seja encontrado. `PadChars` são caracteres que serão ignorados no prefixo ou no sufixo da
 string lida. Ao final da leitura, `Sep` conterá o caractere que encerrou a leitura, ou o valor -1,
 caso a leitura tem se encerrado com fim de arquivo.
+
+### Conversões entre tipos de dados
+
+Uma vez que a leitura sempre resulta em uma string, pode ser necessária a conversão da entrada lida
+para diferentes tipos de dados.
+
+#### String para inteiro
+
+Para converter de string para inteiro pode se usar o predicado `number_string/2`, cuja assinatura é
+
+```prolog
+number_string(?Number, ?String)
+```
+
+Ao menos uma dentre os dois parâmetros deve ser instanciado. A conversão é bidirecional, isto é, 
+pode se converter de string para inteiro ou de inteiro para string.
+
+O código abaixo lê de um único número inteiro a partir da entrada e o imprime na saída.
+
+```prolog
+main :-
+    read_string(user_input, "\n", "\n", _, S),
+    number_string(X, S),
+    writeln(X).
+```
+
+### String para lista de string
+
+O predicado `split_string/4` recebe um string como parâmetro e retorna uma lista de substrings, 
+delimitadas a partir dos caracteres separadores indicados. Sua assinatura é 
+
+```prolog
+split_string(+String, +SepChars, +PadChars, -Substrings)
+```
+
+`SepChars` é uma string de caracteres separadores e `PadChars` são caracteres que serão ignorados no
+prefixo e no sufixo de cada substring encontrada. `Substrings` é uma lista com as substrings identificadas.
+
+O código abaixo lê uma string da entrada padrão e imprime a lista das substrings delimitadas por um
+ou mais espaço em branco.
+
+```prolog
+main :-
+    read_string(user_input, "\n", "\n", _, S),
+    split_string(S, " ", " ", L),
+    writeln(L).
+```
+
+### Lista de strings para lista de inteiros
+
+Dada uma lista de elementos do tipo $A$, é possível obter uma lista de elementos do tipo $B$, de mesmo
+tamanho, onde $b_i = f(a_i)$, onde $f: A\to B$ é uma função, por meio do predicado `map_list/3`, cuja assinatura é
+
+```prolog
+map_list(:Goal, ?X, ?Y).
+```
+
+Se ambas listas contém $N$ elementos, este predicado realizará $N$ consultas
+
+```prolog
+call(Goal, x1, y1),
+call(Goal, x2, y2),
+...
+call(Goal, xN, yN),
+```
+
+Por exemplo, o código abaixo lê $N$ inteiros da entrada padrão, todos em uma mesma linha e separados
+por um ou mais espaços em branco em uma lista `X`, a qual será impressa na saída padrão. 
+
+```prolog
+main :-
+    read_string(user_input, "\n", "\n", _, S),
+    split_string(S, " ", " ", L),
+    maplist(number_string, X, L),
+    writeln(X).
+```
