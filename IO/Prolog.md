@@ -53,14 +53,14 @@ para diferentes tipos de dados.
 
 #### String para inteiro
 
-Para converter de string para inteiro pode se usar o predicado `number_string/2`, cuja assinatura é
+Para converter de string para inteiro é possível usar o predicado `number_string/2`, cuja assinatura é
 
 ```prolog
 number_string(?Number, ?String)
 ```
 
 Ao menos uma dentre os dois parâmetros deve ser instanciado. A conversão é bidirecional, isto é, 
-pode se converter de string para inteiro ou de inteiro para string.
+pode-se converter de string para inteiro ou de inteiro para string.
 
 O código abaixo lê de um único número inteiro a partir da entrada e o imprime na saída.
 
