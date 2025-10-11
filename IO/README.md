@@ -5,5 +5,6 @@ Em sua maioria, as linguagens de programação oferecem modos de se ler e escrev
 Abaixo estão os links para as instruções relativas à leitura e à escrita em console para diferentes linguagens.
 
 - [APL](APL.md)
+- [Forth](Forth.md)
 - [Haskell](Haskell.md)
 - [Prolog](Prolog.md)
