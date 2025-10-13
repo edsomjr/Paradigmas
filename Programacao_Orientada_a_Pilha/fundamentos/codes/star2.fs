@@ -1,1 +1,1 @@
-: STAR   [char] * emit ;
+: STAR   [CHAR] * EMIT ;

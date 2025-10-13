@@ -1,0 +1,85 @@
+\section{Manipulação da pilha}
+
+\begin{frame}[fragile]{Palavras para a manipulação da pilha}
+
+    \begin{itemize}
+        \item Além da palavra \code{forth}{.}, que extrai o topo da pilha, Forth disponibiliza
+            outras palavras para a manipulação da pilha
+
+        \item A palavra \code{forth}{SWAP ( a b -- b a )} inverte a ordem do topo com o segundo
+            elemento da pilha:
+
+            \inputcode{forth}{codes/swap.fs}
+            \vspace{0.1in}
+
+        \item A palavra \code{forth}{DUP ( a -- a a )} duplica o elemento do topo da pilha:
+
+            \inputcode{forth}{codes/dup.fs}
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Palavras para a manipulação da pilha}
+
+    \begin{itemize}
+        \item A palavra \code{forth}{OVER ( a b -- a b a )} insere uma copia o segundo elemento na pilha:
+
+            \inputcode{forth}{codes/over.fs}
+            \vspace{0.1in}
+
+        \item A palavra \code{forth}{ROT ( a b c -- b c a )} rotaciona o terceiro elemento, de modo que
+            ele passa a ocupar o topo da pilha:
+
+            \inputcode{forth}{codes/rot.fs}
+            \vspace{0.1in}
+
+        \item A palavra \code{forth}{DROP ( a -- )} remove o topo da pilha, sem imprimí-lo na saída
+            padrão
+
+            \inputcode{forth}{codes/drop.fs}
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Sumário}
+
+    \begin{scriptsize}
+    \begin{table}
+        \centering
+        \begin{tabularx}{0.95\textwidth}{ccX}
+            \toprule
+            \textbf{Palavra} & \textbf{Notação de pilha} & \textbf{Significado} \\
+            \midrule
+            \code{forth}{SWAP} & \code{forth}{( a b -- b a )} & Troca os dois elementos do topo da pilha de posição \\
+            \midrule
+            \code{forth}{DUP} & \code{forth}{( a -- a a )} & Duplica o elemento do topo da pilha \\
+            \midrule
+            \code{forth}{SPACES} & \code{forth}{( n -- )} & Imprime $n$ espaços \\
+            \midrule
+            \code{forth}{EMIT} & \code{forth}{( c -- )} & Imprime o caractere $c$ \\
+            \midrule
+            \code{forth}{."} & \code{forth}{( -- )} & Imprime a string delimitada por \code{forth}{"} que se segue\\
+            \midrule
+            \code{forth}{.} & \code{forth}{( n -- )} & Imprime o número $n$, seguido de um espaço $c$ \\
+            \midrule
+            \code{forth}{+} & \code{forth}{( n1 n2 -- s )} & Computa $s = n1 + n2$ \\
+            \midrule
+            \code{forth}{-} & \code{forth}{( n1 n2 -- s )} & Computa $s = n1 - n2$ \\
+            \midrule
+            \code{forth}{*} & \code{forth}{( n1 n2 -- m )} & Computa $m = n1 \times n2$ \\
+            \midrule
+            \code{forth}{/} & \code{forth}{( n1 n2 -- q )} & Computa o quociente $q$ da divisão inteira de $n1$ por $n2$ \\
+            \midrule
+            \code{forth}{MOD} & \code{forth}{( n1 n2 -- r )} & Computa o resto $r$ da divisão inteira de $n1$ por $n2$ \\
+            \midrule
+            \code{forth}{/MOD} & \code{forth}{( n1 n2 -- q r )} & Computa o quociente $q$ e o resto $r$ da divisão de $n1$ por $n2$ \\
+            \bottomrule
+        \end{tabularx}
+    \end{table}
+    \end{scriptsize}
+
+\end{frame}
+
+

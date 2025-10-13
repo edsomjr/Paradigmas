@@ -78,7 +78,7 @@
 
         \vspace{0.1in}
 
-        \item Também é possível definir uma nova palavra, chamada \code{forth}{STARTS}, que recebe
+        \item Também é possível definir uma nova palavra, chamada \code{forth}{STARS}, que recebe
             um argumento $n$ e imprime $n$ asteriscos consecutivos:
 
             \inputcode{forth}{codes/stars.fs}
@@ -96,12 +96,12 @@
         \item Quando uma nova palavra é definida, Forth compila a palavra e a insere em seu dicionário
 
         \item Por exemplo, a linha abaixo é uma definição alternativa para a palavra \code{forth}{STAR}:
-            (\code{forth}{[char]} traduz o caractere para seu código ASCII):
+            (\code{forth}{[CHAR]} traduz o caractere para seu código ASCII):
 
             \inputsyntax{forth}{codes/star2.fs}
 
         \item Quando um comando é inserido no terminal, 
-            será ativada a palavra \code{forth}{interpret}, que fará a leitura da entrada em busca
+            será ativada a palavra \code{forth}{INTERPRET}, que fará a leitura da entrada em busca
             de uma string (sequência de caracteres separada por espaços em branco)
     \end{itemize}
 
@@ -111,7 +111,7 @@
 
     \begin{itemize}
         \item Se a palavra encontrada consta no dicionário,
-            será ativada a palavra \code{forth}{execute}, que executa a definição da palavra e 
+            será ativada a palavra \code{forth}{EXECUTE}, que executa a definição da palavra e 
             finaliza com a mensagem ``\code{forth}{ok}''
 
         \item Se a palavra não consta no dicionário, então Forth tentará interpretar a string
@@ -122,6 +122,151 @@
             não foi definida
 
         \item Os nomes das novas palavras devem ser compostos por, no máximo, 31 caracteres imprimíveis
+
+        \item Por exemplo, a palavra \code{forth}{."}, que imprime no terminal a string que se segue,
+            delimitada por aspas, é composta por dois símbolos de pontuação
     \end{itemize}
 
+\end{frame}
+
+\begin{frame}[fragile]{Aritmética e a Pilha}
+
+    \begin{itemize}
+        \item Conforme já mencionado, quando o interpretador Forth encontra um número, ele o armazena
+            na pilha
+
+        \item A pilha é uma estrutura de dados cuja política de acesso é a LIFO: \textit{last in,
+            first out}
+
+        \item A cada instante, apenas o elemento do ``topo'' da pilha estará acessível
+
+        \item Os operadores aritméticos (\code{forth}{+, -, *, /}) são palavras
+
+        \item Ao serem executadas, estas palavras removem dois elementos do topo da pilha: na forma
+            infixada, o primeiro elemento extraído será o operando à direita e o segundo elemento o
+            operando à esquerda
+
+        \item O resultado da operação é inserido na pilha
+    \end{itemize}
+
+\end{frame}
+
+\input{op}
+
+\begin{frame}[fragile]{Notação posfixa}
+
+    \begin{itemize}
+        \item Forth utiliza de notação posfixa, isto, as palavras sucedem seus operandos, conforme
+            ilustrado no exemplo anterior
+
+        \item Esta convenção permite que a pilha seja preparada antes da execução de uma palavra e que
+            as palavras extraiam seus argumentos, quando existirem, da pilha, em ordem reversa: do
+            último para o primeiro argumento
+
+        \item O código abaixo corresponde ao exemplo anterior: a palavra \code{forth}{.} (ponto final)
+            extrai o topo da pilha e o imprime no terminal
+
+            \inputcode{forth}{codes/expr.fs}
+
+            \vspace{0.1in}
+        
+        \item Observe que, ao final da execução, a pilha estará vazia
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{\textit{Stack underflow, stack overflow} e \textit{stack effects}}
+
+    \begin{itemize}
+        \item A tentativa de se extrair um elemento quando a pilha está vazia resulta no erro
+            \textit{stack underflow}:
+
+            \inputcode{forth}{codes/underflow.fs}
+            \vspace{0.1in}
+
+        \item Se não houver memória disponível para a inserção de um novo elemento na pilha, o 
+            interpretador emitirá o erro \textit{stack overflow}
+
+        \item Tanto as palavras já definidas por Forth quanto as palavras definidas pelo usuário
+            podem tanto extrair elementos da pilha quanto inserir novos elementos
+
+        \item Estas inserções ou remoções são denominadas \textit{stack effects}
+
+        \item Estes efeitos podem ser registrados por meio de um comentário que é inserido, na 
+            definição de uma nova palavra, entre o nome e a implementação
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Notação de pilha}
+
+    \begin{itemize}
+        \item O comentário que registra os  \textit{stack effects} da palavra é denominado
+            \textbf{notação de pilha}
+
+        \item A forma básica da notação de pilha é
+
+            \inputsyntax{forth}{codes/notation.fs}
+
+        onde \textit{before} registra o que deve estar na \textit{stack} antes da execução e
+        \textit{after} regista o que estará na \textit{stack} após a execução
+
+        \item A notação de pilha para a palavra \code{forth}{.} é 
+
+            \inputsyntax{forth}{codes/dot.fs}
+
+        \item A notação de pilha para a palavra \code{forth}{+} é 
+
+            \inputsyntax{forth}{codes/sum.fs}
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Sumário}
+
+    \begin{scriptsize}
+    \begin{table}
+        \centering
+        \begin{tabularx}{0.95\textwidth}{ccX}
+            \toprule
+            \textbf{Palavra} & \textbf{Notação de pilha} & \textbf{Significado} \\
+            \midrule
+            \code{forth}{: name impl ;} & \code{forth}{( -- )} & Define a palavra \code{forth}{name} por meio das palavras \code{forth}{impl} \\
+            \midrule
+            \code{forth}{CR} & \code{forth}{( -- )} & Imprime uma nova linha \\
+            \midrule
+            \code{forth}{SPACES} & \code{forth}{( n -- )} & Imprime $n$ espaços \\
+            \midrule
+            \code{forth}{EMIT} & \code{forth}{( c -- )} & Imprime o caractere $c$ \\
+            \midrule
+            \code{forth}{."} & \code{forth}{( -- )} & Imprime a string delimitada por \code{forth}{"} que se segue\\
+            \midrule
+            \code{forth}{.} & \code{forth}{( n -- )} & Imprime o número $n$, seguido de um espaço $c$ \\
+            \midrule
+            \code{forth}{+} & \code{forth}{( n1 n2 -- s )} & Computa $s = n1 + n2$ \\
+            \midrule
+            \code{forth}{-} & \code{forth}{( n1 n2 -- s )} & Computa $s = n1 - n2$ \\
+            \midrule
+            \code{forth}{*} & \code{forth}{( n1 n2 -- m )} & Computa $m = n1 \times n2$ \\
+            \midrule
+            \code{forth}{/} & \code{forth}{( n1 n2 -- q )} & Computa o quociente $q$ da divisão inteira de $n1$ por $n2$ \\
+            \midrule
+            \code{forth}{MOD} & \code{forth}{( n1 n2 -- r )} & Computa o resto $r$ da divisão inteira de $n1$ por $n2$ \\
+            \midrule
+            \code{forth}{/MOD} & \code{forth}{( n1 n2 -- q r )} & Computa o quociente $q$ e o resto $r$ da divisão de $n1$ por $n2$ \\
+            \bottomrule
+        \end{tabularx}
+    \end{table}
+    \end{scriptsize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo: conversão de tempo}
+    \inputcode{forth}{codes/time.fs}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo: movimento retilíneo uniforme}
+    \inputcode{forth}{codes/mu.fs}
 \end{frame}
