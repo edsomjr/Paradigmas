@@ -17,11 +17,111 @@
 
         \item Comandos definidos dessa forma são denominados \textbf{palavras} (\textit{words})
 
-        \item O padrão ANS da linguagem disponibiliza um conjunto grande (mais de 200) palavras
+        \item O padrão ANS da linguagem disponibiliza um conjunto grande (mais de 300) palavras
             pré-definidas, que podem ser usadas para definir novas palavras
 
         \item A habilidade de definir palavras por meio de palavras já definidas é denominada
             \textbf{extensibilidade}
+    \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}[fragile]{Modo interativo}
+
+    \begin{itemize}
+        \item No modo interativo do Forth (REPL), o interpretador responde aos comandos executados
+            de forma bem sucedida com a palavra ``\code{forth}{ok}''
+
+        \item Por exemplo, entre no modo interativo e digite a tecla \texttt{ENTER}: Forth responderá 
+            ``\code{forth}{ok}'', movendo o cursor para a próxima linha
+
+        \item Para inserir um ou mais números na pilha, basta inseri-los, na ordem desejada e 
+            separados por um espaço em branco, e digitar \texttt{ENTER}
+
+        \item Para visualizar o estado atual da pilha, use a palavra \code{forth}{.s}, a qual não
+            tem parâmetros
+
+            \inputcode{forth}{codes/stack.fs}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Palavras para a manipulação do terminal}
+
+    \begin{itemize}
+        \item Quando uma palavra recebe um ou mais argumentos, eles são extraídos da pilha, 
+            do último para o primeiro
+
+        \item Por exemplo, a palavra \code{forth}{spaces} recebe um argumento $n$ e imprime $n$
+            espaços no terminal
+
+            \inputcode{forth}{codes/spaces.fs}
+
+        \vspace{0.1in}
+
+        \item A palavra \code{forth}{emit} recebe um inteiro $n$ imprime no terminal o caractere
+            cujo código ASCII é $n$:
+
+            \inputcode{forth}{codes/emit.fs}
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Palavras para a manipulação do terminal}
+
+    \begin{itemize}
+        \item O código abaixo define uma nova palavra, chamada \code{forth}{STAR}, que imprime um 
+            asterisco no terminal:
+
+            \inputcode{forth}{codes/star.fs}
+
+        \vspace{0.1in}
+
+        \item Também é possível definir uma nova palavra, chamada \code{forth}{STARTS}, que recebe
+            um argumento $n$ e imprime $n$ asteriscos consecutivos:
+
+            \inputcode{forth}{codes/stars.fs}
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{O dicionário}
+
+    \begin{itemize}
+        \item Todas as palavras definidas em Forth, seja em biblioteca padrão, seja pelo usuário, são
+            armazenadas no ``dicionário''
+
+        \item Quando uma nova palavra é definida, Forth compila a palavra e a insere em seu dicionário
+
+        \item Por exemplo, a linha abaixo é uma definição alternativa para a palavra \code{forth}{STAR}:
+            (\code{forth}{[char]} traduz o caractere para seu código ASCII):
+
+            \inputsyntax{forth}{codes/star2.fs}
+
+        \item Quando um comando é inserido no terminal, 
+            será ativada a palavra \code{forth}{interpret}, que fará a leitura da entrada em busca
+            de uma string (sequência de caracteres separada por espaços em branco)
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{O dicionário}
+
+    \begin{itemize}
+        \item Se a palavra encontrada consta no dicionário,
+            será ativada a palavra \code{forth}{execute}, que executa a definição da palavra e 
+            finaliza com a mensagem ``\code{forth}{ok}''
+
+        \item Se a palavra não consta no dicionário, então Forth tentará interpretar a string
+            como um número: caso ele tenha sucesso na conversão, o número lido será 
+            inserido na pilha
+
+        \item Se a palavra lida não é um número, Forth sinaliza um erro, indicando que a palavra
+            não foi definida
+
+        \item Os nomes das novas palavras devem ser compostos por, no máximo, 31 caracteres imprimíveis
     \end{itemize}
 
 \end{frame}
