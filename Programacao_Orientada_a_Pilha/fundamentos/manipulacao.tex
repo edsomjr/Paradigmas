@@ -52,29 +52,27 @@
             \toprule
             \textbf{Palavra} & \textbf{Notação de pilha} & \textbf{Significado} \\
             \midrule
-            \code{forth}{SWAP} & \code{forth}{( a b -- b a )} & Troca os dois elementos do topo da pilha de posição \\
+            \code{forth}{SWAP} & \code{forth}{( n1 n2 -- n2 n1 )} & Troca os dois elementos do topo da pilha de posição \\
             \midrule
-            \code{forth}{DUP} & \code{forth}{( a -- a a )} & Duplica o elemento do topo da pilha \\
+            \code{forth}{DUP} & \code{forth}{( n -- n n )} & Duplica o elemento do topo da pilha \\
             \midrule
-            \code{forth}{SPACES} & \code{forth}{( n -- )} & Imprime $n$ espaços \\
+            \code{forth}{OVER} & \code{forth}{( n1 n2 -- n1 n2 n1 )} & Insere uma cópia do segundo elemento na pilha \\
             \midrule
-            \code{forth}{EMIT} & \code{forth}{( c -- )} & Imprime o caractere $c$ \\
+            \code{forth}{ROT} & \code{forth}{( n1 n2 n3 -- n3 n1 n2 )} & Rotaciona os três primeiros elementos da pilha \\
             \midrule
-            \code{forth}{."} & \code{forth}{( -- )} & Imprime a string delimitada por \code{forth}{"} que se segue\\
+            \code{forth}{DROP} & \code{forth}{( -- )} & Remove o topo da pilha, sem imprimí-lo \\
             \midrule
-            \code{forth}{.} & \code{forth}{( n -- )} & Imprime o número $n$, seguido de um espaço $c$ \\
+            \code{forth}{2SWAP} & \code{forth}{( d1 d2 -- d2 d1 )} & Troca os dois primeiros pares de elementos de posição \\
             \midrule
-            \code{forth}{+} & \code{forth}{( n1 n2 -- s )} & Computa $s = n1 + n2$ \\
+            \code{forth}{2DUP} & \code{forth}{( d d -- d )} & Duplica o primeiro par de elementos \\
             \midrule
-            \code{forth}{-} & \code{forth}{( n1 n2 -- s )} & Computa $s = n1 - n2$ \\
+            \code{forth}{2OVER} & \code{forth}{( d1 d2 -- d1 d2 d1 )} & Duplica o segundo par de números \\
             \midrule
-            \code{forth}{*} & \code{forth}{( n1 n2 -- m )} & Computa $m = n1 \times n2$ \\
+            \code{forth}{2DROP} & \code{forth}{( d1 d2 -- d1 )} & Remove o primeiro par de números \\
             \midrule
-            \code{forth}{/} & \code{forth}{( n1 n2 -- q )} & Computa o quociente $q$ da divisão inteira de $n1$ por $n2$ \\
+            \code{forth}{CLEARSTACK} & \code{forth}{( -- )} & Esvazia a pilha \\
             \midrule
-            \code{forth}{MOD} & \code{forth}{( n1 n2 -- r )} & Computa o resto $r$ da divisão inteira de $n1$ por $n2$ \\
-            \midrule
-            \code{forth}{/MOD} & \code{forth}{( n1 n2 -- q r )} & Computa o quociente $q$ e o resto $r$ da divisão de $n1$ por $n2$ \\
+            \code{forth}{PAGE} & \code{forth}{( -- )} & Limpa o terminal \\
             \bottomrule
         \end{tabularx}
     \end{table}
