@@ -23,7 +23,7 @@ Material didático da disciplina Paradigmas de Programação, ministrada pelo pr
     1. [Fundamentos](Orientacao_a_Objetos/small_talk/small_talk.pdf)
     1. [Blocos e Exceções](Orientacao_a_Objetos/blocos_e_excecoes/blocos_e_excecoes.pdf)
 1. Programação Orientada a Pilhas
-    1. [Fundamentos](Programacao_Orientada_a_Pilhas/fundamentos/fundamentos.pdf)
+    1. [Fundamentos](Programacao_Orientada_a_Pilha/fundamentos/fundamentos.pdf)
 1. Combinadores
     1. [Introdução](Combinadores/introducao/introducao.pdf)
     1. [Base SK](Combinadores/base_sk/base_sk.pdf)
