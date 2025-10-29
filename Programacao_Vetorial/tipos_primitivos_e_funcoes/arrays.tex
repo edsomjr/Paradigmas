@@ -4,13 +4,10 @@
 
     \begin{itemize}
         \item Em APL, a estrutura de dados fundamental é o \textit{array}, e todos os dados estão contidos em \textit{arrays}
-        \pause
 
         \item Um \textit{array} é uma coleção retangular de números, caracteres e \textit{arrays}, arranjados ao longo de um ou mais eixos
-        \pause
 
         \item Os elementos de um \textit{array} podem ter tipos distintos
-        \pause
 
         \item \textit{Arrays} especiais:
             \begin{enumerate}[(a)]
@@ -27,7 +24,6 @@
     \begin{itemize}
         \item \textit{Arrays} são declarados separando seus elementos por espaços
             \inputsyntax{apl}{codes/arrays.apl}
-        \pause
 
         \item Parêntesis podem ser utilizados para agrupar vetores
             \inputsyntax{apl}{codes/arrays2.apl}
@@ -45,16 +41,12 @@
 
     \begin{itemize}
         \item A profundidade (\textit{depth}) de um \textit{array} corresponde a o seu nível de profundidade/recursão
-        \pause
 
         \item um vetor de escalares tem profundidade igual a 1
-        \pause
 
         \item um vetor cujos elementos são vetores de profundidade 1 tem profundidade igual a 2
-        \pause
 
         \item um escalar tem profundidade zero
-        \pause
 
         \item APL atribuí a um vetor que mistura escalares e vetores uma profundidade negativa
     \end{itemize}
@@ -66,7 +58,6 @@
     \begin{itemize}
         \item A profundidade de um \textit{array} pode ser obtida por meio da função \code{apl}{≡}
             \inputsyntax{apl}{codes/depth.apl}
-        \pause
 
         \item Strings vazias são representadas por \code{apl}{''}
             \inputsyntax{apl}{codes/empty.apl}
@@ -84,19 +75,14 @@
 
     \begin{itemize}
         \item O \textit{rank} é definido como o número de dimensões de um \textit{array}
-        \pause
 
         \item Escalares tem \textit{rank} igual a zero
-        \pause
 
         \item Vetores tem \textit{rank} igual a 1
-        \pause
 
         \item Matrizes tem \textit{rank} igual a 2
-        \pause
 
         \item Em APL os  \textit{arrays} são retangulares: cada linha de uma matriz deve ter o mesmo número de colunas
-        \pause
 
         \item Para criar \textit{arrays} com rank maior do que 1 é preciso usar a função \code{apl}{⍴} (\textit{reshape}), que recebe como argumento à esquerda um vetor dos comprimentos das dimensões e os dados como argumento à direita
     \end{itemize}
@@ -114,11 +100,9 @@
     \begin{itemize}
         \item A função \code{apl}{⍴} retorna \textit{arrays} multidimensionais
             \inputsyntax{apl}{codes/matrix.apl}
-        \pause
 
         \item Se há dados em excesso o que sobra é ignorado
             \inputsyntax{apl}{codes/matrix2.apl}
-        \pause
 
         \item Se faltam dados a função \code{apl}{⍴} retorna ciclicamente ao início dos dados indicados
             \inputsyntax{apl}{codes/matrix3.apl}
@@ -131,11 +115,9 @@
     \begin{itemize}
         \item Em sua versão monádica, a função \code{apl}{⍴} retorna os comprimentos das dimensões (forma) do \textit{array}
             \inputsyntax{apl}{codes/shape.apl}
-        \pause
 
         \item Matrizes com uma única linha e vetores são distintos
             \inputsyntax{apl}{codes/shape2.apl}
-        \pause
 
         \item Vale a identidade \code{apl}{v ≡ ⍴ (v ⍴ A)}, onde \code{apl}{v} é um vetor e \code{apl}{A} um \textit{array} qualquer
 
@@ -166,12 +148,10 @@
 
     \begin{itemize}
         \item O \textit{rank} de um vetor é igual ao comprimento da sua forma
-        \pause
 
         \item Assim, o \textit{rank} de um \textit{array} pode ser computado por meio da dupla
         aplicação da função \code{apl}{⍴}
             \inputsyntax{apl}{codes/shape3.apl}
-        \pause
 
         \item A função \code{apl}{⍴} pode ser usada para conversões entre um escalar \code{apl}{x} e um vetor \code{apl}{v} com um único componente igual a \code{apl}{x}:
             \inputsyntax{apl}{codes/scalar_to_vector.apl}
