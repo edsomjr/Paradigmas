@@ -386,7 +386,7 @@ or_desc => Node
 and => Node
     @and.x = 1.2
     @and.y = 3
-    @and.text = $a\ \scalebox{0.8}\&\  b$
+    @and.text = $a\ \scalebox{0.8}\land\  b$
 
 and_read => Node
     @and_read.x = 3.8
@@ -427,7 +427,7 @@ equivalence => Node
 equivalence_read => Node
     @equivalence_read.x = 3.8
     @equivalence_read.y = 1.5
-    @equivalence_read.text = \footnotesize \bbtext{$a$ é equivalente a $b$}
+    @equivalence_read.text = \footnotesize \bbtext{$a$ se, e somente se, $b$}
 
 equivalence_desc => Node
     @equivalence_desc.x = 5.5
@@ -681,21 +681,204 @@ e1 => Node
 
 title => Node
     @title.x = 0
+    @title.y = 7
+    @title.text = \Large \bbbold{Proposições compostas}
+    @title.anchor = west
+
+---
+
+a => Node
+    @a.x = 1
+    @a.y = 6
+    @a.text = $\star$ \bbtext{Embora a implementação dos conectivos lógicos por meio de fatos esteja}
+    @a.anchor = west
+
+a1 => Node
+    @a1.x = 0.5
+    @a1.y = 5.5
+    @a1.text = \bbtext{conceitualmente correta, ela não permite a expressão de proposições compostas}
+    @a1.anchor = west
+
+---
+
+b => Node
+    @b.x = 1
+    @b.y = 4.5
+    @b.text = $\star$ \bbtext{Por exemplo, a proposição composta $(F \lor V) \land V$ é verdadeira, porém em}
+    @b.anchor = west
+
+b1 => Node
+    @b1.x = 0.2
+    @b1.y = 4
+    @b1.text = \bbtext{Prolog temos}
+    @b1.anchor = west
+
+
+b2 => Node
+    @b2.x = 2
+    @b2.y = 3
+    @b2.text = \inputsyntax{prolog}{codes/composta_fail.pl}
+    @b2.anchor = west
+
+---
+
+c => Node
+    @c.x = 1
+    @c.y = 2
+    @c.text = $\star$ \bbtext{Isso ocorre devido ao comportamento da unificação em Prolog}
+    @c.anchor = west
+
+---
+
+d => Node
+    @d.x = 1
+    @d.y = 1
+    @d.text = $\star$ \bbtext{A linguagem oferece, porém, suporte a conjunções, disjunções e negações}
+    @d.anchor = west
+
+## Scene
+
+title => Node
+    @title.x = 0
+    @title.y = 7
+    @title.text = \Large \bbbold{Predicados de controle}
+    @title.anchor = west
+
+---
+
+a => Node
+    @a.x = 1
+    @a.y = 6
+    @a.text = $\star$ \bbtext{São predicados que implementam estruturas de controle e, em geral, são traduzidos}
+    @a.anchor = west
+
+a1 => Node
+    @a1.x = 0.5
+    @a1.y = 5.5
+    @a1.text = \bbtext{pelo compilador}
+    @a1.anchor = west
+
+---
+b => Node
+    @b.x = 1
+    @b.y = 4.5
+    @b.text = $\star$ \bbtext{O predicado \code{prolog}{,/2} corresponde à conjunção}
+    @b.anchor = west
+
+---
+c => Node
+    @c.x = 1
+    @c.y = 3.5
+    @c.text = $\star$ \bbtext{O predicado \code{prolog}{;/2} corresponde à disjunção}
+    @c.anchor = west
+
+---
+d => Node
+    @d.x = 1
+    @d.y = 2.5
+    @d.text = $\star$ \bbtext{O predicado \code{prolog}{\+/1} corresponde à negação e é verdadeiro apenas quando não há}
+    @d.anchor = west
+
+d1 => Node
+    @d1.x = 0.5
+    @d1.y = 2
+    @d1.text = \bbtext{evidência ou prova para seu argumento}
+    @d1.anchor = west
+
+---
+e => Node
+    @e.x = 1
+    @e.y = 1
+    @e.text = $\star$ \bbtext{Os predicados \code{prolog}{true/0} e \code{prolog}{false/0} também são predicados de controle}
+    @e.anchor = west
+
+## Scene
+
+title => Node
+    @title.x = 0
+    @title.y = 7
+    @title.text = \Large \bbbold{Proposições compostas em Prolog}
+    @title.anchor = west
+
+---
+
+a => Node
+    @a.x = 1
+    @a.y = 6
+    @a.text = $\star$ \bbtext{Retomando o exemplo anterior, a proposição composta $(F\lor V)\land V$ pode ser }
+    @a.anchor = west
+
+a1 => Node
+    @a1.x = 0.5
+    @a1.y = 5.5
+    @a1.text = \bbtext{expressa em Prolog por meio dos predicados de controle da seguinte forma:}
+    @a1.anchor = west
+
+a2 => Node
+    @a2.x = 2
+    @a2.y = 4.5
+    @a2.text = \inputsyntax{prolog}{codes/composta_ok.pl}
+    @a2.anchor = west
+
+---
+
+b => Node
+    @b.x = 1
+    @b.y = 3.5
+    @b.text = $\star$ \bbtext{Os predicados de controle são implementados como operadores, de modo que podem }
+    @b.anchor = west
+
+b1 => Node
+    @b1.x = 0.5
+    @b1.y = 3
+    @b1.text = \bbtext{ser usados com notação infixada}
+    @b1.anchor = west
+
+---
+
+c => Node
+    @c.x = 1
+    @c.y = 2
+    @c.text = $\star$ \bbtext{Embora não seja obrigatório, é fortemente recomendado o uso de parêntesis em }
+    @c.anchor = west
+
+c1 => Node
+    @c1.x = 0.5
+    @c1.y = 1.5
+    @c1.text = \bbtext{expressões que envolvem o predicado \code{prolog}{;/2}}
+    @c1.anchor = west
+
+## Scene
+
+title => Node
+    @title.x = 0
     @title.y = 6.5
     @title.text = \Large \bbbold{Referências}
     @title.anchor = west
 
-
 a => Node
     @a.x = 1
-    @a.y = 5
+    @a.y = 3
     @a.text = $\star$ \bbbold{SWI-Prolog.} \bbenglish{https://www.swi-prolog.org/,} \bbtext{acesso em 10/02/2026.}
     @a.anchor = west
 
 b => Node
     @b.x = 1
-    @b.y = 4
+    @b.y = 2
     @b.text = $\star$ \bbbold{WOLFRAM}\bbtext{, Stephen.} \bbenglish{George Boole: A 200-Year View,} \bbtext{acesso em 10/02/2026.}
     @b.anchor = west
+
+c => Node
+    @c.x = 1
+    @c.y = 5
+    @c.text = $\star$ \bbbold{dtonhofer/prolog\_notes.} \bbenglish{Negação as Failure,} \bbtext{acesso em 18/02/2026.}
+    @c.anchor = west
+
+d => Node
+    @d.x = 1
+    @d.y = 4
+    @d.text = $\star$ \bbbold{MERRIT}\bbtext{, Dennis.} \bbenglish{Adventure in Prolog, Amzi!,} \bbtext{191 pgs, 2017.}
+    @d.anchor = west
+
 
 ## End

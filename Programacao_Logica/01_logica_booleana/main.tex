@@ -687,7 +687,7 @@
 	\node[anchor=west] (or_desc) at (5.5, 3.75) { \footnotesize \bbtext{Falso apenas se $a$ e $b$ são ambos falsos} };
 
 
-	\node[] (and) at (1.2, 3.0) { $a\ \scalebox{0.8}\&\  b$ };
+	\node[] (and) at (1.2, 3.0) { $a\ \scalebox{0.8}\land\  b$ };
 
 	\node[] (and_read) at (3.8, 3.0) { \footnotesize \bbtext{$a$ e $b$} };
 
@@ -728,7 +728,7 @@
 	\node[anchor=west] (or_desc) at (5.5, 3.75) { \footnotesize \bbtext{Falso apenas se $a$ e $b$ são ambos falsos} };
 
 
-	\node[] (and) at (1.2, 3.0) { $a\ \scalebox{0.8}\&\  b$ };
+	\node[] (and) at (1.2, 3.0) { $a\ \scalebox{0.8}\land\  b$ };
 
 	\node[] (and_read) at (3.8, 3.0) { \footnotesize \bbtext{$a$ e $b$} };
 
@@ -776,7 +776,7 @@
 	\node[anchor=west] (or_desc) at (5.5, 3.75) { \footnotesize \bbtext{Falso apenas se $a$ e $b$ são ambos falsos} };
 
 
-	\node[] (and) at (1.2, 3.0) { $a\ \scalebox{0.8}\&\  b$ };
+	\node[] (and) at (1.2, 3.0) { $a\ \scalebox{0.8}\land\  b$ };
 
 	\node[] (and_read) at (3.8, 3.0) { \footnotesize \bbtext{$a$ e $b$} };
 
@@ -792,7 +792,7 @@
 
 	\node[] (equivalence) at (1.2, 1.5) { $a\ \scalebox{1.2}[0.8]{\leftrightarrow}\ b$ };
 
-	\node[] (equivalence_read) at (3.8, 1.5) { \footnotesize \bbtext{$a$ é equivalente a $b$} };
+	\node[] (equivalence_read) at (3.8, 1.5) { \footnotesize \bbtext{$a$ se, e somente se, $b$} };
 
 	\node[anchor=west] (equivalence_desc) at (5.5, 1.5) { \footnotesize \bbtext{Verdadeiro se ambos tem mesmo valor lógico} };
 
@@ -1195,12 +1195,289 @@
 \node[draw,opacity=0] at (0, 0) {x};
 \node[draw,opacity=0] at (14, 8) {x};
 
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Proposições compostas} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Proposições compostas} };
+
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{Embora a implementação dos conectivos lógicos por meio de fatos esteja} };
+
+	\node[anchor=west] (a1) at (0.5, 5.5) { \bbtext{conceitualmente correta, ela não permite a expressão de proposições compostas} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Proposições compostas} };
+
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{Embora a implementação dos conectivos lógicos por meio de fatos esteja} };
+
+	\node[anchor=west] (a1) at (0.5, 5.5) { \bbtext{conceitualmente correta, ela não permite a expressão de proposições compostas} };
+
+
+	\node[anchor=west] (b) at (1.0, 4.5) { $\star$ \bbtext{Por exemplo, a proposição composta $(F \lor V) \land V$ é verdadeira, porém em} };
+
+	\node[anchor=west] (b1) at (0.2, 4.0) { \bbtext{Prolog temos} };
+
+
+	\node[anchor=west] (b2) at (2.0, 3.0) { \inputsyntax{prolog}{codes/composta_fail.pl} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Proposições compostas} };
+
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{Embora a implementação dos conectivos lógicos por meio de fatos esteja} };
+
+	\node[anchor=west] (a1) at (0.5, 5.5) { \bbtext{conceitualmente correta, ela não permite a expressão de proposições compostas} };
+
+
+	\node[anchor=west] (b) at (1.0, 4.5) { $\star$ \bbtext{Por exemplo, a proposição composta $(F \lor V) \land V$ é verdadeira, porém em} };
+
+	\node[anchor=west] (b1) at (0.2, 4.0) { \bbtext{Prolog temos} };
+
+
+	\node[anchor=west] (b2) at (2.0, 3.0) { \inputsyntax{prolog}{codes/composta_fail.pl} };
+
+
+	\node[anchor=west] (c) at (1.0, 2.0) { $\star$ \bbtext{Isso ocorre devido ao comportamento da unificação em Prolog} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Proposições compostas} };
+
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{Embora a implementação dos conectivos lógicos por meio de fatos esteja} };
+
+	\node[anchor=west] (a1) at (0.5, 5.5) { \bbtext{conceitualmente correta, ela não permite a expressão de proposições compostas} };
+
+
+	\node[anchor=west] (b) at (1.0, 4.5) { $\star$ \bbtext{Por exemplo, a proposição composta $(F \lor V) \land V$ é verdadeira, porém em} };
+
+	\node[anchor=west] (b1) at (0.2, 4.0) { \bbtext{Prolog temos} };
+
+
+	\node[anchor=west] (b2) at (2.0, 3.0) { \inputsyntax{prolog}{codes/composta_fail.pl} };
+
+
+	\node[anchor=west] (c) at (1.0, 2.0) { $\star$ \bbtext{Isso ocorre devido ao comportamento da unificação em Prolog} };
+
+
+	\node[anchor=west] (d) at (1.0, 1.0) { $\star$ \bbtext{A linguagem oferece, porém, suporte a conjunções, disjunções e negações} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Predicados de controle} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Predicados de controle} };
+
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{São predicados que implementam estruturas de controle e, em geral, são traduzidos} };
+
+	\node[anchor=west] (a1) at (0.5, 5.5) { \bbtext{pelo compilador} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Predicados de controle} };
+
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{São predicados que implementam estruturas de controle e, em geral, são traduzidos} };
+
+	\node[anchor=west] (a1) at (0.5, 5.5) { \bbtext{pelo compilador} };
+
+	\node[anchor=west] (b) at (1.0, 4.5) { $\star$ \bbtext{O predicado \code{prolog}{,/2} corresponde à conjunção} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Predicados de controle} };
+
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{São predicados que implementam estruturas de controle e, em geral, são traduzidos} };
+
+	\node[anchor=west] (a1) at (0.5, 5.5) { \bbtext{pelo compilador} };
+
+	\node[anchor=west] (b) at (1.0, 4.5) { $\star$ \bbtext{O predicado \code{prolog}{,/2} corresponde à conjunção} };
+
+	\node[anchor=west] (c) at (1.0, 3.5) { $\star$ \bbtext{O predicado \code{prolog}{;/2} corresponde à disjunção} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Predicados de controle} };
+
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{São predicados que implementam estruturas de controle e, em geral, são traduzidos} };
+
+	\node[anchor=west] (a1) at (0.5, 5.5) { \bbtext{pelo compilador} };
+
+	\node[anchor=west] (b) at (1.0, 4.5) { $\star$ \bbtext{O predicado \code{prolog}{,/2} corresponde à conjunção} };
+
+	\node[anchor=west] (c) at (1.0, 3.5) { $\star$ \bbtext{O predicado \code{prolog}{;/2} corresponde à disjunção} };
+
+	\node[anchor=west] (d) at (1.0, 2.5) { $\star$ \bbtext{O predicado \code{prolog}{\+/1} corresponde à negação e é verdadeiro apenas quando não há} };
+
+	\node[anchor=west] (d1) at (0.5, 2.0) { \bbtext{evidência ou prova para seu argumento} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Predicados de controle} };
+
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{São predicados que implementam estruturas de controle e, em geral, são traduzidos} };
+
+	\node[anchor=west] (a1) at (0.5, 5.5) { \bbtext{pelo compilador} };
+
+	\node[anchor=west] (b) at (1.0, 4.5) { $\star$ \bbtext{O predicado \code{prolog}{,/2} corresponde à conjunção} };
+
+	\node[anchor=west] (c) at (1.0, 3.5) { $\star$ \bbtext{O predicado \code{prolog}{;/2} corresponde à disjunção} };
+
+	\node[anchor=west] (d) at (1.0, 2.5) { $\star$ \bbtext{O predicado \code{prolog}{\+/1} corresponde à negação e é verdadeiro apenas quando não há} };
+
+	\node[anchor=west] (d1) at (0.5, 2.0) { \bbtext{evidência ou prova para seu argumento} };
+
+	\node[anchor=west] (e) at (1.0, 1.0) { $\star$ \bbtext{Os predicados \code{prolog}{true/0} e \code{prolog}{false/0} também são predicados de controle} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Proposições compostas em Prolog} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Proposições compostas em Prolog} };
+
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{Retomando o exemplo anterior, a proposição composta $(F\lor V)\land V$ pode ser } };
+
+	\node[anchor=west] (a1) at (0.5, 5.5) { \bbtext{expressa em Prolog por meio dos predicados de controle da seguinte forma:} };
+
+	\node[anchor=west] (a2) at (2.0, 4.5) { \inputsyntax{prolog}{codes/composta_ok.pl} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Proposições compostas em Prolog} };
+
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{Retomando o exemplo anterior, a proposição composta $(F\lor V)\land V$ pode ser } };
+
+	\node[anchor=west] (a1) at (0.5, 5.5) { \bbtext{expressa em Prolog por meio dos predicados de controle da seguinte forma:} };
+
+	\node[anchor=west] (a2) at (2.0, 4.5) { \inputsyntax{prolog}{codes/composta_ok.pl} };
+
+
+	\node[anchor=west] (b) at (1.0, 3.5) { $\star$ \bbtext{Os predicados de controle são implementados como operadores, de modo que podem } };
+
+	\node[anchor=west] (b1) at (0.5, 3.0) { \bbtext{ser usados com notação infixada} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Proposições compostas em Prolog} };
+
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{Retomando o exemplo anterior, a proposição composta $(F\lor V)\land V$ pode ser } };
+
+	\node[anchor=west] (a1) at (0.5, 5.5) { \bbtext{expressa em Prolog por meio dos predicados de controle da seguinte forma:} };
+
+	\node[anchor=west] (a2) at (2.0, 4.5) { \inputsyntax{prolog}{codes/composta_ok.pl} };
+
+
+	\node[anchor=west] (b) at (1.0, 3.5) { $\star$ \bbtext{Os predicados de controle são implementados como operadores, de modo que podem } };
+
+	\node[anchor=west] (b1) at (0.5, 3.0) { \bbtext{ser usados com notação infixada} };
+
+
+	\node[anchor=west] (c) at (1.0, 2.0) { $\star$ \bbtext{Embora não seja obrigatório, é fortemente recomendado o uso de parêntesis em } };
+
+	\node[anchor=west] (c1) at (0.5, 1.5) { \bbtext{expressões que envolvem o predicado \code{prolog}{;/2}} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
 	\node[anchor=west] (title) at (0.0, 6.5) { \Large \bbbold{Referências} };
 
+	\node[anchor=west] (a) at (1.0, 3.0) { $\star$ \bbbold{SWI-Prolog.} \bbenglish{https://www.swi-prolog.org/,} \bbtext{acesso em 10/02/2026.} };
 
-	\node[anchor=west] (a) at (1.0, 5.0) { $\star$ \bbbold{SWI-Prolog.} \bbenglish{https://www.swi-prolog.org/,} \bbtext{acesso em 10/02/2026.} };
+	\node[anchor=west] (b) at (1.0, 2.0) { $\star$ \bbbold{WOLFRAM}\bbtext{, Stephen.} \bbenglish{George Boole: A 200-Year View,} \bbtext{acesso em 10/02/2026.} };
 
-	\node[anchor=west] (b) at (1.0, 4.0) { $\star$ \bbbold{WOLFRAM}\bbtext{, Stephen.} \bbenglish{George Boole: A 200-Year View,} \bbtext{acesso em 10/02/2026.} };
+	\node[anchor=west] (c) at (1.0, 5.0) { $\star$ \bbbold{dtonhofer/prolog\_notes.} \bbenglish{Negação as Failure,} \bbtext{acesso em 18/02/2026.} };
+
+	\node[anchor=west] (d) at (1.0, 4.0) { $\star$ \bbbold{MERRIT}\bbtext{, Dennis.} \bbenglish{Adventure in Prolog, Amzi!,} \bbtext{191 pgs, 2017.} };
+
 
 \end{tikzpicture}
 \end{frame}
