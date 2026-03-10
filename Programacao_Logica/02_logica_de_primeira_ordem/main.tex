@@ -592,7 +592,7 @@
 \node[draw,opacity=0] at (0, 0) {x};
 \node[draw,opacity=0] at (14, 8) {x};
 
-	\node[anchor=west] (title) at (0.0, 6.5) { \Large \bbbold{Quantificador existencial} };
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Quantificador existencial} };
 
 	\draw[fill=blue!10!white,rounded corners] (0.75, 5.5) rectangle  (13.5, 2.0);
 
@@ -610,5 +610,374 @@
 	\node[anchor=west,color=white] (b3) at (1.0, 2.5) { \bbtext{conjunto universal de $x$ tal que $S(x)$ é verdadeira.} };
 
 \end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Consultas simples} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Consultas simples} };
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{Em Prolog, quantificador existencial está associado às consultas} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Consultas simples} };
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{Em Prolog, quantificador existencial está associado às consultas} };
+
+	\node[anchor=west] (b) at (1.0, 5.0) { $\star$ \bbtext{Uma consulta simples corresponde a uma sentença aberta simples, isto é, um } };
+
+	\node[anchor=west] (b1) at (0.5, 4.5) { \bbtext{predicado e seus respectivos argumentos} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Consultas simples} };
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{Em Prolog, quantificador existencial está associado às consultas} };
+
+	\node[anchor=west] (b) at (1.0, 5.0) { $\star$ \bbtext{Uma consulta simples corresponde a uma sentença aberta simples, isto é, um } };
+
+	\node[anchor=west] (b1) at (0.5, 4.5) { \bbtext{predicado e seus respectivos argumentos} };
+
+	\node[anchor=west] (c) at (1.0, 3.5) { $\star$ \bbtext{Se um ou mais argumentos da consulta forem substituídos por uma variável lógica } };
+
+	\node[anchor=west] (c1) at (0.5, 3.0) { \bbtext{e o resultado desta consulta for verdadeiro, o interpretador indicará as atribuições que} };
+
+	\node[anchor=west] (c2) at (0.5, 2.5) { \bbtext{tornaram a sentença verdadeira} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Consultas simples} };
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{Em Prolog, quantificador existencial está associado às consultas} };
+
+	\node[anchor=west] (b) at (1.0, 5.0) { $\star$ \bbtext{Uma consulta simples corresponde a uma sentença aberta simples, isto é, um } };
+
+	\node[anchor=west] (b1) at (0.5, 4.5) { \bbtext{predicado e seus respectivos argumentos} };
+
+	\node[anchor=west] (c) at (1.0, 3.5) { $\star$ \bbtext{Se um ou mais argumentos da consulta forem substituídos por uma variável lógica } };
+
+	\node[anchor=west] (c1) at (0.5, 3.0) { \bbtext{e o resultado desta consulta for verdadeiro, o interpretador indicará as atribuições que} };
+
+	\node[anchor=west] (c2) at (0.5, 2.5) { \bbtext{tornaram a sentença verdadeira} };
+
+	\node[anchor=west] (d) at (1.0, 1.5) { $\star$ \bbtext{Caso exista duas ou mais atribuições possíveis que tornem a consulta verdadeira,} };
+
+	\node[anchor=west] (d1) at (0.5, 1.0) { \bbtext{elas podem ser obtidas digitindo o caractere \code{prolog}{';'} no interpretador} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\vspace*{\fill}
+
+\inputsnippet{prolog}{1}{18}{codes/consult.pl}
+
+\vspace*{\fill}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Consultas e variáveis lógicas} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Consultas e variáveis lógicas} };
+
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{As consultas em Prolog são avaliadas por meio de um mecanismo de casamento de} };
+
+	\node[anchor=west] (a1) at (0.5, 5.5) { \bbtext{padrões denominado unificação} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Consultas e variáveis lógicas} };
+
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{As consultas em Prolog são avaliadas por meio de um mecanismo de casamento de} };
+
+	\node[anchor=west] (a1) at (0.5, 5.5) { \bbtext{padrões denominado unificação} };
+
+
+	\node[anchor=west] (b) at (1.0, 4.5) { $\star$ \bbtext{O padrão de uma consulta (predicados e argumentos) é denominado objetivo (\bbenglish{goal})} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Consultas e variáveis lógicas} };
+
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{As consultas em Prolog são avaliadas por meio de um mecanismo de casamento de} };
+
+	\node[anchor=west] (a1) at (0.5, 5.5) { \bbtext{padrões denominado unificação} };
+
+
+	\node[anchor=west] (b) at (1.0, 4.5) { $\star$ \bbtext{O padrão de uma consulta (predicados e argumentos) é denominado objetivo (\bbenglish{goal})} };
+
+
+	\node[anchor=west] (c) at (1.0, 3.5) { $\star$ \bbtext{As variáveis lógicas não se comportam como as variáveis das outras linguagens} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Consultas e variáveis lógicas} };
+
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{As consultas em Prolog são avaliadas por meio de um mecanismo de casamento de} };
+
+	\node[anchor=west] (a1) at (0.5, 5.5) { \bbtext{padrões denominado unificação} };
+
+
+	\node[anchor=west] (b) at (1.0, 4.5) { $\star$ \bbtext{O padrão de uma consulta (predicados e argumentos) é denominado objetivo (\bbenglish{goal})} };
+
+
+	\node[anchor=west] (c) at (1.0, 3.5) { $\star$ \bbtext{As variáveis lógicas não se comportam como as variáveis das outras linguagens} };
+
+
+	\node[anchor=west] (e) at (1.0, 2.5) { $\star$ \bbtext{Durante a unificação, uma variável lógica casa com qualquer termo} };
+
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Consultas e variáveis lógicas} };
+
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{As consultas em Prolog são avaliadas por meio de um mecanismo de casamento de} };
+
+	\node[anchor=west] (a1) at (0.5, 5.5) { \bbtext{padrões denominado unificação} };
+
+
+	\node[anchor=west] (b) at (1.0, 4.5) { $\star$ \bbtext{O padrão de uma consulta (predicados e argumentos) é denominado objetivo (\bbenglish{goal})} };
+
+
+	\node[anchor=west] (c) at (1.0, 3.5) { $\star$ \bbtext{As variáveis lógicas não se comportam como as variáveis das outras linguagens} };
+
+
+	\node[anchor=west] (e) at (1.0, 2.5) { $\star$ \bbtext{Durante a unificação, uma variável lógica casa com qualquer termo} };
+
+
+
+	\node[anchor=west] (d) at (1.0, 1.5) { $\star$ \bbtext{Após a unificação, uma variável lógica terá como valor os termos que casaram} };
+
+	\node[anchor=west] (d1) at (0.5, 1.0) { \bbtext{(ataram, \bbenglish{to bind}) com ela durante a unificação} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Unificação} };
+
+	\draw[fill=blue!10!white,rounded corners] (0.75, 6.0) rectangle  (13.5, 1.0);
+
+	\draw[color=BBBlue,draw,very thick,rounded corners] (0.75, 6.0) rectangle  (13.5, 1.0);
+
+	\draw[fill=BBBlue,color=BBBlue,draw,very thick,rounded corners] (0.75, 6.0) rectangle  (13.5, 5.0);
+
+
+	\node[anchor=west,color=white] (a) at (1.0, 5.5) { \bbchalk{Versão simplificada} };
+
+	\node[anchor=west,color=white] (b1) at (1.0, 4.5) { \bbtext{Se a base Prolog contém apenas fatos, a unificação é bem sucedida se as três} };
+
+	\node[anchor=west,color=white] (b2) at (1.0, 3.75) { \bbtext{condições abaixo são satisfeitas:} };
+
+	\node[anchor=west,color=white] (b3) at (1.5, 3.0) { \bbbold{1.} \bbtext{o predicado presente no objetivo e na base de dados é o mesmo} };
+
+	\node[anchor=west,color=white] (b4) at (1.5, 2.25) { \bbbold{2.} \bbtext{ambos tem mesma aridade} };
+
+	\node[anchor=west,color=white] (b5) at (1.5, 1.5) { \bbbold{3.} \bbtext{todos os argumentos são os mesmos} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\vspace*{\fill}
+
+\inputsnippet{prolog}{1}{19}{codes/unification.pl}
+
+\vspace*{\fill}
+\end{frame}
+\begin{frame}[plain,t]
+\vspace*{\fill}
+
+\inputsnippet{prolog}{1}{19}{codes/variables.pl}
+
+\vspace*{\fill}
+\end{frame}
+\begin{frame}[plain,t]
+\vspace*{\fill}
+
+\inputsnippet{prolog}{1}{19}{codes/same_var.pl}
+
+
+\vspace*{\fill}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Fatos dinâmicos} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Fatos dinâmicos} };
+
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{Prolog permite a declaração ou retratação de fatos diretamente no interpretador} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Fatos dinâmicos} };
+
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{Prolog permite a declaração ou retratação de fatos diretamente no interpretador} };
+
+
+	\node[anchor=west] (b) at (1.0, 5.0) { $\star$ \bbtext{Para isto, o predicado deve ser declarado dinâmico, por meio da diretiva \code{prolog}{dynamic}} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Fatos dinâmicos} };
+
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{Prolog permite a declaração ou retratação de fatos diretamente no interpretador} };
+
+
+	\node[anchor=west] (b) at (1.0, 5.0) { $\star$ \bbtext{Para isto, o predicado deve ser declarado dinâmico, por meio da diretiva \code{prolog}{dynamic}} };
+
+	\node[anchor=west] (c) at (1.0, 4.0) { $\star$ \bbtext{Deve ser indicado o nome e a aridade do predicado, e essa declaração só pode ser} };
+
+	\node[anchor=west] (c1) at (0.5, 3.5) { \bbtext{feita em arquivo} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Fatos dinâmicos} };
+
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{Prolog permite a declaração ou retratação de fatos diretamente no interpretador} };
+
+
+	\node[anchor=west] (b) at (1.0, 5.0) { $\star$ \bbtext{Para isto, o predicado deve ser declarado dinâmico, por meio da diretiva \code{prolog}{dynamic}} };
+
+	\node[anchor=west] (c) at (1.0, 4.0) { $\star$ \bbtext{Deve ser indicado o nome e a aridade do predicado, e essa declaração só pode ser} };
+
+	\node[anchor=west] (c1) at (0.5, 3.5) { \bbtext{feita em arquivo} };
+
+	\node[anchor=west] (d) at (1.0, 2.5) { $\star$ \bbtext{Os predicados \code{prolog}{asssera/1} e \code{prolog}{assertz/1} adicionam um novo fato ao predicado} };
+
+	\node[anchor=west] (d1) at (0.5, 2.0) { \bbtext{dinâmico no início ou no fim da base Prolog, respectivamente} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Fatos dinâmicos} };
+
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{Prolog permite a declaração ou retratação de fatos diretamente no interpretador} };
+
+
+	\node[anchor=west] (b) at (1.0, 5.0) { $\star$ \bbtext{Para isto, o predicado deve ser declarado dinâmico, por meio da diretiva \code{prolog}{dynamic}} };
+
+	\node[anchor=west] (c) at (1.0, 4.0) { $\star$ \bbtext{Deve ser indicado o nome e a aridade do predicado, e essa declaração só pode ser} };
+
+	\node[anchor=west] (c1) at (0.5, 3.5) { \bbtext{feita em arquivo} };
+
+	\node[anchor=west] (d) at (1.0, 2.5) { $\star$ \bbtext{Os predicados \code{prolog}{asssera/1} e \code{prolog}{assertz/1} adicionam um novo fato ao predicado} };
+
+	\node[anchor=west] (d1) at (0.5, 2.0) { \bbtext{dinâmico no início ou no fim da base Prolog, respectivamente} };
+
+	\node[anchor=west] (e) at (1.0, 1.0) { $\star$ \bbtext{O predicado \code{prolog}{retract/1} apaga um fato da base Prolog} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\vspace*{\fill}
+
+\inputsnippet{prolog}{1}{20}{codes/dynamic.pl}
+
+\vspace*{\fill}
+\end{frame}
+\begin{frame}[plain,t]
+\vspace*{\fill}
+
+\inputsnippet{prolog}{22}{42}{codes/dynamic.pl}
+
+
+\vspace*{\fill}
 \end{frame}
 \end{document}
