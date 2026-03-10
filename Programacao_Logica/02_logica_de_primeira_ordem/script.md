@@ -6,16 +6,22 @@
 title => Node
     @title.x = 0
     @title.y = 7
-    @title.text = \Large \bbbold{Sentenças abertas}
+    @title.text = \Large \bbbold{Variáveis e constantes}
     @title.anchor = west
 
----
+body => Rect
+    @body.x = 0.75
+    @body.y = 5.5
+    @body.u = 13.5
+    @body.v = 2
+    @body.fill = blue!10!white
+    &body.rounded corners
 
 box => Rect
     @box.x = 0.75
     @box.y = 5.5
     @box.u = 13.5
-    @box.v = 1
+    @box.v = 2
     @box.color = BBBlue
     &box.draw
     &box.very thick
@@ -25,6 +31,142 @@ header => Rect
     @header.x = 0.75
     @header.y = 5.5
     @header.u = 13.5
+    @header.v = 4.5
+    @header.fill = BBBlue
+    @header.color = BBBlue
+    &header.draw
+    &header.very thick
+    &header.rounded corners
+
+
+a => Node
+    @a.x = 1
+    @a.y = 5
+    @a.text = \bbchalk{Definição} 
+    @a.anchor = west
+    @a.color = white
+
+b1 => Node
+    @b1.x = 1
+    @b1.y = 4
+    @b1.text = \bbtext{Uma variável é um símbolo que representa um objeto não especificado de um}
+    @b1.anchor = west
+    @b1.color = white
+
+b2 => Node
+    @b2.x = 1
+    @b2.y = 3.25
+    @b2.text = \bbtext{determinado conjunto $U$, o qual é chamado conjunto universal para a variável.}
+    @b2.anchor = west
+    @b2.color = white
+
+b3 => Node
+    @b3.x = 1
+    @b3.y = 2.5
+    @b3.text = \bbtext{Um membro específico do conjunto universal é denominado constante.}
+    @b3.anchor = west
+    @b3.color = white
+
+
+## Scene
+
+title => Node
+    @title.x = 0
+    @title.y = 7
+    @title.text = \Large \bbbold{Termos em Prolog}
+    @title.anchor = west
+
+--- 
+
+a => Node
+    @a.x = 1
+    @a.y = 6
+    @a.text = $\star$ \bbtext{Prolog tem um único tipo de dado, denominado \bbbold{termo}}
+    @a.anchor = west
+    @a.color = white
+
+--- 
+
+b => Node
+    @b.x = 1
+    @b.y = 5
+    @b.text = $\star$ \bbtext{Os argumentos dos predicados Prolog podem ser termos}
+    @b.anchor = west
+    @b.color = white
+
+--- 
+
+c => Node
+    @c.x = 1
+    @c.y = 4
+    @c.text = $\star$ \bbtext{Um \bbbold{átomo} é um nome de propósito geral, composto por uma sequência de}
+    @c.anchor = west
+    @c.color = white
+
+c1 => Node
+    @c1.x = 0.5
+    @c1.y = 3.5
+    @c1.text = \bbtext{caracteres, iniciada com letra minúscula}
+    @c1.anchor = west
+    @c1.color = white
+
+---
+d => Node
+    @d.x = 1
+    @d.y = 2.5
+    @d.text = $\star$ \bbtext{Delimitar um átomo por aspas simples permite o uso de iniciais maiúsculas e}
+    @d.anchor = west
+    @d.color = white
+
+d1 => Node
+    @d1.x = 0.5
+    @d1.y = 2
+    @d1.text = \bbtext{espaços em branco}
+    @d1.anchor = west
+    @d1.color = white
+
+---
+e => Node
+    @e.x = 1
+    @e.y = 1
+    @e.text = $\star$ \bbtext{\bbbold{Números} (inteiros ou flutuantes) são termos primitivos de Prolog}
+    @e.anchor = west
+    @e.color = white
+
+## Text
+
+\inputsnippet{prolog}{1}{17}{codes/terms.pl}
+
+## Scene
+
+title => Node
+    @title.x = 0
+    @title.y = 7
+    @title.text = \Large \bbbold{Sentenças abertas}
+    @title.anchor = west
+
+body => Rect
+    @body.x = 0.75
+    @body.y = 5.5
+    @body.u = 13.75
+    @body.v = 1.25
+    @body.fill = blue!10!white
+    &body.rounded corners
+
+box => Rect
+    @box.x = 0.75
+    @box.y = 5.5
+    @box.u = 13.75
+    @box.v = 1.25
+    @box.color = BBBlue
+    &box.draw
+    &box.very thick
+    &box.rounded corners
+
+header => Rect
+    @header.x = 0.75
+    @header.y = 5.5
+    @header.u = 13.75
     @header.v = 4.5
     @header.fill = BBBlue
     @header.color = BBBlue
@@ -56,430 +198,90 @@ b2 => Node
 b3 => Node
     @b3.x = 1
     @b3.y = 2.5
-    @b3.text = \bbtext{por um mesmo valor $v$, $S(v)$ se torna uma proposição.}
+    @b3.text = \bbtext{por uma constante $v$ do conjunto universal de $x$, $S(v)$ se torna uma proposição.}
     @b3.anchor = west
     @b3.color = white
 
-
-
-## End
-
-    @a.text = \bbbold{Sentença aberta (informal)}  ocorre  
-## Scene
-
-title => Node
-    @title.x = 0
-    @title.y = 7
-    @title.text = \Large \bbbold{Lógica Proposicional Booleana}
-    @title.anchor = west
-
----
-
-terms => Node
-    @terms.x = 0.5
-    @terms.y = 5
-    @terms.text = \bbemph{Termos primitivos}
-    @terms.anchor = west
-
----
-
-a => Node
-    @a.x = 1
-    @a.y = 4
-    @a.text = $\star$ \bbtext{Proposição}
-    @a.anchor = west
-
----
-
-b => Node
-    @b.x = 1
-    @b.y = 3
-    @b.text = $\star$ \bbtext{Verdadeiro}
-    @b.anchor = west
-
----
-
-c => Node
-    @c.x = 1
-    @c.y = 2
-    @c.text = $\star$ \bbtext{Falso}
-    @c.anchor = west
-
-
----
-
-axioms => Node
-    @axioms.x = 7
-    @axioms.y = 5
-    @axioms.text = \bbemph{Axiomas}
-    @axioms.anchor = west
-
----
-
-d => Node
-    @d.x = 7.5
-    @d.y = 4
-    @d.text = $\star$ \bbtext{Princípio do terceiro excluído}
-    @d.anchor = west
-
----
-
-e => Node
-    @e.x = 7.5
-    @e.y = 3
-    @e.text = $\star$ \bbtext{Princípio da não-contradição}
-    @e.anchor = west
+b4 => Node
+    @b4.x = 1
+    @b4.y = 1.75
+    @b4.text = \bbtext{Sentenças abertas também são chamadas predicados ou funções proposicionais.}
+    @b4.anchor = west
+    @b4.color = white
 
 ## Scene
 
 title => Node
     @title.x = 0
     @title.y = 7
-    @title.text = \Large \bbbold{Prolog (1972)}
+    @title.text = \Large \bbbold{Variáveis em Prolog}
     @title.anchor = west
 
----
-
-a => Node
-    @a.x = 4
-    @a.y = 6
-    @a.text = \bbemph{Proponentes}
-
 --- 
-
-alain => Node
-	@alain.x = 2
-	@alain.y = 3
-	@alain.text = \includegraphics[scale=0.35]{figs/alain.jpg}
-
-alain_name => Node
-	@alain_name.x = 2
-	@alain_name.y = 0.5
-	@alain_name.text = \bbtext{Alain Colmerauer}
-
---- 
-
-philippe => Node
-	@philippe.x = 6.5
-	@philippe.y = 3
-	@philippe.text = \includegraphics[scale=0.4]{figs/philippe.jpg}
-
-philippe_name => Node
-	@philippe_name.x = 6.5
-	@philippe_name.y = 0.5
-	@philippe_name.text = \bbtext{Philippe Roussel}
-
----
-
-b => Node
-    @b.x = 11
-    @b.y = 6
-    @b.text = \bbemph{Inspiração}
-
---- 
-
-robert => Node
-	@robert.x = 11
-	@robert.y = 3
-	@robert.text = \includegraphics[scale=0.35]{figs/robert.jpg}
-
-robert_name => Node
-	@robert_name.x = 11
-	@robert_name.y = 0.5
-	@robert_name.text = \bbtext{Robert Kowalski}
-
-## Scene
-
-title => Node
-    @title.x = 0
-    @title.y = 7
-    @title.text = \Large \bbbold{SWI Prolog}
-    @title.anchor = west
-
----
 
 a => Node
     @a.x = 1
     @a.y = 6
-    @a.text = $\star$ \bbtext{ Prolog é uma contração da expressão ``PROgramming in LOGic''}
+    @a.text = $\star$ \bbtext{Prolog também tem termos do tipo variável}
     @a.anchor = west
+    @a.color = white
 
----
+--- 
 
 b => Node
     @b.x = 1
     @b.y = 5
-    @b.text = $\star$ \bbtext{Tem raízes na lógica de primeira ordem}
+    @b.text = $\star$ \bbtext{Variáveis devem iniciar em letra maiúscula ou com o caractere \code{prolog}{'_'}}
     @b.anchor = west
+    @b.color = white
 
----
+--- 
 
-c1 => Node
-    @c1.x = 1
-    @c1.y = 4
-    @c1.text = $\star$ \bbtext{O SWI-Prolog pode ser instalado por meio do comando}
-    @c1.anchor = west
-
-c2 => Node
-    @c2.x = 2
-    @c2.y = 3
-    @c2.text = \mintinline{bash}{$ sudo apt-get install swi-prolog}
-    @c2.anchor = west
-
----
-
-d1 => Node
-    @d1.x = 1
-    @d1.y = 2
-    @d1.text = $\star$ \bbtext{O interpretador (}\bbenglish{listener}\bbtext{) Prolog pode ser invocado com o comando}
-    @d1.anchor = west
-
-d2 => Node
-    @d2.x = 2
-    @d2.y = 1
-    @d2.text = \mintinline{bash}{$ prolog}
-    @d2.anchor = west
-
-## Scene
-
-title => Node
-    @title.x = 0
-    @title.y = 7
-    @title.text = \Large \bbbold{Valores lógicos em Prolog}
-    @title.anchor = west
-
----
-
-a1 => Node
-    @a1.x = 1
-    @a1.y = 6
-    @a1.text = $\star$ \bbtext{Prolog implementa os termos primitivos} \bbenglish{verdadeiro} \bbtext{e} \bbenglish{falso} \bbtext{por meio dos}
-    @a1.anchor = west
-
-a2 => Node
-    @a2.x = 0.5
-    @a2.y = 5.5
-    @a2.text = \bbtext{predicados \code{prolog}{true/0} e \code{prolog}{false/0}}
-    @a2.anchor = west
-
----
-
-b => Node
-    @b.x = 2
-    @b.y = 4
-    @b.text = \inputsyntax{prolog}{codes/true_false.pl}
-    @b.anchor = west
-
----
-
-c => Node
-    @c.x = 1
-    @c.y = 2.5
-    @c.text = $\star$ \bbtext{Prolog faz distinção entre maiúsculas e minúsculas}
-    @c.anchor = west
-
-
----
-
-d => Node
-    @d.x = 2
-    @d.y = 1.25
-    @d.text = \inputsyntax{prolog}{codes/42.pl}
-    @d.anchor = west
-
-## Scene
-
-title => Node
-    @title.x = 0
-    @title.y = 7
-    @title.text = \Large \bbbold{Conectivos da lógica proposicional booleana}
-    @title.anchor = west
-
----
-
-top => Edge
-    @top.x = 0
-    @top.y = 6
-    @top.u = 13
-    @top.v = 6
-    &top.very thick
-
-mid => Edge
-    @mid.x = 0
-    @mid.y = 5
-    @mid.u = 13
-    @mid.v = 5
-    &mid.thick
-
-op => Node
-    @op.x = 0.25
-    @op.y = 5.5
-    @op.text = \bbemph{Operação}
-    @op.anchor = west
-
-read => Node
-    @read.x = 3
-    @read.y = 5.5
-    @read.text = \bbemph{Leitura}
-    @read.anchor = west
-
-desc => Node
-    @desc.x = 5.5
-    @desc.y = 5.5
-    @desc.text = \bbemph{Definição}
-    @desc.anchor = west
-
----
-
-not => Node
-    @not.x = 1.2
-    @not.y = 4.5
-    @not.text = $\lnot a$
-
-not_read => Node
-    @not_read.x = 3.8
-    @not_read.y = 4.5
-    @not_read.text = \footnotesize \bbtext{não $a$}
-
-not_desc => Node
-    @not_desc.x = 5.5
-    @not_desc.y = 4.5
-    @not_desc.text = \footnotesize \bbtext{Inverte o valor lógico de $a$}
-    @not_desc.anchor = west
-
----
-
-or => Node
-    @or.x = 1.2
-    @or.y = 3.75
-    @or.text = $a\vee b$
-
-or_read => Node
-    @or_read.x = 3.8
-    @or_read.y = 3.75
-    @or_read.text = \footnotesize \bbtext{$a$ ou $b$}
-
-or_desc => Node
-    @or_desc.x = 5.5
-    @or_desc.y = 3.75
-    @or_desc.text = \footnotesize \bbtext{Falso apenas se $a$ e $b$ são ambos falsos}
-    @or_desc.anchor = west
-
----
-
-and => Node
-    @and.x = 1.2
-    @and.y = 3
-    @and.text = $a\ \scalebox{0.8}\land\  b$
-
-and_read => Node
-    @and_read.x = 3.8
-    @and_read.y = 3
-    @and_read.text = \footnotesize \bbtext{$a$ e $b$}
-
-and_desc => Node
-    @and_desc.x = 5.5
-    @and_desc.y = 3
-    @and_desc.text = \footnotesize \bbtext{Verdadeiro apenas se $a$ e $b$ são ambos verdadeiros}
-    @and_desc.anchor = west
-
----
-
-conditional => Node
-    @conditional.x = 1.2
-    @conditional.y = 2.25
-    @conditional.text = $a \to  b$
-
-conditional_read => Node
-    @conditional_read.x = 3.8
-    @conditional_read.y = 2.25
-    @conditional_read.text = \footnotesize \bbtext{se $a$, então $b$}
-
-conditional_desc => Node
-    @conditional_desc.x = 5.5
-    @conditional_desc.y = 2.25
-    @conditional_desc.text = \footnotesize \bbtext{Falso apenas se $a$ é verdadeiro e $b$ é falso}
-    @conditional_desc.anchor = west
-
----
-
-equivalence => Node
-    @equivalence.x = 1.2
-    @equivalence.y = 1.5
-    @equivalence.text = $a\ \scalebox{1.2}[0.8]{\leftrightarrow}\ b$
-
-equivalence_read => Node
-    @equivalence_read.x = 3.8
-    @equivalence_read.y = 1.5
-    @equivalence_read.text = \footnotesize \bbtext{$a$ se, e somente se, $b$}
-
-equivalence_desc => Node
-    @equivalence_desc.x = 5.5
-    @equivalence_desc.y = 1.5
-    @equivalence_desc.text = \footnotesize \bbtext{Verdadeiro se ambos tem mesmo valor lógico}
-    @equivalence_desc.anchor = west
-
-
-end => Edge
-    @end.x = 0
-    @end.y = 1
-    @end.u = 13
-    @end.v = 1
-    &end.very thick
-
-## Scene
-
-title => Node
-    @title.x = 0
-    @title.y = 7
-    @title.text = \Large \bbbold{Fatos}
-    @title.anchor = west
-
----
-a => Node
-    @a.x = 1
-    @a.y = 6
-    @a.text = $\star$ \bbtext{Fatos são os predicados mais simples da linguagem Prolog}
-    @a.anchor = west
-
----
-b => Node
-    @b.x = 1
-    @b.y = 5
-    @b.text = $\star$ \bbtext{Eles correspondem a proposições verdadeiras}
-    @b.anchor = west
-
----
 c => Node
     @c.x = 1
     @c.y = 4
-    @c.text = $\star$ \bbtext{A sintaxe para a declaração do fato \code{prolog}{pred/N} é}
+    @c.text = $\star$ \bbtext{As variáveis permitem a declaração de sentenças abertas em Prolog, denominadas}
     @c.anchor = west
+    @c.color = white
+
+c1 => Node
+    @c1.x = 0.5
+    @c1.y = 3.5
+    @c1.text = \bbtext{regras}
+    @c1.anchor = west
+    @c1.color = white
 
 ---
 d => Node
-    @d.x = 7
+    @d.x = 1
     @d.y = 2.5
-    @d.text = \code{prolog}{pred(arg1, arg2, ..., argN).}
+    @d.text = $\star$ \bbtext{A sintaxe para a declaração da regra \code{prolog}{rule/N} é}
+    @d.anchor = west
+    @d.color = white
+
+d8 => Node
+    @d8.x = 7
+    @d8.y = 1
+    @d8.text = \code{prolog}{rule(X1, X2, ..., XN) :- body.}
 
 ---
 
 d1 => Node
     @d1.x = 3.5
-    @d1.y = 3.25
+    @d1.y = 1.75
     @d1.text = \bbcomment{nome}
     @d1.anchor = east
 
 e1 => Edge
-    @e1.x = 4.2
-    @e1.y = 2.8
-    @e1.u = 5
-    @e1.v = 2.8
+    @e1.x = 4
+    @e1.y = 1.25
+    @e1.u = 4.8
+    @e1.v = 1.25
     @e1.color = BBViolet
     &e1.thick
 
 p1 => Path
-    @p1.path = (4.6, 2.8) -- (4.6, 3.25) -- (3.5, 3.25)
+    @p1.path = (4.4, 1.25) -- (4.4, 1.75) -- (3.5, 1.75)
     @p1.color = BBViolet
     &p1.-latex
     &p1.thick
@@ -487,20 +289,20 @@ p1 => Path
 ---
 
 d2 => Node
-    @d2.x = 7.3
-    @d2.y = 1.2
+    @d2.x = 6.5
+    @d2.y = -0.1
     @d2.text = \bbcomment{argumentos}
 
 p2 => Path
-    @p2.path = (5.25, 2.3) -- (5.25, 2.2) -- (9.35, 2.2) -- (9.35, 2.3)
+    @p2.path = (5, 0.8) -- (5, 0.6) -- (8, 0.6) -- (8, 0.8)
     @p2.color = BBViolet
     &p2.thick
 
 e2 => Edge
-    @e2.x = 7.3
-    @e2.y = 2.2
-    @e2.u = 7.3
-    @e2.v = 1.5
+    @e2.x = 6.5
+    @e2.y = 0.6
+    @e2.u = 6.5
+    @e2.v = 0.1
     @e2.color = BBViolet
     &e2.thick
     &e2.-latex
@@ -509,13 +311,13 @@ e2 => Edge
 ---
 
 d3 => Node
-    @d3.x = 10
-    @d3.y = 3.2
+    @d3.x = 8.7
+    @d3.y = 1.75
     @d3.text = \bbcomment{aridade}
     @d3.anchor = west
 
 p3 => Path
-    @p3.path = (9.25, 2.8) -- (9.25, 3.2) -- (10.05, 3.2)
+    @p3.path = (7.9, 1.2) -- (7.9, 1.75) -- (8.7, 1.75)
     @p3.color = BBViolet
     &p3.thick
     &p3.-latex
@@ -524,313 +326,168 @@ p3 => Path
 
 d4 => Node
     @d4.x = 10.5
-    @d4.y = 2.1
-    @d4.text = \bbcomment{terminador}
+    @d4.y = 0.2
+    @d4.text = \bbcomment{corpo}
     @d4.anchor = west
 
 p4 => Path
-    @p4.path = (9.675, 2.3) -- (9.675, 2.1) -- (10.5, 2.1)
+    @p4.path = (9.4, 0.8) -- (9.4, 0.2) -- (10.5, 0.2)
     @p4.color = BBViolet
     &p4.thick
     &p4.-latex
+
+---
+
+d5 => Node
+    @d5.x = 11.5
+    @d5.y = 0.92
+    @d5.text = \bbcomment{terminador}
+    @d5.anchor = west
+
+p5 => Path
+    @p5.path = (10, 0.92) -- (11.5, 0.92)
+    @p5.color = BBViolet
+    &p5.thick
+    &p5.-latex
+
 
 ## Scene
 
 title => Node
     @title.x = 0
     @title.y = 7
-    @title.text = \Large \bbbold{Declarando fatos em Prolog}
+    @title.text = \Large \bbbold{Declarando regras em Prolog}
     @title.anchor = west
 
 ---
+
 a => Node
     @a.x = 1
     @a.y = 6
-    @a.text = $\star$ \bbtext{Em Prolog, os fatos devem ser declarados em arquivos, que serão lidos}
+    @a.text = $\star$ \bbtext{Assim como os fatos, as regras devem ser declaradas em um arquivo `\bblink{.pl}}'
     @a.anchor = west
 
-a1 => Node
-    @a1.x = 0.5
-    @a1.y = 5.5
-    @a1.text = \bbtext{posteriormente pelo interpretador}
-    @a1.anchor = west
-
-
 ---
+
 b => Node
     @b.x = 1
-    @b.y = 4.5
-    @b.text = $\star$ \bbtext{A extensão deste arquivos deve ser \lq\bblink{.pl}'}
+    @b.y = 5
+    @b.text = $\star$ \bbtext{O corpo de uma regra deve ou ser uma proposição composta ou ser omitido}
     @b.anchor = west
 
 ---
+
 c => Node
     @c.x = 1
-    @c.y = 3.5
-    @c.text = $\star$ \bbtext{O interpretador pode ler um arquivo em sua inicialização, por meio da opção \lq\bblink{-s}\rq:}
+    @c.y = 4
+    @c.text = $\star$ \bbtext{Regras sem corpo correspondem a fatos. Por exemplo, o fato e a regra abaixo são }
     @c.anchor = west
 
 c1 => Node
-    @c1.x = 2
-    @c1.y = 2.5
-    @c1.text = \code{bash}{$ prolog -s source.pl}
+    @c1.x = 0.5
+    @c1.y = 3.5
+    @c1.text = \bbtext{equivalentes:}
     @c1.anchor = west
 
+c2 => Node
+    @c2.x = 2
+    @c2.y = 2.5
+    @c2.text = \inputsyntax{prolog}{codes/equiv.pl}
+    @c2.anchor = west
+
 ---
+
 d => Node
     @d.x = 1
     @d.y = 1.5
-    @d.text = $\star$ \bbtext{Os predicados \code{prolog}{consult/1} e \code{prolog}{reconsult/1} podem ser usados para carregar}
+    @d.text = $\star$ \bbtext{Também como nos fatos, podemos ter múltiplas regras para o mesmo predicado: o }
     @d.anchor = west
 
 d1 => Node
     @d1.x = 0.5
     @d1.y = 1
-    @d1.text = \bbtext{ou recarregar um arquivo em uma sessão interativa do interpretador Prolog}
+    @d1.text = \bbtext{predicado será determinado pelo disjunção de todas as regras e fatos declarados}
     @d1.anchor = west
-
-## Text
-
-\inputsnippet{prolog}{1}{10}{codes/conectivos.pl}
-
-## Scene
-
-title => Node
-    @title.x = 0
-    @title.y = 7
-    @title.text = \Large \bbbold{Programas em Prolog}
-    @title.anchor = west
-
----
-a => Node
-    @a.x = 1
-    @a.y = 6
-    @a.text = $\star$ \bbtext{Em Prolog, os programas correspondem a consultas na base de fatos carregada}
-    @a.anchor = west
-
-a1 => Node
-    @a1.x = 0.5
-    @a1.y = 5.5
-    @a1.text = \bbtext{no interpretador}
-    @a1.anchor = west
-
----
-
-b => Node
-    @b.x = 1
-    @b.y = 4.5
-    @b.text = $\star$ \bbtext{Cada consulta é feita diretamente no interpretador e deve indicar o nome do}
-    @b.anchor = west
-
-b1 => Node
-    @b1.x = 0.5
-    @b1.y = 4
-    @b1.text = \bbtext{predicado, seus os argumentos e o terminador (ponto final)}
-    @b1.anchor = west
-
----
-
-c => Node
-    @c.x = 1
-    @c.y = 3
-    @c.text = $\star$ \bbtext{Se a consulta consiste em um único fato, o interpretador retornará verdadeiro}
-    @c.anchor = west
-
-c1 => Node
-    @c1.x = 0.5
-    @c1.y = 2.5
-    @c1.text = \bbtext{se o fato em questão faz parte da base de fatos, ou falso, caso contrário}
-    @c1.anchor = west
 
 ---
 
 e => Node
     @e.x = 1
-    @e.y = 1.5
-    @e.text = $\star$ \bbtext{A opção \lq\code{prolog}{-s}\rq\ e os predicados \code{prolog}{consult/1} e \code{prolog}{reconsult/1} manipulam a base de}
+    @e.y = 0
+    @e.text = $\star$ \bbtext{Em Prolog, fatos e regras são denominados cláusulas}
     @e.anchor = west
-
-e1 => Node
-    @e1.x = 0.5
-    @e1.y = 1
-    @e1.text = \bbtext{fatos do interpretador, adicionando novos fatos ou atualizando os fatos existentes}
-    @e1.anchor = west
-
 
 ## Text
 
-\inputcode{prolog}{codes/program.pl}
+\inputsnippet{prolog}{1}{18}{codes/rules.pl}
 
 ## Scene
 
 title => Node
     @title.x = 0
-    @title.y = 7
-    @title.text = \Large \bbbold{Proposições compostas}
+    @title.y = 6.5
+    @title.text = \Large \bbbold{Quantificador existencial}
     @title.anchor = west
 
----
+body => Rect
+    @body.x = 0.75
+    @body.y = 5.5
+    @body.u = 13.5
+    @body.v = 2
+    @body.fill = blue!10!white
+    &body.rounded corners
+
+box => Rect
+    @box.x = 0.75
+    @box.y = 5.5
+    @box.u = 13.5
+    @box.v = 2
+    @box.color = BBBlue
+    &box.draw
+    &box.very thick
+    &box.rounded corners
+
+header => Rect
+    @header.x = 0.75
+    @header.y = 5.5
+    @header.u = 13.5
+    @header.v = 4.5
+    @header.fill = BBBlue
+    @header.color = BBBlue
+    &header.draw
+    &header.very thick
+    &header.rounded corners
+
 
 a => Node
     @a.x = 1
-    @a.y = 6
-    @a.text = $\star$ \bbtext{Embora a implementação dos conectivos lógicos por meio de fatos esteja}
+    @a.y = 5
+    @a.text = \bbchalk{Definição} 
     @a.anchor = west
-
-a1 => Node
-    @a1.x = 0.5
-    @a1.y = 5.5
-    @a1.text = \bbtext{conceitualmente correta, ela não permite a expressão de proposições compostas}
-    @a1.anchor = west
-
----
-
-b => Node
-    @b.x = 1
-    @b.y = 4.5
-    @b.text = $\star$ \bbtext{Por exemplo, a proposição composta $(F \lor V) \land V$ é verdadeira, porém em}
-    @b.anchor = west
+    @a.color = white
 
 b1 => Node
-    @b1.x = 0.2
+    @b1.x = 1
     @b1.y = 4
-    @b1.text = \bbtext{Prolog temos}
+    @b1.text = \bbtext{Sejam $S(x)$ uma sentença aberta. O quantificador existencial $\exists$ é utilizado na}
     @b1.anchor = west
-
+    @b1.color = white
 
 b2 => Node
-    @b2.x = 2
-    @b2.y = 3
-    @b2.text = \inputsyntax{prolog}{codes/composta_fail.pl}
+    @b2.x = 1
+    @b2.y = 3.25
+    @b2.text = \bbtext{construção $\exists x.S(x)$, a qual significa que existe pelo menos um elemento no}
     @b2.anchor = west
+    @b2.color = white
 
----
+b3 => Node
+    @b3.x = 1
+    @b3.y = 2.5
+    @b3.text = \bbtext{conjunto universal de $x$ tal que $S(x)$ é verdadeira.}
+    @b3.anchor = west
+    @b3.color = white
 
-c => Node
-    @c.x = 1
-    @c.y = 2
-    @c.text = $\star$ \bbtext{Isso ocorre devido ao comportamento da unificação em Prolog}
-    @c.anchor = west
-
----
-
-d => Node
-    @d.x = 1
-    @d.y = 1
-    @d.text = $\star$ \bbtext{A linguagem oferece, porém, suporte a conjunções, disjunções e negações}
-    @d.anchor = west
-
-## Scene
-
-title => Node
-    @title.x = 0
-    @title.y = 7
-    @title.text = \Large \bbbold{Predicados de controle}
-    @title.anchor = west
-
----
-
-a => Node
-    @a.x = 1
-    @a.y = 6
-    @a.text = $\star$ \bbtext{São predicados que implementam estruturas de controle e, em geral, são traduzidos}
-    @a.anchor = west
-
-a1 => Node
-    @a1.x = 0.5
-    @a1.y = 5.5
-    @a1.text = \bbtext{pelo compilador}
-    @a1.anchor = west
-
----
-b => Node
-    @b.x = 1
-    @b.y = 4.5
-    @b.text = $\star$ \bbtext{O predicado \code{prolog}{,/2} corresponde à conjunção}
-    @b.anchor = west
-
----
-c => Node
-    @c.x = 1
-    @c.y = 3.5
-    @c.text = $\star$ \bbtext{O predicado \code{prolog}{;/2} corresponde à disjunção}
-    @c.anchor = west
-
----
-d => Node
-    @d.x = 1
-    @d.y = 2.5
-    @d.text = $\star$ \bbtext{O predicado \code{prolog}{\+/1} corresponde à negação e é verdadeiro apenas quando não há}
-    @d.anchor = west
-
-d1 => Node
-    @d1.x = 0.5
-    @d1.y = 2
-    @d1.text = \bbtext{evidência ou prova para seu argumento}
-    @d1.anchor = west
-
----
-e => Node
-    @e.x = 1
-    @e.y = 1
-    @e.text = $\star$ \bbtext{Os predicados \code{prolog}{true/0} e \code{prolog}{false/0} também são predicados de controle}
-    @e.anchor = west
-
-## Scene
-
-title => Node
-    @title.x = 0
-    @title.y = 7
-    @title.text = \Large \bbbold{Proposições compostas em Prolog}
-    @title.anchor = west
-
----
-
-a => Node
-    @a.x = 1
-    @a.y = 6
-    @a.text = $\star$ \bbtext{Retomando o exemplo anterior, a proposição composta $(F\lor V)\land V$ pode ser }
-    @a.anchor = west
-
-a1 => Node
-    @a1.x = 0.5
-    @a1.y = 5.5
-    @a1.text = \bbtext{expressa em Prolog por meio dos predicados de controle da seguinte forma:}
-    @a1.anchor = west
-
-a2 => Node
-    @a2.x = 2
-    @a2.y = 4.5
-    @a2.text = \inputsyntax{prolog}{codes/composta_ok.pl}
-    @a2.anchor = west
-
----
-
-b => Node
-    @b.x = 1
-    @b.y = 3.5
-    @b.text = $\star$ \bbtext{Os predicados de controle são implementados como operadores, de modo que podem }
-    @b.anchor = west
-
-b1 => Node
-    @b1.x = 0.5
-    @b1.y = 3
-    @b1.text = \bbtext{ser usados com notação infixada}
-    @b1.anchor = west
-
----
-
-c => Node
-    @c.x = 1
-    @c.y = 2
-    @c.text = $\star$ \bbtext{Embora não seja obrigatório, é fortemente recomendado o uso de parêntesis em }
-    @c.anchor = west
-
-c1 => Node
-    @c1.x = 0.5
-    @c1.y = 1.5
-    @c1.text = \bbtext{expressões que envolvem o predicado \code{prolog}{;/2}}
-    @c1.anchor = west
+## End
 
 ## Scene
 
@@ -865,4 +522,26 @@ d => Node
     @d.anchor = west
 
 https://math.libretexts.org/Courses/SUNY_Schenectady_County_Community_College/Discrete_Structures/02%3A_Logical_Reasoning/2.03%3A_Open_Sentences_and_Sets, acesso em 10/03/2026
+
+https://en.wikipedia.org/wiki/Prolog_syntax_and_semantics, acesso em 10/03/2026
+
+https://www.bcb.gov.br/estabilidadefinanceira/historicocotacoes, 10/03/2026
+
 ## End
+
+?- unb(fernando).
+false.
+
+?- unb(diana).
+true.
+
+?- ifb(X).
+X = fernando.
+
+?- unb(X).
+X = ana ;
+X = beto ;
+X = carlos ;
+X = diana ;
+X = esther.
+

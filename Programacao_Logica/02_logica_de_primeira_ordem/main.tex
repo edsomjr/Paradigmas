@@ -9,7 +9,23 @@
 \node[draw,opacity=0] at (0, 0) {x};
 \node[draw,opacity=0] at (14, 8) {x};
 
-	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Sentenças abertas} };
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Variáveis e constantes} };
+
+	\draw[fill=blue!10!white,rounded corners] (0.75, 5.5) rectangle  (13.5, 2.0);
+
+	\draw[color=BBBlue,draw,very thick,rounded corners] (0.75, 5.5) rectangle  (13.5, 2.0);
+
+	\draw[fill=BBBlue,color=BBBlue,draw,very thick,rounded corners] (0.75, 5.5) rectangle  (13.5, 4.5);
+
+
+	\node[anchor=west,color=white] (a) at (1.0, 5.0) { \bbchalk{Definição} };
+
+	\node[anchor=west,color=white] (b1) at (1.0, 4.0) { \bbtext{Uma variável é um símbolo que representa um objeto não especificado de um} };
+
+	\node[anchor=west,color=white] (b2) at (1.0, 3.25) { \bbtext{determinado conjunto $U$, o qual é chamado conjunto universal para a variável.} };
+
+	\node[anchor=west,color=white] (b3) at (1.0, 2.5) { \bbtext{Um membro específico do conjunto universal é denominado constante.} };
+
 
 \end{tikzpicture}
 \end{frame}
@@ -18,12 +34,126 @@
 \node[draw,opacity=0] at (0, 0) {x};
 \node[draw,opacity=0] at (14, 8) {x};
 
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Termos em Prolog} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Termos em Prolog} };
+
+
+	\node[anchor=west,color=white] (a) at (1.0, 6.0) { $\star$ \bbtext{Prolog tem um único tipo de dado, denominado \bbbold{termo}} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Termos em Prolog} };
+
+
+	\node[anchor=west,color=white] (a) at (1.0, 6.0) { $\star$ \bbtext{Prolog tem um único tipo de dado, denominado \bbbold{termo}} };
+
+
+	\node[anchor=west,color=white] (b) at (1.0, 5.0) { $\star$ \bbtext{Os argumentos dos predicados Prolog podem ser termos} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Termos em Prolog} };
+
+
+	\node[anchor=west,color=white] (a) at (1.0, 6.0) { $\star$ \bbtext{Prolog tem um único tipo de dado, denominado \bbbold{termo}} };
+
+
+	\node[anchor=west,color=white] (b) at (1.0, 5.0) { $\star$ \bbtext{Os argumentos dos predicados Prolog podem ser termos} };
+
+
+	\node[anchor=west,color=white] (c) at (1.0, 4.0) { $\star$ \bbtext{Um \bbbold{átomo} é um nome de propósito geral, composto por uma sequência de} };
+
+	\node[anchor=west,color=white] (c1) at (0.5, 3.5) { \bbtext{caracteres, iniciada com letra minúscula} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Termos em Prolog} };
+
+
+	\node[anchor=west,color=white] (a) at (1.0, 6.0) { $\star$ \bbtext{Prolog tem um único tipo de dado, denominado \bbbold{termo}} };
+
+
+	\node[anchor=west,color=white] (b) at (1.0, 5.0) { $\star$ \bbtext{Os argumentos dos predicados Prolog podem ser termos} };
+
+
+	\node[anchor=west,color=white] (c) at (1.0, 4.0) { $\star$ \bbtext{Um \bbbold{átomo} é um nome de propósito geral, composto por uma sequência de} };
+
+	\node[anchor=west,color=white] (c1) at (0.5, 3.5) { \bbtext{caracteres, iniciada com letra minúscula} };
+
+	\node[anchor=west,color=white] (d) at (1.0, 2.5) { $\star$ \bbtext{Delimitar um átomo por aspas simples permite o uso de iniciais maiúsculas e} };
+
+	\node[anchor=west,color=white] (d1) at (0.5, 2.0) { \bbtext{espaços em branco} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Termos em Prolog} };
+
+
+	\node[anchor=west,color=white] (a) at (1.0, 6.0) { $\star$ \bbtext{Prolog tem um único tipo de dado, denominado \bbbold{termo}} };
+
+
+	\node[anchor=west,color=white] (b) at (1.0, 5.0) { $\star$ \bbtext{Os argumentos dos predicados Prolog podem ser termos} };
+
+
+	\node[anchor=west,color=white] (c) at (1.0, 4.0) { $\star$ \bbtext{Um \bbbold{átomo} é um nome de propósito geral, composto por uma sequência de} };
+
+	\node[anchor=west,color=white] (c1) at (0.5, 3.5) { \bbtext{caracteres, iniciada com letra minúscula} };
+
+	\node[anchor=west,color=white] (d) at (1.0, 2.5) { $\star$ \bbtext{Delimitar um átomo por aspas simples permite o uso de iniciais maiúsculas e} };
+
+	\node[anchor=west,color=white] (d1) at (0.5, 2.0) { \bbtext{espaços em branco} };
+
+	\node[anchor=west,color=white] (e) at (1.0, 1.0) { $\star$ \bbtext{\bbbold{Números} (inteiros ou flutuantes) são termos primitivos de Prolog} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\vspace*{\fill}
+
+\inputsnippet{prolog}{1}{17}{codes/terms.pl}
+
+\vspace*{\fill}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
 	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Sentenças abertas} };
 
+	\draw[fill=blue!10!white,rounded corners] (0.75, 5.5) rectangle  (13.75, 1.25);
 
-	\draw[color=BBBlue,draw,very thick,rounded corners] (0.75, 5.5) rectangle  (13.5, 1.0);
+	\draw[color=BBBlue,draw,very thick,rounded corners] (0.75, 5.5) rectangle  (13.75, 1.25);
 
-	\draw[fill=BBBlue,color=BBBlue,draw,very thick,rounded corners] (0.75, 5.5) rectangle  (13.5, 4.5);
+	\draw[fill=BBBlue,color=BBBlue,draw,very thick,rounded corners] (0.75, 5.5) rectangle  (13.75, 4.5);
 
 	\node[anchor=west,color=white] (a) at (1.0, 5.0) { \bbchalk{Definição} };
 
@@ -31,9 +161,453 @@
 
 	\node[anchor=west,color=white] (b2) at (1.0, 3.25) { \bbtext{uma ou mais vezes e que, caso todas as ocorrências de $x$ sejam substituídas} };
 
-	\node[anchor=west,color=white] (b3) at (1.0, 2.5) { \bbtext{por um mesmo valor $v$, $S(v)$ se torna uma proposição.} };
+	\node[anchor=west,color=white] (b3) at (1.0, 2.5) { \bbtext{por uma constante $v$ do conjunto universal de $x$, $S(v)$ se torna uma proposição.} };
+
+	\node[anchor=west,color=white] (b4) at (1.0, 1.75) { \bbtext{Sentenças abertas também são chamadas predicados ou funções proposicionais.} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Variáveis em Prolog} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Variáveis em Prolog} };
 
 
+	\node[anchor=west,color=white] (a) at (1.0, 6.0) { $\star$ \bbtext{Prolog também tem termos do tipo variável} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Variáveis em Prolog} };
+
+
+	\node[anchor=west,color=white] (a) at (1.0, 6.0) { $\star$ \bbtext{Prolog também tem termos do tipo variável} };
+
+
+	\node[anchor=west,color=white] (b) at (1.0, 5.0) { $\star$ \bbtext{Variáveis devem iniciar em letra maiúscula ou com o caractere \code{prolog}{'_'}} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Variáveis em Prolog} };
+
+
+	\node[anchor=west,color=white] (a) at (1.0, 6.0) { $\star$ \bbtext{Prolog também tem termos do tipo variável} };
+
+
+	\node[anchor=west,color=white] (b) at (1.0, 5.0) { $\star$ \bbtext{Variáveis devem iniciar em letra maiúscula ou com o caractere \code{prolog}{'_'}} };
+
+
+	\node[anchor=west,color=white] (c) at (1.0, 4.0) { $\star$ \bbtext{As variáveis permitem a declaração de sentenças abertas em Prolog, denominadas} };
+
+	\node[anchor=west,color=white] (c1) at (0.5, 3.5) { \bbtext{regras} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Variáveis em Prolog} };
+
+
+	\node[anchor=west,color=white] (a) at (1.0, 6.0) { $\star$ \bbtext{Prolog também tem termos do tipo variável} };
+
+
+	\node[anchor=west,color=white] (b) at (1.0, 5.0) { $\star$ \bbtext{Variáveis devem iniciar em letra maiúscula ou com o caractere \code{prolog}{'_'}} };
+
+
+	\node[anchor=west,color=white] (c) at (1.0, 4.0) { $\star$ \bbtext{As variáveis permitem a declaração de sentenças abertas em Prolog, denominadas} };
+
+	\node[anchor=west,color=white] (c1) at (0.5, 3.5) { \bbtext{regras} };
+
+	\node[anchor=west,color=white] (d) at (1.0, 2.5) { $\star$ \bbtext{A sintaxe para a declaração da regra \code{prolog}{rule/N} é} };
+
+	\node[] (d8) at (7.0, 1.0) { \code{prolog}{rule(X1, X2, ..., XN) :- body.} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Variáveis em Prolog} };
+
+
+	\node[anchor=west,color=white] (a) at (1.0, 6.0) { $\star$ \bbtext{Prolog também tem termos do tipo variável} };
+
+
+	\node[anchor=west,color=white] (b) at (1.0, 5.0) { $\star$ \bbtext{Variáveis devem iniciar em letra maiúscula ou com o caractere \code{prolog}{'_'}} };
+
+
+	\node[anchor=west,color=white] (c) at (1.0, 4.0) { $\star$ \bbtext{As variáveis permitem a declaração de sentenças abertas em Prolog, denominadas} };
+
+	\node[anchor=west,color=white] (c1) at (0.5, 3.5) { \bbtext{regras} };
+
+	\node[anchor=west,color=white] (d) at (1.0, 2.5) { $\star$ \bbtext{A sintaxe para a declaração da regra \code{prolog}{rule/N} é} };
+
+	\node[] (d8) at (7.0, 1.0) { \code{prolog}{rule(X1, X2, ..., XN) :- body.} };
+
+
+	\node[anchor=east] (d1) at (3.5, 1.75) { \bbcomment{nome} };
+
+	\draw[color=BBViolet,thick] (4.0, 1.25) to  (4.8, 1.25);
+
+	\draw[color=BBViolet,-latex,thick] (4.4, 1.25) -- (4.4, 1.75) -- (3.5, 1.75);
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Variáveis em Prolog} };
+
+
+	\node[anchor=west,color=white] (a) at (1.0, 6.0) { $\star$ \bbtext{Prolog também tem termos do tipo variável} };
+
+
+	\node[anchor=west,color=white] (b) at (1.0, 5.0) { $\star$ \bbtext{Variáveis devem iniciar em letra maiúscula ou com o caractere \code{prolog}{'_'}} };
+
+
+	\node[anchor=west,color=white] (c) at (1.0, 4.0) { $\star$ \bbtext{As variáveis permitem a declaração de sentenças abertas em Prolog, denominadas} };
+
+	\node[anchor=west,color=white] (c1) at (0.5, 3.5) { \bbtext{regras} };
+
+	\node[anchor=west,color=white] (d) at (1.0, 2.5) { $\star$ \bbtext{A sintaxe para a declaração da regra \code{prolog}{rule/N} é} };
+
+	\node[] (d8) at (7.0, 1.0) { \code{prolog}{rule(X1, X2, ..., XN) :- body.} };
+
+
+	\node[anchor=east] (d1) at (3.5, 1.75) { \bbcomment{nome} };
+
+	\draw[color=BBViolet,thick] (4.0, 1.25) to  (4.8, 1.25);
+
+	\draw[color=BBViolet,-latex,thick] (4.4, 1.25) -- (4.4, 1.75) -- (3.5, 1.75);
+
+
+	\node[] (d2) at (6.5, -0.1) { \bbcomment{argumentos} };
+
+	\draw[color=BBViolet,thick] (5, 0.8) -- (5, 0.6) -- (8, 0.6) -- (8, 0.8);
+
+	\draw[color=BBViolet,thick,-latex] (6.5, 0.6) to  (6.5, 0.1);
+
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Variáveis em Prolog} };
+
+
+	\node[anchor=west,color=white] (a) at (1.0, 6.0) { $\star$ \bbtext{Prolog também tem termos do tipo variável} };
+
+
+	\node[anchor=west,color=white] (b) at (1.0, 5.0) { $\star$ \bbtext{Variáveis devem iniciar em letra maiúscula ou com o caractere \code{prolog}{'_'}} };
+
+
+	\node[anchor=west,color=white] (c) at (1.0, 4.0) { $\star$ \bbtext{As variáveis permitem a declaração de sentenças abertas em Prolog, denominadas} };
+
+	\node[anchor=west,color=white] (c1) at (0.5, 3.5) { \bbtext{regras} };
+
+	\node[anchor=west,color=white] (d) at (1.0, 2.5) { $\star$ \bbtext{A sintaxe para a declaração da regra \code{prolog}{rule/N} é} };
+
+	\node[] (d8) at (7.0, 1.0) { \code{prolog}{rule(X1, X2, ..., XN) :- body.} };
+
+
+	\node[anchor=east] (d1) at (3.5, 1.75) { \bbcomment{nome} };
+
+	\draw[color=BBViolet,thick] (4.0, 1.25) to  (4.8, 1.25);
+
+	\draw[color=BBViolet,-latex,thick] (4.4, 1.25) -- (4.4, 1.75) -- (3.5, 1.75);
+
+
+	\node[] (d2) at (6.5, -0.1) { \bbcomment{argumentos} };
+
+	\draw[color=BBViolet,thick] (5, 0.8) -- (5, 0.6) -- (8, 0.6) -- (8, 0.8);
+
+	\draw[color=BBViolet,thick,-latex] (6.5, 0.6) to  (6.5, 0.1);
+
+
+
+	\node[anchor=west] (d3) at (8.7, 1.75) { \bbcomment{aridade} };
+
+	\draw[color=BBViolet,thick,-latex] (7.9, 1.2) -- (7.9, 1.75) -- (8.7, 1.75);
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Variáveis em Prolog} };
+
+
+	\node[anchor=west,color=white] (a) at (1.0, 6.0) { $\star$ \bbtext{Prolog também tem termos do tipo variável} };
+
+
+	\node[anchor=west,color=white] (b) at (1.0, 5.0) { $\star$ \bbtext{Variáveis devem iniciar em letra maiúscula ou com o caractere \code{prolog}{'_'}} };
+
+
+	\node[anchor=west,color=white] (c) at (1.0, 4.0) { $\star$ \bbtext{As variáveis permitem a declaração de sentenças abertas em Prolog, denominadas} };
+
+	\node[anchor=west,color=white] (c1) at (0.5, 3.5) { \bbtext{regras} };
+
+	\node[anchor=west,color=white] (d) at (1.0, 2.5) { $\star$ \bbtext{A sintaxe para a declaração da regra \code{prolog}{rule/N} é} };
+
+	\node[] (d8) at (7.0, 1.0) { \code{prolog}{rule(X1, X2, ..., XN) :- body.} };
+
+
+	\node[anchor=east] (d1) at (3.5, 1.75) { \bbcomment{nome} };
+
+	\draw[color=BBViolet,thick] (4.0, 1.25) to  (4.8, 1.25);
+
+	\draw[color=BBViolet,-latex,thick] (4.4, 1.25) -- (4.4, 1.75) -- (3.5, 1.75);
+
+
+	\node[] (d2) at (6.5, -0.1) { \bbcomment{argumentos} };
+
+	\draw[color=BBViolet,thick] (5, 0.8) -- (5, 0.6) -- (8, 0.6) -- (8, 0.8);
+
+	\draw[color=BBViolet,thick,-latex] (6.5, 0.6) to  (6.5, 0.1);
+
+
+
+	\node[anchor=west] (d3) at (8.7, 1.75) { \bbcomment{aridade} };
+
+	\draw[color=BBViolet,thick,-latex] (7.9, 1.2) -- (7.9, 1.75) -- (8.7, 1.75);
+
+
+	\node[anchor=west] (d4) at (10.5, 0.2) { \bbcomment{corpo} };
+
+	\draw[color=BBViolet,thick,-latex] (9.4, 0.8) -- (9.4, 0.2) -- (10.5, 0.2);
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Variáveis em Prolog} };
+
+
+	\node[anchor=west,color=white] (a) at (1.0, 6.0) { $\star$ \bbtext{Prolog também tem termos do tipo variável} };
+
+
+	\node[anchor=west,color=white] (b) at (1.0, 5.0) { $\star$ \bbtext{Variáveis devem iniciar em letra maiúscula ou com o caractere \code{prolog}{'_'}} };
+
+
+	\node[anchor=west,color=white] (c) at (1.0, 4.0) { $\star$ \bbtext{As variáveis permitem a declaração de sentenças abertas em Prolog, denominadas} };
+
+	\node[anchor=west,color=white] (c1) at (0.5, 3.5) { \bbtext{regras} };
+
+	\node[anchor=west,color=white] (d) at (1.0, 2.5) { $\star$ \bbtext{A sintaxe para a declaração da regra \code{prolog}{rule/N} é} };
+
+	\node[] (d8) at (7.0, 1.0) { \code{prolog}{rule(X1, X2, ..., XN) :- body.} };
+
+
+	\node[anchor=east] (d1) at (3.5, 1.75) { \bbcomment{nome} };
+
+	\draw[color=BBViolet,thick] (4.0, 1.25) to  (4.8, 1.25);
+
+	\draw[color=BBViolet,-latex,thick] (4.4, 1.25) -- (4.4, 1.75) -- (3.5, 1.75);
+
+
+	\node[] (d2) at (6.5, -0.1) { \bbcomment{argumentos} };
+
+	\draw[color=BBViolet,thick] (5, 0.8) -- (5, 0.6) -- (8, 0.6) -- (8, 0.8);
+
+	\draw[color=BBViolet,thick,-latex] (6.5, 0.6) to  (6.5, 0.1);
+
+
+
+	\node[anchor=west] (d3) at (8.7, 1.75) { \bbcomment{aridade} };
+
+	\draw[color=BBViolet,thick,-latex] (7.9, 1.2) -- (7.9, 1.75) -- (8.7, 1.75);
+
+
+	\node[anchor=west] (d4) at (10.5, 0.2) { \bbcomment{corpo} };
+
+	\draw[color=BBViolet,thick,-latex] (9.4, 0.8) -- (9.4, 0.2) -- (10.5, 0.2);
+
+
+	\node[anchor=west] (d5) at (11.5, 0.92) { \bbcomment{terminador} };
+
+	\draw[color=BBViolet,thick,-latex] (10, 0.92) -- (11.5, 0.92);
+
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Declarando regras em Prolog} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Declarando regras em Prolog} };
+
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{Assim como os fatos, as regras devem ser declaradas em um arquivo `\bblink{.pl}}' };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Declarando regras em Prolog} };
+
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{Assim como os fatos, as regras devem ser declaradas em um arquivo `\bblink{.pl}}' };
+
+
+	\node[anchor=west] (b) at (1.0, 5.0) { $\star$ \bbtext{O corpo de uma regra deve ou ser uma proposição composta ou ser omitido} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Declarando regras em Prolog} };
+
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{Assim como os fatos, as regras devem ser declaradas em um arquivo `\bblink{.pl}}' };
+
+
+	\node[anchor=west] (b) at (1.0, 5.0) { $\star$ \bbtext{O corpo de uma regra deve ou ser uma proposição composta ou ser omitido} };
+
+
+	\node[anchor=west] (c) at (1.0, 4.0) { $\star$ \bbtext{Regras sem corpo correspondem a fatos. Por exemplo, o fato e a regra abaixo são } };
+
+	\node[anchor=west] (c1) at (0.5, 3.5) { \bbtext{equivalentes:} };
+
+	\node[anchor=west] (c2) at (2.0, 2.5) { \inputsyntax{prolog}{codes/equiv.pl} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Declarando regras em Prolog} };
+
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{Assim como os fatos, as regras devem ser declaradas em um arquivo `\bblink{.pl}}' };
+
+
+	\node[anchor=west] (b) at (1.0, 5.0) { $\star$ \bbtext{O corpo de uma regra deve ou ser uma proposição composta ou ser omitido} };
+
+
+	\node[anchor=west] (c) at (1.0, 4.0) { $\star$ \bbtext{Regras sem corpo correspondem a fatos. Por exemplo, o fato e a regra abaixo são } };
+
+	\node[anchor=west] (c1) at (0.5, 3.5) { \bbtext{equivalentes:} };
+
+	\node[anchor=west] (c2) at (2.0, 2.5) { \inputsyntax{prolog}{codes/equiv.pl} };
+
+
+	\node[anchor=west] (d) at (1.0, 1.5) { $\star$ \bbtext{Também como nos fatos, podemos ter múltiplas regras para o mesmo predicado: o } };
+
+	\node[anchor=west] (d1) at (0.5, 1.0) { \bbtext{predicado será determinado pelo disjunção de todas as regras e fatos declarados} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Declarando regras em Prolog} };
+
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{Assim como os fatos, as regras devem ser declaradas em um arquivo `\bblink{.pl}}' };
+
+
+	\node[anchor=west] (b) at (1.0, 5.0) { $\star$ \bbtext{O corpo de uma regra deve ou ser uma proposição composta ou ser omitido} };
+
+
+	\node[anchor=west] (c) at (1.0, 4.0) { $\star$ \bbtext{Regras sem corpo correspondem a fatos. Por exemplo, o fato e a regra abaixo são } };
+
+	\node[anchor=west] (c1) at (0.5, 3.5) { \bbtext{equivalentes:} };
+
+	\node[anchor=west] (c2) at (2.0, 2.5) { \inputsyntax{prolog}{codes/equiv.pl} };
+
+
+	\node[anchor=west] (d) at (1.0, 1.5) { $\star$ \bbtext{Também como nos fatos, podemos ter múltiplas regras para o mesmo predicado: o } };
+
+	\node[anchor=west] (d1) at (0.5, 1.0) { \bbtext{predicado será determinado pelo disjunção de todas as regras e fatos declarados} };
+
+
+	\node[anchor=west] (e) at (1.0, 0.0) { $\star$ \bbtext{Em Prolog, fatos e regras são denominados cláusulas} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\vspace*{\fill}
+
+\inputsnippet{prolog}{1}{18}{codes/rules.pl}
+
+\vspace*{\fill}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 6.5) { \Large \bbbold{Quantificador existencial} };
+
+	\draw[fill=blue!10!white,rounded corners] (0.75, 5.5) rectangle  (13.5, 2.0);
+
+	\draw[color=BBBlue,draw,very thick,rounded corners] (0.75, 5.5) rectangle  (13.5, 2.0);
+
+	\draw[fill=BBBlue,color=BBBlue,draw,very thick,rounded corners] (0.75, 5.5) rectangle  (13.5, 4.5);
+
+
+	\node[anchor=west,color=white] (a) at (1.0, 5.0) { \bbchalk{Definição} };
+
+	\node[anchor=west,color=white] (b1) at (1.0, 4.0) { \bbtext{Sejam $S(x)$ uma sentença aberta. O quantificador existencial $\exists$ é utilizado na} };
+
+	\node[anchor=west,color=white] (b2) at (1.0, 3.25) { \bbtext{construção $\exists x.S(x)$, a qual significa que existe pelo menos um elemento no} };
+
+	\node[anchor=west,color=white] (b3) at (1.0, 2.5) { \bbtext{conjunto universal de $x$ tal que $S(x)$ é verdadeira.} };
 
 \end{tikzpicture}
 \end{frame}
