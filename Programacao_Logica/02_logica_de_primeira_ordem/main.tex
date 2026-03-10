@@ -11,20 +11,20 @@
 
 	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Variáveis e constantes} };
 
-	\draw[fill=blue!10!white,rounded corners] (0.75, 5.5) rectangle  (13.5, 2.0);
+	\draw[fill=blue!10!white,rounded corners] (0.75, 5.5) rectangle  (13.75, 2.0);
 
-	\draw[color=BBBlue,draw,very thick,rounded corners] (0.75, 5.5) rectangle  (13.5, 2.0);
+	\draw[color=BBBlue,draw,very thick,rounded corners] (0.75, 5.5) rectangle  (13.75, 2.0);
 
-	\draw[fill=BBBlue,color=BBBlue,draw,very thick,rounded corners] (0.75, 5.5) rectangle  (13.5, 4.5);
+	\draw[fill=BBBlue,color=BBBlue,draw,very thick,rounded corners] (0.75, 5.5) rectangle  (13.75, 4.5);
 
 
 	\node[anchor=west,color=white] (a) at (1.0, 5.0) { \bbchalk{Definição} };
 
-	\node[anchor=west,color=white] (b1) at (1.0, 4.0) { \bbtext{Uma variável é um símbolo que representa um objeto não especificado de um} };
+	\node[anchor=west,color=white] (b1) at (1.0, 4.0) { \bbtext{Uma \bbbold{variável} é um símbolo que representa um objeto não especificado de um} };
 
-	\node[anchor=west,color=white] (b2) at (1.0, 3.25) { \bbtext{determinado conjunto $U$, o qual é chamado conjunto universal para a variável.} };
+	\node[anchor=west,color=white] (b2) at (1.0, 3.25) { \bbtext{determinado conjunto $U$, o qual é chamado \bbbold{conjunto universal} para a variável.} };
 
-	\node[anchor=west,color=white] (b3) at (1.0, 2.5) { \bbtext{Um membro específico do conjunto universal é denominado constante.} };
+	\node[anchor=west,color=white] (b3) at (1.0, 2.5) { \bbtext{Um membro específico do conjunto universal é denominado \bbbold{constante}.} };
 
 
 \end{tikzpicture}
@@ -149,30 +149,21 @@
 
 	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Sentenças abertas} };
 
-	\draw[fill=blue!10!white,rounded corners] (0.75, 5.5) rectangle  (13.75, 1.25);
+	\draw[fill=blue!10!white,rounded corners] (0.25, 5.5) rectangle  (13.75, 1.25);
 
-	\draw[color=BBBlue,draw,very thick,rounded corners] (0.75, 5.5) rectangle  (13.75, 1.25);
+	\draw[color=BBBlue,draw,very thick,rounded corners] (0.25, 5.5) rectangle  (13.75, 1.25);
 
-	\draw[fill=BBBlue,color=BBBlue,draw,very thick,rounded corners] (0.75, 5.5) rectangle  (13.75, 4.5);
+	\draw[fill=BBBlue,color=BBBlue,draw,very thick,rounded corners] (0.25, 5.5) rectangle  (13.75, 4.5);
 
 	\node[anchor=west,color=white] (a) at (1.0, 5.0) { \bbchalk{Definição} };
 
-	\node[anchor=west,color=white] (b1) at (1.0, 4.0) { \bbtext{Uma sentença aberta $S(x)$ em $x$ é uma expressão na qual o símbolo $x$ ocorre} };
+	\node[anchor=west,color=white] (b1) at (0.5, 4.0) { \bbtext{Uma \bbbold{sentença aberta} $S(x)$ em $x$ é uma expressão na qual o símbolo $x$ ocorre} };
 
-	\node[anchor=west,color=white] (b2) at (1.0, 3.25) { \bbtext{uma ou mais vezes e que, caso todas as ocorrências de $x$ sejam substituídas} };
+	\node[anchor=west,color=white] (b2) at (0.5, 3.25) { \bbtext{uma ou mais vezes e que, caso todas as ocorrências de $x$ sejam substituídas} };
 
-	\node[anchor=west,color=white] (b3) at (1.0, 2.5) { \bbtext{por uma constante $v$ do conjunto universal de $x$, $S(v)$ se torna uma proposição.} };
+	\node[anchor=west,color=white] (b3) at (0.5, 2.5) { \bbtext{por uma constante $v$ do conjunto universal de $x$, $S(v)$ se torna uma proposição.} };
 
-	\node[anchor=west,color=white] (b4) at (1.0, 1.75) { \bbtext{Sentenças abertas também são chamadas predicados ou funções proposicionais.} };
-
-\end{tikzpicture}
-\end{frame}
-\begin{frame}[plain,t]
-\begin{tikzpicture}
-\node[draw,opacity=0] at (0, 0) {x};
-\node[draw,opacity=0] at (14, 8) {x};
-
-	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Variáveis em Prolog} };
+	\node[anchor=west,color=white] (b4) at (0.5, 1.75) { \bbtext{Sentenças abertas também são chamadas \bbbold{predicados} ou \bbbold{funções proposicionais}.} };
 
 \end{tikzpicture}
 \end{frame}
@@ -182,9 +173,6 @@
 \node[draw,opacity=0] at (14, 8) {x};
 
 	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Variáveis em Prolog} };
-
-
-	\node[anchor=west,color=white] (a) at (1.0, 6.0) { $\star$ \bbtext{Prolog também tem termos do tipo variável} };
 
 \end{tikzpicture}
 \end{frame}
@@ -196,7 +184,19 @@
 	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Variáveis em Prolog} };
 
 
-	\node[anchor=west,color=white] (a) at (1.0, 6.0) { $\star$ \bbtext{Prolog também tem termos do tipo variável} };
+	\node[anchor=west,color=white] (a) at (1.0, 6.0) { $\star$ \bbtext{Em Prolog, as \bbbold{variáveis} são um subtipo de termo} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Variáveis em Prolog} };
+
+
+	\node[anchor=west,color=white] (a) at (1.0, 6.0) { $\star$ \bbtext{Em Prolog, as \bbbold{variáveis} são um subtipo de termo} };
 
 
 	\node[anchor=west,color=white] (b) at (1.0, 5.0) { $\star$ \bbtext{Variáveis devem iniciar em letra maiúscula ou com o caractere \code{prolog}{'_'}} };
@@ -211,27 +211,7 @@
 	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Variáveis em Prolog} };
 
 
-	\node[anchor=west,color=white] (a) at (1.0, 6.0) { $\star$ \bbtext{Prolog também tem termos do tipo variável} };
-
-
-	\node[anchor=west,color=white] (b) at (1.0, 5.0) { $\star$ \bbtext{Variáveis devem iniciar em letra maiúscula ou com o caractere \code{prolog}{'_'}} };
-
-
-	\node[anchor=west,color=white] (c) at (1.0, 4.0) { $\star$ \bbtext{As variáveis permitem a declaração de sentenças abertas em Prolog, denominadas} };
-
-	\node[anchor=west,color=white] (c1) at (0.5, 3.5) { \bbtext{regras} };
-
-\end{tikzpicture}
-\end{frame}
-\begin{frame}[plain,t]
-\begin{tikzpicture}
-\node[draw,opacity=0] at (0, 0) {x};
-\node[draw,opacity=0] at (14, 8) {x};
-
-	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Variáveis em Prolog} };
-
-
-	\node[anchor=west,color=white] (a) at (1.0, 6.0) { $\star$ \bbtext{Prolog também tem termos do tipo variável} };
+	\node[anchor=west,color=white] (a) at (1.0, 6.0) { $\star$ \bbtext{Em Prolog, as \bbbold{variáveis} são um subtipo de termo} };
 
 
 	\node[anchor=west,color=white] (b) at (1.0, 5.0) { $\star$ \bbtext{Variáveis devem iniciar em letra maiúscula ou com o caractere \code{prolog}{'_'}} };
@@ -239,7 +219,27 @@
 
 	\node[anchor=west,color=white] (c) at (1.0, 4.0) { $\star$ \bbtext{As variáveis permitem a declaração de sentenças abertas em Prolog, denominadas} };
 
-	\node[anchor=west,color=white] (c1) at (0.5, 3.5) { \bbtext{regras} };
+	\node[anchor=west,color=white] (c1) at (0.5, 3.5) { \bbbold{regras} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Variáveis em Prolog} };
+
+
+	\node[anchor=west,color=white] (a) at (1.0, 6.0) { $\star$ \bbtext{Em Prolog, as \bbbold{variáveis} são um subtipo de termo} };
+
+
+	\node[anchor=west,color=white] (b) at (1.0, 5.0) { $\star$ \bbtext{Variáveis devem iniciar em letra maiúscula ou com o caractere \code{prolog}{'_'}} };
+
+
+	\node[anchor=west,color=white] (c) at (1.0, 4.0) { $\star$ \bbtext{As variáveis permitem a declaração de sentenças abertas em Prolog, denominadas} };
+
+	\node[anchor=west,color=white] (c1) at (0.5, 3.5) { \bbbold{regras} };
 
 	\node[anchor=west,color=white] (d) at (1.0, 2.5) { $\star$ \bbtext{A sintaxe para a declaração da regra \code{prolog}{rule/N} é} };
 
@@ -255,7 +255,7 @@
 	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Variáveis em Prolog} };
 
 
-	\node[anchor=west,color=white] (a) at (1.0, 6.0) { $\star$ \bbtext{Prolog também tem termos do tipo variável} };
+	\node[anchor=west,color=white] (a) at (1.0, 6.0) { $\star$ \bbtext{Em Prolog, as \bbbold{variáveis} são um subtipo de termo} };
 
 
 	\node[anchor=west,color=white] (b) at (1.0, 5.0) { $\star$ \bbtext{Variáveis devem iniciar em letra maiúscula ou com o caractere \code{prolog}{'_'}} };
@@ -263,7 +263,7 @@
 
 	\node[anchor=west,color=white] (c) at (1.0, 4.0) { $\star$ \bbtext{As variáveis permitem a declaração de sentenças abertas em Prolog, denominadas} };
 
-	\node[anchor=west,color=white] (c1) at (0.5, 3.5) { \bbtext{regras} };
+	\node[anchor=west,color=white] (c1) at (0.5, 3.5) { \bbbold{regras} };
 
 	\node[anchor=west,color=white] (d) at (1.0, 2.5) { $\star$ \bbtext{A sintaxe para a declaração da regra \code{prolog}{rule/N} é} };
 
@@ -286,7 +286,7 @@
 	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Variáveis em Prolog} };
 
 
-	\node[anchor=west,color=white] (a) at (1.0, 6.0) { $\star$ \bbtext{Prolog também tem termos do tipo variável} };
+	\node[anchor=west,color=white] (a) at (1.0, 6.0) { $\star$ \bbtext{Em Prolog, as \bbbold{variáveis} são um subtipo de termo} };
 
 
 	\node[anchor=west,color=white] (b) at (1.0, 5.0) { $\star$ \bbtext{Variáveis devem iniciar em letra maiúscula ou com o caractere \code{prolog}{'_'}} };
@@ -294,7 +294,7 @@
 
 	\node[anchor=west,color=white] (c) at (1.0, 4.0) { $\star$ \bbtext{As variáveis permitem a declaração de sentenças abertas em Prolog, denominadas} };
 
-	\node[anchor=west,color=white] (c1) at (0.5, 3.5) { \bbtext{regras} };
+	\node[anchor=west,color=white] (c1) at (0.5, 3.5) { \bbbold{regras} };
 
 	\node[anchor=west,color=white] (d) at (1.0, 2.5) { $\star$ \bbtext{A sintaxe para a declaração da regra \code{prolog}{rule/N} é} };
 
@@ -325,7 +325,7 @@
 	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Variáveis em Prolog} };
 
 
-	\node[anchor=west,color=white] (a) at (1.0, 6.0) { $\star$ \bbtext{Prolog também tem termos do tipo variável} };
+	\node[anchor=west,color=white] (a) at (1.0, 6.0) { $\star$ \bbtext{Em Prolog, as \bbbold{variáveis} são um subtipo de termo} };
 
 
 	\node[anchor=west,color=white] (b) at (1.0, 5.0) { $\star$ \bbtext{Variáveis devem iniciar em letra maiúscula ou com o caractere \code{prolog}{'_'}} };
@@ -333,7 +333,7 @@
 
 	\node[anchor=west,color=white] (c) at (1.0, 4.0) { $\star$ \bbtext{As variáveis permitem a declaração de sentenças abertas em Prolog, denominadas} };
 
-	\node[anchor=west,color=white] (c1) at (0.5, 3.5) { \bbtext{regras} };
+	\node[anchor=west,color=white] (c1) at (0.5, 3.5) { \bbbold{regras} };
 
 	\node[anchor=west,color=white] (d) at (1.0, 2.5) { $\star$ \bbtext{A sintaxe para a declaração da regra \code{prolog}{rule/N} é} };
 
@@ -369,7 +369,7 @@
 	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Variáveis em Prolog} };
 
 
-	\node[anchor=west,color=white] (a) at (1.0, 6.0) { $\star$ \bbtext{Prolog também tem termos do tipo variável} };
+	\node[anchor=west,color=white] (a) at (1.0, 6.0) { $\star$ \bbtext{Em Prolog, as \bbbold{variáveis} são um subtipo de termo} };
 
 
 	\node[anchor=west,color=white] (b) at (1.0, 5.0) { $\star$ \bbtext{Variáveis devem iniciar em letra maiúscula ou com o caractere \code{prolog}{'_'}} };
@@ -377,7 +377,7 @@
 
 	\node[anchor=west,color=white] (c) at (1.0, 4.0) { $\star$ \bbtext{As variáveis permitem a declaração de sentenças abertas em Prolog, denominadas} };
 
-	\node[anchor=west,color=white] (c1) at (0.5, 3.5) { \bbtext{regras} };
+	\node[anchor=west,color=white] (c1) at (0.5, 3.5) { \bbbold{regras} };
 
 	\node[anchor=west,color=white] (d) at (1.0, 2.5) { $\star$ \bbtext{A sintaxe para a declaração da regra \code{prolog}{rule/N} é} };
 
@@ -418,7 +418,7 @@
 	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Variáveis em Prolog} };
 
 
-	\node[anchor=west,color=white] (a) at (1.0, 6.0) { $\star$ \bbtext{Prolog também tem termos do tipo variável} };
+	\node[anchor=west,color=white] (a) at (1.0, 6.0) { $\star$ \bbtext{Em Prolog, as \bbbold{variáveis} são um subtipo de termo} };
 
 
 	\node[anchor=west,color=white] (b) at (1.0, 5.0) { $\star$ \bbtext{Variáveis devem iniciar em letra maiúscula ou com o caractere \code{prolog}{'_'}} };
@@ -426,7 +426,7 @@
 
 	\node[anchor=west,color=white] (c) at (1.0, 4.0) { $\star$ \bbtext{As variáveis permitem a declaração de sentenças abertas em Prolog, denominadas} };
 
-	\node[anchor=west,color=white] (c1) at (0.5, 3.5) { \bbtext{regras} };
+	\node[anchor=west,color=white] (c1) at (0.5, 3.5) { \bbbold{regras} };
 
 	\node[anchor=west,color=white] (d) at (1.0, 2.5) { $\star$ \bbtext{A sintaxe para a declaração da regra \code{prolog}{rule/N} é} };
 
@@ -576,7 +576,7 @@
 	\node[anchor=west] (d1) at (0.5, 1.0) { \bbtext{predicado será determinado pelo disjunção de todas as regras e fatos declarados} };
 
 
-	\node[anchor=west] (e) at (1.0, 0.0) { $\star$ \bbtext{Em Prolog, fatos e regras são denominados cláusulas} };
+	\node[anchor=west] (e) at (1.0, 0.0) { $\star$ \bbtext{Em Prolog, fatos e regras são denominados \bbbold{cláusulas}} };
 
 \end{tikzpicture}
 \end{frame}
@@ -603,20 +603,11 @@
 
 	\node[anchor=west,color=white] (a) at (1.0, 5.0) { \bbchalk{Definição} };
 
-	\node[anchor=west,color=white] (b1) at (1.0, 4.0) { \bbtext{Sejam $S(x)$ uma sentença aberta. O quantificador existencial $\exists$ é utilizado na} };
+	\node[anchor=west,color=white] (b1) at (1.0, 4.0) { \bbtext{Sejam $S(x)$ uma sentença aberta. O quantificador \bbbold{existencial} $\exists$ é utilizado} };
 
-	\node[anchor=west,color=white] (b2) at (1.0, 3.25) { \bbtext{construção $\exists x.S(x)$, a qual significa que existe pelo menos um elemento no} };
+	\node[anchor=west,color=white] (b2) at (1.0, 3.25) { \bbtext{na construção $\exists x.S(x)$, a qual significa que existe pelo menos um elemento } };
 
-	\node[anchor=west,color=white] (b3) at (1.0, 2.5) { \bbtext{conjunto universal de $x$ tal que $S(x)$ é verdadeira.} };
-
-\end{tikzpicture}
-\end{frame}
-\begin{frame}[plain,t]
-\begin{tikzpicture}
-\node[draw,opacity=0] at (0, 0) {x};
-\node[draw,opacity=0] at (14, 8) {x};
-
-	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Consultas simples} };
+	\node[anchor=west,color=white] (b3) at (1.0, 2.5) { \bbtext{$v$ no conjunto universal de $x$ tal que $S(v)$ é verdadeira.} };
 
 \end{tikzpicture}
 \end{frame}
@@ -626,8 +617,6 @@
 \node[draw,opacity=0] at (14, 8) {x};
 
 	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Consultas simples} };
-
-	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{Em Prolog, quantificador existencial está associado às consultas} };
 
 \end{tikzpicture}
 \end{frame}
@@ -640,7 +629,18 @@
 
 	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{Em Prolog, quantificador existencial está associado às consultas} };
 
-	\node[anchor=west] (b) at (1.0, 5.0) { $\star$ \bbtext{Uma consulta simples corresponde a uma sentença aberta simples, isto é, um } };
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Consultas simples} };
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{Em Prolog, quantificador existencial está associado às consultas} };
+
+	\node[anchor=west] (b) at (1.0, 5.0) { $\star$ \bbtext{Uma \bbbold{consulta simples} corresponde a uma sentença aberta simples, isto é, um } };
 
 	\node[anchor=west] (b1) at (0.5, 4.5) { \bbtext{predicado e seus respectivos argumentos} };
 
@@ -655,7 +655,7 @@
 
 	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{Em Prolog, quantificador existencial está associado às consultas} };
 
-	\node[anchor=west] (b) at (1.0, 5.0) { $\star$ \bbtext{Uma consulta simples corresponde a uma sentença aberta simples, isto é, um } };
+	\node[anchor=west] (b) at (1.0, 5.0) { $\star$ \bbtext{Uma \bbbold{consulta simples} corresponde a uma sentença aberta simples, isto é, um } };
 
 	\node[anchor=west] (b1) at (0.5, 4.5) { \bbtext{predicado e seus respectivos argumentos} };
 
@@ -676,7 +676,7 @@
 
 	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{Em Prolog, quantificador existencial está associado às consultas} };
 
-	\node[anchor=west] (b) at (1.0, 5.0) { $\star$ \bbtext{Uma consulta simples corresponde a uma sentença aberta simples, isto é, um } };
+	\node[anchor=west] (b) at (1.0, 5.0) { $\star$ \bbtext{Uma \bbbold{consulta simples} corresponde a uma sentença aberta simples, isto é, um } };
 
 	\node[anchor=west] (b1) at (0.5, 4.5) { \bbtext{predicado e seus respectivos argumentos} };
 
@@ -718,7 +718,7 @@
 
 	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{As consultas em Prolog são avaliadas por meio de um mecanismo de casamento de} };
 
-	\node[anchor=west] (a1) at (0.5, 5.5) { \bbtext{padrões denominado unificação} };
+	\node[anchor=west] (a1) at (0.5, 5.5) { \bbtext{padrões denominado \bbbold{unificação}} };
 
 \end{tikzpicture}
 \end{frame}
@@ -732,10 +732,10 @@
 
 	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{As consultas em Prolog são avaliadas por meio de um mecanismo de casamento de} };
 
-	\node[anchor=west] (a1) at (0.5, 5.5) { \bbtext{padrões denominado unificação} };
+	\node[anchor=west] (a1) at (0.5, 5.5) { \bbtext{padrões denominado \bbbold{unificação}} };
 
 
-	\node[anchor=west] (b) at (1.0, 4.5) { $\star$ \bbtext{O padrão de uma consulta (predicados e argumentos) é denominado objetivo (\bbenglish{goal})} };
+	\node[anchor=west] (b) at (1.0, 4.5) { $\star$ \bbtext{O padrão de uma consulta (predicados e argumentos) é denominado \bbbold{objetivo} (\bbenglish{goal})} };
 
 \end{tikzpicture}
 \end{frame}
@@ -749,10 +749,10 @@
 
 	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{As consultas em Prolog são avaliadas por meio de um mecanismo de casamento de} };
 
-	\node[anchor=west] (a1) at (0.5, 5.5) { \bbtext{padrões denominado unificação} };
+	\node[anchor=west] (a1) at (0.5, 5.5) { \bbtext{padrões denominado \bbbold{unificação}} };
 
 
-	\node[anchor=west] (b) at (1.0, 4.5) { $\star$ \bbtext{O padrão de uma consulta (predicados e argumentos) é denominado objetivo (\bbenglish{goal})} };
+	\node[anchor=west] (b) at (1.0, 4.5) { $\star$ \bbtext{O padrão de uma consulta (predicados e argumentos) é denominado \bbbold{objetivo} (\bbenglish{goal})} };
 
 
 	\node[anchor=west] (c) at (1.0, 3.5) { $\star$ \bbtext{As variáveis lógicas não se comportam como as variáveis das outras linguagens} };
@@ -769,16 +769,16 @@
 
 	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{As consultas em Prolog são avaliadas por meio de um mecanismo de casamento de} };
 
-	\node[anchor=west] (a1) at (0.5, 5.5) { \bbtext{padrões denominado unificação} };
+	\node[anchor=west] (a1) at (0.5, 5.5) { \bbtext{padrões denominado \bbbold{unificação}} };
 
 
-	\node[anchor=west] (b) at (1.0, 4.5) { $\star$ \bbtext{O padrão de uma consulta (predicados e argumentos) é denominado objetivo (\bbenglish{goal})} };
+	\node[anchor=west] (b) at (1.0, 4.5) { $\star$ \bbtext{O padrão de uma consulta (predicados e argumentos) é denominado \bbbold{objetivo} (\bbenglish{goal})} };
 
 
 	\node[anchor=west] (c) at (1.0, 3.5) { $\star$ \bbtext{As variáveis lógicas não se comportam como as variáveis das outras linguagens} };
 
 
-	\node[anchor=west] (e) at (1.0, 2.5) { $\star$ \bbtext{Durante a unificação, uma variável lógica casa com qualquer termo} };
+	\node[anchor=west] (e) at (1.0, 2.5) { $\star$ \bbtext{Durante a unificação, uma variável lógica \bbbold{casa} com qualquer termo} };
 
 
 \end{tikzpicture}
@@ -793,16 +793,16 @@
 
 	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{As consultas em Prolog são avaliadas por meio de um mecanismo de casamento de} };
 
-	\node[anchor=west] (a1) at (0.5, 5.5) { \bbtext{padrões denominado unificação} };
+	\node[anchor=west] (a1) at (0.5, 5.5) { \bbtext{padrões denominado \bbbold{unificação}} };
 
 
-	\node[anchor=west] (b) at (1.0, 4.5) { $\star$ \bbtext{O padrão de uma consulta (predicados e argumentos) é denominado objetivo (\bbenglish{goal})} };
+	\node[anchor=west] (b) at (1.0, 4.5) { $\star$ \bbtext{O padrão de uma consulta (predicados e argumentos) é denominado \bbbold{objetivo} (\bbenglish{goal})} };
 
 
 	\node[anchor=west] (c) at (1.0, 3.5) { $\star$ \bbtext{As variáveis lógicas não se comportam como as variáveis das outras linguagens} };
 
 
-	\node[anchor=west] (e) at (1.0, 2.5) { $\star$ \bbtext{Durante a unificação, uma variável lógica casa com qualquer termo} };
+	\node[anchor=west] (e) at (1.0, 2.5) { $\star$ \bbtext{Durante a unificação, uma variável lógica \bbbold{casa} com qualquer termo} };
 
 
 
@@ -894,7 +894,7 @@
 	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{Prolog permite a declaração ou retratação de fatos diretamente no interpretador} };
 
 
-	\node[anchor=west] (b) at (1.0, 5.0) { $\star$ \bbtext{Para isto, o predicado deve ser declarado dinâmico, por meio da diretiva \code{prolog}{dynamic}} };
+	\node[anchor=west] (b) at (1.0, 5.0) { $\star$ \bbtext{Para isto, o predicado deve ser declarado \bbbold{dinâmico}, por meio da diretiva \code{prolog}{dynamic}} };
 
 \end{tikzpicture}
 \end{frame}
@@ -909,7 +909,7 @@
 	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{Prolog permite a declaração ou retratação de fatos diretamente no interpretador} };
 
 
-	\node[anchor=west] (b) at (1.0, 5.0) { $\star$ \bbtext{Para isto, o predicado deve ser declarado dinâmico, por meio da diretiva \code{prolog}{dynamic}} };
+	\node[anchor=west] (b) at (1.0, 5.0) { $\star$ \bbtext{Para isto, o predicado deve ser declarado \bbbold{dinâmico}, por meio da diretiva \code{prolog}{dynamic}} };
 
 	\node[anchor=west] (c) at (1.0, 4.0) { $\star$ \bbtext{Deve ser indicado o nome e a aridade do predicado, e essa declaração só pode ser} };
 
@@ -928,7 +928,7 @@
 	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{Prolog permite a declaração ou retratação de fatos diretamente no interpretador} };
 
 
-	\node[anchor=west] (b) at (1.0, 5.0) { $\star$ \bbtext{Para isto, o predicado deve ser declarado dinâmico, por meio da diretiva \code{prolog}{dynamic}} };
+	\node[anchor=west] (b) at (1.0, 5.0) { $\star$ \bbtext{Para isto, o predicado deve ser declarado \bbbold{dinâmico}, por meio da diretiva \code{prolog}{dynamic}} };
 
 	\node[anchor=west] (c) at (1.0, 4.0) { $\star$ \bbtext{Deve ser indicado o nome e a aridade do predicado, e essa declaração só pode ser} };
 
@@ -951,7 +951,7 @@
 	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{Prolog permite a declaração ou retratação de fatos diretamente no interpretador} };
 
 
-	\node[anchor=west] (b) at (1.0, 5.0) { $\star$ \bbtext{Para isto, o predicado deve ser declarado dinâmico, por meio da diretiva \code{prolog}{dynamic}} };
+	\node[anchor=west] (b) at (1.0, 5.0) { $\star$ \bbtext{Para isto, o predicado deve ser declarado \bbbold{dinâmico}, por meio da diretiva \code{prolog}{dynamic}} };
 
 	\node[anchor=west] (c) at (1.0, 4.0) { $\star$ \bbtext{Deve ser indicado o nome e a aridade do predicado, e essa declaração só pode ser} };
 
@@ -977,7 +977,30 @@
 
 \inputsnippet{prolog}{22}{42}{codes/dynamic.pl}
 
-
 \vspace*{\fill}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Quantificador universal} };
+
+	\draw[fill=blue!10!white,rounded corners] (0.75, 5.5) rectangle  (13.5, 2.0);
+
+	\draw[color=BBBlue,draw,very thick,rounded corners] (0.75, 5.5) rectangle  (13.5, 2.0);
+
+	\draw[fill=BBBlue,color=BBBlue,draw,very thick,rounded corners] (0.75, 5.5) rectangle  (13.5, 4.5);
+
+
+	\node[anchor=west,color=white] (a) at (1.0, 5.0) { \bbchalk{Definição} };
+
+	\node[anchor=west,color=white] (b1) at (1.0, 4.0) { \bbtext{Sejam $S(x)$ uma sentença aberta. O quantificador \bbbold{universal} $\forall$ é utilizado na} };
+
+	\node[anchor=west,color=white] (b2) at (1.0, 3.25) { \bbtext{construção $\forall x.S(x)$, a qual significa que, para todos os valores $v$ no conjunto} };
+
+	\node[anchor=west,color=white] (b3) at (1.0, 2.5) { \bbtext{universal de $x$, $S(v)$ é verdadeira.} };
+
+\end{tikzpicture}
 \end{frame}
 \end{document}

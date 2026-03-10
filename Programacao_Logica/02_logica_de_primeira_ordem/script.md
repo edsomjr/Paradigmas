@@ -12,7 +12,7 @@ title => Node
 body => Rect
     @body.x = 0.75
     @body.y = 5.5
-    @body.u = 13.5
+    @body.u = 13.75
     @body.v = 2
     @body.fill = blue!10!white
     &body.rounded corners
@@ -20,7 +20,7 @@ body => Rect
 box => Rect
     @box.x = 0.75
     @box.y = 5.5
-    @box.u = 13.5
+    @box.u = 13.75
     @box.v = 2
     @box.color = BBBlue
     &box.draw
@@ -30,7 +30,7 @@ box => Rect
 header => Rect
     @header.x = 0.75
     @header.y = 5.5
-    @header.u = 13.5
+    @header.u = 13.75
     @header.v = 4.5
     @header.fill = BBBlue
     @header.color = BBBlue
@@ -49,21 +49,21 @@ a => Node
 b1 => Node
     @b1.x = 1
     @b1.y = 4
-    @b1.text = \bbtext{Uma variável é um símbolo que representa um objeto não especificado de um}
+    @b1.text = \bbtext{Uma \bbbold{variável} é um símbolo que representa um objeto não especificado de um}
     @b1.anchor = west
     @b1.color = white
 
 b2 => Node
     @b2.x = 1
     @b2.y = 3.25
-    @b2.text = \bbtext{determinado conjunto $U$, o qual é chamado conjunto universal para a variável.}
+    @b2.text = \bbtext{determinado conjunto $U$, o qual é chamado \bbbold{conjunto universal} para a variável.}
     @b2.anchor = west
     @b2.color = white
 
 b3 => Node
     @b3.x = 1
     @b3.y = 2.5
-    @b3.text = \bbtext{Um membro específico do conjunto universal é denominado constante.}
+    @b3.text = \bbtext{Um membro específico do conjunto universal é denominado \bbbold{constante}.}
     @b3.anchor = west
     @b3.color = white
 
@@ -146,7 +146,7 @@ title => Node
     @title.anchor = west
 
 body => Rect
-    @body.x = 0.75
+    @body.x = 0.25
     @body.y = 5.5
     @body.u = 13.75
     @body.v = 1.25
@@ -154,7 +154,7 @@ body => Rect
     &body.rounded corners
 
 box => Rect
-    @box.x = 0.75
+    @box.x = 0.25
     @box.y = 5.5
     @box.u = 13.75
     @box.v = 1.25
@@ -164,7 +164,7 @@ box => Rect
     &box.rounded corners
 
 header => Rect
-    @header.x = 0.75
+    @header.x = 0.25
     @header.y = 5.5
     @header.u = 13.75
     @header.v = 4.5
@@ -182,30 +182,30 @@ a => Node
     @a.color = white
 
 b1 => Node
-    @b1.x = 1
+    @b1.x = 0.5
     @b1.y = 4
-    @b1.text = \bbtext{Uma sentença aberta $S(x)$ em $x$ é uma expressão na qual o símbolo $x$ ocorre}
+    @b1.text = \bbtext{Uma \bbbold{sentença aberta} $S(x)$ em $x$ é uma expressão na qual o símbolo $x$ ocorre}
     @b1.anchor = west
     @b1.color = white
 
 b2 => Node
-    @b2.x = 1
+    @b2.x = 0.5
     @b2.y = 3.25
     @b2.text = \bbtext{uma ou mais vezes e que, caso todas as ocorrências de $x$ sejam substituídas}
     @b2.anchor = west
     @b2.color = white
 
 b3 => Node
-    @b3.x = 1
+    @b3.x = 0.5
     @b3.y = 2.5
     @b3.text = \bbtext{por uma constante $v$ do conjunto universal de $x$, $S(v)$ se torna uma proposição.}
     @b3.anchor = west
     @b3.color = white
 
 b4 => Node
-    @b4.x = 1
+    @b4.x = 0.5
     @b4.y = 1.75
-    @b4.text = \bbtext{Sentenças abertas também são chamadas predicados ou funções proposicionais.}
+    @b4.text = \bbtext{Sentenças abertas também são chamadas \bbbold{predicados} ou \bbbold{funções proposicionais}.}
     @b4.anchor = west
     @b4.color = white
 
@@ -222,7 +222,7 @@ title => Node
 a => Node
     @a.x = 1
     @a.y = 6
-    @a.text = $\star$ \bbtext{Prolog também tem termos do tipo variável}
+    @a.text = $\star$ \bbtext{Em Prolog, as \bbbold{variáveis} são um subtipo de termo}
     @a.anchor = west
     @a.color = white
 
@@ -247,7 +247,7 @@ c => Node
 c1 => Node
     @c1.x = 0.5
     @c1.y = 3.5
-    @c1.text = \bbtext{regras}
+    @c1.text = \bbbold{regras}
     @c1.anchor = west
     @c1.color = white
 
@@ -414,7 +414,7 @@ d1 => Node
 e => Node
     @e.x = 1
     @e.y = 0
-    @e.text = $\star$ \bbtext{Em Prolog, fatos e regras são denominados cláusulas}
+    @e.text = $\star$ \bbtext{Em Prolog, fatos e regras são denominados \bbbold{cláusulas}}
     @e.anchor = west
 
 ## Text
@@ -469,21 +469,21 @@ a => Node
 b1 => Node
     @b1.x = 1
     @b1.y = 4
-    @b1.text = \bbtext{Sejam $S(x)$ uma sentença aberta. O quantificador existencial $\exists$ é utilizado na}
+    @b1.text = \bbtext{Sejam $S(x)$ uma sentença aberta. O quantificador \bbbold{existencial} $\exists$ é utilizado}
     @b1.anchor = west
     @b1.color = white
 
 b2 => Node
     @b2.x = 1
     @b2.y = 3.25
-    @b2.text = \bbtext{construção $\exists x.S(x)$, a qual significa que existe pelo menos um elemento no}
+    @b2.text = \bbtext{na construção $\exists x.S(x)$, a qual significa que existe pelo menos um elemento }
     @b2.anchor = west
     @b2.color = white
 
 b3 => Node
     @b3.x = 1
     @b3.y = 2.5
-    @b3.text = \bbtext{conjunto universal de $x$ tal que $S(x)$ é verdadeira.}
+    @b3.text = \bbtext{$v$ no conjunto universal de $x$ tal que $S(v)$ é verdadeira.}
     @b3.anchor = west
     @b3.color = white
 
@@ -506,7 +506,7 @@ a => Node
 b => Node
     @b.x = 1
     @b.y = 5
-    @b.text = $\star$ \bbtext{Uma consulta simples corresponde a uma sentença aberta simples, isto é, um }
+    @b.text = $\star$ \bbtext{Uma \bbbold{consulta simples} corresponde a uma sentença aberta simples, isto é, um }
     @b.anchor = west
 
 b1 => Node
@@ -570,7 +570,7 @@ a => Node
 a1 => Node
     @a1.x = 0.5
     @a1.y = 5.5
-    @a1.text = \bbtext{padrões denominado unificação}
+    @a1.text = \bbtext{padrões denominado \bbbold{unificação}}
     @a1.anchor = west
 
 ---
@@ -578,7 +578,7 @@ a1 => Node
 b => Node
     @b.x = 1
     @b.y = 4.5
-    @b.text = $\star$ \bbtext{O padrão de uma consulta (predicados e argumentos) é denominado objetivo (\bbenglish{goal})}
+    @b.text = $\star$ \bbtext{O padrão de uma consulta (predicados e argumentos) é denominado \bbbold{objetivo} (\bbenglish{goal})}
     @b.anchor = west
 
 ---
@@ -594,7 +594,7 @@ c => Node
 e => Node
     @e.x = 1
     @e.y = 2.5
-    @e.text = $\star$ \bbtext{Durante a unificação, uma variável lógica casa com qualquer termo}
+    @e.text = $\star$ \bbtext{Durante a unificação, uma variável lógica \bbbold{casa} com qualquer termo}
     @e.anchor = west
 
 
@@ -726,7 +726,7 @@ a => Node
 b => Node
     @b.x = 1
     @b.y = 5
-    @b.text = $\star$ \bbtext{Para isto, o predicado deve ser declarado dinâmico, por meio da diretiva \code{prolog}{dynamic}}
+    @b.text = $\star$ \bbtext{Para isto, o predicado deve ser declarado \bbbold{dinâmico}, por meio da diretiva \code{prolog}{dynamic}}
     @b.anchor = west
 
 ---
@@ -770,6 +770,71 @@ e => Node
 
 \inputsnippet{prolog}{22}{42}{codes/dynamic.pl}
 
+## Scene
+
+title => Node
+    @title.x = 0
+    @title.y = 7
+    @title.text = \Large \bbbold{Quantificador universal}
+    @title.anchor = west
+
+body => Rect
+    @body.x = 0.75
+    @body.y = 5.5
+    @body.u = 13.5
+    @body.v = 2
+    @body.fill = blue!10!white
+    &body.rounded corners
+
+box => Rect
+    @box.x = 0.75
+    @box.y = 5.5
+    @box.u = 13.5
+    @box.v = 2
+    @box.color = BBBlue
+    &box.draw
+    &box.very thick
+    &box.rounded corners
+
+header => Rect
+    @header.x = 0.75
+    @header.y = 5.5
+    @header.u = 13.5
+    @header.v = 4.5
+    @header.fill = BBBlue
+    @header.color = BBBlue
+    &header.draw
+    &header.very thick
+    &header.rounded corners
+
+
+a => Node
+    @a.x = 1
+    @a.y = 5
+    @a.text = \bbchalk{Definição} 
+    @a.anchor = west
+    @a.color = white
+
+b1 => Node
+    @b1.x = 1
+    @b1.y = 4
+    @b1.text = \bbtext{Sejam $S(x)$ uma sentença aberta. O quantificador \bbbold{universal} $\forall$ é utilizado na}
+    @b1.anchor = west
+    @b1.color = white
+
+b2 => Node
+    @b2.x = 1
+    @b2.y = 3.25
+    @b2.text = \bbtext{construção $\forall x.S(x)$, a qual significa que, para todos os valores $v$ no conjunto}
+    @b2.anchor = west
+    @b2.color = white
+
+b3 => Node
+    @b3.x = 1
+    @b3.y = 2.5
+    @b3.text = \bbtext{universal de $x$, $S(v)$ é verdadeira.}
+    @b3.anchor = west
+    @b3.color = white
 
 ## End
 
