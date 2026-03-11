@@ -836,7 +836,76 @@ b3 => Node
     @b3.anchor = west
     @b3.color = white
 
-## End
+## Scene
+
+title => Node
+    @title.x = 0
+    @title.y = 7
+    @title.text = \Large \bbbold{Generalizações}
+    @title.anchor = west
+
+--- 
+
+a => Node
+    @a.x = 1
+    @a.y = 6
+    @a.text = $\star$ \bbtext{O quantificador universal é expresso, em Prolog, por meio de uma \bbbold{generalização}}
+    @a.anchor = west
+
+--- 
+
+b => Node
+    @b.x = 1
+    @b.y = 5
+    @b.text = $\star$ \bbtext{Generalizações são fatos que casam com qualquer valor}
+    @b.anchor = west
+
+--- 
+
+c => Node
+    @c.x = 1
+    @c.y = 4
+    @c.text = $\star$ \bbtext{Por exemplo, considere o predicado \code{prolog}{is_term/1}, definido abaixo:}
+    @c.anchor = west
+
+c1 => Node
+    @c1.x = 2
+    @c1.y = 3
+    @c1.text = \code{prolog}{is_term(X).}
+    @c1.anchor = west
+
+---
+
+d => Node
+    @d.x = 1
+    @d.y = 2
+    @d.text = $\star$ \bbtext{Ele é verdadeiro para qualquer argumento \code{prolog}{X}: de fato, o argumento de um predicado}
+    @d.anchor = west
+
+d1 => Node
+    @d1.x = 0.5
+    @d1.y = 1.5
+    @d1.text = \bbtext{deve ser um termo, de modo que a implementação está semanticamente correta}
+    @d1.anchor = west
+
+---
+
+e => Node
+    @e.x = 1
+    @e.y = 0.5
+    @e.text = $\star$ \bbtext{Uma vez que a variável \code{prolog}{X} não é utilizada no corpo da regra, ela pode ser}
+    @e.anchor = west
+
+e1 => Node
+    @e1.x = 0.5
+    @e1.y = 0
+    @e1.text = \bbtext{substituída pelo \bbenglish{wildcard} `\code{prolog}{_}'}
+    @e1.anchor = west
+
+
+## Text
+
+\inputsnippet{prolog}{1}{17}{codes/is_term.pl}
 
 ## Scene
 
@@ -848,32 +917,32 @@ title => Node
 
 a => Node
     @a.x = 1
-    @a.y = 3
-    @a.text = $\star$ \bbbold{SWI-Prolog.} \bbenglish{https://www.swi-prolog.org/,} \bbtext{acesso em 10/02/2026.}
+    @a.y = 2
+    @a.text = $\star$ \bbbold{SWI-Prolog.} \bbenglish{https://www.swi-prolog.org/,} \bbtext{acesso em 10/03/2026.}
     @a.anchor = west
 
 b => Node
     @b.x = 1
-    @b.y = 2
-    @b.text = $\star$ \bbbold{WOLFRAM}\bbtext{, Stephen.} \bbenglish{George Boole: A 200-Year View,} \bbtext{acesso em 10/02/2026.}
+    @b.y = 4
+    @b.text = $\star$ \bbbold{LibreTexts Mathematics.} \bbenglish{Open Sentences and Sets,} \bbtext{acesso em 10/03/2026.}
     @b.anchor = west
 
 c => Node
     @c.x = 1
-    @c.y = 5
-    @c.text = $\star$ \bbbold{dtonhofer/prolog\_notes.} \bbenglish{Negação as Failure,} \bbtext{acesso em 18/02/2026.}
+    @c.y = 1
+    @c.text = $\star$ \bbbold{Wikipédia.} \bbenglish{Prolog syntax and semantics,} \bbtext{acesso em 10/03/2026.}
     @c.anchor = west
 
 d => Node
     @d.x = 1
-    @d.y = 4
+    @d.y = 3
     @d.text = $\star$ \bbbold{MERRIT}\bbtext{, Dennis.} \bbenglish{Adventure in Prolog, Amzi!,} \bbtext{191 pgs, 2017.}
     @d.anchor = west
 
-https://math.libretexts.org/Courses/SUNY_Schenectady_County_Community_College/Discrete_Structures/02%3A_Logical_Reasoning/2.03%3A_Open_Sentences_and_Sets, acesso em 10/03/2026
-
-https://en.wikipedia.org/wiki/Prolog_syntax_and_semantics, acesso em 10/03/2026
-
-https://www.bcb.gov.br/estabilidadefinanceira/historicocotacoes, 10/03/2026
+e => Node
+    @e.x = 1
+    @e.y = 5
+    @e.text = $\star$ \bbbold{Banco Central do Brasil.} \bbenglish{Cotações e boletins,} \bbtext{acesso em 10/03/2026.}
+    @e.anchor = west
 
 ## End

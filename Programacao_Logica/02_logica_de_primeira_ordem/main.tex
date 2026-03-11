@@ -1003,4 +1003,142 @@
 
 \end{tikzpicture}
 \end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Generalizações} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Generalizações} };
+
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{O quantificador universal é expresso, em Prolog, por meio de uma \bbbold{generalização}} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Generalizações} };
+
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{O quantificador universal é expresso, em Prolog, por meio de uma \bbbold{generalização}} };
+
+
+	\node[anchor=west] (b) at (1.0, 5.0) { $\star$ \bbtext{Generalizações são fatos que casam com qualquer valor} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Generalizações} };
+
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{O quantificador universal é expresso, em Prolog, por meio de uma \bbbold{generalização}} };
+
+
+	\node[anchor=west] (b) at (1.0, 5.0) { $\star$ \bbtext{Generalizações são fatos que casam com qualquer valor} };
+
+
+	\node[anchor=west] (c) at (1.0, 4.0) { $\star$ \bbtext{Por exemplo, considere o predicado \code{prolog}{is_term/1}, definido abaixo:} };
+
+	\node[anchor=west] (c1) at (2.0, 3.0) { \code{prolog}{is_term(X).} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Generalizações} };
+
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{O quantificador universal é expresso, em Prolog, por meio de uma \bbbold{generalização}} };
+
+
+	\node[anchor=west] (b) at (1.0, 5.0) { $\star$ \bbtext{Generalizações são fatos que casam com qualquer valor} };
+
+
+	\node[anchor=west] (c) at (1.0, 4.0) { $\star$ \bbtext{Por exemplo, considere o predicado \code{prolog}{is_term/1}, definido abaixo:} };
+
+	\node[anchor=west] (c1) at (2.0, 3.0) { \code{prolog}{is_term(X).} };
+
+
+	\node[anchor=west] (d) at (1.0, 2.0) { $\star$ \bbtext{Ele é verdadeiro para qualquer argumento \code{prolog}{X}: de fato, o argumento de um predicado} };
+
+	\node[anchor=west] (d1) at (0.5, 1.5) { \bbtext{deve ser um termo, de modo que a implementação está semanticamente correta} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Generalizações} };
+
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{O quantificador universal é expresso, em Prolog, por meio de uma \bbbold{generalização}} };
+
+
+	\node[anchor=west] (b) at (1.0, 5.0) { $\star$ \bbtext{Generalizações são fatos que casam com qualquer valor} };
+
+
+	\node[anchor=west] (c) at (1.0, 4.0) { $\star$ \bbtext{Por exemplo, considere o predicado \code{prolog}{is_term/1}, definido abaixo:} };
+
+	\node[anchor=west] (c1) at (2.0, 3.0) { \code{prolog}{is_term(X).} };
+
+
+	\node[anchor=west] (d) at (1.0, 2.0) { $\star$ \bbtext{Ele é verdadeiro para qualquer argumento \code{prolog}{X}: de fato, o argumento de um predicado} };
+
+	\node[anchor=west] (d1) at (0.5, 1.5) { \bbtext{deve ser um termo, de modo que a implementação está semanticamente correta} };
+
+
+	\node[anchor=west] (e) at (1.0, 0.5) { $\star$ \bbtext{Uma vez que a variável \code{prolog}{X} não é utilizada no corpo da regra, ela pode ser} };
+
+	\node[anchor=west] (e1) at (0.5, 0.0) { \bbtext{substituída pelo \bbenglish{wildcard} `\code{prolog}{_}'} };
+
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\vspace*{\fill}
+
+\inputsnippet{prolog}{1}{17}{codes/is_term.pl}
+
+\vspace*{\fill}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 6.5) { \Large \bbbold{Referências} };
+
+	\node[anchor=west] (a) at (1.0, 2.0) { $\star$ \bbbold{SWI-Prolog.} \bbenglish{https://www.swi-prolog.org/,} \bbtext{acesso em 10/03/2026.} };
+
+	\node[anchor=west] (b) at (1.0, 4.0) { $\star$ \bbbold{LibreTexts Mathematics.} \bbenglish{Open Sentences and Sets,} \bbtext{acesso em 10/03/2026.} };
+
+	\node[anchor=west] (c) at (1.0, 1.0) { $\star$ \bbbold{Wikipédia.} \bbenglish{Prolog syntax and semantics,} \bbtext{acesso em 10/03/2026.} };
+
+	\node[anchor=west] (d) at (1.0, 3.0) { $\star$ \bbbold{MERRIT}\bbtext{, Dennis.} \bbenglish{Adventure in Prolog, Amzi!,} \bbtext{191 pgs, 2017.} };
+
+	\node[anchor=west] (e) at (1.0, 5.0) { $\star$ \bbbold{Banco Central do Brasil.} \bbenglish{Cotações e boletins,} \bbtext{acesso em 10/03/2026.} };
+
+\end{tikzpicture}
+\end{frame}
 \end{document}
