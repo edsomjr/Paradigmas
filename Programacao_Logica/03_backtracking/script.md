@@ -471,6 +471,267 @@ redo => Node
 
 \inputsnippet{prolog}{1}{17}{codes/capital.pl}
 
+## Scene
+
+title => Node
+    @title.x = 0
+    @title.y = 7
+    @title.text = \Large \bbbold{Predicados extra-lógicos}
+    @title.anchor = west
+
+---
+a => Node
+    @a.x = 1
+    @a.y = 6
+    @a.text = $\star$ \bbtext{São predicados pré-definidos em Prolog, para os quais são há cláusulas}
+    @a.anchor = west
+
+---
+b => Node
+    @b.x = 1
+    @b.y = 5
+    @b.text = $\star$ \bbtext{Quando um objetivo unifica com um predicado extra-lógico, o interpretador Prolog}
+    @b.anchor = west
+
+b1 => Node
+    @b1.x = 0.5
+    @b1.y = 4.5
+    @b1.text = \bbtext{chama uma rotina interna pré-definida}
+    @b1.anchor = west
+
+---
+c => Node
+    @c.x = 1
+    @c.y = 3.5
+    @c.text = $\star$ \bbtext{Estas rotinas realizam tarefas que estão fora do contexto da prova de teoremas} 
+    @c.anchor = west
+
+c1 => Node
+    @c1.x = 0.5
+    @c1.y = 3
+    @c1.text = \bbtext{lógicos, como, por exemplo, escrever uma mensagem no terminal}
+    @c1.anchor = west
+
+---
+d => Node
+    @d.x = 1
+    @d.y = 2
+    @d.text = $\star$ \bbtext{Ele respondem tanto na porta \bbenglish{call} quando na porta \bbenglish{redo}}
+    @d.anchor = west
+
+---
+e => Node
+    @e.x = 1
+    @e.y = 1
+    @e.text = $\star$ \bbtext{A resposta na porta \bbenglish{redo} é denominada comportamento no \bbenglish{backtracking}}
+    @e.anchor = west
+
+## Scene
+
+title => Node
+    @title.x = 0
+    @title.y = 7
+    @title.text = \Large \bbbold{Exemplos de predicados extra-lógicos}
+    @title.anchor = west
+
+top => Edge
+    @top.x = 0
+    @top.y = 6
+    @top.u = 13.5
+    @top.v = 6
+    &top.very thick
+
+mid => Edge
+    @mid.x = 0
+    @mid.y = 5
+    @mid.u = 13.5
+    @mid.v = 5
+    &mid.thick
+
+op => Node
+    @op.x = 0.25
+    @op.y = 5.5
+    @op.text = \bbemph{Predicado}
+    @op.anchor = west
+
+read => Node
+    @read.x = 3
+    @read.y = 5.5
+    @read.text = \bbemph{Resposta na porta \bbenglish{call}}
+    @read.anchor = west
+
+desc => Node
+    @desc.x = 9
+    @desc.y = 5.5
+    @desc.text = \bbemph{Resposta na porta \bbenglish{redo}}
+    @desc.anchor = west
+
+---
+
+write => Node
+    @write.x = 0.5
+    @write.y = 4.25
+    @write.text = \footnotesize \code{prolog}{write/1}
+    @write.anchor = west
+
+write_read => Node
+    @write_read.x = 3
+    @write_read.y = 4.5
+    @write_read.text = \footnotesize \bbtext{Casa com qualquer padrão. Como efeito cola-}
+    @write_read.anchor = west
+
+write_read1 => Node
+    @write_read1.x = 3
+    @write_read1.y = 4
+    @write_read1.text = \footnotesize \bbtext{teral, escreve seu argumento no console}
+    @write_read1.anchor = west
+
+
+write_desc => Node
+    @write_desc.x = 11
+    @write_desc.y = 4.5
+    @write_desc.text = \footnotesize \bbtext{Sempre falha}
+
+---
+
+nl => Node
+    @nl.x = 0.5
+    @nl.y = 3
+    @nl.text = \footnotesize \code{prolog}{nl/0}
+    @nl.anchor = west
+
+nl_read => Node
+    @nl_read.x = 3
+    @nl_read.y = 3
+    @nl_read.text = \footnotesize \bbtext{Sempre é bem sucedido. Inicia uma nova linha}
+    @nl_read.anchor = west
+
+nl_desc => Node
+    @nl_desc.x = 11
+    @nl_desc.y = 3
+    @nl_desc.text = \footnotesize \bbtext{Sempre falha}
+
+---
+
+tab => Node
+    @tab.x = 0.5
+    @tab.y = 2
+    @tab.text = \footnotesize \code{prolog}{tab/1}
+    @tab.anchor = west
+
+tab_read => Node
+    @tab_read.x = 3
+    @tab_read.y = 2
+    @tab_read.text = \footnotesize \bbtext{Avança o cursor $N$ espaços}
+    @tab_read.anchor = west
+
+tab_desc => Node
+    @tab_desc.x = 11
+    @tab_desc.y = 2
+    @tab_desc.text = \footnotesize \bbtext{Sempre falha}
+
+---
+
+fail => Node
+    @fail.x = 0.5
+    @fail.y = 1
+    @fail.text = \footnotesize \code{prolog}{fail/0}
+    @fail.anchor = west
+
+fail_read => Node
+    @fail_read.x = 3
+    @fail_read.y = 1
+    @fail_read.text = \footnotesize \bbtext{Sempre falha. Equivale a \code{prolog}{false/0}.}
+    @fail_read.anchor = west
+
+fail_desc => Node
+    @fail_desc.x = 11
+    @fail_desc.y = 1
+    @fail_desc.text = \footnotesize \bbtext{-}
+
+end => Edge
+    @end.x = 0
+    @end.y = 0.5
+    @end.u = 13.5
+    @end.v = 0.5
+    &end.very thick
+
+## Text
+
+\inputsnippet{prolog}{1}{19}{codes/unb_report.pl}
+
+## Text
+
+\inputsnippet{prolog}{1}{19}{codes/quadrilaterals.pl}
+
+## Scene
+
+title => Node
+    @title.x = 0
+    @title.y = 7
+    @title.text = \Large \bbbold{Condicionais}
+    @title.anchor = west
+
+---
+a => Node
+    @a.x = 1
+    @a.y = 6
+    @a.text = $\star$ \bbtext{O predicado extra-lógico \code{prolog}{->/2} habilita o uso de condicionais em Prolog}
+    @a.anchor = west
+
+---
+b => Node
+    @b.x = 1
+    @b.y = 5
+    @b.text = $\star$ \bbtext{As sintaxes para os construtos condicionais são:}
+    @b.anchor = west
+
+b1 => Node
+    @b1.x = 2
+    @b1.y = 4.5
+    @b1.text = \code{prolog}{If -> Then}
+    @b1.anchor = west
+
+b2 => Node
+    @b2.x = 2
+    @b2.y = 4
+    @b2.text = \code{prolog}{If -> Then ; Else}
+    @b2.anchor = west
+
+---
+c => Node
+    @c.x = 1
+    @c.y = 3
+    @c.text = $\star$ \bbtext{Em ambos casos, se a variável \code{prolog}{If} corresponder a um predicado verdadeiro, o}
+    @c.anchor = west
+
+c2 => Node
+    @c2.x = 0.5
+    @c2.y = 2.5
+    @c2.text = \bbtext{fluxo seguirá para o predicado \code{prolog}{Then}}
+    @c2.anchor = west
+
+---
+d => Node
+    @d.x = 1
+    @d.y = 1.5
+    @d.text = $\star$ \bbtext{No segundo caso, se a variável \code{prolog}{If} corresponder a um predicado falso, o fluxo}
+    @d.anchor = west
+
+d2 => Node
+    @d2.x = 0.5
+    @d2.y = 1
+    @d2.text = \bbtext{seguirá para o predicado \code{prolog}{Else}}
+    @d2.anchor = west
+
+## Text
+
+\inputsnippet{prolog}{1}{18}{codes/truth_table.pl}
+
+## Text
+
+\inputsnippet{prolog}{20}{40}{codes/truth_table.pl}
+
 ## End
 ## Scene
 
