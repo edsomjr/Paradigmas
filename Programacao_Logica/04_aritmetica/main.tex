@@ -9,7 +9,7 @@
 \node[draw,opacity=0] at (0, 0) {x};
 \node[draw,opacity=0] at (14, 8) {x};
 
-	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{\textit{Operator \code{prolog}{is/2}}} };
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Operador \code{prolog}{is/2}} };
 
 \end{tikzpicture}
 \end{frame}
@@ -18,7 +18,7 @@
 \node[draw,opacity=0] at (0, 0) {x};
 \node[draw,opacity=0] at (14, 8) {x};
 
-	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{\textit{Operator \code{prolog}{is/2}}} };
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Operador \code{prolog}{is/2}} };
 
 	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{O predicado extra-lógico \code{prolog}{is/2} é utilizado para computar expressões aritméticas} };
 
@@ -31,7 +31,7 @@
 \node[draw,opacity=0] at (0, 0) {x};
 \node[draw,opacity=0] at (14, 8) {x};
 
-	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{\textit{Operator \code{prolog}{is/2}}} };
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Operador \code{prolog}{is/2}} };
 
 	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{O predicado extra-lógico \code{prolog}{is/2} é utilizado para computar expressões aritméticas} };
 
@@ -48,7 +48,7 @@
 \node[draw,opacity=0] at (0, 0) {x};
 \node[draw,opacity=0] at (14, 8) {x};
 
-	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{\textit{Operator \code{prolog}{is/2}}} };
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Operador \code{prolog}{is/2}} };
 
 	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{O predicado extra-lógico \code{prolog}{is/2} é utilizado para computar expressões aritméticas} };
 
@@ -67,7 +67,7 @@
 \node[draw,opacity=0] at (0, 0) {x};
 \node[draw,opacity=0] at (14, 8) {x};
 
-	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{\textit{Operator \code{prolog}{is/2}}} };
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Operador \code{prolog}{is/2}} };
 
 	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{O predicado extra-lógico \code{prolog}{is/2} é utilizado para computar expressões aritméticas} };
 
@@ -89,6 +89,624 @@
 \vspace*{\fill}
 
 \inputsnippet{prolog}{1}{20}{codes/is.pl}
+
+\vspace*{\fill}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Operadores em Prolog} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Operadores em Prolog} };
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{Operadores são predicados que suportam, além da pré-fixada padrão, as notações} };
+
+	\node[anchor=west] (a1) at (0.5, 5.5) { \bbtext{infixada ou pós-fixada} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Operadores em Prolog} };
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{Operadores são predicados que suportam, além da pré-fixada padrão, as notações} };
+
+	\node[anchor=west] (a1) at (0.5, 5.5) { \bbtext{infixada ou pós-fixada} };
+
+	\node[anchor=west] (b) at (1.0, 4.5) { $\star$ \bbtext{Novos operadores podem ser declarados por meio da diretiva \code{prolog}{op/3}:} };
+
+	\node[anchor=west] (b1) at (2.0, 3.5) { \code{prolog}{:- op(Precedence, Type, Name).} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Operadores em Prolog} };
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{Operadores são predicados que suportam, além da pré-fixada padrão, as notações} };
+
+	\node[anchor=west] (a1) at (0.5, 5.5) { \bbtext{infixada ou pós-fixada} };
+
+	\node[anchor=west] (b) at (1.0, 4.5) { $\star$ \bbtext{Novos operadores podem ser declarados por meio da diretiva \code{prolog}{op/3}:} };
+
+	\node[anchor=west] (b1) at (2.0, 3.5) { \code{prolog}{:- op(Precedence, Type, Name).} };
+
+	\node[anchor=west] (c) at (1.0, 2.5) { $\star$ \bbtext{\code{prolog}{Name} é o átomo que nomeia o operador e \code{prolog}{Precedence} é um inteiro entre \code{prolog}{0} e \code{prolog}{1200}:} };
+
+	\node[anchor=west] (c1) at (0.5, 2.0) { \bbtext{quando menor o valor, maior a precedência} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Operadores em Prolog} };
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{Operadores são predicados que suportam, além da pré-fixada padrão, as notações} };
+
+	\node[anchor=west] (a1) at (0.5, 5.5) { \bbtext{infixada ou pós-fixada} };
+
+	\node[anchor=west] (b) at (1.0, 4.5) { $\star$ \bbtext{Novos operadores podem ser declarados por meio da diretiva \code{prolog}{op/3}:} };
+
+	\node[anchor=west] (b1) at (2.0, 3.5) { \code{prolog}{:- op(Precedence, Type, Name).} };
+
+	\node[anchor=west] (c) at (1.0, 2.5) { $\star$ \bbtext{\code{prolog}{Name} é o átomo que nomeia o operador e \code{prolog}{Precedence} é um inteiro entre \code{prolog}{0} e \code{prolog}{1200}:} };
+
+	\node[anchor=west] (c1) at (0.5, 2.0) { \bbtext{quando menor o valor, maior a precedência} };
+
+	\node[anchor=west] (d) at (1.0, 1.0) { $\star$ \bbtext{\code{prolog}{Type} é um átomo, composto pelos caracteres \code{prolog}{x}, \code{prolog}{y} e \code{prolog}{f}, que determina a posição} };
+
+	\node[anchor=west] (d1) at (0.5, 0.5) { \bbtext{do operador (indicada por \code{prolog}{f}) e a associatividade (determina pela posição de \code{prolog}{y})} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Operadores em Prolog} };
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{Por exemplo, o átomo \code{prolog}{xfy} caracteriza um operador binário, infixado, e associativo} };
+
+	\node[anchor=west] (a1) at (0.5, 5.5) { \bbtext{à direita} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Operadores em Prolog} };
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{Por exemplo, o átomo \code{prolog}{xfy} caracteriza um operador binário, infixado, e associativo} };
+
+	\node[anchor=west] (a1) at (0.5, 5.5) { \bbtext{à direita} };
+
+	\node[anchor=west] (b) at (1.0, 4.5) { $\star$ \bbtext{Já o átomo \code{prolog}{xf} caracteriza um operador unário e pós-fixado} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Operadores em Prolog} };
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{Por exemplo, o átomo \code{prolog}{xfy} caracteriza um operador binário, infixado, e associativo} };
+
+	\node[anchor=west] (a1) at (0.5, 5.5) { \bbtext{à direita} };
+
+	\node[anchor=west] (b) at (1.0, 4.5) { $\star$ \bbtext{Já o átomo \code{prolog}{xf} caracteriza um operador unário e pós-fixado} };
+
+	\node[anchor=west] (e) at (1.0, 3.5) { $\star$ \bbtext{O valor \code{prolog}{0} (zero) para precedência, de fato, apaga a declaração do operador} };
+
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Operadores em Prolog} };
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{Por exemplo, o átomo \code{prolog}{xfy} caracteriza um operador binário, infixado, e associativo} };
+
+	\node[anchor=west] (a1) at (0.5, 5.5) { \bbtext{à direita} };
+
+	\node[anchor=west] (b) at (1.0, 4.5) { $\star$ \bbtext{Já o átomo \code{prolog}{xf} caracteriza um operador unário e pós-fixado} };
+
+	\node[anchor=west] (e) at (1.0, 3.5) { $\star$ \bbtext{O valor \code{prolog}{0} (zero) para precedência, de fato, apaga a declaração do operador} };
+
+
+	\node[anchor=west] (c) at (1.0, 2.5) { $\star$ \bbtext{O tipo e a precedência de um operador pré-definido podem ser obtidos por meio do} };
+
+	\node[anchor=west] (c1) at (0.5, 2.0) { \bbtext{predicado \code{prolog}{current_op/3}, cuja sintaxe é:} };
+
+	\node[anchor=west] (d) at (2.0, 1.0) { \code{prolog}{current_op(Precedence, Type, Name).} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Operadores aritméticos} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Operadores aritméticos} };
+
+
+	\draw[very thick] (0.0, 6.0) to  (13.0, 6.0);
+
+	\draw[thick] (0.0, 5.0) to  (13.0, 5.0);
+
+	\node[anchor=west] (op) at (0.25, 5.5) { \bbemph{Operador} };
+
+	\node[anchor=west] (type) at (3.0, 5.5) { \bbemph{Tipo} };
+
+	\node[anchor=west] (prec) at (5.0, 5.5) { \bbemph{Precedência} };
+
+
+	\node[anchor=west] (desc) at (7.5, 5.5) { \bbemph{Descrição} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Operadores aritméticos} };
+
+
+	\draw[very thick] (0.0, 6.0) to  (13.0, 6.0);
+
+	\draw[thick] (0.0, 5.0) to  (13.0, 5.0);
+
+	\node[anchor=west] (op) at (0.25, 5.5) { \bbemph{Operador} };
+
+	\node[anchor=west] (type) at (3.0, 5.5) { \bbemph{Tipo} };
+
+	\node[anchor=west] (prec) at (5.0, 5.5) { \bbemph{Precedência} };
+
+
+	\node[anchor=west] (desc) at (7.5, 5.5) { \bbemph{Descrição} };
+
+
+	\node[] (add) at (1.2, 4.5) { \footnotesize \code{prolog}{+/2} };
+
+	\node[] (add_type) at (3.5, 4.5) { \footnotesize \code{prolog}{yfx} };
+
+	\node[anchor=east] (add_prec) at (6.5, 4.5) { \footnotesize \code{prolog}{500} };
+
+
+	\node[anchor=west] (add_desc) at (7.5, 4.5) { \footnotesize \bbtext{Adição} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Operadores aritméticos} };
+
+
+	\draw[very thick] (0.0, 6.0) to  (13.0, 6.0);
+
+	\draw[thick] (0.0, 5.0) to  (13.0, 5.0);
+
+	\node[anchor=west] (op) at (0.25, 5.5) { \bbemph{Operador} };
+
+	\node[anchor=west] (type) at (3.0, 5.5) { \bbemph{Tipo} };
+
+	\node[anchor=west] (prec) at (5.0, 5.5) { \bbemph{Precedência} };
+
+
+	\node[anchor=west] (desc) at (7.5, 5.5) { \bbemph{Descrição} };
+
+
+	\node[] (add) at (1.2, 4.5) { \footnotesize \code{prolog}{+/2} };
+
+	\node[] (add_type) at (3.5, 4.5) { \footnotesize \code{prolog}{yfx} };
+
+	\node[anchor=east] (add_prec) at (6.5, 4.5) { \footnotesize \code{prolog}{500} };
+
+
+	\node[anchor=west] (add_desc) at (7.5, 4.5) { \footnotesize \bbtext{Adição} };
+
+
+	\node[] (sub) at (1.2, 4.0) { \footnotesize \code{prolog}{-/2} };
+
+	\node[] (sub_type) at (3.5, 4.0) { \footnotesize \code{prolog}{yfx} };
+
+	\node[anchor=east] (sub_prec) at (6.5, 4.0) { \footnotesize \code{prolog}{500} };
+
+	\node[anchor=west] (sub_desc) at (7.5, 4.0) { \footnotesize \bbtext{Subtração} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Operadores aritméticos} };
+
+
+	\draw[very thick] (0.0, 6.0) to  (13.0, 6.0);
+
+	\draw[thick] (0.0, 5.0) to  (13.0, 5.0);
+
+	\node[anchor=west] (op) at (0.25, 5.5) { \bbemph{Operador} };
+
+	\node[anchor=west] (type) at (3.0, 5.5) { \bbemph{Tipo} };
+
+	\node[anchor=west] (prec) at (5.0, 5.5) { \bbemph{Precedência} };
+
+
+	\node[anchor=west] (desc) at (7.5, 5.5) { \bbemph{Descrição} };
+
+
+	\node[] (add) at (1.2, 4.5) { \footnotesize \code{prolog}{+/2} };
+
+	\node[] (add_type) at (3.5, 4.5) { \footnotesize \code{prolog}{yfx} };
+
+	\node[anchor=east] (add_prec) at (6.5, 4.5) { \footnotesize \code{prolog}{500} };
+
+
+	\node[anchor=west] (add_desc) at (7.5, 4.5) { \footnotesize \bbtext{Adição} };
+
+
+	\node[] (sub) at (1.2, 4.0) { \footnotesize \code{prolog}{-/2} };
+
+	\node[] (sub_type) at (3.5, 4.0) { \footnotesize \code{prolog}{yfx} };
+
+	\node[anchor=east] (sub_prec) at (6.5, 4.0) { \footnotesize \code{prolog}{500} };
+
+	\node[anchor=west] (sub_desc) at (7.5, 4.0) { \footnotesize \bbtext{Subtração} };
+
+
+	\node[] (mul) at (1.2, 3.5) { \footnotesize \code{prolog}{*/2} };
+
+	\node[] (mul_type) at (3.5, 3.5) { \footnotesize \code{prolog}{yfx} };
+
+	\node[anchor=east] (mul_prec) at (6.5, 3.5) { \footnotesize \code{prolog}{400} };
+
+	\node[anchor=west] (mul_desc) at (7.5, 3.5) { \footnotesize \bbtext{Multiplicação} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Operadores aritméticos} };
+
+
+	\draw[very thick] (0.0, 6.0) to  (13.0, 6.0);
+
+	\draw[thick] (0.0, 5.0) to  (13.0, 5.0);
+
+	\node[anchor=west] (op) at (0.25, 5.5) { \bbemph{Operador} };
+
+	\node[anchor=west] (type) at (3.0, 5.5) { \bbemph{Tipo} };
+
+	\node[anchor=west] (prec) at (5.0, 5.5) { \bbemph{Precedência} };
+
+
+	\node[anchor=west] (desc) at (7.5, 5.5) { \bbemph{Descrição} };
+
+
+	\node[] (add) at (1.2, 4.5) { \footnotesize \code{prolog}{+/2} };
+
+	\node[] (add_type) at (3.5, 4.5) { \footnotesize \code{prolog}{yfx} };
+
+	\node[anchor=east] (add_prec) at (6.5, 4.5) { \footnotesize \code{prolog}{500} };
+
+
+	\node[anchor=west] (add_desc) at (7.5, 4.5) { \footnotesize \bbtext{Adição} };
+
+
+	\node[] (sub) at (1.2, 4.0) { \footnotesize \code{prolog}{-/2} };
+
+	\node[] (sub_type) at (3.5, 4.0) { \footnotesize \code{prolog}{yfx} };
+
+	\node[anchor=east] (sub_prec) at (6.5, 4.0) { \footnotesize \code{prolog}{500} };
+
+	\node[anchor=west] (sub_desc) at (7.5, 4.0) { \footnotesize \bbtext{Subtração} };
+
+
+	\node[] (mul) at (1.2, 3.5) { \footnotesize \code{prolog}{*/2} };
+
+	\node[] (mul_type) at (3.5, 3.5) { \footnotesize \code{prolog}{yfx} };
+
+	\node[anchor=east] (mul_prec) at (6.5, 3.5) { \footnotesize \code{prolog}{400} };
+
+	\node[anchor=west] (mul_desc) at (7.5, 3.5) { \footnotesize \bbtext{Multiplicação} };
+
+
+	\node[] (divr) at (1.2, 3.0) { \footnotesize \code{prolog}{//2} };
+
+	\node[] (divr_type) at (3.5, 3.0) { \footnotesize \code{prolog}{yfx} };
+
+	\node[anchor=east] (divr_prec) at (6.5, 3.0) { \footnotesize \code{prolog}{400} };
+
+	\node[anchor=west] (divr_desc) at (7.5, 3.0) { \footnotesize \bbtext{Divisão nos reais} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Operadores aritméticos} };
+
+
+	\draw[very thick] (0.0, 6.0) to  (13.0, 6.0);
+
+	\draw[thick] (0.0, 5.0) to  (13.0, 5.0);
+
+	\node[anchor=west] (op) at (0.25, 5.5) { \bbemph{Operador} };
+
+	\node[anchor=west] (type) at (3.0, 5.5) { \bbemph{Tipo} };
+
+	\node[anchor=west] (prec) at (5.0, 5.5) { \bbemph{Precedência} };
+
+
+	\node[anchor=west] (desc) at (7.5, 5.5) { \bbemph{Descrição} };
+
+
+	\node[] (add) at (1.2, 4.5) { \footnotesize \code{prolog}{+/2} };
+
+	\node[] (add_type) at (3.5, 4.5) { \footnotesize \code{prolog}{yfx} };
+
+	\node[anchor=east] (add_prec) at (6.5, 4.5) { \footnotesize \code{prolog}{500} };
+
+
+	\node[anchor=west] (add_desc) at (7.5, 4.5) { \footnotesize \bbtext{Adição} };
+
+
+	\node[] (sub) at (1.2, 4.0) { \footnotesize \code{prolog}{-/2} };
+
+	\node[] (sub_type) at (3.5, 4.0) { \footnotesize \code{prolog}{yfx} };
+
+	\node[anchor=east] (sub_prec) at (6.5, 4.0) { \footnotesize \code{prolog}{500} };
+
+	\node[anchor=west] (sub_desc) at (7.5, 4.0) { \footnotesize \bbtext{Subtração} };
+
+
+	\node[] (mul) at (1.2, 3.5) { \footnotesize \code{prolog}{*/2} };
+
+	\node[] (mul_type) at (3.5, 3.5) { \footnotesize \code{prolog}{yfx} };
+
+	\node[anchor=east] (mul_prec) at (6.5, 3.5) { \footnotesize \code{prolog}{400} };
+
+	\node[anchor=west] (mul_desc) at (7.5, 3.5) { \footnotesize \bbtext{Multiplicação} };
+
+
+	\node[] (divr) at (1.2, 3.0) { \footnotesize \code{prolog}{//2} };
+
+	\node[] (divr_type) at (3.5, 3.0) { \footnotesize \code{prolog}{yfx} };
+
+	\node[anchor=east] (divr_prec) at (6.5, 3.0) { \footnotesize \code{prolog}{400} };
+
+	\node[anchor=west] (divr_desc) at (7.5, 3.0) { \footnotesize \bbtext{Divisão nos reais} };
+
+
+	\node[] (div) at (1.2, 2.5) { \footnotesize \code{prolog}{div/2} };
+
+	\node[] (div_type) at (3.5, 2.5) { \footnotesize \code{prolog}{yfx} };
+
+	\node[anchor=east] (div_prec) at (6.5, 2.5) { \footnotesize \code{prolog}{400} };
+
+	\node[anchor=west] (div_desc) at (7.5, 2.5) { \footnotesize \bbtext{Quociente da divisão inteira} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Operadores aritméticos} };
+
+
+	\draw[very thick] (0.0, 6.0) to  (13.0, 6.0);
+
+	\draw[thick] (0.0, 5.0) to  (13.0, 5.0);
+
+	\node[anchor=west] (op) at (0.25, 5.5) { \bbemph{Operador} };
+
+	\node[anchor=west] (type) at (3.0, 5.5) { \bbemph{Tipo} };
+
+	\node[anchor=west] (prec) at (5.0, 5.5) { \bbemph{Precedência} };
+
+
+	\node[anchor=west] (desc) at (7.5, 5.5) { \bbemph{Descrição} };
+
+
+	\node[] (add) at (1.2, 4.5) { \footnotesize \code{prolog}{+/2} };
+
+	\node[] (add_type) at (3.5, 4.5) { \footnotesize \code{prolog}{yfx} };
+
+	\node[anchor=east] (add_prec) at (6.5, 4.5) { \footnotesize \code{prolog}{500} };
+
+
+	\node[anchor=west] (add_desc) at (7.5, 4.5) { \footnotesize \bbtext{Adição} };
+
+
+	\node[] (sub) at (1.2, 4.0) { \footnotesize \code{prolog}{-/2} };
+
+	\node[] (sub_type) at (3.5, 4.0) { \footnotesize \code{prolog}{yfx} };
+
+	\node[anchor=east] (sub_prec) at (6.5, 4.0) { \footnotesize \code{prolog}{500} };
+
+	\node[anchor=west] (sub_desc) at (7.5, 4.0) { \footnotesize \bbtext{Subtração} };
+
+
+	\node[] (mul) at (1.2, 3.5) { \footnotesize \code{prolog}{*/2} };
+
+	\node[] (mul_type) at (3.5, 3.5) { \footnotesize \code{prolog}{yfx} };
+
+	\node[anchor=east] (mul_prec) at (6.5, 3.5) { \footnotesize \code{prolog}{400} };
+
+	\node[anchor=west] (mul_desc) at (7.5, 3.5) { \footnotesize \bbtext{Multiplicação} };
+
+
+	\node[] (divr) at (1.2, 3.0) { \footnotesize \code{prolog}{//2} };
+
+	\node[] (divr_type) at (3.5, 3.0) { \footnotesize \code{prolog}{yfx} };
+
+	\node[anchor=east] (divr_prec) at (6.5, 3.0) { \footnotesize \code{prolog}{400} };
+
+	\node[anchor=west] (divr_desc) at (7.5, 3.0) { \footnotesize \bbtext{Divisão nos reais} };
+
+
+	\node[] (div) at (1.2, 2.5) { \footnotesize \code{prolog}{div/2} };
+
+	\node[] (div_type) at (3.5, 2.5) { \footnotesize \code{prolog}{yfx} };
+
+	\node[anchor=east] (div_prec) at (6.5, 2.5) { \footnotesize \code{prolog}{400} };
+
+	\node[anchor=west] (div_desc) at (7.5, 2.5) { \footnotesize \bbtext{Quociente da divisão inteira} };
+
+
+	\node[] (mod) at (1.2, 2.0) { \footnotesize \code{prolog}{mod/2} };
+
+	\node[] (mod_type) at (3.5, 2.0) { \footnotesize \code{prolog}{yfx} };
+
+	\node[anchor=east] (mod_prec) at (6.5, 2.0) { \footnotesize \code{prolog}{400} };
+
+	\node[anchor=west] (mod_desc) at (7.5, 2.0) { \footnotesize \bbtext{Resto euclidiano da divisão inteira} };
+
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Operadores aritméticos} };
+
+
+	\draw[very thick] (0.0, 6.0) to  (13.0, 6.0);
+
+	\draw[thick] (0.0, 5.0) to  (13.0, 5.0);
+
+	\node[anchor=west] (op) at (0.25, 5.5) { \bbemph{Operador} };
+
+	\node[anchor=west] (type) at (3.0, 5.5) { \bbemph{Tipo} };
+
+	\node[anchor=west] (prec) at (5.0, 5.5) { \bbemph{Precedência} };
+
+
+	\node[anchor=west] (desc) at (7.5, 5.5) { \bbemph{Descrição} };
+
+
+	\node[] (add) at (1.2, 4.5) { \footnotesize \code{prolog}{+/2} };
+
+	\node[] (add_type) at (3.5, 4.5) { \footnotesize \code{prolog}{yfx} };
+
+	\node[anchor=east] (add_prec) at (6.5, 4.5) { \footnotesize \code{prolog}{500} };
+
+
+	\node[anchor=west] (add_desc) at (7.5, 4.5) { \footnotesize \bbtext{Adição} };
+
+
+	\node[] (sub) at (1.2, 4.0) { \footnotesize \code{prolog}{-/2} };
+
+	\node[] (sub_type) at (3.5, 4.0) { \footnotesize \code{prolog}{yfx} };
+
+	\node[anchor=east] (sub_prec) at (6.5, 4.0) { \footnotesize \code{prolog}{500} };
+
+	\node[anchor=west] (sub_desc) at (7.5, 4.0) { \footnotesize \bbtext{Subtração} };
+
+
+	\node[] (mul) at (1.2, 3.5) { \footnotesize \code{prolog}{*/2} };
+
+	\node[] (mul_type) at (3.5, 3.5) { \footnotesize \code{prolog}{yfx} };
+
+	\node[anchor=east] (mul_prec) at (6.5, 3.5) { \footnotesize \code{prolog}{400} };
+
+	\node[anchor=west] (mul_desc) at (7.5, 3.5) { \footnotesize \bbtext{Multiplicação} };
+
+
+	\node[] (divr) at (1.2, 3.0) { \footnotesize \code{prolog}{//2} };
+
+	\node[] (divr_type) at (3.5, 3.0) { \footnotesize \code{prolog}{yfx} };
+
+	\node[anchor=east] (divr_prec) at (6.5, 3.0) { \footnotesize \code{prolog}{400} };
+
+	\node[anchor=west] (divr_desc) at (7.5, 3.0) { \footnotesize \bbtext{Divisão nos reais} };
+
+
+	\node[] (div) at (1.2, 2.5) { \footnotesize \code{prolog}{div/2} };
+
+	\node[] (div_type) at (3.5, 2.5) { \footnotesize \code{prolog}{yfx} };
+
+	\node[anchor=east] (div_prec) at (6.5, 2.5) { \footnotesize \code{prolog}{400} };
+
+	\node[anchor=west] (div_desc) at (7.5, 2.5) { \footnotesize \bbtext{Quociente da divisão inteira} };
+
+
+	\node[] (mod) at (1.2, 2.0) { \footnotesize \code{prolog}{mod/2} };
+
+	\node[] (mod_type) at (3.5, 2.0) { \footnotesize \code{prolog}{yfx} };
+
+	\node[anchor=east] (mod_prec) at (6.5, 2.0) { \footnotesize \code{prolog}{400} };
+
+	\node[anchor=west] (mod_desc) at (7.5, 2.0) { \footnotesize \bbtext{Resto euclidiano da divisão inteira} };
+
+
+
+	\node[] (exp) at (1.2, 1.5) { \footnotesize \code{prolog}{^/2} };
+
+	\node[] (exp_type) at (3.5, 1.5) { \footnotesize \code{prolog}{xfy} };
+
+	\node[anchor=east] (exp_prec) at (6.5, 1.5) { \footnotesize \code{prolog}{200} };
+
+	\node[anchor=west] (exp_desc) at (7.5, 1.5) { \footnotesize \bbtext{\code{prolog}{a ^ b} equivale a $a^b$} };
+
+	\draw[very thick] (0.0, 1.0) to  (13.0, 1.0);
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\vspace*{\fill}
+
+\inputcode{prolog}{codes/expr.pl}
 
 \vspace*{\fill}
 \end{frame}
