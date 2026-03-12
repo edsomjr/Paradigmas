@@ -732,7 +732,56 @@ d2 => Node
 
 \inputsnippet{prolog}{20}{40}{codes/truth_table.pl}
 
-## End
+## Scene
+
+title => Node
+    @title.x = 0
+    @title.y = 7
+    @title.text = \Large \bbbold{Rastreamento}
+    @title.anchor = west
+
+---
+a => Node
+    @a.x = 1
+    @a.y = 6
+    @a.text = $\star$ \bbtext{O predicado \code{prolog}{trace/0} permite o rastreamento do fluxo de controle}
+    @a.anchor = west
+
+---
+b => Node
+    @b.x = 1
+    @b.y = 5
+    @b.text = $\star$ \bbtext{Após sua chamada, todas as consultas subsequentes serão rastreadas}
+    @b.anchor = west
+
+---
+c => Node
+    @c.x = 1
+    @c.y = 4
+    @c.text = $\star$ \bbtext{O comando \code{prolog}{creep} avança para o próximo passo da execução}
+    @c.anchor = west
+
+---
+d => Node
+    @d.x = 1
+    @d.y = 3
+    @d.text = $\star$ \bbtext{No SWI-Prolog, este comando pode ser inserido através da barra de espaço}
+    @d.anchor = west
+
+
+---
+e => Node
+    @e.x = 1
+    @e.y = 2
+    @e.text = $\star$ \bbtext{Para desativar o modo de rastreamento, consulte o predicado \code{prolog}{notrace/0}, e em}
+    @e.anchor = west
+
+e1 => Node
+    @e1.x = 0.5
+    @e1.y = 1.5
+    @e1.text = \bbtext{seguida consulte o predicado \code{prolog}{nodebug/0}}
+    @e1.anchor = west
+
 ## Scene
 
 title => Node
@@ -743,32 +792,20 @@ title => Node
 
 a => Node
     @a.x = 1
-    @a.y = 2
+    @a.y = 4
     @a.text = $\star$ \bbbold{SWI-Prolog.} \bbenglish{https://www.swi-prolog.org/,} \bbtext{acesso em 10/03/2026.}
     @a.anchor = west
 
-b => Node
-    @b.x = 1
-    @b.y = 4
-    @b.text = $\star$ \bbbold{LibreTexts Mathematics.} \bbenglish{Open Sentences and Sets,} \bbtext{acesso em 10/03/2026.}
-    @b.anchor = west
-
 c => Node
     @c.x = 1
-    @c.y = 1
-    @c.text = $\star$ \bbbold{Wikipédia.} \bbenglish{Prolog syntax and semantics,} \bbtext{acesso em 10/03/2026.}
+    @c.y = 3
+    @c.text = $\star$ \bbbold{Wikipédia.} \bbenglish{Prolog,} \bbtext{acesso em 10/11/2020.}
     @c.anchor = west
 
 d => Node
     @d.x = 1
-    @d.y = 3
+    @d.y = 5
     @d.text = $\star$ \bbbold{MERRIT}\bbtext{, Dennis.} \bbenglish{Adventure in Prolog, Amzi!,} \bbtext{191 pgs, 2017.}
     @d.anchor = west
-
-e => Node
-    @e.x = 1
-    @e.y = 5
-    @e.text = $\star$ \bbbold{Banco Central do Brasil.} \bbenglish{Cotações e boletins,} \bbtext{acesso em 10/03/2026.}
-    @e.anchor = west
 
 ## End
