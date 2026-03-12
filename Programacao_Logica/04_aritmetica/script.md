@@ -6,22 +6,58 @@
 title => Node
     @title.x = 0
     @title.y = 7
-    @title.text = \Large \bbbold{\textit{Backtracking}}
+    @title.text = \Large \bbbold{\textit{Operator \code{prolog}{is/2}}}
     @title.anchor = west
 
 ---
-
 a => Node
     @a.x = 1
     @a.y = 6
-    @a.text = $\star$ \bbtext{Quando Prolog tenta satisfazer um objetivo a respeito de um predicado, ele percorre}
+    @a.text = $\star$ \bbtext{O predicado extra-lógico \code{prolog}{is/2} é utilizado para computar expressões aritméticas}
     @a.anchor = west
 
 a1 => Node
     @a1.x = 0.5
     @a1.y = 5.5
-    @a1.text = \bbtext{todas as cláusulas que definem o predicado}
+    @a1.text = \bbtext{em Prolog}
     @a1.anchor = west
+
+---
+b => Node
+    @b.x = 1
+    @b.y = 4.5
+    @b.text = $\star$ \bbtext{Sua sintaxe, em notação infixada, é dada por}
+    @b.anchor = west
+
+b1 => Node
+    @b1.x = 2
+    @b1.y = 3.5
+    @b1.text = \code{prolog}{Number is Expr.}
+    @b1.anchor = west
+
+---
+c => Node
+    @c.x = 1
+    @c.y = 2.5
+    @c.text = $\star$ \bbtext{O resultado da expressão \code{prolog}{Expr} é atado à variável \code{prolog}{Number}}
+    @c.anchor = west
+
+---
+d => Node
+    @d.x = 1
+    @d.y = 1.5
+    @d.text = $\star$ \bbtext{Parêntesis podem ser utilizados para evitar ambiguidades e alterar a ordem de}
+    @d.anchor = west
+
+d1 => Node
+    @d1.x = 0.5
+    @d1.y = 1 
+    @d1.text = \bbtext{precedência dos operadores}
+    @d1.anchor = west
+
+## Text
+
+\inputsnippet{prolog}{1}{20}{codes/is.pl}
 
 ## Scene
 
