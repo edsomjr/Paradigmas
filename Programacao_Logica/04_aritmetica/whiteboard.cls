@@ -23,7 +23,7 @@
 \usefonttheme{serif}
 \setmainfont{BloggerSans}
 \RecustomVerbatimEnvironment{Verbatim}{BVerbatim}{}
-\setmonofont{Fantasque Sans Mono}
+\setmonofont{Fantasque Sans Mono}[Contextuals=AlternateOff]
 
 % Colors
 

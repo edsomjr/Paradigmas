@@ -407,6 +407,355 @@ end => Edge
 
 title => Node
     @title.x = 0
+    @title.y = 7
+    @title.text = \Large \bbbold{Funções aritméticas}
+    @title.anchor = west
+
+---
+a => Node
+    @a.x = 1
+    @a.y = 6
+    @a.text = $\star$ \bbtext{Os operadores aritméticos apresentados são denominados \bbbold{funções aritméticas}}
+    @a.anchor = west
+
+---
+b => Node
+    @b.x = 1
+    @b.y = 5
+    @b.text = $\star$ \bbtext{Isto porque ``retornam'' o valor de suas operações, ao invés de atá-los a uma variável}
+    @b.anchor = west
+
+---
+c => Node
+    @c.x = 1
+    @c.y = 4
+    @c.text = $\star$ \bbtext{O primeiro passo para tornar um predicado uma função aritmética é carregar a }
+    @c.anchor = west
+
+c1 => Node
+    @c1.x = 0.5
+    @c1.y = 3.5
+    @c1.text = \bbtext{biblioteca de aritmética}
+    @c1.anchor = west
+
+---
+d => Node
+    @d.x = 1
+    @d.y = 2.5
+    @d.text = $\star$ \bbtext{O segundo passo é definir o predicado como uma função aritmética por meio da }
+    @d.anchor = west
+
+d1 => Node
+    @d1.x = 0.5
+    @d1.y = 2
+    @d1.text = \bbtext{diretiva \code{prolog}{arithmetic_function}}
+    @d1.anchor = west
+
+---
+e => Node
+    @e.x = 1
+    @e.y = 1
+    @e.text = $\star$ \bbtext{A variável a ser ``retornada'' deve ser a última, dentre as listadas nos argumentos}
+    @e.anchor = west
+
+e1 => Node
+    @e1.x = 0.5
+    @e1.y = 0.5
+    @e1.text = \bbtext{do predicado}
+    @e1.anchor = west
+
+## Text
+
+\inputcode{prolog}{codes/user_arithmetic_function.pl}
+
+## Scene
+
+title => Node
+    @title.x = 0
+    @title.y = 7
+    @title.text = \Large \bbbold{Operadores relacionais}
+    @title.anchor = west
+
+---
+
+top => Edge
+    @top.x = 0
+    @top.y = 6
+    @top.u = 13
+    @top.v = 6
+    &top.very thick
+
+mid => Edge
+    @mid.x = 0
+    @mid.y = 5
+    @mid.u = 13
+    @mid.v = 5
+    &mid.thick
+
+op => Node
+    @op.x = 0.25
+    @op.y = 5.5
+    @op.text = \bbemph{Operador}
+    @op.anchor = west
+
+type => Node
+    @type.x = 3
+    @type.y = 5.5
+    @type.text = \bbemph{Tipo}
+    @type.anchor = west
+
+prec => Node
+    @prec.x = 5
+    @prec.y = 5.5
+    @prec.text = \bbemph{Precedência}
+    @prec.anchor = west
+
+
+desc => Node
+    @desc.x = 7.5
+    @desc.y = 5.5
+    @desc.text = \bbemph{Descrição}
+    @desc.anchor = west
+
+---
+
+greater => Node
+    @greater.x = 1.2
+    @greater.y = 4.5
+    @greater.text = \footnotesize \code{prolog}{>/2}
+
+greater_type => Node
+    @greater_type.x = 3.5
+    @greater_type.y = 4.5
+    @greater_type.text = \footnotesize \code{prolog}{xfx}
+
+greater_prec => Node
+    @greater_prec.x = 6.5
+    @greater_prec.y = 4.5
+    @greater_prec.text = \footnotesize \code{prolog}{700}
+    @greater_prec.anchor = east
+
+
+greater_desc => Node
+    @greater_desc.x = 7.5
+    @greater_desc.y = 4.5
+    @greater_desc.text = \footnotesize \bbtext{Maior que}
+    @greater_desc.anchor = west
+
+---
+
+lesser => Node
+    @lesser.x = 1.2
+    @lesser.y = 4
+    @lesser.text = \footnotesize \code{prolog}{</2}
+
+lesser_type => Node
+    @lesser_type.x = 3.5
+    @lesser_type.y = 4
+    @lesser_type.text = \footnotesize \code{prolog}{xfx}
+
+lesser_prec => Node
+    @lesser_prec.x = 6.5
+    @lesser_prec.y = 4
+    @lesser_prec.text = \footnotesize \code{prolog}{700}
+    @lesser_prec.anchor = east
+
+lesser_desc => Node
+    @lesser_desc.x = 7.5
+    @lesser_desc.y = 4
+    @lesser_desc.text = \footnotesize \bbtext{Menor que}
+    @lesser_desc.anchor = west
+
+---
+
+ge => Node
+    @ge.x = 1.2
+    @ge.y = 3.5
+    @ge.text = \footnotesize \code{prolog}{>}\code{prolog}{=/2}
+
+ge_type => Node
+    @ge_type.x = 3.5
+    @ge_type.y = 3.5
+    @ge_type.text = \footnotesize \code{prolog}{xfx}
+
+ge_prec => Node
+    @ge_prec.x = 6.5
+    @ge_prec.y = 3.5
+    @ge_prec.text = \footnotesize \code{prolog}{700}
+    @ge_prec.anchor = east
+
+ge_desc => Node
+    @ge_desc.x = 7.5
+    @ge_desc.y = 3.5
+    @ge_desc.text = \footnotesize \bbtext{Maior ou igual que}
+    @ge_desc.anchor = west
+
+---
+
+le => Node
+    @le.x = 1.2
+    @le.y = 3
+    @le.text = \footnotesize \code{prolog}{=</2}
+
+le_type => Node
+    @le_type.x = 3.5
+    @le_type.y = 3
+    @le_type.text = \footnotesize \code{prolog}{xfx}
+
+le_prec => Node
+    @le_prec.x = 6.5
+    @le_prec.y = 3
+    @le_prec.text = \footnotesize \code{prolog}{700}
+    @le_prec.anchor = east
+
+le_desc => Node
+    @le_desc.x = 7.5
+    @le_desc.y = 3
+    @le_desc.text = \footnotesize \bbtext{Menor ou igual que}
+    @le_desc.anchor = west
+
+---
+
+eq => Node
+    @eq.x = 1.2
+    @eq.y = 2.5
+    @eq.text = \footnotesize \code{prolog}{=:=/2}
+
+eq_type => Node
+    @eq_type.x = 3.5
+    @eq_type.y = 2.5
+    @eq_type.text = \footnotesize \code{prolog}{xfx}
+
+eq_prec => Node
+    @eq_prec.x = 6.5
+    @eq_prec.y = 2.5
+    @eq_prec.text = \footnotesize \code{prolog}{700}
+    @eq_prec.anchor = east
+
+eq_desc => Node
+    @eq_desc.x = 7.5
+    @eq_desc.y = 2.5
+    @eq_desc.text = \footnotesize \bbtext{Igual}
+    @eq_desc.anchor = west
+
+---
+
+neq => Node
+    @neq.x = 1.2
+    @neq.y = 2
+    @neq.text = \footnotesize \code{prolog}{=\=/2}
+
+neq_type => Node
+    @neq_type.x = 3.5
+    @neq_type.y = 2
+    @neq_type.text = \footnotesize \code{prolog}{xfx}
+
+neq_prec => Node
+    @neq_prec.x = 6.5
+    @neq_prec.y = 2
+    @neq_prec.text = \footnotesize \code{prolog}{700}
+    @neq_prec.anchor = east
+
+neq_desc => Node
+    @neq_desc.x = 7.5
+    @neq_desc.y = 2
+    @neq_desc.text = \footnotesize \bbtext{Diferente}
+    @neq_desc.anchor = west
+
+
+end => Edge
+    @end.x = 0
+    @end.y = 1.5
+    @end.u = 13
+    @end.v = 1.5
+    &end.very thick
+
+## Text
+
+\inputcode{prolog}{codes/roots.pl}
+
+## Scene
+
+title => Node
+    @title.x = 0
+    @title.y = 7
+    @title.text = \Large \bbbold{Predicados com múltiplas semânticas}
+    @title.anchor = west
+
+---
+a => Node
+    @a.x = 1
+    @a.y = 6
+    @a.text = $\star$ \bbtext{Alguns predicados em Prolog podem ter mais do que uma semântica}
+    @a.anchor = west
+
+---
+b => Node
+    @b.x = 1
+    @b.y = 5
+    @b.text = $\star$ \bbtext{Por exemplo, o sucessor de \code{prolog}{2} pode ser obtido pelo predicado \code{prolog}{succ/2}:}
+    @b.anchor = west
+
+b1 => Node
+    @b1.x = 2
+    @b1.y = 4
+    @b1.text = \inputsyntax{prolog}{codes/succ1.pl}
+    @b1.anchor = west
+
+---
+c => Node
+    @c.x = 1
+    @c.y = 3
+    @c.text = $\star$ \bbtext{Já o antecessor de \code{prolog}{2} pode ser obtido pelo mesmo predicado:}
+    @c.anchor = west
+
+c1 => Node
+    @c1.x = 2
+    @c1.y = 2
+    @c1.text = \inputsyntax{prolog}{codes/succ2.pl}
+    @c1.anchor = west
+
+## Scene
+
+title => Node
+    @title.x = 0
+    @title.y = 7
+    @title.text = \Large \bbbold{Implementação de predicados com múltiplas semânticas}
+    @title.anchor = west
+
+---
+a => Node
+    @a.x = 1
+    @a.y = 6
+    @a.text = $\star$ \bbtext{É possível implementar predicados com múltiplas semânticas por meio de condicionais}
+    @a.anchor = west
+
+a1 => Node
+    @a1.x = 0.5
+    @a1.y = 5.5
+    @a1.text = \bbtext{e de predicados extra-lógicos que verificam o tipo de um termo}
+    @a1.anchor = west
+
+
+---
+b => Node
+    @b.x = 1
+    @b.y = 4.5
+    @b.text = $\star$ \bbtext{O predicado \code{prolog}{var/1} retorna verdadeiro se a variável é \bbbold{livre}, isto é, se ainda não foi}
+    @b.anchor = west
+
+b1 => Node
+    @b1.x = 0.5
+    @b1.y = 4
+    @b1.text = \bbtext{atada na consulta}
+    @b1.anchor = west
+
+
+
+## Scene
+
+title => Node
+    @title.x = 0
     @title.y = 6.5
     @title.text = \Large \bbbold{Referências}
     @title.anchor = west
@@ -414,13 +763,13 @@ title => Node
 a => Node
     @a.x = 1
     @a.y = 4
-    @a.text = $\star$ \bbbold{SWI-Prolog.} \bbenglish{https://www.swi-prolog.org/,} \bbtext{acesso em 10/03/2026.}
+    @a.text = $\star$ \bbbold{SWI-Prolog.} \bbenglish{https://www.swi-prolog.org/,} \bbtext{acesso em 13/03/2026.}
     @a.anchor = west
 
 c => Node
     @c.x = 1
     @c.y = 3
-    @c.text = $\star$ \bbbold{Wikipédia.} \bbenglish{Prolog,} \bbtext{acesso em 10/11/2020.}
+    @c.text = $\star$ \bbbold{Wikipédia.} \bbenglish{Prolog,} \bbtext{acesso em 13/03/2026.}
     @c.anchor = west
 
 d => Node

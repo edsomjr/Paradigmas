@@ -715,11 +715,586 @@
 \node[draw,opacity=0] at (0, 0) {x};
 \node[draw,opacity=0] at (14, 8) {x};
 
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Funções aritméticas} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Funções aritméticas} };
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{Os operadores aritméticos apresentados são denominados \bbbold{funções aritméticas}} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Funções aritméticas} };
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{Os operadores aritméticos apresentados são denominados \bbbold{funções aritméticas}} };
+
+	\node[anchor=west] (b) at (1.0, 5.0) { $\star$ \bbtext{Isto porque ``retornam'' o valor de suas operações, ao invés de atá-los a uma variável} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Funções aritméticas} };
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{Os operadores aritméticos apresentados são denominados \bbbold{funções aritméticas}} };
+
+	\node[anchor=west] (b) at (1.0, 5.0) { $\star$ \bbtext{Isto porque ``retornam'' o valor de suas operações, ao invés de atá-los a uma variável} };
+
+	\node[anchor=west] (c) at (1.0, 4.0) { $\star$ \bbtext{O primeiro passo para tornar um predicado uma função aritmética é carregar a } };
+
+	\node[anchor=west] (c1) at (0.5, 3.5) { \bbtext{biblioteca de aritmética} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Funções aritméticas} };
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{Os operadores aritméticos apresentados são denominados \bbbold{funções aritméticas}} };
+
+	\node[anchor=west] (b) at (1.0, 5.0) { $\star$ \bbtext{Isto porque ``retornam'' o valor de suas operações, ao invés de atá-los a uma variável} };
+
+	\node[anchor=west] (c) at (1.0, 4.0) { $\star$ \bbtext{O primeiro passo para tornar um predicado uma função aritmética é carregar a } };
+
+	\node[anchor=west] (c1) at (0.5, 3.5) { \bbtext{biblioteca de aritmética} };
+
+	\node[anchor=west] (d) at (1.0, 2.5) { $\star$ \bbtext{O segundo passo é definir o predicado como uma função aritmética por meio da } };
+
+	\node[anchor=west] (d1) at (0.5, 2.0) { \bbtext{diretiva \code{prolog}{arithmetic_function}} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Funções aritméticas} };
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{Os operadores aritméticos apresentados são denominados \bbbold{funções aritméticas}} };
+
+	\node[anchor=west] (b) at (1.0, 5.0) { $\star$ \bbtext{Isto porque ``retornam'' o valor de suas operações, ao invés de atá-los a uma variável} };
+
+	\node[anchor=west] (c) at (1.0, 4.0) { $\star$ \bbtext{O primeiro passo para tornar um predicado uma função aritmética é carregar a } };
+
+	\node[anchor=west] (c1) at (0.5, 3.5) { \bbtext{biblioteca de aritmética} };
+
+	\node[anchor=west] (d) at (1.0, 2.5) { $\star$ \bbtext{O segundo passo é definir o predicado como uma função aritmética por meio da } };
+
+	\node[anchor=west] (d1) at (0.5, 2.0) { \bbtext{diretiva \code{prolog}{arithmetic_function}} };
+
+	\node[anchor=west] (e) at (1.0, 1.0) { $\star$ \bbtext{A variável a ser ``retornada'' deve ser a última, dentre as listadas nos argumentos} };
+
+	\node[anchor=west] (e1) at (0.5, 0.5) { \bbtext{do predicado} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\vspace*{\fill}
+
+\inputcode{prolog}{codes/user_arithmetic_function.pl}
+
+\vspace*{\fill}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Operadores relacionais} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Operadores relacionais} };
+
+
+	\draw[very thick] (0.0, 6.0) to  (13.0, 6.0);
+
+	\draw[thick] (0.0, 5.0) to  (13.0, 5.0);
+
+	\node[anchor=west] (op) at (0.25, 5.5) { \bbemph{Operador} };
+
+	\node[anchor=west] (type) at (3.0, 5.5) { \bbemph{Tipo} };
+
+	\node[anchor=west] (prec) at (5.0, 5.5) { \bbemph{Precedência} };
+
+
+	\node[anchor=west] (desc) at (7.5, 5.5) { \bbemph{Descrição} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Operadores relacionais} };
+
+
+	\draw[very thick] (0.0, 6.0) to  (13.0, 6.0);
+
+	\draw[thick] (0.0, 5.0) to  (13.0, 5.0);
+
+	\node[anchor=west] (op) at (0.25, 5.5) { \bbemph{Operador} };
+
+	\node[anchor=west] (type) at (3.0, 5.5) { \bbemph{Tipo} };
+
+	\node[anchor=west] (prec) at (5.0, 5.5) { \bbemph{Precedência} };
+
+
+	\node[anchor=west] (desc) at (7.5, 5.5) { \bbemph{Descrição} };
+
+
+	\node[] (greater) at (1.2, 4.5) { \footnotesize \code{prolog}{>/2} };
+
+	\node[] (greater_type) at (3.5, 4.5) { \footnotesize \code{prolog}{xfx} };
+
+	\node[anchor=east] (greater_prec) at (6.5, 4.5) { \footnotesize \code{prolog}{700} };
+
+
+	\node[anchor=west] (greater_desc) at (7.5, 4.5) { \footnotesize \bbtext{Maior que} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Operadores relacionais} };
+
+
+	\draw[very thick] (0.0, 6.0) to  (13.0, 6.0);
+
+	\draw[thick] (0.0, 5.0) to  (13.0, 5.0);
+
+	\node[anchor=west] (op) at (0.25, 5.5) { \bbemph{Operador} };
+
+	\node[anchor=west] (type) at (3.0, 5.5) { \bbemph{Tipo} };
+
+	\node[anchor=west] (prec) at (5.0, 5.5) { \bbemph{Precedência} };
+
+
+	\node[anchor=west] (desc) at (7.5, 5.5) { \bbemph{Descrição} };
+
+
+	\node[] (greater) at (1.2, 4.5) { \footnotesize \code{prolog}{>/2} };
+
+	\node[] (greater_type) at (3.5, 4.5) { \footnotesize \code{prolog}{xfx} };
+
+	\node[anchor=east] (greater_prec) at (6.5, 4.5) { \footnotesize \code{prolog}{700} };
+
+
+	\node[anchor=west] (greater_desc) at (7.5, 4.5) { \footnotesize \bbtext{Maior que} };
+
+
+	\node[] (lesser) at (1.2, 4.0) { \footnotesize \code{prolog}{</2} };
+
+	\node[] (lesser_type) at (3.5, 4.0) { \footnotesize \code{prolog}{xfx} };
+
+	\node[anchor=east] (lesser_prec) at (6.5, 4.0) { \footnotesize \code{prolog}{700} };
+
+	\node[anchor=west] (lesser_desc) at (7.5, 4.0) { \footnotesize \bbtext{Menor que} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Operadores relacionais} };
+
+
+	\draw[very thick] (0.0, 6.0) to  (13.0, 6.0);
+
+	\draw[thick] (0.0, 5.0) to  (13.0, 5.0);
+
+	\node[anchor=west] (op) at (0.25, 5.5) { \bbemph{Operador} };
+
+	\node[anchor=west] (type) at (3.0, 5.5) { \bbemph{Tipo} };
+
+	\node[anchor=west] (prec) at (5.0, 5.5) { \bbemph{Precedência} };
+
+
+	\node[anchor=west] (desc) at (7.5, 5.5) { \bbemph{Descrição} };
+
+
+	\node[] (greater) at (1.2, 4.5) { \footnotesize \code{prolog}{>/2} };
+
+	\node[] (greater_type) at (3.5, 4.5) { \footnotesize \code{prolog}{xfx} };
+
+	\node[anchor=east] (greater_prec) at (6.5, 4.5) { \footnotesize \code{prolog}{700} };
+
+
+	\node[anchor=west] (greater_desc) at (7.5, 4.5) { \footnotesize \bbtext{Maior que} };
+
+
+	\node[] (lesser) at (1.2, 4.0) { \footnotesize \code{prolog}{</2} };
+
+	\node[] (lesser_type) at (3.5, 4.0) { \footnotesize \code{prolog}{xfx} };
+
+	\node[anchor=east] (lesser_prec) at (6.5, 4.0) { \footnotesize \code{prolog}{700} };
+
+	\node[anchor=west] (lesser_desc) at (7.5, 4.0) { \footnotesize \bbtext{Menor que} };
+
+
+	\node[] (ge) at (1.2, 3.5) { \footnotesize \code{prolog}{>}\code{prolog}{=/2} };
+
+	\node[] (ge_type) at (3.5, 3.5) { \footnotesize \code{prolog}{xfx} };
+
+	\node[anchor=east] (ge_prec) at (6.5, 3.5) { \footnotesize \code{prolog}{700} };
+
+	\node[anchor=west] (ge_desc) at (7.5, 3.5) { \footnotesize \bbtext{Maior ou igual que} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Operadores relacionais} };
+
+
+	\draw[very thick] (0.0, 6.0) to  (13.0, 6.0);
+
+	\draw[thick] (0.0, 5.0) to  (13.0, 5.0);
+
+	\node[anchor=west] (op) at (0.25, 5.5) { \bbemph{Operador} };
+
+	\node[anchor=west] (type) at (3.0, 5.5) { \bbemph{Tipo} };
+
+	\node[anchor=west] (prec) at (5.0, 5.5) { \bbemph{Precedência} };
+
+
+	\node[anchor=west] (desc) at (7.5, 5.5) { \bbemph{Descrição} };
+
+
+	\node[] (greater) at (1.2, 4.5) { \footnotesize \code{prolog}{>/2} };
+
+	\node[] (greater_type) at (3.5, 4.5) { \footnotesize \code{prolog}{xfx} };
+
+	\node[anchor=east] (greater_prec) at (6.5, 4.5) { \footnotesize \code{prolog}{700} };
+
+
+	\node[anchor=west] (greater_desc) at (7.5, 4.5) { \footnotesize \bbtext{Maior que} };
+
+
+	\node[] (lesser) at (1.2, 4.0) { \footnotesize \code{prolog}{</2} };
+
+	\node[] (lesser_type) at (3.5, 4.0) { \footnotesize \code{prolog}{xfx} };
+
+	\node[anchor=east] (lesser_prec) at (6.5, 4.0) { \footnotesize \code{prolog}{700} };
+
+	\node[anchor=west] (lesser_desc) at (7.5, 4.0) { \footnotesize \bbtext{Menor que} };
+
+
+	\node[] (ge) at (1.2, 3.5) { \footnotesize \code{prolog}{>}\code{prolog}{=/2} };
+
+	\node[] (ge_type) at (3.5, 3.5) { \footnotesize \code{prolog}{xfx} };
+
+	\node[anchor=east] (ge_prec) at (6.5, 3.5) { \footnotesize \code{prolog}{700} };
+
+	\node[anchor=west] (ge_desc) at (7.5, 3.5) { \footnotesize \bbtext{Maior ou igual que} };
+
+
+	\node[] (le) at (1.2, 3.0) { \footnotesize \code{prolog}{=</2} };
+
+	\node[] (le_type) at (3.5, 3.0) { \footnotesize \code{prolog}{xfx} };
+
+	\node[anchor=east] (le_prec) at (6.5, 3.0) { \footnotesize \code{prolog}{700} };
+
+	\node[anchor=west] (le_desc) at (7.5, 3.0) { \footnotesize \bbtext{Menor ou igual que} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Operadores relacionais} };
+
+
+	\draw[very thick] (0.0, 6.0) to  (13.0, 6.0);
+
+	\draw[thick] (0.0, 5.0) to  (13.0, 5.0);
+
+	\node[anchor=west] (op) at (0.25, 5.5) { \bbemph{Operador} };
+
+	\node[anchor=west] (type) at (3.0, 5.5) { \bbemph{Tipo} };
+
+	\node[anchor=west] (prec) at (5.0, 5.5) { \bbemph{Precedência} };
+
+
+	\node[anchor=west] (desc) at (7.5, 5.5) { \bbemph{Descrição} };
+
+
+	\node[] (greater) at (1.2, 4.5) { \footnotesize \code{prolog}{>/2} };
+
+	\node[] (greater_type) at (3.5, 4.5) { \footnotesize \code{prolog}{xfx} };
+
+	\node[anchor=east] (greater_prec) at (6.5, 4.5) { \footnotesize \code{prolog}{700} };
+
+
+	\node[anchor=west] (greater_desc) at (7.5, 4.5) { \footnotesize \bbtext{Maior que} };
+
+
+	\node[] (lesser) at (1.2, 4.0) { \footnotesize \code{prolog}{</2} };
+
+	\node[] (lesser_type) at (3.5, 4.0) { \footnotesize \code{prolog}{xfx} };
+
+	\node[anchor=east] (lesser_prec) at (6.5, 4.0) { \footnotesize \code{prolog}{700} };
+
+	\node[anchor=west] (lesser_desc) at (7.5, 4.0) { \footnotesize \bbtext{Menor que} };
+
+
+	\node[] (ge) at (1.2, 3.5) { \footnotesize \code{prolog}{>}\code{prolog}{=/2} };
+
+	\node[] (ge_type) at (3.5, 3.5) { \footnotesize \code{prolog}{xfx} };
+
+	\node[anchor=east] (ge_prec) at (6.5, 3.5) { \footnotesize \code{prolog}{700} };
+
+	\node[anchor=west] (ge_desc) at (7.5, 3.5) { \footnotesize \bbtext{Maior ou igual que} };
+
+
+	\node[] (le) at (1.2, 3.0) { \footnotesize \code{prolog}{=</2} };
+
+	\node[] (le_type) at (3.5, 3.0) { \footnotesize \code{prolog}{xfx} };
+
+	\node[anchor=east] (le_prec) at (6.5, 3.0) { \footnotesize \code{prolog}{700} };
+
+	\node[anchor=west] (le_desc) at (7.5, 3.0) { \footnotesize \bbtext{Menor ou igual que} };
+
+
+	\node[] (eq) at (1.2, 2.5) { \footnotesize \code{prolog}{=:=/2} };
+
+	\node[] (eq_type) at (3.5, 2.5) { \footnotesize \code{prolog}{xfx} };
+
+	\node[anchor=east] (eq_prec) at (6.5, 2.5) { \footnotesize \code{prolog}{700} };
+
+	\node[anchor=west] (eq_desc) at (7.5, 2.5) { \footnotesize \bbtext{Igual} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Operadores relacionais} };
+
+
+	\draw[very thick] (0.0, 6.0) to  (13.0, 6.0);
+
+	\draw[thick] (0.0, 5.0) to  (13.0, 5.0);
+
+	\node[anchor=west] (op) at (0.25, 5.5) { \bbemph{Operador} };
+
+	\node[anchor=west] (type) at (3.0, 5.5) { \bbemph{Tipo} };
+
+	\node[anchor=west] (prec) at (5.0, 5.5) { \bbemph{Precedência} };
+
+
+	\node[anchor=west] (desc) at (7.5, 5.5) { \bbemph{Descrição} };
+
+
+	\node[] (greater) at (1.2, 4.5) { \footnotesize \code{prolog}{>/2} };
+
+	\node[] (greater_type) at (3.5, 4.5) { \footnotesize \code{prolog}{xfx} };
+
+	\node[anchor=east] (greater_prec) at (6.5, 4.5) { \footnotesize \code{prolog}{700} };
+
+
+	\node[anchor=west] (greater_desc) at (7.5, 4.5) { \footnotesize \bbtext{Maior que} };
+
+
+	\node[] (lesser) at (1.2, 4.0) { \footnotesize \code{prolog}{</2} };
+
+	\node[] (lesser_type) at (3.5, 4.0) { \footnotesize \code{prolog}{xfx} };
+
+	\node[anchor=east] (lesser_prec) at (6.5, 4.0) { \footnotesize \code{prolog}{700} };
+
+	\node[anchor=west] (lesser_desc) at (7.5, 4.0) { \footnotesize \bbtext{Menor que} };
+
+
+	\node[] (ge) at (1.2, 3.5) { \footnotesize \code{prolog}{>}\code{prolog}{=/2} };
+
+	\node[] (ge_type) at (3.5, 3.5) { \footnotesize \code{prolog}{xfx} };
+
+	\node[anchor=east] (ge_prec) at (6.5, 3.5) { \footnotesize \code{prolog}{700} };
+
+	\node[anchor=west] (ge_desc) at (7.5, 3.5) { \footnotesize \bbtext{Maior ou igual que} };
+
+
+	\node[] (le) at (1.2, 3.0) { \footnotesize \code{prolog}{=</2} };
+
+	\node[] (le_type) at (3.5, 3.0) { \footnotesize \code{prolog}{xfx} };
+
+	\node[anchor=east] (le_prec) at (6.5, 3.0) { \footnotesize \code{prolog}{700} };
+
+	\node[anchor=west] (le_desc) at (7.5, 3.0) { \footnotesize \bbtext{Menor ou igual que} };
+
+
+	\node[] (eq) at (1.2, 2.5) { \footnotesize \code{prolog}{=:=/2} };
+
+	\node[] (eq_type) at (3.5, 2.5) { \footnotesize \code{prolog}{xfx} };
+
+	\node[anchor=east] (eq_prec) at (6.5, 2.5) { \footnotesize \code{prolog}{700} };
+
+	\node[anchor=west] (eq_desc) at (7.5, 2.5) { \footnotesize \bbtext{Igual} };
+
+
+	\node[] (neq) at (1.2, 2.0) { \footnotesize \code{prolog}{=\=/2} };
+
+	\node[] (neq_type) at (3.5, 2.0) { \footnotesize \code{prolog}{xfx} };
+
+	\node[anchor=east] (neq_prec) at (6.5, 2.0) { \footnotesize \code{prolog}{700} };
+
+	\node[anchor=west] (neq_desc) at (7.5, 2.0) { \footnotesize \bbtext{Diferente} };
+
+
+	\draw[very thick] (0.0, 1.5) to  (13.0, 1.5);
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\vspace*{\fill}
+
+\inputcode{prolog}{codes/roots.pl}
+
+\vspace*{\fill}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Predicados com múltiplas semânticas} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Predicados com múltiplas semânticas} };
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{Alguns predicados em Prolog podem ter mais do que uma semântica} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Predicados com múltiplas semânticas} };
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{Alguns predicados em Prolog podem ter mais do que uma semântica} };
+
+	\node[anchor=west] (b) at (1.0, 5.0) { $\star$ \bbtext{Por exemplo, o sucessor de \code{prolog}{2} pode ser obtido pelo predicado \code{prolog}{succ/2}:} };
+
+	\node[anchor=west] (b1) at (2.0, 4.0) { \inputsyntax{prolog}{codes/succ1.pl} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Predicados com múltiplas semânticas} };
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{Alguns predicados em Prolog podem ter mais do que uma semântica} };
+
+	\node[anchor=west] (b) at (1.0, 5.0) { $\star$ \bbtext{Por exemplo, o sucessor de \code{prolog}{2} pode ser obtido pelo predicado \code{prolog}{succ/2}:} };
+
+	\node[anchor=west] (b1) at (2.0, 4.0) { \inputsyntax{prolog}{codes/succ1.pl} };
+
+	\node[anchor=west] (c) at (1.0, 3.0) { $\star$ \bbtext{Já o antecessor de \code{prolog}{2} pode ser obtido pelo mesmo predicado:} };
+
+	\node[anchor=west] (c1) at (2.0, 2.0) { \inputsyntax{prolog}{codes/succ2.pl} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Implementação de predicados com múltiplas semânticas} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Implementação de predicados com múltiplas semânticas} };
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{É possível implementar predicados com múltiplas semânticas por meio de condicionais} };
+
+	\node[anchor=west] (a1) at (0.5, 5.5) { \bbtext{e dos predicados extra-lógicos que verificam o tipo de um termo} };
+
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Implementação de predicados com múltiplas semânticas} };
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{É possível implementar predicados com múltiplas semânticas por meio de condicionais} };
+
+	\node[anchor=west] (a1) at (0.5, 5.5) { \bbtext{e dos predicados extra-lógicos que verificam o tipo de um termo} };
+
+
+	\node[anchor=west] (b) at (1.0, 4.5) { $\star$ \bbtext{O predicado \code{prolog}{var/1} retorna verdadeiro se a variável é \bbbold{livre}, isto é, se ainda não foi} };
+
+	\node[anchor=west] (b1) at (0.5, 4.0) { \bbtext{atada na consulta} };
+
+
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
 	\node[anchor=west] (title) at (0.0, 6.5) { \Large \bbbold{Referências} };
 
-	\node[anchor=west] (a) at (1.0, 4.0) { $\star$ \bbbold{SWI-Prolog.} \bbenglish{https://www.swi-prolog.org/,} \bbtext{acesso em 10/03/2026.} };
+	\node[anchor=west] (a) at (1.0, 4.0) { $\star$ \bbbold{SWI-Prolog.} \bbenglish{https://www.swi-prolog.org/,} \bbtext{acesso em 13/03/2026.} };
 
-	\node[anchor=west] (c) at (1.0, 3.0) { $\star$ \bbbold{Wikipédia.} \bbenglish{Prolog,} \bbtext{acesso em 10/11/2020.} };
+	\node[anchor=west] (c) at (1.0, 3.0) { $\star$ \bbbold{Wikipédia.} \bbenglish{Prolog,} \bbtext{acesso em 13/03/2026.} };
 
 	\node[anchor=west] (d) at (1.0, 5.0) { $\star$ \bbbold{MERRIT}\bbtext{, Dennis.} \bbenglish{Adventure in Prolog, Amzi!,} \bbtext{191 pgs, 2017.} };
 
