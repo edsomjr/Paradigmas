@@ -1258,9 +1258,9 @@
 
 	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Implementação de predicados com múltiplas semânticas} };
 
-	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{É possível implementar predicados com múltiplas semânticas por meio de condicionais} };
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{É possível implementar predicados com múltiplas semânticas por meio de condicio-} };
 
-	\node[anchor=west] (a1) at (0.5, 5.5) { \bbtext{e dos predicados extra-lógicos que verificam o tipo de um termo} };
+	\node[anchor=west] (a1) at (0.5, 5.5) { \bbtext{nais e de predicados extra-lógicos que verificam o tipo de um termo} };
 
 
 \end{tikzpicture}
@@ -1272,18 +1272,86 @@
 
 	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Implementação de predicados com múltiplas semânticas} };
 
-	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{É possível implementar predicados com múltiplas semânticas por meio de condicionais} };
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{É possível implementar predicados com múltiplas semânticas por meio de condicio-} };
 
-	\node[anchor=west] (a1) at (0.5, 5.5) { \bbtext{e dos predicados extra-lógicos que verificam o tipo de um termo} };
+	\node[anchor=west] (a1) at (0.5, 5.5) { \bbtext{nais e de predicados extra-lógicos que verificam o tipo de um termo} };
 
 
 	\node[anchor=west] (b) at (1.0, 4.5) { $\star$ \bbtext{O predicado \code{prolog}{var/1} retorna verdadeiro se a variável é \bbbold{livre}, isto é, se ainda não foi} };
 
 	\node[anchor=west] (b1) at (0.5, 4.0) { \bbtext{atada na consulta} };
 
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
 
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Implementação de predicados com múltiplas semânticas} };
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{É possível implementar predicados com múltiplas semânticas por meio de condicio-} };
+
+	\node[anchor=west] (a1) at (0.5, 5.5) { \bbtext{nais e de predicados extra-lógicos que verificam o tipo de um termo} };
+
+
+	\node[anchor=west] (b) at (1.0, 4.5) { $\star$ \bbtext{O predicado \code{prolog}{var/1} retorna verdadeiro se a variável é \bbbold{livre}, isto é, se ainda não foi} };
+
+	\node[anchor=west] (b1) at (0.5, 4.0) { \bbtext{atada na consulta} };
+
+	\node[anchor=west] (c) at (1.0, 3.0) { $\star$ \bbtext{O predicado \code{prolog}{unvar/1} retorna verdadeiro se a variável já foi atada previamente na} };
+
+	\node[anchor=west] (c1) at (0.5, 2.5) { \bbtext{consulta} };
 
 \end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Implementação de predicados com múltiplas semânticas} };
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{É possível implementar predicados com múltiplas semânticas por meio de condicio-} };
+
+	\node[anchor=west] (a1) at (0.5, 5.5) { \bbtext{nais e de predicados extra-lógicos que verificam o tipo de um termo} };
+
+
+	\node[anchor=west] (b) at (1.0, 4.5) { $\star$ \bbtext{O predicado \code{prolog}{var/1} retorna verdadeiro se a variável é \bbbold{livre}, isto é, se ainda não foi} };
+
+	\node[anchor=west] (b1) at (0.5, 4.0) { \bbtext{atada na consulta} };
+
+	\node[anchor=west] (c) at (1.0, 3.0) { $\star$ \bbtext{O predicado \code{prolog}{unvar/1} retorna verdadeiro se a variável já foi atada previamente na} };
+
+	\node[anchor=west] (c1) at (0.5, 2.5) { \bbtext{consulta} };
+
+	\node[anchor=west] (d) at (1.0, 1.5) { $\star$ \bbtext{Prolog também traz predicados para confirmar o tipo do termo como, por exemplo,} };
+
+	\node[anchor=west] (d1) at (0.5, 1.0) { \bbtext{os predicados \code{prolog}{integer/1}, \code{prolog}{number/1} e \code{prolog}{atom/1}} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\vspace*{\fill}
+
+\inputcode{prolog}{codes/celsius.pl}
+
+
+\vspace*{\fill}
+\end{frame}
+\begin{frame}[plain,t]
+\vspace*{\fill}
+
+\inputsnippet{prolog}{1}{18}{codes/sudoku.pl}
+
+\vspace*{\fill}
+\end{frame}
+\begin{frame}[plain,t]
+\vspace*{\fill}
+
+\inputsnippet{prolog}{20}{39}{codes/sudoku.pl}
+
+\vspace*{\fill}
 \end{frame}
 \begin{frame}[plain,t]
 \begin{tikzpicture}

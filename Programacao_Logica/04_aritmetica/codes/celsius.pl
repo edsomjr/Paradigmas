@@ -1,6 +1,7 @@
 % Equivalência entre graus Celsius e Fahrenheit
 celsius_fahrenheit(C, F) :-
-    ((var(C), var(F)) -> instantiation_error("Ao menos um valor deve ser determinado")),
+    ((var(C), var(F)) 
+        -> instantiation_error('Ao menos uma variável deve estar atada')),
     (nonvar(C) -> F is C*9/5 + 32 ; C is (F - 32)*5/9).
 
 % Exemplos de consultas

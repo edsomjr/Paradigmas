@@ -727,13 +727,13 @@ title => Node
 a => Node
     @a.x = 1
     @a.y = 6
-    @a.text = $\star$ \bbtext{É possível implementar predicados com múltiplas semânticas por meio de condicionais}
+    @a.text = $\star$ \bbtext{É possível implementar predicados com múltiplas semânticas por meio de condicio-}
     @a.anchor = west
 
 a1 => Node
     @a1.x = 0.5
     @a1.y = 5.5
-    @a1.text = \bbtext{e de predicados extra-lógicos que verificam o tipo de um termo}
+    @a1.text = \bbtext{nais e de predicados extra-lógicos que verificam o tipo de um termo}
     @a1.anchor = west
 
 
@@ -750,7 +750,44 @@ b1 => Node
     @b1.text = \bbtext{atada na consulta}
     @b1.anchor = west
 
+---
+c => Node
+    @c.x = 1
+    @c.y = 3
+    @c.text = $\star$ \bbtext{O predicado \code{prolog}{unvar/1} retorna verdadeiro se a variável já foi atada previamente na}
+    @c.anchor = west
 
+c1 => Node
+    @c1.x = 0.5
+    @c1.y = 2.5
+    @c1.text = \bbtext{consulta}
+    @c1.anchor = west
+
+---
+d => Node
+    @d.x = 1
+    @d.y = 1.5
+    @d.text = $\star$ \bbtext{Prolog também traz predicados para confirmar o tipo do termo como, por exemplo,}
+    @d.anchor = west
+
+d1 => Node
+    @d1.x = 0.5
+    @d1.y = 1
+    @d1.text = \bbtext{os predicados \code{prolog}{integer/1}, \code{prolog}{number/1} e \code{prolog}{atom/1}}
+    @d1.anchor = west
+
+## Text
+
+\inputcode{prolog}{codes/celsius.pl}
+
+
+## Text
+
+\inputsnippet{prolog}{1}{18}{codes/sudoku.pl}
+
+## Text
+
+\inputsnippet{prolog}{20}{39}{codes/sudoku.pl}
 
 ## Scene
 
