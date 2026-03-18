@@ -130,6 +130,124 @@ d2 => Node
 
 \inputcode{prolog}{codes/fibo.pl}
 
+## Text
+
+\inputcode{python}{codes/fibo.py}
+
+## Text
+
+\inputcode{prolog}{codes/fibo2.pl}
+
+## Scene
+
+title => Node
+    @title.x = 0
+    @title.y = 7
+    @title.text = \Large \bbbold{Estruturas de dados em Prolog}
+    @title.anchor = west
+
+---
+a => Node
+    @a.x = 1
+    @a.y = 6
+    @a.text = $\star$ \bbtext{Uma estrutura de dados combina termos primitivos (átomos, inteiros, etc) e}
+    @a.anchor = west
+
+a1 => Node
+    @a1.x = 0.5
+    @a1.y = 5.5
+    @a1.text = \bbtext{estruturas em tipos compostos}
+    @a1.anchor = west
+
+---
+b => Node
+    @b.x = 1
+    @b.y = 4.5
+    @b.text = $\star$ \bbtext{A sintaxe de declaração de uma estrutura de dados é}
+    @b.anchor = west
+
+b1 => Node
+    @b1.x = 2
+    @b1.y = 3.5
+    @b1.text = \code{prolog}{functor(arg1, arg2, ..., argN).}
+    @b1.anchor = west
+
+---
+c => Node
+    @c.x = 1
+    @c.y = 2.5
+    @c.text = $\star$ \bbtext{Cada argumento pode ser um tipo primitivo ou outra estrutura}
+    @c.anchor = west
+
+---
+d => Node
+    @d.x = 1
+    @d.y = 1.5
+    @d.text = $\star$ \bbtext{A declaração de uma estrutura é semelhante à declaração de um fato ou regra}
+    @d.anchor = west
+
+
+d1 => Node
+    @d1.x = 2
+    @d1.y = 0.5
+    @d1.text = \inputsyntax{prolog}{codes/car.pl}
+    @d1.anchor = west
+
+## Scene
+
+title => Node
+    @title.x = 0
+    @title.y = 7
+    @title.text = \Large \bbbold{Consultas envolvendo estruturas de dados}
+    @title.anchor = west
+
+---
+a => Node
+    @a.x = 1
+    @a.y = 6
+    @a.text = $\star$ \bbtext{A ordem dos argumentos influencia o resultado de um consulta}
+    @a.anchor = west
+
+a1 => Node
+    @a1.x = 2
+    @a1.y = 5
+    @a1.text = \code{prolog}{car(X, red, _).}
+    @a1.anchor = west
+
+---
+b => Node
+    @b.x = 1
+    @b.y = 4
+    @b.text = $\star$ \bbtext{Campos podem ser ignorados com a variável anônima `\code{prolog}{_}'}
+    @b.anchor = west
+
+---
+c => Node
+    @c.x = 1
+    @c.y = 3
+    @c.text = $\star$ \bbtext{Estruturas podem ser aninhadas, com o intuito de aumentar a legibilidade}
+    @c.anchor = west
+
+c1 => Node
+    @c1.x = 2
+    @c1.y = 2
+    @c1.text = \code{prolog}{car(honda, color(red), doors(4)).}
+    @c1.anchor = west
+
+---
+d => Node
+    @d.x = 1
+    @d.y = 1
+    @d.text = $\star$ \bbtext{As duas cláusulas acima não unificam}
+    @d.anchor = west
+
+## Text
+
+\inputsnippet{prolog}{1}{17}{codes/matrioskas.pl}
+
+## Text
+
+\inputsnippet{prolog}{19}{32}{codes/matrioskas.pl}
 
 ## Scene
 

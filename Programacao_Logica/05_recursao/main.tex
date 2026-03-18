@@ -199,6 +199,193 @@
 
 \inputcode{prolog}{codes/fibo.pl}
 
+\vspace*{\fill}
+\end{frame}
+\begin{frame}[plain,t]
+\vspace*{\fill}
+
+\inputcode{python}{codes/fibo.py}
+
+\vspace*{\fill}
+\end{frame}
+\begin{frame}[plain,t]
+\vspace*{\fill}
+
+\inputcode{prolog}{codes/fibo2.pl}
+
+\vspace*{\fill}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Estruturas de dados em Prolog} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Estruturas de dados em Prolog} };
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{Uma estrutura de dados combina termos primitivos (átomos, inteiros, etc) e} };
+
+	\node[anchor=west] (a1) at (0.5, 5.5) { \bbtext{estruturas em tipos compostos} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Estruturas de dados em Prolog} };
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{Uma estrutura de dados combina termos primitivos (átomos, inteiros, etc) e} };
+
+	\node[anchor=west] (a1) at (0.5, 5.5) { \bbtext{estruturas em tipos compostos} };
+
+	\node[anchor=west] (b) at (1.0, 4.5) { $\star$ \bbtext{A sintaxe de declaração de uma estrutura de dados é} };
+
+	\node[anchor=west] (b1) at (2.0, 3.5) { \code{prolog}{functor(arg1, arg2, ..., argN).} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Estruturas de dados em Prolog} };
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{Uma estrutura de dados combina termos primitivos (átomos, inteiros, etc) e} };
+
+	\node[anchor=west] (a1) at (0.5, 5.5) { \bbtext{estruturas em tipos compostos} };
+
+	\node[anchor=west] (b) at (1.0, 4.5) { $\star$ \bbtext{A sintaxe de declaração de uma estrutura de dados é} };
+
+	\node[anchor=west] (b1) at (2.0, 3.5) { \code{prolog}{functor(arg1, arg2, ..., argN).} };
+
+	\node[anchor=west] (c) at (1.0, 2.5) { $\star$ \bbtext{Cada argumento pode ser um tipo primitivo ou outra estrutura} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Estruturas de dados em Prolog} };
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{Uma estrutura de dados combina termos primitivos (átomos, inteiros, etc) e} };
+
+	\node[anchor=west] (a1) at (0.5, 5.5) { \bbtext{estruturas em tipos compostos} };
+
+	\node[anchor=west] (b) at (1.0, 4.5) { $\star$ \bbtext{A sintaxe de declaração de uma estrutura de dados é} };
+
+	\node[anchor=west] (b1) at (2.0, 3.5) { \code{prolog}{functor(arg1, arg2, ..., argN).} };
+
+	\node[anchor=west] (c) at (1.0, 2.5) { $\star$ \bbtext{Cada argumento pode ser um tipo primitivo ou outra estrutura} };
+
+	\node[anchor=west] (d) at (1.0, 1.5) { $\star$ \bbtext{A declaração de uma estrutura é semelhante à declaração de um fato ou regra} };
+
+
+	\node[anchor=west] (d1) at (2.0, 0.5) { \inputsyntax{prolog}{codes/car.pl} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Consultas envolvendo estruturas de dados} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Consultas envolvendo estruturas de dados} };
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{A ordem dos argumentos influencia o resultado de um consulta} };
+
+	\node[anchor=west] (a1) at (2.0, 5.0) { \code{prolog}{car(X, red, _).} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Consultas envolvendo estruturas de dados} };
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{A ordem dos argumentos influencia o resultado de um consulta} };
+
+	\node[anchor=west] (a1) at (2.0, 5.0) { \code{prolog}{car(X, red, _).} };
+
+	\node[anchor=west] (b) at (1.0, 4.0) { $\star$ \bbtext{Campos podem ser ignorados com a variável anônima `\code{prolog}{_}'} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Consultas envolvendo estruturas de dados} };
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{A ordem dos argumentos influencia o resultado de um consulta} };
+
+	\node[anchor=west] (a1) at (2.0, 5.0) { \code{prolog}{car(X, red, _).} };
+
+	\node[anchor=west] (b) at (1.0, 4.0) { $\star$ \bbtext{Campos podem ser ignorados com a variável anônima `\code{prolog}{_}'} };
+
+	\node[anchor=west] (c) at (1.0, 3.0) { $\star$ \bbtext{Estruturas podem ser aninhadas, com o intuito de aumentar a legibilidade} };
+
+	\node[anchor=west] (c1) at (2.0, 2.0) { \code{prolog}{car(honda, color(red), doors(4)).} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Consultas envolvendo estruturas de dados} };
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{A ordem dos argumentos influencia o resultado de um consulta} };
+
+	\node[anchor=west] (a1) at (2.0, 5.0) { \code{prolog}{car(X, red, _).} };
+
+	\node[anchor=west] (b) at (1.0, 4.0) { $\star$ \bbtext{Campos podem ser ignorados com a variável anônima `\code{prolog}{_}'} };
+
+	\node[anchor=west] (c) at (1.0, 3.0) { $\star$ \bbtext{Estruturas podem ser aninhadas, com o intuito de aumentar a legibilidade} };
+
+	\node[anchor=west] (c1) at (2.0, 2.0) { \code{prolog}{car(honda, color(red), doors(4)).} };
+
+	\node[anchor=west] (d) at (1.0, 1.0) { $\star$ \bbtext{As duas cláusulas acima não unificam} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\vspace*{\fill}
+
+\inputsnippet{prolog}{1}{17}{codes/matrioskas.pl}
+
+\vspace*{\fill}
+\end{frame}
+\begin{frame}[plain,t]
+\vspace*{\fill}
+
+\inputsnippet{prolog}{19}{32}{codes/matrioskas.pl}
+
 
 \vspace*{\fill}
 \end{frame}
