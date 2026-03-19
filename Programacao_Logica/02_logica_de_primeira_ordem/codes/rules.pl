@@ -11,7 +11,7 @@ darcy(esther).
 ifb(fernando).
 
 % Predicado que identifica alunos da UnB
-unb(X):- (fcte(X) ; darcy(X)).
+unb(X) :- (fcte(X) ; darcy(X)).
 
 % Implementação alternativa, em duas regras
 unb2(X) :- fcte(X).
