@@ -576,7 +576,7 @@ a1 => Node
 b => Node
     @b.x = 1
     @b.y = 4.5
-    @b.text = $\star$ \bbtext{A extensão deste arquivos deve ser \lq\bblink{.pl}'}
+    @b.text = $\star$ \bbtext{A extensão destes arquivos deve ser \lq\bblink{.pl}'}
     @b.anchor = west
 
 ---
