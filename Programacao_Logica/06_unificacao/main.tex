@@ -172,6 +172,128 @@
 \node[draw,opacity=0] at (0, 0) {x};
 \node[draw,opacity=0] at (14, 8) {x};
 
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Unificação de variáveis e termos primitivos} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Unificação de variáveis e termos primitivos} };
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{Ao unificar com um termo primitivo, a variável é atada ao seu valor} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Unificação de variáveis e termos primitivos} };
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{Ao unificar com um termo primitivo, a variável é atada ao seu valor} };
+
+	\node[anchor=west] (b) at (2.0, 2.75) { \inputsyntax{prolog}{codes/primitivo.pl} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Unificação entre variáveis} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Unificação entre variáveis} };
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{Duas variáveis sempre unificam} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Unificação entre variáveis} };
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{Duas variáveis sempre unificam} };
+
+	\node[anchor=west] (b) at (2.0, 2.75) { \inputsyntax{prolog}{codes/variables.pl} };
+
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Unificação em consultas compostas} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Unificação em consultas compostas} };
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{A variável anônima `\code{prolog}{_}' é um \bbenglish{wildcard} e não é atada a valor algum} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Unificação em consultas compostas} };
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{A variável anônima `\code{prolog}{_}' é um \bbenglish{wildcard} e não é atada a valor algum} };
+
+	\node[anchor=west] (c) at (1.0, 5.0) { $\star$ \bbtext{O predicado \code{prolog}{\=/2} retorna verdadeiro se os seus argumentos não unificam} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Unificação em consultas compostas} };
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{A variável anônima `\code{prolog}{_}' é um \bbenglish{wildcard} e não é atada a valor algum} };
+
+	\node[anchor=west] (c) at (1.0, 5.0) { $\star$ \bbtext{O predicado \code{prolog}{\=/2} retorna verdadeiro se os seus argumentos não unificam} };
+
+	\node[anchor=west] (b) at (2.0, 2.5) { \footnotesize{\inputsyntax{prolog}{codes/compostas.pl}} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\vspace*{\fill}
+
+\inputcode{prolog}{codes/simpsons.pl}
+
+\vspace*{\fill}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
 	\node[anchor=west] (title) at (0.0, 6.5) { \Large \bbbold{Referências} };
 
 	\node[anchor=west] (a) at (1.0, 2.5) { $\star$ \bbbold{SWI-Prolog.} \bbenglish{https://www.swi-prolog.org/,} \bbtext{acesso em 13/03/2026.} };

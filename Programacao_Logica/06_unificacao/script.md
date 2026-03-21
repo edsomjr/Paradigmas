@@ -133,6 +133,84 @@ b => Node
 
 title => Node
     @title.x = 0
+    @title.y = 7
+    @title.text = \Large \bbbold{Unificação de variáveis e termos primitivos}
+    @title.anchor = west
+
+---
+a => Node
+    @a.x = 1
+    @a.y = 6
+    @a.text = $\star$ \bbtext{Ao unificar com um termo primitivo, a variável é atada ao seu valor}
+    @a.anchor = west
+
+---
+b => Node
+    @b.x = 2
+    @b.y = 2.75
+    @b.text = \inputsyntax{prolog}{codes/primitivo.pl}
+    @b.anchor = west
+
+## Scene
+
+title => Node
+    @title.x = 0
+    @title.y = 7
+    @title.text = \Large \bbbold{Unificação entre variáveis}
+    @title.anchor = west
+
+---
+a => Node
+    @a.x = 1
+    @a.y = 6
+    @a.text = $\star$ \bbtext{Duas variáveis sempre unificam}
+    @a.anchor = west
+
+---
+b => Node
+    @b.x = 2
+    @b.y = 2.75
+    @b.text = \inputsyntax{prolog}{codes/variables.pl}
+    @b.anchor = west
+
+
+## Scene
+
+title => Node
+    @title.x = 0
+    @title.y = 7
+    @title.text = \Large \bbbold{Unificação em consultas compostas}
+    @title.anchor = west
+
+---
+a => Node
+    @a.x = 1
+    @a.y = 6
+    @a.text = $\star$ \bbtext{A variável anônima `\code{prolog}{_}' é um \bbenglish{wildcard} e não é atada a valor algum}
+    @a.anchor = west
+
+---
+c => Node
+    @c.x = 1
+    @c.y = 5
+    @c.text = $\star$ \bbtext{O predicado \code{prolog}{\=/2} retorna verdadeiro se os seus argumentos não unificam}
+    @c.anchor = west
+
+---
+b => Node
+    @b.x = 2
+    @b.y = 2.5
+    @b.text = \footnotesize{\inputsyntax{prolog}{codes/compostas.pl}}
+    @b.anchor = west
+
+## Text
+
+\inputcode{prolog}{codes/simpsons.pl}
+
+## Scene
+
+title => Node
+    @title.x = 0
     @title.y = 6.5
     @title.text = \Large \bbbold{Referências}
     @title.anchor = west
