@@ -746,7 +746,7 @@ c1 => Node
 d => Node
     @d.x = 1
     @d.y = 2.5
-    @d.text = $\star$ \bbtext{Os predicados \code{prolog}{asssera/1} e \code{prolog}{assertz/1} adicionam um novo fato ao predicado}
+    @d.text = $\star$ \bbtext{Os predicados \code{prolog}{asserta/1} e \code{prolog}{assertz/1} adicionam um novo fato ao predicado}
     @d.anchor = west
 
 d1 => Node
