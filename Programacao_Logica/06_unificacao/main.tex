@@ -294,6 +294,180 @@
 \node[draw,opacity=0] at (0, 0) {x};
 \node[draw,opacity=0] at (14, 8) {x};
 
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Listas em Prolog} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Listas em Prolog} };
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{Em Prolog, uma \bbbold{lista} é uma coleção de termos de quaisquer tipos. A sintaxe} };
+
+	\node[anchor=west] (a1) at (0.5, 5.5) { \bbtext{para declaração de uma lista é:} };
+
+	\node[anchor=west] (b1) at (2.0, 4.5) { \code{prolog}{[term1, term2, ..., termN]} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Listas em Prolog} };
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{Em Prolog, uma \bbbold{lista} é uma coleção de termos de quaisquer tipos. A sintaxe} };
+
+	\node[anchor=west] (a1) at (0.5, 5.5) { \bbtext{para declaração de uma lista é:} };
+
+	\node[anchor=west] (b1) at (2.0, 4.5) { \code{prolog}{[term1, term2, ..., termN]} };
+
+	\node[anchor=west] (c) at (1.0, 3.5) { $\star$ \bbtext{Uma lista vazia, também denominada \code{prolog}{nil}, é representada por \code{prolog}{[]}} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Listas em Prolog} };
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{Em Prolog, uma \bbbold{lista} é uma coleção de termos de quaisquer tipos. A sintaxe} };
+
+	\node[anchor=west] (a1) at (0.5, 5.5) { \bbtext{para declaração de uma lista é:} };
+
+	\node[anchor=west] (b1) at (2.0, 4.5) { \code{prolog}{[term1, term2, ..., termN]} };
+
+	\node[anchor=west] (c) at (1.0, 3.5) { $\star$ \bbtext{Uma lista vazia, também denominada \code{prolog}{nil}, é representada por \code{prolog}{[]}} };
+
+	\node[anchor=west] (d) at (1.0, 2.5) { $\star$ \bbtext{A unificação trata as listas como uma estrutura de dados} };
+
+	\node[anchor=west] (d1) at (2.0, 1.0) { \inputsyntax{prolog}{codes/lists.pl} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Casamento de padrão em listas} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Casamento de padrão em listas} };
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{A notação \code{prolog}{[X | Y]} ata \code{prolog}{X} ao primeiro elemento da lista, chamado \bbenglish{head}, e ata \code{prolog}{Y}} };
+
+	\node[anchor=west] (a1) at (0.5, 5.5) { \bbtext{a uma lista com todos os demais elementos, denominada \bbenglish{tail}} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Casamento de padrão em listas} };
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{A notação \code{prolog}{[X | Y]} ata \code{prolog}{X} ao primeiro elemento da lista, chamado \bbenglish{head}, e ata \code{prolog}{Y}} };
+
+	\node[anchor=west] (a1) at (0.5, 5.5) { \bbtext{a uma lista com todos os demais elementos, denominada \bbenglish{tail}} };
+
+	\node[anchor=west] (b) at (2.0, 2.5) { \inputsyntax{prolog}{codes/head_and_tail.pl} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Listas e predicados} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Listas e predicados} };
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{Embora tenha uma sintaxe especial, uma lista é, de fato, um predicado de dois} };
+
+	\node[anchor=west] (a1) at (0.5, 5.5) { \bbtext{argumentos} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Listas e predicados} };
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{Embora tenha uma sintaxe especial, uma lista é, de fato, um predicado de dois} };
+
+	\node[anchor=west] (a1) at (0.5, 5.5) { \bbtext{argumentos} };
+
+	\node[anchor=west] (b) at (1.0, 4.5) { $\star$ \bbtext{ O primeiro argumento do predicado \code{prolog}{'[|]'/2} é o \bbenglish{head} da lista e o segundo é o \bbenglish{tail}} };
+
+	\node[anchor=west] (b1) at (2.0, 3.5) { \inputsyntax{prolog}{codes/cons.pl} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Listas e predicados} };
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{Embora tenha uma sintaxe especial, uma lista é, de fato, um predicado de dois} };
+
+	\node[anchor=west] (a1) at (0.5, 5.5) { \bbtext{argumentos} };
+
+	\node[anchor=west] (b) at (1.0, 4.5) { $\star$ \bbtext{ O primeiro argumento do predicado \code{prolog}{'[|]'/2} é o \bbenglish{head} da lista e o segundo é o \bbenglish{tail}} };
+
+	\node[anchor=west] (b1) at (2.0, 3.5) { \inputsyntax{prolog}{codes/cons.pl} };
+
+	\node[anchor=west] (c) at (1.0, 2.5) { $\star$ \bbtext{A estrutura da lista é adequada para rotinas recursivas:} };
+
+	\node[anchor=west] (c1) at (2.0, 1.0) { \inputsyntax{prolog}{codes/length.pl} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\vspace*{\fill}
+
+\inputsnippet{prolog}{1}{12}{codes/primes.pl}
+
+\vspace*{\fill}
+\end{frame}
+\begin{frame}[plain,t]
+\vspace*{\fill}
+
+\inputsnippet{prolog}{14}{26}{codes/primes.pl}
+
+
+\vspace*{\fill}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
 	\node[anchor=west] (title) at (0.0, 6.5) { \Large \bbbold{Referências} };
 
 	\node[anchor=west] (a) at (1.0, 2.5) { $\star$ \bbbold{SWI-Prolog.} \bbenglish{https://www.swi-prolog.org/,} \bbtext{acesso em 13/03/2026.} };

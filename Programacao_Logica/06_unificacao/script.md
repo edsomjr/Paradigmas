@@ -211,6 +211,137 @@ b => Node
 
 title => Node
     @title.x = 0
+    @title.y = 7
+    @title.text = \Large \bbbold{Listas em Prolog}
+    @title.anchor = west
+
+---
+a => Node
+    @a.x = 1
+    @a.y = 6
+    @a.text = $\star$ \bbtext{Em Prolog, uma \bbbold{lista} é uma coleção de termos de quaisquer tipos. A sintaxe}
+    @a.anchor = west
+
+a1 => Node
+    @a1.x = 0.5
+    @a1.y = 5.5
+    @a1.text = \bbtext{para declaração de uma lista é:}
+    @a1.anchor = west
+
+b1 => Node
+    @b1.x = 2
+    @b1.y = 4.5
+    @b1.text = \code{prolog}{[term1, term2, ..., termN]}
+    @b1.anchor = west
+
+---
+c => Node
+    @c.x = 1
+    @c.y = 3.5
+    @c.text = $\star$ \bbtext{Uma lista vazia, também denominada \code{prolog}{nil}, é representada por \code{prolog}{[]}}
+    @c.anchor = west
+
+---
+d => Node
+    @d.x = 1
+    @d.y = 2.5
+    @d.text = $\star$ \bbtext{A unificação trata as listas como uma estrutura de dados}
+    @d.anchor = west
+
+d1 => Node
+    @d1.x = 2
+    @d1.y = 1
+    @d1.text = \inputsyntax{prolog}{codes/lists.pl}
+    @d1.anchor = west
+
+## Scene
+
+title => Node
+    @title.x = 0
+    @title.y = 7
+    @title.text = \Large \bbbold{Casamento de padrão em listas}
+    @title.anchor = west
+
+---
+a => Node
+    @a.x = 1
+    @a.y = 6
+    @a.text = $\star$ \bbtext{A notação \code{prolog}{[X | Y]} ata \code{prolog}{X} ao primeiro elemento da lista, chamado \bbenglish{head}, e ata \code{prolog}{Y}}
+    @a.anchor = west
+
+a1 => Node
+    @a1.x = 0.5
+    @a1.y = 5.5
+    @a1.text = \bbtext{a uma lista com todos os demais elementos, denominada \bbenglish{tail}}
+    @a1.anchor = west
+
+---
+b => Node
+    @b.x = 2
+    @b.y = 2.5
+    @b.text = \inputsyntax{prolog}{codes/head_and_tail.pl}
+    @b.anchor = west
+
+## Scene
+
+title => Node
+    @title.x = 0
+    @title.y = 7
+    @title.text = \Large \bbbold{Listas e predicados}
+    @title.anchor = west
+
+---
+a => Node
+    @a.x = 1
+    @a.y = 6
+    @a.text = $\star$ \bbtext{Embora tenha uma sintaxe especial, uma lista é, de fato, um predicado de dois}
+    @a.anchor = west
+
+a1 => Node
+    @a1.x = 0.5
+    @a1.y = 5.5
+    @a1.text = \bbtext{argumentos}
+    @a1.anchor = west
+
+---
+b => Node
+    @b.x = 1
+    @b.y = 4.5
+    @b.text = $\star$ \bbtext{ O primeiro argumento do predicado \code{prolog}{'[|]'/2} é o \bbenglish{head} da lista e o segundo é o \bbenglish{tail}}
+    @b.anchor = west
+
+b1 => Node
+    @b1.x = 2
+    @b1.y = 3.5
+    @b1.text = \inputsyntax{prolog}{codes/cons.pl}
+    @b1.anchor = west
+
+---
+c => Node
+    @c.x = 1
+    @c.y = 2.5
+    @c.text = $\star$ \bbtext{A estrutura da lista é adequada para rotinas recursivas:}
+    @c.anchor = west
+
+c1 => Node
+    @c1.x = 2
+    @c1.y = 1
+    @c1.text = \inputsyntax{prolog}{codes/length.pl}
+    @c1.anchor = west
+
+## Text
+
+\inputsnippet{prolog}{1}{12}{codes/primes.pl}
+
+## Text
+
+\inputsnippet{prolog}{14}{26}{codes/primes.pl}
+
+
+## Scene
+
+title => Node
+    @title.x = 0
     @title.y = 6.5
     @title.text = \Large \bbbold{Referências}
     @title.anchor = west
