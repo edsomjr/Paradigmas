@@ -90,7 +90,7 @@ a => Node
 b => Node
     @b.x = 1
     @b.y = 5
-    @b.text = $\star$ \bbtext{Os argumentos dos predicados Prolog podem ser termos}
+    @b.text = $\star$ \bbtext{Os argumentos dos predicados Prolog são termos}
     @b.anchor = west
     @b.color = white
 
@@ -603,13 +603,13 @@ e => Node
 d => Node
     @d.x = 1
     @d.y = 1.5
-    @d.text = $\star$ \bbtext{Após a unificação, uma variável lógica terá como valor os termos que casaram}
+    @d.text = $\star$ \bbtext{Após a unificação, uma variável lógica terá como valor o termo que casou}
     @d.anchor = west
 
 d1 => Node
     @d1.x = 0.5
     @d1.y = 1
-    @d1.text = \bbtext{(ataram, \bbenglish{to bind}) com ela durante a unificação}
+    @d1.text = \bbtext{(atou, \bbenglish{to bind}) com ela durante a unificação}
     @d1.anchor = west
 
 ## Scene
