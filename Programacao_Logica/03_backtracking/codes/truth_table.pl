@@ -8,10 +8,10 @@ or(false, true).
 bool(true).
 bool(false).
 
-% O predicado call/N executa a consulta armazenada em seu primeiro argumento. Ele
-% deve se declarado como um meta predicado, para que possa interpretar seu 
-% primeiro argumento como um objetivo. O número 2 indica o número de parâmetros
-% a serem passados para call/N, além do objetivo em si
+% O predicado call/N executa a consulta armazenada em seu primeiro argumento. O
+% predicado a seguir deve se declarado como um meta predicado, para que possa 
+% interpretar seu primeiro argumento como um objetivo. O número 2 indica o número 
+% de parâmetros a serem passados para call/N, além do objetivo em si
 :- meta_predicate execute_goal(2).
 
 execute_goal(Op, X, Y) :-

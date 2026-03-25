@@ -27,7 +27,7 @@ a1 => Node
 b => Node
     @b.x = 1
     @b.y = 4.5
-    @b.text = $\star$ \bbtext{Se o objetivo e a cláusula unificam, ela satisfaz o objetivo e é marcada} 
+    @b.text = $\star$ \bbtext{Se o objetivo e uma cláusula unificam, ela satisfaz o objetivo e é marcada} 
     @b.anchor = west
 
 ---
