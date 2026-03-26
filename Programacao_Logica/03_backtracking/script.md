@@ -300,7 +300,7 @@ c => Node
 c1 => Node
     @c1.x = 0.5
     @c1.y = 3.5
-    @c1.text = \bbtext{referente à saída são desatadas (nos demais, à esquerda, permanecem atadas)}
+    @c1.text = \bbtext{referente à porta são desatadas (nos demais, à esquerda, permanecem atadas)}
     @c1.anchor = west
 
 ---
