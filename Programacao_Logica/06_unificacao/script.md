@@ -337,6 +337,159 @@ c1 => Node
 
 \inputsnippet{prolog}{14}{26}{codes/primes.pl}
 
+## Scene
+
+title => Node
+    @title.x = 0
+    @title.y = 7
+    @title.text = \Large \bbbold{Teste de pertinência}
+    @title.anchor = west
+
+---
+a => Node
+    @a.x = 1
+    @a.y = 6
+    @a.text = $\star$ \bbtext{O predicado \code{prolog}{member/2} determina se um termo é ou não membro da lista indicada}
+    @a.anchor = west
+
+---
+b => Node
+    @b.x = 1
+    @b.y = 5
+    @b.text = $\star$ \bbtext{Ele pode implementado da seguinte maneira:}
+    @b.anchor = west
+
+
+b1 => Node
+    @b1.x = 2
+    @b1.y = 4
+    @b1.text = \inputsyntax{prolog}{codes/member.pl}
+    @b1.anchor = west
+
+---
+c => Node
+    @c.x = 1
+    @c.y = 3
+    @c.text = $\star$ \bbtext{A primeira cláusula verifica se o elemento é o primeiro elemento (\bbenglish{head}) da lista}
+    @c.anchor = west
+
+---
+d => Node
+    @d.x = 1
+    @d.y = 2
+    @d.text = $\star$ \bbtext{A segunda é a cláusula recursiva, que procura o elemento no restante (\bbenglish{tail}) da lista}
+    @d.anchor = west
+
+---
+e => Node
+    @e.x = 1
+    @e.y = 1
+    @e.text = $\star$ \bbtext{Ambas falham em listas vazias, pois \code{prolog}{[]} e \code{prolog}{[H|T]} não unificam}
+    @e.anchor = west
+
+## Scene
+
+title => Node
+    @title.x = 0
+    @title.y = 7
+    @title.text = \Large \bbbold{Concatenação de listas}
+    @title.anchor = west
+
+---
+a => Node
+    @a.x = 1
+    @a.y = 6
+    @a.text = $\star$ \bbtext{O predicado \code{prolog}{append/3}  anexa o segundo argumento ao primeiro, unificando o}
+    @a.anchor = west
+
+
+a1 => Node
+    @a1.x = 0.5
+    @a1.y = 5.5
+    @a1.text = \bbtext{resultado com o terceiro:}
+    @a1.anchor = west
+
+a2 => Node
+    @a2.x = 2
+    @a2.y = 4.5
+    @a2.text = \inputsyntax{prolog}{codes/append_example.pl}
+    @a2.anchor = west
+
+---
+b => Node
+    @b.x = 1
+    @b.y = 3.5
+    @b.text = $\star$ \bbtext{Ele pode implementado da seguinte maneira:}
+    @b.anchor = west
+
+
+b1 => Node
+    @b1.x = 2
+    @b1.y = 2.5
+    @b1.text = \inputsyntax{prolog}{codes/append_impl.pl}
+    @b1.anchor = west
+
+---
+c => Node
+    @c.x = 1
+    @c.y = 1
+    @c.text = $\star$ \bbtext{\code{prolog}{append/3} também pode ser utilizado para decompor listas}
+    @c.anchor = west
+
+## Text 
+
+\inputcode{prolog}{codes/append.pl}
+
+## Scene
+
+title => Node
+    @title.x = 0
+    @title.y = 7
+    @title.text = \Large \bbbold{Listas e fatos}
+    @title.anchor = west
+
+---
+a => Node
+    @a.x = 1
+    @a.y = 6
+    @a.text = $\star$ \bbtext{É possível declarar fatos a partir de uma lista, consultando \code{prolog}{assertz/1} no \bbenglish{head}}
+    @a.anchor = west
+
+a1 => Node
+    @a1.x = 0.5
+    @a1.y = 5.5
+    @a1.text = \bbtext{da lista recursivamente}
+    @a1.anchor = west
+
+a2 => Node
+    @a2.x = 2
+    @a2.y = 4
+    @a2.text = \inputsyntax{prolog}{codes/list_to_facts.pl}
+    @a2.anchor = west
+
+---
+b => Node
+    @b.x = 1
+    @b.y = 2.5
+    @b.text = $\star$ \bbtext{Para o processo inverso, Prolog disponibiliza o predicado \code{prolog}{findall/3}}
+    @b.anchor = west
+
+---
+c => Node
+    @c.x = 1
+    @c.y = 1.5
+    @c.text = $\star$ \bbtext{O primeiro argumento é o padrão para os termos, o segundo o objetivo e o terceiro}
+    @c.anchor = west
+
+c1 => Node
+    @c1.x = 0.5
+    @c1.y = 1.0
+    @c1.text = \bbtext{é a lista resultante}
+    @c1.anchor = west
+
+## Text
+
+\inputcode{prolog}{codes/findall.pl}
 
 ## Scene
 

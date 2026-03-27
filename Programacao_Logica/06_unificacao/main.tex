@@ -460,6 +460,246 @@
 
 \inputsnippet{prolog}{14}{26}{codes/primes.pl}
 
+\vspace*{\fill}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Teste de pertinência} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Teste de pertinência} };
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{O predicado \code{prolog}{member/2} determina se um termo é ou não membro da lista indicada} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Teste de pertinência} };
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{O predicado \code{prolog}{member/2} determina se um termo é ou não membro da lista indicada} };
+
+	\node[anchor=west] (b) at (1.0, 5.0) { $\star$ \bbtext{Ele pode implementado da seguinte maneira:} };
+
+
+	\node[anchor=west] (b1) at (2.0, 4.0) { \inputsyntax{prolog}{codes/member.pl} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Teste de pertinência} };
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{O predicado \code{prolog}{member/2} determina se um termo é ou não membro da lista indicada} };
+
+	\node[anchor=west] (b) at (1.0, 5.0) { $\star$ \bbtext{Ele pode implementado da seguinte maneira:} };
+
+
+	\node[anchor=west] (b1) at (2.0, 4.0) { \inputsyntax{prolog}{codes/member.pl} };
+
+	\node[anchor=west] (c) at (1.0, 3.0) { $\star$ \bbtext{A primeira cláusula verifica se o elemento é o primeiro elemento (\bbenglish{head}) da lista} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Teste de pertinência} };
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{O predicado \code{prolog}{member/2} determina se um termo é ou não membro da lista indicada} };
+
+	\node[anchor=west] (b) at (1.0, 5.0) { $\star$ \bbtext{Ele pode implementado da seguinte maneira:} };
+
+
+	\node[anchor=west] (b1) at (2.0, 4.0) { \inputsyntax{prolog}{codes/member.pl} };
+
+	\node[anchor=west] (c) at (1.0, 3.0) { $\star$ \bbtext{A primeira cláusula verifica se o elemento é o primeiro elemento (\bbenglish{head}) da lista} };
+
+	\node[anchor=west] (d) at (1.0, 2.0) { $\star$ \bbtext{A segunda é a cláusula recursiva, que procura o elemento no restante (\bbenglish{tail}) da lista} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Teste de pertinência} };
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{O predicado \code{prolog}{member/2} determina se um termo é ou não membro da lista indicada} };
+
+	\node[anchor=west] (b) at (1.0, 5.0) { $\star$ \bbtext{Ele pode implementado da seguinte maneira:} };
+
+
+	\node[anchor=west] (b1) at (2.0, 4.0) { \inputsyntax{prolog}{codes/member.pl} };
+
+	\node[anchor=west] (c) at (1.0, 3.0) { $\star$ \bbtext{A primeira cláusula verifica se o elemento é o primeiro elemento (\bbenglish{head}) da lista} };
+
+	\node[anchor=west] (d) at (1.0, 2.0) { $\star$ \bbtext{A segunda é a cláusula recursiva, que procura o elemento no restante (\bbenglish{tail}) da lista} };
+
+	\node[anchor=west] (e) at (1.0, 1.0) { $\star$ \bbtext{Ambas falham em listas vazias, pois \code{prolog}{[]} e \code{prolog}{[H|T]} não unificam} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Concatenação de listas} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Concatenação de listas} };
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{O predicado \code{prolog}{append/3}  anexa o segundo argumento ao primeiro, unificando o} };
+
+
+	\node[anchor=west] (a1) at (0.5, 5.5) { \bbtext{resultado com o terceiro:} };
+
+	\node[anchor=west] (a2) at (2.0, 4.5) { \inputsyntax{prolog}{codes/append_example.pl} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Concatenação de listas} };
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{O predicado \code{prolog}{append/3}  anexa o segundo argumento ao primeiro, unificando o} };
+
+
+	\node[anchor=west] (a1) at (0.5, 5.5) { \bbtext{resultado com o terceiro:} };
+
+	\node[anchor=west] (a2) at (2.0, 4.5) { \inputsyntax{prolog}{codes/append_example.pl} };
+
+	\node[anchor=west] (b) at (1.0, 3.5) { $\star$ \bbtext{Ele pode implementado da seguinte maneira:} };
+
+
+	\node[anchor=west] (b1) at (2.0, 2.5) { \inputsyntax{prolog}{codes/append_impl.pl} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Concatenação de listas} };
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{O predicado \code{prolog}{append/3}  anexa o segundo argumento ao primeiro, unificando o} };
+
+
+	\node[anchor=west] (a1) at (0.5, 5.5) { \bbtext{resultado com o terceiro:} };
+
+	\node[anchor=west] (a2) at (2.0, 4.5) { \inputsyntax{prolog}{codes/append_example.pl} };
+
+	\node[anchor=west] (b) at (1.0, 3.5) { $\star$ \bbtext{Ele pode implementado da seguinte maneira:} };
+
+
+	\node[anchor=west] (b1) at (2.0, 2.5) { \inputsyntax{prolog}{codes/append_impl.pl} };
+
+	\node[anchor=west] (c) at (1.0, 1.0) { $\star$ \bbtext{\code{prolog}{append/3} também pode ser utilizado para decompor listas} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\vspace*{\fill}
+
+\inputcode{prolog}{codes/append.pl}
+
+\vspace*{\fill}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Listas e fatos} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Listas e fatos} };
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{É possível declarar fatos a partir de uma lista, consultando \code{prolog}{assertz/1} no \bbenglish{head}} };
+
+	\node[anchor=west] (a1) at (0.5, 5.5) { \bbtext{da lista recursivamente} };
+
+	\node[anchor=west] (a2) at (2.0, 4.0) { \inputsyntax{prolog}{codes/list_to_facts.pl} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Listas e fatos} };
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{É possível declarar fatos a partir de uma lista, consultando \code{prolog}{assertz/1} no \bbenglish{head}} };
+
+	\node[anchor=west] (a1) at (0.5, 5.5) { \bbtext{da lista recursivamente} };
+
+	\node[anchor=west] (a2) at (2.0, 4.0) { \inputsyntax{prolog}{codes/list_to_facts.pl} };
+
+	\node[anchor=west] (b) at (1.0, 2.5) { $\star$ \bbtext{Para o processo inverso, Prolog disponibiliza o predicado \code{prolog}{findall/3}} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Listas e fatos} };
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{É possível declarar fatos a partir de uma lista, consultando \code{prolog}{assertz/1} no \bbenglish{head}} };
+
+	\node[anchor=west] (a1) at (0.5, 5.5) { \bbtext{da lista recursivamente} };
+
+	\node[anchor=west] (a2) at (2.0, 4.0) { \inputsyntax{prolog}{codes/list_to_facts.pl} };
+
+	\node[anchor=west] (b) at (1.0, 2.5) { $\star$ \bbtext{Para o processo inverso, Prolog disponibiliza o predicado \code{prolog}{findall/3}} };
+
+	\node[anchor=west] (c) at (1.0, 1.5) { $\star$ \bbtext{O primeiro argumento é o padrão para os termos, o segundo o objetivo e o terceiro} };
+
+	\node[anchor=west] (c1) at (0.5, 1.0) { \bbtext{é a lista resultante} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\vspace*{\fill}
+
+\inputcode{prolog}{codes/findall.pl}
 
 \vspace*{\fill}
 \end{frame}
