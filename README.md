@@ -9,6 +9,7 @@ Material didático da disciplina Paradigmas de Programação, ministrada pelo pr
     1. [_Backtracking_](Programacao_Logica/03_backtracking/03_backtracking.pdf)
     1. [Aritmética](Programacao_Logica/04_aritmetica/04_aritmetica.pdf)
     1. [Recursão](Programacao_Logica/05_recursao/05_recursao.pdf)
+    1. [Unificação](Programacao_Logica/06_unificacao/06_unificacao.pdf)
 1. Combinadores
     1. [Introdução](Combinadores/introducao/introducao.pdf)
     1. [Base SK](Combinadores/base_sk/base_sk.pdf)
