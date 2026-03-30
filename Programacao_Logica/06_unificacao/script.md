@@ -640,6 +640,9 @@ c => Node
     @c.text = $\star$ \bbtext{O predicado \code{prolog}{scanl/N} é similar, mantendo porém os resultados parciais}
     @c.anchor = west
 
+## Text
+
+\inputcode{prolog}{codes/summation.pl}
 
 ## Scene
 

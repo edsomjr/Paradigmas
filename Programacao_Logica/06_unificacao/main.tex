@@ -884,7 +884,7 @@
 
 	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{O predicado \code{prolog}{foldl/N} ``dobra'' os elementos de $m\in[1,4]$ listas por meio} };
 
-	\node[anchor=west] (a1) at (0.5, 5.5) { \bbtext{do objetivo \code{prolog}{Goal/m}, onde \code{prolog}{V0} é o valor inicial} };
+	\node[anchor=west] (a1) at (0.5, 5.5) { \bbtext{do objetivo \code{prolog}{Goal/(m+1)}, onde \code{prolog}{V0} é o valor inicial} };
 
 \end{tikzpicture}
 \end{frame}
@@ -897,7 +897,7 @@
 
 	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{O predicado \code{prolog}{foldl/N} ``dobra'' os elementos de $m\in[1,4]$ listas por meio} };
 
-	\node[anchor=west] (a1) at (0.5, 5.5) { \bbtext{do objetivo \code{prolog}{Goal/m}, onde \code{prolog}{V0} é o valor inicial} };
+	\node[anchor=west] (a1) at (0.5, 5.5) { \bbtext{do objetivo \code{prolog}{Goal/(m+1)}, onde \code{prolog}{V0} é o valor inicial} };
 
 	\node[anchor=west] (b) at (1.0, 4.5) { $\star$ \bbtext{Ele pode ser definido da seguinte maneira:} };
 
@@ -914,7 +914,7 @@
 
 	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{O predicado \code{prolog}{foldl/N} ``dobra'' os elementos de $m\in[1,4]$ listas por meio} };
 
-	\node[anchor=west] (a1) at (0.5, 5.5) { \bbtext{do objetivo \code{prolog}{Goal/m}, onde \code{prolog}{V0} é o valor inicial} };
+	\node[anchor=west] (a1) at (0.5, 5.5) { \bbtext{do objetivo \code{prolog}{Goal/(m+1)}, onde \code{prolog}{V0} é o valor inicial} };
 
 	\node[anchor=west] (b) at (1.0, 4.5) { $\star$ \bbtext{Ele pode ser definido da seguinte maneira:} };
 
@@ -922,8 +922,14 @@
 
 	\node[anchor=west] (c) at (1.0, 0.5) { $\star$ \bbtext{O predicado \code{prolog}{scanl/N} é similar, mantendo porém os resultados parciais} };
 
-
 \end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\vspace*{\fill}
+
+\inputcode{prolog}{codes/summation.pl}
+
+\vspace*{\fill}
 \end{frame}
 \begin{frame}[plain,t]
 \begin{tikzpicture}
