@@ -708,6 +708,228 @@
 \node[draw,opacity=0] at (0, 0) {x};
 \node[draw,opacity=0] at (14, 8) {x};
 
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Predicado \code{prolog}{maplist/N}} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Predicado \code{prolog}{maplist/N}} };
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{O predicado \code{prolog}{maplist/N} retorna verdadeiro se o objetivo \code{prolog}{Goal} é bem sucedido} };
+
+	\node[anchor=west] (a1) at (0.5, 5.5) { \bbtext{para todas $(N-1)$-uplas de elementos correspondentes das listas indicadas} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Predicado \code{prolog}{maplist/N}} };
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{O predicado \code{prolog}{maplist/N} retorna verdadeiro se o objetivo \code{prolog}{Goal} é bem sucedido} };
+
+	\node[anchor=west] (a1) at (0.5, 5.5) { \bbtext{para todas $(N-1)$-uplas de elementos correspondentes das listas indicadas} };
+
+	\node[anchor=west] (b) at (1.0, 4.5) { $\star$ \bbtext{Ele pode ser definido da seguinte maneira:} };
+
+	\node[anchor=west] (b1) at (2.0, 2.625) { \inputsyntax{prolog}{codes/maplist.pl} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Predicado \code{prolog}{maplist/N}} };
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{O predicado \code{prolog}{maplist/N} retorna verdadeiro se o objetivo \code{prolog}{Goal} é bem sucedido} };
+
+	\node[anchor=west] (a1) at (0.5, 5.5) { \bbtext{para todas $(N-1)$-uplas de elementos correspondentes das listas indicadas} };
+
+	\node[anchor=west] (b) at (1.0, 4.5) { $\star$ \bbtext{Ele pode ser definido da seguinte maneira:} };
+
+	\node[anchor=west] (b1) at (2.0, 2.625) { \inputsyntax{prolog}{codes/maplist.pl} };
+
+	\node[anchor=west] (c) at (1.0, 0.5) { $\star$ \bbtext{SWI-Prolog disponibiliza versões deste predicado para $N\in[2, 5]$} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\vspace*{\fill}
+
+\inputsnippet{prolog}{1}{19}{codes/maplist_examples.pl}
+
+\vspace*{\fill}
+\end{frame}
+\begin{frame}[plain,t]
+\vspace*{\fill}
+
+\inputsnippet{prolog}{1}{19}{codes/maplist_examples_2.pl}
+
+\vspace*{\fill}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Predicado \code{prolog}{include/3}} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Predicado \code{prolog}{include/3}} };
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{O predicado \code{prolog}{include/3} filtra os elementos da lista para os quais o objetivo} };
+
+	\node[anchor=west] (a1) at (0.5, 5.5) { \bbtext{é verdadeiro} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Predicado \code{prolog}{include/3}} };
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{O predicado \code{prolog}{include/3} filtra os elementos da lista para os quais o objetivo} };
+
+	\node[anchor=west] (a1) at (0.5, 5.5) { \bbtext{é verdadeiro} };
+
+	\node[anchor=west] (b) at (1.0, 4.5) { $\star$ \bbtext{A sintaxe é} };
+
+	\node[anchor=west] (b1) at (2.0, 3.5) { \code{prolog}{include(Goal, List, Filtered).} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Predicado \code{prolog}{include/3}} };
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{O predicado \code{prolog}{include/3} filtra os elementos da lista para os quais o objetivo} };
+
+	\node[anchor=west] (a1) at (0.5, 5.5) { \bbtext{é verdadeiro} };
+
+	\node[anchor=west] (b) at (1.0, 4.5) { $\star$ \bbtext{A sintaxe é} };
+
+	\node[anchor=west] (b1) at (2.0, 3.5) { \code{prolog}{include(Goal, List, Filtered).} };
+
+	\node[anchor=west] (c) at (1.0, 2.5) { $\star$ \bbtext{O predicado \code{prolog}{exclude/3} é similar, porém mantém os elementos para os quais} };
+
+	\node[anchor=west] (c1) at (0.5, 2.0) { \bbtext{o objetivo falha} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Predicado \code{prolog}{include/3}} };
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{O predicado \code{prolog}{include/3} filtra os elementos da lista para os quais o objetivo} };
+
+	\node[anchor=west] (a1) at (0.5, 5.5) { \bbtext{é verdadeiro} };
+
+	\node[anchor=west] (b) at (1.0, 4.5) { $\star$ \bbtext{A sintaxe é} };
+
+	\node[anchor=west] (b1) at (2.0, 3.5) { \code{prolog}{include(Goal, List, Filtered).} };
+
+	\node[anchor=west] (c) at (1.0, 2.5) { $\star$ \bbtext{O predicado \code{prolog}{exclude/3} é similar, porém mantém os elementos para os quais} };
+
+	\node[anchor=west] (c1) at (0.5, 2.0) { \bbtext{o objetivo falha} };
+
+	\node[anchor=west] (d) at (1.0, 1.0) { $\star$ \bbtext{Os parâmetros são os mesmos do predicado \code{prolog}{include/3}, com mesma ordem} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\vspace*{\fill}
+
+\inputcode{prolog}{codes/include.pl}
+
+
+\vspace*{\fill}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Predicado \code{prolog}{foldl/N}} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Predicado \code{prolog}{foldl/N}} };
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{O predicado \code{prolog}{foldl/N} ``dobra'' os elementos de $m\in[1,4]$ listas por meio} };
+
+	\node[anchor=west] (a1) at (0.5, 5.5) { \bbtext{do objetivo \code{prolog}{Goal/m}, onde \code{prolog}{V0} é o valor inicial} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Predicado \code{prolog}{foldl/N}} };
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{O predicado \code{prolog}{foldl/N} ``dobra'' os elementos de $m\in[1,4]$ listas por meio} };
+
+	\node[anchor=west] (a1) at (0.5, 5.5) { \bbtext{do objetivo \code{prolog}{Goal/m}, onde \code{prolog}{V0} é o valor inicial} };
+
+	\node[anchor=west] (b) at (1.0, 4.5) { $\star$ \bbtext{Ele pode ser definido da seguinte maneira:} };
+
+	\node[anchor=west] (b1) at (2.0, 2.625) { \inputsyntax{prolog}{codes/foldl.pl} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Predicado \code{prolog}{foldl/N}} };
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{O predicado \code{prolog}{foldl/N} ``dobra'' os elementos de $m\in[1,4]$ listas por meio} };
+
+	\node[anchor=west] (a1) at (0.5, 5.5) { \bbtext{do objetivo \code{prolog}{Goal/m}, onde \code{prolog}{V0} é o valor inicial} };
+
+	\node[anchor=west] (b) at (1.0, 4.5) { $\star$ \bbtext{Ele pode ser definido da seguinte maneira:} };
+
+	\node[anchor=west] (b1) at (2.0, 2.625) { \inputsyntax{prolog}{codes/foldl.pl} };
+
+	\node[anchor=west] (c) at (1.0, 0.5) { $\star$ \bbtext{O predicado \code{prolog}{scanl/N} é similar, mantendo porém os resultados parciais} };
+
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
 	\node[anchor=west] (title) at (0.0, 6.5) { \Large \bbbold{Referências} };
 
 	\node[anchor=west] (a) at (1.0, 2.5) { $\star$ \bbbold{SWI-Prolog.} \bbenglish{https://www.swi-prolog.org/,} \bbtext{acesso em 13/03/2026.} };

@@ -1,16 +1,8 @@
-% Determina se X é múltiplo de algum dentre os inteiros contidos na lista L
-is_multiple(X, Y) :- X mod Y =:= 0.
-
-common_multiple(X, L) :- maplist(is_multiple(X), L).
-
-any(L) :- member(X, L), call(X).
-
-all(L) :- maplist(call, L).
-
-celsius_fahrenheit(C, F) :-
-    ((var(C), var(F)) 
-        -> instantiation_error('Ao menos uma variável deve estar atada') ; true),
-    (nonvar(C) -> F is C*9/5 + 32 ; C is (F - 32)*5/9).
-
-?- maplist(celsius_fahrenheit, [-1, 100, 40], F).
-F = [30.2, 212, 104].
+maplist(G, [X_11, ..., X_1n],
+           [X_21, ..., X_2n],
+           ...,
+           [X_m1, ..., X_mn]) :-
+   call(G, X_11, ..., X_m1),
+   call(G, X_12, ..., X_m2),
+   ...
+   call(G, X_1n, ..., X_mn).

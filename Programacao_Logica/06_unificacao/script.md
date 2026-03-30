@@ -495,6 +495,156 @@ c1 => Node
 
 title => Node
     @title.x = 0
+    @title.y = 7
+    @title.text = \Large \bbbold{Predicado \code{prolog}{maplist/N}}
+    @title.anchor = west
+
+---
+a => Node
+    @a.x = 1
+    @a.y = 6
+    @a.text = $\star$ \bbtext{O predicado \code{prolog}{maplist/N} retorna verdadeiro se o objetivo \code{prolog}{Goal} é bem sucedido}
+    @a.anchor = west
+
+a1 => Node
+    @a1.x = 0.5
+    @a1.y = 5.5
+    @a1.text = \bbtext{para todas $(N-1)$-uplas de elementos correspondentes das listas indicadas}
+    @a1.anchor = west
+
+---
+b => Node
+    @b.x = 1
+    @b.y = 4.5
+    @b.text = $\star$ \bbtext{Ele pode ser definido da seguinte maneira:}
+    @b.anchor = west
+
+b1 => Node
+    @b1.x = 2
+    @b1.y = 2.625
+    @b1.text = \inputsyntax{prolog}{codes/maplist.pl}
+    @b1.anchor = west
+
+---
+c => Node
+    @c.x = 1
+    @c.y = 0.5
+    @c.text = $\star$ \bbtext{SWI-Prolog disponibiliza versões deste predicado para $N\in[2, 5]$}
+    @c.anchor = west
+
+## Text
+
+\inputsnippet{prolog}{1}{19}{codes/maplist_examples.pl}
+
+## Text
+
+\inputsnippet{prolog}{1}{19}{codes/maplist_examples_2.pl}
+
+## Scene
+
+title => Node
+    @title.x = 0
+    @title.y = 7
+    @title.text = \Large \bbbold{Predicado \code{prolog}{include/3}}
+    @title.anchor = west
+
+---
+a => Node
+    @a.x = 1
+    @a.y = 6
+    @a.text = $\star$ \bbtext{O predicado \code{prolog}{include/3} filtra os elementos da lista para os quais o objetivo}
+    @a.anchor = west
+
+a1 => Node
+    @a1.x = 0.5
+    @a1.y = 5.5
+    @a1.text = \bbtext{é verdadeiro}
+    @a1.anchor = west
+
+---
+b => Node
+    @b.x = 1
+    @b.y = 4.5
+    @b.text = $\star$ \bbtext{A sintaxe é}
+    @b.anchor = west
+
+b1 => Node
+    @b1.x = 2
+    @b1.y = 3.5
+    @b1.text = \code{prolog}{include(Goal, List, Filtered).}
+    @b1.anchor = west
+
+---
+c => Node
+    @c.x = 1
+    @c.y = 2.5
+    @c.text = $\star$ \bbtext{O predicado \code{prolog}{exclude/3} é similar, porém mantém os elementos para os quais}
+    @c.anchor = west
+
+c1 => Node
+    @c1.x = 0.5
+    @c1.y = 2
+    @c1.text = \bbtext{o objetivo falha}
+    @c1.anchor = west
+
+---
+d => Node
+    @d.x = 1
+    @d.y = 1
+    @d.text = $\star$ \bbtext{Os parâmetros são os mesmos do predicado \code{prolog}{include/3}, com mesma ordem}
+    @d.anchor = west
+
+## Text
+
+\inputcode{prolog}{codes/include.pl}
+
+
+## Scene
+
+title => Node
+    @title.x = 0
+    @title.y = 7
+    @title.text = \Large \bbbold{Predicado \code{prolog}{foldl/N}}
+    @title.anchor = west
+
+---
+a => Node
+    @a.x = 1
+    @a.y = 6
+    @a.text = $\star$ \bbtext{O predicado \code{prolog}{foldl/N} ``dobra'' os elementos de $m\in[1,4]$ listas por meio}
+    @a.anchor = west
+
+a1 => Node
+    @a1.x = 0.5
+    @a1.y = 5.5
+    @a1.text = \bbtext{do objetivo \code{prolog}{Goal/(m+1)}, onde \code{prolog}{V0} é o valor inicial}
+    @a1.anchor = west
+
+---
+b => Node
+    @b.x = 1
+    @b.y = 4.5
+    @b.text = $\star$ \bbtext{Ele pode ser definido da seguinte maneira:}
+    @b.anchor = west
+
+b1 => Node
+    @b1.x = 2
+    @b1.y = 2.625
+    @b1.text = \inputsyntax{prolog}{codes/foldl.pl}
+    @b1.anchor = west
+
+---
+c => Node
+    @c.x = 1
+    @c.y = 0.5
+    @c.text = $\star$ \bbtext{O predicado \code{prolog}{scanl/N} é similar, mantendo porém os resultados parciais}
+    @c.anchor = west
+
+
+## Scene
+
+title => Node
+    @title.x = 0
     @title.y = 6.5
     @title.text = \Large \bbbold{Referências}
     @title.anchor = west
