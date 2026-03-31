@@ -116,7 +116,7 @@ d => Node
 d1 => Node
     @d1.x = 0.5
     @d1.y = 0.5
-    @d1.text = \bbtext{do operador (indicada por \code{prolog}{f}) e a associatividade (determina pela posição de \code{prolog}{y})}
+    @d1.text = \bbtext{do operador (indicada por \code{prolog}{f}) e a associatividade (determinada pela posição de \code{prolog}{y})}
     @d1.anchor = west
 
 ## Scene
@@ -130,7 +130,7 @@ title => Node
 a => Node
     @a.x = 1
     @a.y = 6
-    @a.text = $\star$ \bbtext{Por exemplo, o átomo \code{prolog}{xfy} caracteriza um operador binário, infixado, e associativo}
+    @a.text = $\star$ \bbtext{Por exemplo, o átomo \code{prolog}{xfy} caracteriza um operador binário, infixado e associativo}
     @a.anchor = west
 
 a1 => Node
