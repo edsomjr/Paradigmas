@@ -59,7 +59,7 @@ d => Node
 e => Node
     @e.x = 1
     @e.y = 0.5
-    @e.text = $\star$ \bbtext{O tratamento das regras recursiva se dá naturalmente pelo \bbenglish{backtracking}}
+    @e.text = $\star$ \bbtext{O tratamento das regras recursivas se dá naturalmente pelo \bbenglish{backtracking}}
     @e.anchor = west
 
 ## Text
@@ -85,7 +85,7 @@ a => Node
 b => Node
     @b.x = 1
     @b.y = 5
-    @b.text = $\star$ \bbtext{A unificação entre o objetivo e o padrão de uma regra recursiva define as relações}
+    @b.text = $\star$ \bbtext{A unificação entre o objetivo e o padrão de uma regra recursiva definem as relações}
     @b.anchor = west
 
 b1 => Node
@@ -183,7 +183,7 @@ c => Node
 d => Node
     @d.x = 1
     @d.y = 1.5
-    @d.text = $\star$ \bbtext{A declaração de uma estrutura é semelhante à declaração de um fato ou regra}
+    @d.text = $\star$ \bbtext{A declaração de uma estrutura é semelhante à declaração de um fato}
     @d.anchor = west
 
 
