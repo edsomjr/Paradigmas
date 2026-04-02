@@ -16,5 +16,5 @@ roots(A, B, C, X) :-
     S is root_signal(Delta),
     X is (-B + S*sqrt(Delta))/(2*A).
 
-% ?- roots(X, 1, -5, 6).
-% ?- roots(X, 1, 0, 1).
+% ?- roots(1, -5, 6, X).
+% ?- roots(1, 0, 1, X).

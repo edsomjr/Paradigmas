@@ -754,7 +754,7 @@ b1 => Node
 c => Node
     @c.x = 1
     @c.y = 3
-    @c.text = $\star$ \bbtext{O predicado \code{prolog}{unvar/1} retorna verdadeiro se a variável já foi atada previamente na}
+    @c.text = $\star$ \bbtext{O predicado \code{prolog}{nonvar/1} retorna verdadeiro se a variável já foi atada previamente na}
     @c.anchor = west
 
 c1 => Node
