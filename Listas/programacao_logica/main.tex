@@ -1,0 +1,145 @@
+\input{packages}
+\input{setup}
+\input{commands}
+
+\begin{document}
+
+\input{logo}
+
+\vspace{0.1in}
+
+\begin{center}
+    \textbf{\huge Paradigmas de Programação}
+
+    \vspace{0.1in}
+    \textbf{\Large Programação Lógica}
+\end{center}\vskip1em
+
+\renewcommand{\Qq}[1]{{#1}}
+
+\section*{Parte A -- Lógica Proposicional Booleana}
+
+\Qitem{ \Qq{Julgue a afirmativa a seguir como \textbf{verdadeira} ou \textbf{falsa}:
+    ``Afirmar que uma proposição $p$ é, ao mesmo tempo, verdadeira e falsa, violaria o Princípio do Terceiro Excluído''.
+} }
+% F. Feedback: O princípio violado seria o Princípio da Não-Contradição.
+
+\Qitem{ \Qq{Na canção Maricotinha, Dorival Caymmi afirma que ``Se fizer bom tempo amanhã eu vou''. Assumindo que esta proposição é verdadeira, assinale a única situação impossível: }
+\begin{Qlist}
+\item Fez bom tempo e ele foi
+\item Fez bom tempo e ele não foi
+\item Não fez bom tempo e ele foi
+\item Não fez bom tempo e ele não foi
+\end{Qlist}
+}
+% B. Feedback: A condicional só é falsa caso o antecedente seja verdadeiro e o consequente falso.
+
+\Qitem{ \Qq{Qual é o menor número natural $x$ que torna a sentença aberta ``$x/2 > \pi$'' verdadeira? } }
+
+% Resposta: x = 7
+
+% Feedback: $x$ tem que ser maior do que $2\pi$ e  $2\pi < 7$.
+
+\section*{Parte B -- Fundamentos da programação lógica}
+
+\Qitem{ \Qq{Considere o código Prolog abaixo:}
+\inputcode{prolog}{codes/maratona.pl}
+\begin{Qlist}
+\item[(a)] Identifique os predicados (nome e aridade).
+\item[(b)] Determine o número de fatos, regras e cláusulas.
+\item[(c)] Observe a saída da consulta 
+
+    \vspace{0.1in}
+    \hspace{0.3in}\mintinline{prolog}{?- selecionado(X).}
+    \vspace{0.1in}
+
+Proponha uma correção para o código para que a saída da consulta liste corretamente os selecionados.
+\end{Qlist}
+}
+
+\Qitem{ \Qq{Considere os seguintes fatos:}
+\inputcode{prolog}{codes/fatos.pl}
+Determine o resultado das seguintes consultas. Caso o resultado seja verdadeiro, indique também o valor das variáveis lógicas, quando for o caso.
+\begin{Qlist}
+\item[(a)] \mintinline{prolog}{?- p(b, a).}
+\item[(b)] \mintinline{prolog}{?- p(a, b).}
+\item[(c)] \mintinline{prolog}{?- g(X).}
+\item[(d)] \mintinline{prolog}{?- p(a, Y).}
+\end{Qlist}
+}
+
+\Qitem{ \Qq{Considere uma consulta composta de Prolog e as quatro portas que controlam o fluxo da execução. Descreva o cenário no qual a saída da consulta exibirá as variáveis lógicas e seus respectivos valores. Explique quando é possível inserir ponto-e-vírgula após o resultado de uma consulta e qual é o significado desta inserção, em termos do fluxo de controle.} }
+
+\Qitem{ \Qq{Considere o código Prolog abaixo, onde o predicado \mintinline{prolog}{matricula/2} indica que o estudante está matriculado na disciplina indicada e o predicado \mintinline{prolog}{estudante/3} informa que o estudante do semestre indicado cursa a graduação dada no terceiro argumento:}
+\inputcode{prolog}{codes/fcte.pl}
+\begin{Qlist}
+\item[(a)] Implemente a regra \mintinline{prolog}{tem_calouros/1}, que retorna as disciplinas que tem calouros matriculados.
+\item[(b)] Implemente a regra \mintinline{prolog}{turma_mista/1}, que retorna as disciplinas que tem ao menos um estudante de cada curso.
+\item[(c)] Implemente a regra \mintinline{prolog}{software/0}, que imprime todos os estudantes de Engenharia de Software, um estudante por linha.
+\end{Qlist}
+}
+
+
+\section*{Parte C -- Regras}
+
+\Qitem{ \Qq{Considere a figura abaixo, que apresenta a árvore genealógica dos Simpsons:}
+
+\begin{center}
+    \includegraphics[scale=0.4]{simpsons.png}
+\end{center}
+
+Implemente os predicados abaixo, declarando a seguir os fatos relativos à família Simpson relacionados a cada predicado.
+\begin{Qlist}
+\item[(a)] \mintinline{prolog}{male/1} e \mintinline{prolog}{female/1}, que indicam os homens e mulheres, respectivamente.
+\item[(b)] \mintinline{prolog}{father/2}, que indica o pai do respectivo membro da família.
+\item[(c)] \mintinline{prolog}{mother/2}, que indica a mãe do respectivo membro da família.
+\end{Qlist}
+
+\vspace{0.1in}
+Implemente as regras abaixo e valide sua implementação com consultas na base de fatos declarados.
+
+\begin{Qlist}
+\item[(a)] \mintinline{prolog}{uncle/2}, que indica o tio do respectivo membro da família.
+\item[(b)] \mintinline{prolog}{grandmother/2}, que indica a avó do respectivo membro da família.
+\end{Qlist}
+}
+
+\Qitem{ \Qq{Implemente o predicado \mintinline{prolog}{distance/5}, que compute a distância percorrida $S$, em metros, em $T$ segundos, 
+a partir de um ponto inicial que fica a $I$ metros da origem, com velocidade de $V$ m/s e aceleração igual a $A$ m/s$^2$.} }
+
+\Qitem{ \Qq{Implemente o predicado \mintinline{prolog}{divisors/2}, que computa o número de divisores positivos $X$ de um inteiro
+positivo $N$. Utilize o predicado \mintinline{prolog}{mod/2}, que retorna o resto da divisão de $X$ por $Y$. } }
+
+\section*{Parte D - Listas e Unificação}
+
+\Qitem{ \Qq{O predicado \mintinline{prolog}{is_set/1} recebe como parâmetro uma lista de inteiros e retorna verdadeiro se todos os elemntos são únicos. Descreva o comportamento da consulta
+
+    \vspace{0.1in}
+    \hspace{0.3in}\mintinline{prolog}{?- is_set(1, 2, 3).}
+    \vspace{0.1in}
+} }
+
+\Qitem{ \Qq{Determine, sem executar, o resultado da consulta:
+
+    \vspace{0.1in}
+    \hspace{0.3in}\mintinline{prolog}{?- X = Y, Y \= Z, Z = W, X = a, W = b.}
+    \vspace{0.1in}
+
+Execute esta consulta no \textit{listener} Prolog e compare com sua expectativa. Caso sua expectativa seja diferente do resultado, como a consulta deve ser modificada para obter o retorno esperado?
+} }
+% Feedback: $f(0) = f(2\pi)$ e $\f(\mathbb{R}) = [-1, 1]$.
+
+\Qitem{ \Qq{O código abaixo implementa o predicado \mintinline{prolog}{same_parity/2}, que retorna verdadeiro se $X$ e $Y$ são ambos pares ou ambos ímpares. 
+
+\inputcode{prolog}{codes/parity.pl}
+
+Contudo, a consulta
+
+    \vspace{0.1in}
+    \hspace{0.3in}\mintinline{prolog}{?- same_parity(2, 4).}
+    \vspace{0.1in}
+
+retorna falso. Explique o que há de incorreto na implementação e proponha uma correção.} }
+
+\end{document}
+
