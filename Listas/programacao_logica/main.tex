@@ -107,8 +107,11 @@ Implemente as regras abaixo e valide sua implementação com consultas na base d
 \Qitem{ \Qq{Implemente o predicado \mintinline{prolog}{distance/5}, que compute a distância percorrida $S$, em metros, em $T$ segundos, 
 a partir de um ponto inicial que fica a $I$ metros da origem, com velocidade de $V$ m/s e aceleração igual a $A$ m/s$^2$.} }
 
-\Qitem{ \Qq{Implemente o predicado \mintinline{prolog}{divisors/2}, que computa o número de divisores positivos $X$ de um inteiro
-positivo $N$. Utilize o predicado \mintinline{prolog}{mod/2}, que retorna o resto da divisão de $X$ por $Y$. } }
+\Qitem{ \Qq{Implemente o predicado \mintinline{prolog}{divisores/2}, que computa o número de divisores positivos $X$ de um inteiro
+positivo $N$. Utilize o predicado \mintinline{prolog}{mod/2}, que retorna o resto da divisão de $X$ por $Y$. Em seguida, transforme este predicado em uma função aritmética e também em um operador infixado, sem associatividade, de modo que as consultas abaixo sejam possíveis e retornem os resultados indicados:} 
+
+\inputcode{prolog}{codes/divisores_consultas.pl}
+}
 
 \section*{Parte D - Listas e Unificação}
 

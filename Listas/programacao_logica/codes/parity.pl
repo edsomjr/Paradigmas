@@ -1,2 +1,2 @@
 same_parity(X, Y) :-
-    rem(X, 2) = rem(Y, 2).
+    mod(X, 2) = mod(Y, 2).
