@@ -257,7 +257,7 @@ c => Node
 \begin{tikzpicture}
     \node[draw,opacity=0] at (0, 0) {x};
     \node[draw,opacity=0] at (14, 8) {x};
-	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Função de imcompatibilidade $U$} };
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Função de incompatibilidade $U$} };
 
 \node[anchor=west] at (0, 3.5) {\begin{tcolorbox}[colback=blue!5,colframe=blue!60!green,title=\textbf{Funções de incompatibilidade}]
 \bbtext{O conectivo fundamental de Schönfinkel
