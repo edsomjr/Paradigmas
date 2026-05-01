@@ -1,0 +1,90 @@
+\input{packages}
+\input{setup}
+\input{commands}
+
+\begin{document}
+
+\input{logo}
+
+\vspace{0.1in}
+
+\begin{center}
+    \textbf{\huge Paradigmas de Programação}
+
+    \vspace{0.1in}
+    \textbf{\Large Cálculo-$\lambda$: Lista 2}
+\end{center}\vskip1em
+
+\renewcommand{\Qq}[1]{{#1}}
+
+\section*{Parte A - Aritmética}
+
+\Qitem{ \Qq{Defina um termo-$\lambda$ $L$ tal que, para dois naturais $x$ e $y$, $Lxy$ seja
+        verdadeiro se $x\leq y$, e falso, caso contrário. Use, nesta definição, os termos-$\lambda$
+        $Z$ e $P$.} }
+
+\Qitem{ \Qq{Defina um termo-$\lambda$ $M$ tal que, para dois naturais $x$ e $y$, $Mxy$ seja
+        igual ao maior dentre ambos. Use, nesta definição, os termos-$\lambda$ $Z$ e $P$. } }
+
+\Qitem{ \Qq{Defina um termo-$\lambda$ $N$ tal que, para dois naturais $x$ e $y$, $N xy$ seja
+        igual ao menor dentre ambos. Use, nesta definição, os termos-$\lambda$ $Z$ e $P$. } }
+
+\section*{Parte B - Recursão}
+
+\Qitem{ \Qq{No cálculo lambda, a adição de dois números naturais $x$ e $y$ pode ser definida por meio
+        do termo-$\lambda$
+    \[
+        + \equiv \lambda xy.xSy,
+    \]
+    onde $Sn$ é o sucessor do natural $n$. Também é possível definir a adição nos naturais por
+    meio de recursão:
+    \[
+        \left\{ \begin{array}{ll} x + 1 = x'\\ x + y' = (x + y)'\end{array}\right.
+    \]
+    onde $n'$ é o sucessor do natural $n$.
+
+    Usando os termos-$\lambda$ sucessor $S$, antecessor $P$ e igualdade $E$, defina um termo 
+    $\Gamma$ tal que $Y\Gamma$ corresponda à esta definição recursiva de adição de naturais. } }
+
+\Qitem{ \Qq{No cálculo lambda, a multiplicação de dois números naturais $x$ e $y$ pode ser definida por
+        meio do termo-$\lambda$
+    \[
+        \times \equiv \lambda xyz.x(yz)
+    \]
+    Também é possível definir a multiplicação nos naturais por meio de recursão:
+    \[
+        \left\{ \begin{array}{ll} x\times 1 = x\\ x\times y' = x\times y + x\end{array}\right.
+    \]
+    onde $n'$ é o sucessor do natural $n$.
+
+    Usando os termos-$\lambda$ sucessor $S$, antecessor $P$, igualdade $E$ e soma $+$, defina um 
+    termo $\Gamma$ tal que $Y\Gamma$ corresponda à esta definição recursiva de multiplicação de
+    naturais. } }
+
+\Qitem{ \Qq { Defina um termo-$\lambda$ $\Gamma$ tal que $(Y\Gamma)$ compute, recursivamente, o que
+        for solicitado nos itens a seguir. É permitido o uso de qualquer termo-$\lambda$ definido
+        nos slides das aulas sobre o cálculo lambda. 
+
+    \begin{Qlist}
+        \item[(a)] Dado um natural $n$, $(Y\Gamma)n$ é verdadeiro, se $n$ é par, ou falso, se $n$ é ímpar.
+        \item[(b)] Dados dois naturais $a$ e $b$, $(Y\Gamma)ab$ é o resto da divisão euclidiana de $a$ por $b$.
+        \item[(c)] Dados dois naturais $a$ e $b$, $(Y\Gamma)ab$ é o quociente da divisão euclidiana de $a$ por $b$.
+        \item[(d)] Dados dois naturais $a$ e $b$, $(Y\Gamma)ab$ é o maior divisor comum $(a, b$) entre $a$ e 
+            $b$. Dica: $(a, b) = (b, a - b)$ e $(a, 0) = a$.
+        \item[(e)] Dado um natural $n$, $(Y\Gamma)n = n!!$, onde 
+        \[
+            n!! = n(n - 2)(n - 4)\ldots .. 1
+        \]
+        e $1!! = 0!! = 1$.
+    \item[(f)] Dados dois naturais $a$ e $b$, $(Y\Gamma)ab$ é igual a $a^b$.
+    \item[(g)] Dado um natural $n$, $(Y\Gamma)n$ é a soma dos primeiros $n$ números naturais.
+    \item[(h)] Dado um natural $n$, $(Y\Gamma)n$ é a soma dos quadrados dos primeiros $n$ números naturais.
+    \item[(i)] Dados três naturais $a, r$ e $n$, $(Y\Gamma)arn$ é igual a soma dos primeiros $n$ termos
+            de uma progressão aritmética cujo primeiro termo é igual a $a$ e a razão é igual a $r$.
+        \item[(j)] Dados três naturais $a, q$ e $n$, $(Y\Gamma)aqn$ é igual a soma dos primeiros $n$ termos
+            de uma progressão geométrica cujo primeiro termo é igual a $a$ e a razão é igual a $q$.
+    \end{Qlist}
+} }
+
+\end{document}
+

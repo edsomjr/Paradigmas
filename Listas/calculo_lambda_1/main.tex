@@ -1,0 +1,84 @@
+\input{packages}
+\input{setup}
+\input{commands}
+
+\begin{document}
+
+\input{logo}
+
+\vspace{0.1in}
+
+\begin{center}
+    \textbf{\huge Paradigmas de Programação}
+
+    \vspace{0.1in}
+    \textbf{\Large Cálculo-$\lambda$: Lista 1}
+\end{center}\vskip1em
+
+\renewcommand{\Qq}[1]{{#1}}
+
+\section*{Parte A - Definição de cálculo-$\lambda$}
+
+\Qitem{ \Qq{Descreva a sequência de aplicações dos axiomas de construção que forma o termo-$\lambda$
+indicado. Assuma que $x, y, z, w$ são variáveis e siga o modelo do exemplo, o qual ilustra a construção do termo $wz(\lambda y.xy)$:
+\[
+    x 
+    \quad \xrightarrow{\tiny \mbox{aplicação}}\quad xy
+    \quad \xrightarrow{\tiny \mbox{abstração}}\quad \lambda y.xy
+    \quad \xrightarrow{\tiny \mbox{aplicação}}\quad z(\lambda y.xy)
+    \quad \xrightarrow{\tiny \mbox{aplicação}}\quad wz(\lambda y.xy)
+\]
+    \begin{Qlist}
+    \item[(a)] $(\lambda y.(\lambda x.xy)xy)$
+    \item[(b)] $\lambda w.xyx(\lambda z.z)$
+    \end{Qlist}
+} }
+
+\Qitem{ \Qq{Para cada termo abaixo, indique se a substituição da variável $x$ por $N$ se aplica ou
+        não. Em caso afirmativo, realize a substituição; caso contrário, justifique porque a 
+        substituição não se aplica.
+
+    \begin{Qlist}
+    \item[(a)] $(\lambda y.xyx)(yxy)$
+    \item[(b)] $\lambda x.(\lambda y.xyx)$
+    \item[(c)] $\lambda z.yzwz$
+    \end{Qlist}
+} }
+
+\Qitem{ \Qq{Aplique os axiomas de redução, enquanto for possível, nas expressões abaixo:
+    \begin{Qlist}
+    \item[(a)] $(\lambda y.(\lambda x.xyx))x$
+    \item[(b)] $\lambda z.(\lambda y.yz)x$
+    \end{Qlist}
+} }
+
+\Qitem{ \Qq{Identifique, para cada termo abaixo, se a conversão-$\eta$ é aplicável. Justifique caso
+        não seja, ou aplique a conversão, se possível.
+        \begin{Qlist}
+        \item[(a)] $\lambda x.x$
+        \item[(b)] $\lambda x.y$
+        \item[(c)] $\lambda x.xyx$
+        \end{Qlist}
+} }
+
+\Qitem{ \Qq{Determine o conjunto das variáveis livres do termo $(\lambda x.zxyw)(\lambda y.wxzy)$.} }
+
+\Qitem{ \Qq{Escreva um combinador formado apenas por $S$ e $K$ que seja extensionalmente
+        igual ao combinador $K_*$.} }
+
+\section*{Parte B - Lógica booleana}
+
+\Qitem{ \Qq{Defina um termo lambda $X$ que correponda à operação lógica ``ou exclusivo'', isto é,
+        $Xpq = T$ se $p$ e $q$ tem valores lógicos distintos e $Xpq = F$, caso contrário.} }
+
+\Qitem{ \Qq{Escreva, para cada operador lógico abaixo, um combinador na base $SK$ que seja
+        extensionalmente igual ao operador. Indique a posição do operador (pré-fixada, in-fixada ou
+        pós-fixada).
+    \begin{Qlist}
+    \item[(a)] condicional
+    \item[(b)] bicondicional
+    \end{Qlist}
+} }
+
+\end{document}
+
