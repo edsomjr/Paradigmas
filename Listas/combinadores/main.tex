@@ -1,0 +1,75 @@
+\input{packages}
+\input{setup}
+\input{commands}
+
+\begin{document}
+
+\input{logo}
+
+\vspace{0.1in}
+
+\begin{center}
+    \textbf{\huge Paradigmas de Programação}
+
+    \vspace{0.1in}
+    \textbf{\Large Combinadores}
+\end{center}\vskip1em
+
+\renewcommand{\Qq}[1]{{#1}}
+
+\section*{Parte A - Combinadores}
+
+\Qitem{ \Qq{Seja
+\[
+    p\downarrow q = \bar{p}\land \bar{q}
+\]
+a negação disjunta, onde $p\land q$ é a conjunção de $p$ e $q$ e $\bar{p}$ a negação de $p$. Determine a proposição equivalente a cada proposição composta abaixo usando apenas a negação disjunta.
+    \begin{Qlist}
+    \item[(a)] $p\land q$
+    \item[(b)] $p\vee q$
+    \item[(c)] $\bar{p}$
+    \end{Qlist}
+} }
+
+\Qitem{ \Qq{Sejam $\oplus$ e $\odot$ dois conectivos lógicos tais que $p\oplus q$ é verdadeira apenas se $p$ é falsa e $q$ é verdadeira e que
+    $p\odot q$ é falsa se $p$ é verdadeira ou $q$ é falsa. Determine proposições equivalentes a $p\oplus q$ e $p\odot q$ usando apenas os conectivos listados.
+    \begin{Qlist}
+    \item[(a)] negação e conjunção
+    \item[(b)] negação conjunta
+    \item[(c)] negação e condicional
+    \end{Qlist}
+} }
+
+\Qitem{ \Qq{Considere a proposição composta ``$x$ não é múltiplo de 3 e $y$ é primo''.
+    \begin{Qlist}
+    \item[(a)] Escreva esta proposição usando variáveis lógicas para indicar as proposições simples e os conectivos tradicionais da lógica booleana.
+    \item[(b)] Escreva, em notação simbólica, a negação desta proposição.
+    \item[(c)] Escreva, em notação simbólica, esta proposição, usando apenas a negação disjunta.
+    \item[(d)] Escreva, em notação simbólica, esta proposição, usando apenas o conectivo fundamaental de Schönfinkel.
+    \end{Qlist}
+} }
+
+\section*{Parte B - Base $SK$}
+
+\Qitem{ \Qq{Escreva os combinadores utilizando apenas os cinco combinadores fundamentais de Schönfinkel: $S, K, I, C, B$.
+    \begin{Qlist}
+    \item[(a)] \textit{Blackbird}: $B_1abcd = a(bcd)$ % BBB
+    \item[(b)] \textit{Dove}: $Dabcd = ab(cd)$ % BB
+    \item[(c)] \textit{Goldfinch}: $Dabcd = ad(bc)$ % BBC
+    \item[(d)] \textit{Owl}: $Oab = b(ab)$ % SI
+    \end{Qlist}
+} }
+
+\Qitem{ \Qq{Aplique, enquanto for possível, a redução beta nas expressões abaixo.
+    \begin{Qlist}
+    \item[(a)] $S(K(S(K((S(KS))K))))abcde$ % abc(de)
+    \item[(b)] $S(K((S((SK)K))((SK)K)))ab$ % ab(ab)
+    \item[(c)] $S(K((S(K(S((SK)K))))K))abc$ % c(ab)
+    \end{Qlist}
+} }
+
+\Qitem{ \Qq{Considere uma floresta e que as letras maiúsculas do alfabeto $A, B, \ldots, Z$ representem pássaros que vivem na floresta. Quando o pássaro $A$ ouve o nome do pássaro $B$, ele responde $AB$. Dizemos que $A$ ama $B$ se $AB = B$. Considere que, para quaisquer dois pássaros $A$ e $B$, existe na floresta um pássaro $C$ tal que $Cx = A(Bx)$, para qualquer pássaro $x$. Assuma também que o tordo-imitador $M$ vive na floresta: para qualquer pássaro $x$, $Mx=xx$.
+
+Neste cenário, prove que existe um pássaro egocêntrico $E$ tal que $EE = E$, ou seja, $E$ ama a si mesmo. } }
+
+\end{document}
