@@ -1,8 +1,8 @@
--- Esta função está disponível na biblioteca Maybe.
+-- Esta função está disponível na biblioteca Data.Maybe.
 -- Para utilizá-la sem precisar da implementação abaixo,
 -- importe esta biblioteca com o comando
 --
--- import Maybe
+-- import Data.Maybe
 --
 --
 -- Ela extrai o valor contido no tipo Maybe (wrapped),
