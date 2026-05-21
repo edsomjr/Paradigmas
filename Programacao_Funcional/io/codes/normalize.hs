@@ -7,7 +7,7 @@ normalize infile = ys ++ ext
     where
         (name, ext) = span (\x -> x /= '.') infile
         xs = map (\c -> if isSpace c then '_' else c) name
-        p = (\c -> any $ map ($ c) [isAlphaNum, (=='_'), (=='/')]) 
+        p = (\c -> or $ map ($ c) [isAlphaNum, (=='_'), (=='/')]) 
         ys = filter p xs 
 
 main = do
