@@ -1,0 +1,84 @@
+\input{packages}
+\input{setup}
+\input{commands}
+
+\begin{document}
+
+\input{logo}
+
+\vspace{0.1in}
+
+\begin{center}
+    \textbf{\huge Paradigmas de Programação}
+
+    \vspace{0.1in}
+    \textbf{\Large Programação Funcional: Lista 1}
+\end{center}\vskip1em
+
+\renewcommand{\Qq}[1]{{#1}}
+
+\section*{Parte A - Funções}
+
+\Qitem{ \Qq{Usando apenas as funções uma ou mais dentre as funções \code{haskell}{head}, 
+        \code{haskell}{tail}, \code{haskell}{take}, \code{haskell}{drop}, \code{haskell}{length} e
+        \code{haskell}{null}, e os recursos e elementos presentes nas duas primeiras aulas sobre
+        programação funcional, implemente as funções abaixo:
+
+    \begin{Qlist}
+        \item[(a)] \code{haskell}{second :: [a] -> Maybe a}, que recebe uma lista como parâmetro e 
+            retorna o segundo elemento da lista, se existir. Ex.:
+                \inputsyntax{haskell}{codes/second.hs}
+        \item[(b)] \code{haskell}{body :: [a] -> Maybe [a]}, que recebe uma lista como parâmetros e 
+            retorna todos os elementos, exceto o primeiro e o último, se possível. Ex.:
+                \inputsyntax{haskell}{codes/body.hs}
+
+        \item[(c)] \code{haskell}{median :: [a] -> Maybe a}, que retorna o elemento central da lista de
+            $N$ elementos, se N é ímpar, ou o $N/2$-ésimo elemento, se $N$ é par, se possível. Ex.: 
+
+                \inputsyntax{haskell}{codes/median.hs}
+    \end{Qlist}
+} }
+
+\Qitem{ \Qq{Utilizando \textbf{obrigatoriamente} recursão, e opcionalmente guardas e os recursos 
+        apresentados nas duas primeiras aulas sobre programação funcional, implemente as funções 
+        abaixo:
+
+    \begin{Qlist}
+        \item[(a)] \code{haskell}{parity :: Int -> Int}, que recebe um inteiro positivo $n$ e retorna
+            0 se $n$ é par, ou 1, se $n$ é ímpar.
+        \item[(b)] \code{haskell}{remainder :: Int -> Int -> Int}, que recebe dois inteiros positivos
+            $a$ e $b$ e retorna o resto da divisão euclidiana de $a$ por $b$.
+        \item[(c)] \code{haskell}{quotient :: Int -> Int -> Int}, que recebe dois inteiros positivos
+            $a$ e $b$ e retorna o quociente da divisão euclidiana de $a$ por $b$.
+        \item[(d)] \code{haskell}{greater_common_divisor :: Int -> Int -> Int}, que recebe dois inteiros 
+            positivos $a$ e $b$ e retorna o maior divisor comum $(a, b)$ de $a$ e $b$.
+            Dica: $(a, b) = (b, a - b)$ e $(a, 0) = a$.
+        \item[(e)] \code{haskell}{semifactorial :: Int -> Int}, que recebe um inteiror positivo e
+            retorna
+        \[
+            \mbox{\code{haskell}{semifactorial} $n$} = n(n - 2)(n - 4)\ldots 1
+        \]
+        e \code{haskell}{semifactorial} $1 = $ \code{haskell}{semifactorial} $0 = 1$.
+
+        \item[(f)] \code{haskell}{power :: Int -> Int -> Int}, que recebe dois inteiros positivos
+            $a$ e $n$ e retorna $a^n$.
+        \item[(g)] \code{haskell}{sum_of_first_n :: Int -> Int}, que recebe um natural $n$, e retorna 
+            a soma dos primeiros $n$ números naturais.
+        \item[(h)] \code{haskell}{sum_of_first_n_squares :: Int -> Int}, que recebe um natural $n$, e 
+            retorna a soma dos quadrados dos primeiros $n$ números naturais.
+        \item[(i)] \code{haskell}{arithmetic_progression_sum :: Int -> Int -> Int -> Int}, que recebe 
+            três naturais $a, r$ e $n$ e retorna a soma dos primeiros $n$ termos
+            de uma progressão aritmética cujo primeiro termo é igual a $a$ e a razão é igual a $r$.
+        \item[(j)] \code{haskell}{geometric_progression_sum:: Int -> Int -> Int -> Int}, que recebe
+            três naturais $a, q$ e $n$ e retorna a soma dos primeiros $n$ termos
+            de uma progressão geométrica cujo primeiro termo é igual a $a$ e a razão é igual a $q$.
+        \item[(k)] \code{haskell}{binomial :: Int -> Int -> Int}, que recebe dois inteiros não-negativos
+            $n$ e $m$, com $n \geq m$, e computa o coeficiente binomial $\binom{n}{m}$.
+        \item[(l)] \code{haskell}{count_vowels :: String -> Int}, que recebe uma string de caracteres
+            minúsculos $s$ e retorna o número de vogais (``$aeiou$'') presentes em $s$.
+    \end{Qlist}
+} }
+
+
+\end{document}
+

@@ -1,0 +1,119 @@
+\input{packages}
+\input{setup}
+\input{commands}
+
+\begin{document}
+
+\input{logo}
+
+\vspace{0.1in}
+
+\begin{center}
+    \textbf{\huge Paradigmas de Programação}
+
+    \vspace{0.1in}
+    \textbf{\Large Programação Funcional: Lista 2}
+\end{center}\vskip1em
+
+\renewcommand{\Qq}[1]{{#1}}
+
+\section*{Parte A - Funções de alta ordem}
+
+\Qitem{ \Qq{Usando apenas as funções das bibliotecas \code{haskell}{Prelude} e 
+        \code{haskell}{Data.Char} e funções de alta ordem, implemente, de forma tácita,
+        as funções listadas abaixo.
+
+    \begin{Qlist}
+        \item[(a)] \code{haskell}{count :: String -> Int}, que recebe uma string e retorne o número
+            de palavras que terminem com letra minúscula.
+
+                \inputsyntax{haskell}{codes/count.hs}
+
+        \item[(b)] \code{haskell}{inverses :: [Int] -> [Double]}, que recebe uma lista de inteiros e 
+            retorne uma lista com os inversos multiplicativos dos elementos não-nulos. Ex
+
+                \inputsyntax{haskell}{codes/inverses.hs}
+
+        \item[(c)] \code{haskell}{odds :: Int -> Int}, que recebe um inteiro e 
+            returne o número de dígitos ímpares deste número.
+
+                \inputsyntax{haskell}{codes/odds.hs}
+
+        \item[(d)] \code{haskell}{palindromes :: String -> Int}, que recebe uma string e retorna
+            o número de palavras que são palíndromos. Ex.:
+
+                \inputsyntax{haskell}{codes/palindromes.hs}
+
+        \item[(e)] \code{haskell}{isOctNumber :: Int -> Bool}, que recebe um inteiro
+            \code{haskell}{x} e retorna verdadeiro se $x$ representa um número em base octal. Ex.:
+
+                \inputsyntax{haskell}{codes/oct.hs}
+    \end{Qlist}
+} }
+
+\Qitem{ \Qq{Usando uma única dobra à esquerda, implemente as funções abaixo. A implementação deve ser
+        feita em uma única linha.
+
+    \begin{Qlist}
+        \item[(a)] \code{haskell}{eval :: [Int] -> Int -> Int}, que recebe uma lista de inteiros 
+            \code{haskell}{as} e um inteiro \code{haskell}{x} e retorna o valor de $p(x)$, onde
+            \[
+                p(x) = a_0 + a_1x + a_2x^2 + \ldots + a_Nx^N
+            \]
+
+        Ex.:
+                \inputsyntax{haskell}{codes/eval.hs}
+
+        \textbf{Dica:} utilize o algoritmo de Horner. 
+
+        \item[(b)] \code{haskell}{k_factorial :: Int -> Int -> Int}, que recebe os inteiros
+            \code{haskell}{n} e \code{haskell}{k} e retorna o $k$-fatorial $n!_{(k)}$ de $n$, onde
+        \[
+            n!_{(k)} = \left\{ \begin{array}{ll} n\cdot (n - k)!_{(k)}, & \mbox{se}\ n > 0;\\
+                1,& \mbox{se}\ -k < n \leq 0;\\
+                0,& \mbox{caso contrário}\end{array}\right.
+        \]
+
+        Ex.:
+                \inputsyntax{haskell}{codes/kfact.hs}
+
+        \item[(c)] \code{haskell}{mean :: [Int] -> Double}, que recebe uma lista de inteiros 
+            \code{haskell}{xs} e retorna a média aritmética destes números. Ex.:
+
+                \inputsyntax{haskell}{codes/mean.hs}
+
+        \item[(d)] \code{haskell}{arithmetic_progression_sum :: Int -> Int -> Int -> Int} que recebe o
+            número de termos \code{haskell}{n}, o primeiro termo \code{haskell}{a} e a razão
+            \code{haskell}{q} de uma progressão aritmética e retorne a soma dos primeiros $n$
+            termos desta progressão. Ex.:
+
+                \inputsyntax{haskell}{codes/pa.hs}
+
+        \item[(e)] \code{haskell}{exp_approx :: Double -> Double}, que recebe um número \code{haskell}{x}
+            e retorna a aproximação da exponencial por série de potências até o 11° termo, isto
+            é,
+        \[
+            e^x \approx 1 + \frac{x}{1!} + \frac{x^2}{2!} + \ldots + \frac{x^{10}}{10!}
+        \]
+        Ex.:
+                \inputsyntax{haskell}{codes/exp.hs}
+    \end{Qlist}
+} }
+
+\section*{Parte B - I/O}
+
+\Qitem{ \Qq{Resolva, no Beecrowd, o exercício indicado em Haskell. Para formatar a saída, use a função
+        \code{haskell}{printf} do módulo \code{haskell}{Text.Printf}.
+
+    \begin{Qlist}
+        \item[(a)] \texttt{BEE 1007} -- Diferença
+        \item[(b)] \texttt{BEE 1008} -- Salário
+        \item[(c)] \texttt{BEE 1011} -- Esfera
+        \item[(d)] \texttt{BEE 1013} -- O Maior
+        \item[(e)] \texttt{BEE 1014} -- Consumo
+    \end{Qlist}
+} }
+
+
+\end{document}
+
