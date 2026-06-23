@@ -1,0 +1,62 @@
+\input{packages}
+\input{setup}
+\input{commands}
+
+\begin{document}
+
+\input{logo}
+
+\vspace{0.1in}
+
+\begin{center}
+    \textbf{\huge Paradigmas de Programação}
+
+    \vspace{0.1in}
+    \textbf{\Large Programação Vetorial: Lista}
+\end{center}\vskip1em
+
+\renewcommand{\Qq}[1]{{#1}}
+
+\Qitem{ \Qq{Analise as funções táticas abaixo, quanto à sua aridade, classificação e semântica, dando
+        exemplos em cada caso.  \textbf{Exemplo}: a função tática
+
+            \inputsyntax{apl}{codes/sample.apl}
+
+        em sua forma monádica, é um \textit{fork} que computa a diferença entre o conjugado
+        complexo e o vetor unitário na direção de seu argumento:
+
+            \inputsyntax{apl}{codes/samples1.apl}
+
+        Em sua forma diádica é um \textit{fork} que computa a diferença entre a soma e o produto
+        de ambos argumentos:
+
+            \inputsyntax{apl}{codes/samples2.apl}
+
+        \textbf{Dica:} utilize o site TryAPL para consultar as versões monádicas e diádicas de
+        cada glifo (e também o comando \code{apl}{]help}).}
+
+        \vspace{0.1in}
+
+    \begin{Qlist}
+    \item[(a)] \code{apl}{÷*-}
+    \item[(b)] \code{apl}{⍳!+}
+    \item[(c)] \code{apl}{×/*}
+    \item[(d)] \code{apl}{⍳!+}
+    \item[(e)] \code{apl}{⌈÷⌊}
+    \item[(f)] \code{apl}{+=-}
+    \item[(g)] \code{apl}{×≥÷}
+    \item[(h)] \code{apl}{≡⍴>}
+    \item[(i)] \code{apl}{!+○}
+    \item[(j)] \code{apl}{∨-∧}
+    \item[(k)] \code{apl}{≤≠≥}
+    \item[(l)] \code{apl}{⍋⍒}
+    \item[(m)] \code{apl}{⍴⍴≡}
+    \item[(n)] \code{apl}{⊃⊂⍳}
+    \item[(o)] \inputsyntax{apl}{codes/scan.apl}
+ 
+    \end{Qlist}
+}
+
+
+\end{document}
+
