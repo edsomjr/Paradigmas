@@ -1,0 +1,103 @@
+\input{packages}
+\input{setup}
+\input{commands}
+
+\begin{document}
+
+\input{logo}
+
+\vspace{0.1in}
+
+\begin{center}
+    \textbf{\huge Paradigmas de Programação}
+
+    \vspace{0.1in}
+    \textbf{\Large Máquinas de Turing: Lista 1}
+\end{center}\vskip1em
+
+\renewcommand{\Qq}[1]{{#1}}
+
+\section*{Parte A - Enumerabilidade}
+
+\Qitem{ \Qq{Defina uma função $f: \mathbb{N}\to A$, total ou parcial, que enumere os elementos do
+        conjunto $A$ definido abaixo.}
+
+    \vspace{0.1in}
+    \begin{Qlist}
+    \item[(a)] O conjunto dos múltiplos positivos de três, isto é,
+            \[
+                A = \{ 0, 3, 6, 9, \ldots \}
+            \]
+
+    \item[(b)] O conjunto dos números primos, isto é,
+            \[
+                A = \{ 2, 3, 5, 7, 11, 13, 17, 19, 23, \ldots \}
+            \]
+
+    \item[(c)] O conjunto das notas musicais, isto é,
+            \[
+                A = \{ \mbox{dó, ré, mi, fá, sol, lá, si} \}
+            \]
+    \end{Qlist}
+}
+
+\Qitem{ \Qq{Compute os valores abaixo, onde $G$ é a função que enumera os pares de inteiros 
+    positivos segundo o zigue-zague de Cantor.}
+
+    \vspace{0.1in}
+    \begin{Qlist}
+        \item[(a)] $G(25)$
+        \item[(b)] $G(50)$
+        \item[(c)] $G(100)$
+    \end{Qlist}
+}
+
+\Qitem{ \Qq{Em relação à enumeração das sequências finitas de inteiros positivos, determine o 
+    natural que codifica a sequência indicada.}
+
+    \vspace{0.1in}
+    \begin{Qlist}
+        \item[(a)] $s_1 = \{ 1, 2, 1, 2, 1 \}$
+        \item[(b)] $s_2 = \{ 1, 2, 3, 4, 5 \}$
+        \item[(c)] $s_3 = \{ 1, 1, 1, 1, 1 \}$
+    \end{Qlist}
+}
+
+\Qitem{ \Qq{Ainda em relação à enumeração das sequências finitas de inteiros positivos, 
+        determine qual seria a $n$-ésima sequência, segundo esta enumeração.}
+
+    \vspace{0.1in}
+    \begin{Qlist}
+        \item[(a)] $n = 8$
+        \item[(b)] $n = 10$
+        \item[(c)] $n = 12$
+    \end{Qlist}
+}
+
+\Qitem{ \Qq{Dada uma lista $L = S_1, S_2, S_3, \ldots$ de conjuntos de inteiros positivos, 
+    determine o conjunto $\Delta(L)$, de acordo com a diagonalização de Cantor.}
+
+    \vspace{0.1in}
+    \begin{Qlist}
+        \item[(a)] $S_i$ é o conjunto os $i$ primeiros naturais:
+            \[
+                S_1 = \{ 1 \}, S_2 = \{ 1, 2 \}, S_3 = \{ 1, 2, 3 \}, \ldots
+            \]
+
+        \item[(b)] $S_i$ é o conjunto dos divisores próprios de $i$, isto é, divisores positivos e 
+            menores do que $i$:
+            \[
+                S_1 = \emptyset, S_2 = \{ 1 \}, S_3 = \{ 1 \}, S_4 = \{ 1, 2 \}, \ldots
+            \]
+
+        \item[(c)] $S_i$ é o conjunto dos $i$ primeiros números pares, isto é,
+            \[
+                S_1 = \{ 2 \}, S_2 = \{ 2, 4 \}, S_3 = \{ 2, 4 ,6 \}, \ldots 
+            \]
+    \end{Qlist}
+}
+
+
+
+\end{document}
+
