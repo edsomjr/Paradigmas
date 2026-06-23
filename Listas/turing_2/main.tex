@@ -1,0 +1,90 @@
+\input{packages}
+\input{setup}
+\input{commands}
+
+\begin{document}
+
+\input{logo}
+
+\vspace{0.1in}
+
+\begin{center}
+    \textbf{\huge Paradigmas de Programação}
+
+    \vspace{0.1in}
+    \textbf{\Large Máquinas de Turing: Lista 2}
+\end{center}\vskip1em
+
+\renewcommand{\Qq}[1]{{#1}}
+
+\section*{Parte A - Definição de Máquinas de Turing}
+
+\Qitem{ \Qq{Considere uma fita contendo um bloco de $n$ traços, seguido por um espaço, seguido por
+        um bloco de $m$ traços, seguido por um espaço, seguido por um bloco de $k$ traços, sendo
+        que o resto da fita está em branco. Especifique uma máquina de Turing, por meio de um
+        fluxograma, que, quando iniciada no traço mais à esquerda, finalmente para, sem ter
+        escrito nem apagado nada...}
+
+    \vspace{0.1in}
+    \begin{Qlist}
+        \item[(a)] ...no traço mais à esquerda do segundo bloco.
+        \item[(b)] ...no traço mais à esquerda do terceiro bloco.
+        \item[(c)] ...no traço mais à direita do segundo bloco.
+        \item[(d)] ...no traço mais à direita do terceiro bloco.
+    \end{Qlist}
+}
+
+\Qitem{ \Qq{Especifique, por meio de um fluxograma, uma máquina de Turing que, iniciando com a fita
+        descrita na questão anterior, finalmente para no traço mais à esquerda da fita, a qual
+        deve agora conter...}
+
+    \vspace{0.1in}
+    \begin{Qlist}
+        \item[(a)] um bloco de $n$ traços, seguido por um espaço em branco, seguido por um
+            bloco de $m + 1$ traços, seguido por um espaço em branco, seguido por um bloco de $k$
+            traços.
+        \item[(b)] um bloco de $n$ traços, seguido por um espaço em branco, seguido por um
+            bloco de $m - 1$ traços, seguido por um espaço em branco, seguido por um bloco de $k$
+            traços.
+    \end{Qlist}
+}
+
+\Qitem{ \Qq{Especifique, por meio de um fluxograma, uma máquina de Turing que compute a função}
+
+    \vspace{0.1in}
+    \begin{Qlist}
+        \item[(a)] $\min(x, y) = $ o menor de $x$ e $y$.
+        \item[(b)] $\max(x, y) = $ o maior de $x$ e $y$.
+    \end{Qlist}
+}
+
+\section*{Parte B - Computabilidade}
+
+\Qitem{ \Qq{Identifique o número inteiro associado a máquina de Turing $M_i$. Em seguida, 
+        desenhe o fluxograma desta máquina e explique o seu comportamento.}
+
+    \vspace{0.1in}
+    \begin{Qlist}
+        \item[(a)] $i = 4$
+        \item[(b)] $i = 5$
+        \item[(c)] $i = 6$
+    \end{Qlist}
+}
+
+\Qitem{ \Qq{Compute a função diagonal $d(n)$ para $n = 7$. Para isto, identifique e desenhe o
+        fluxograma correspondente à máquina de Turing $M_7$.} }
+
+\section*{Parte C - Ábacos}
+
+\Qitem{ \Qq{Especifique um ábaco para computar a função diferença `$-$' definida como segue:
+        $-(x, y) = x - y$, se $y < x$, e $-(x, y) = 0$, caso contrário.} }
+
+\Qitem{ \Qq{A função sinal $\mathrm{sn}$ é definida por $\mathrm{sn}(x) = 1$ se $x > 0$, e $= 0$ 
+        caso contrário. Apresente uma prova direta de que $\mathrm{sn}$ é computável por ábaco, 
+        especificando um ábaco que a compute. } } 
+
+\Qitem{ \Qq{Mostre, especificando um ábaco apropriado, que a função $f$ definida por $f(x, y) = 1$,
+        se $x < y$, e $f(x, y) = 0$, caso contrário, é computável por ábaco. } }
+
+\end{document}
+
