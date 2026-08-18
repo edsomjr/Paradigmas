@@ -857,7 +857,7 @@ a => Node
 b => Node
     @b.x = 1
     @b.y = 5
-    @b.text = $\star$ \bbtext{Generalizações são fatos que casam com qualquer valor}
+    @b.text = $\star$ \bbtext{Generalizações são regras que casam com qualquer valor}
     @b.anchor = west
 
 --- 
