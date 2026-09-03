@@ -380,13 +380,13 @@ b => Node
 c => Node
     @c.x = 1
     @c.y = 4
-    @c.text = $\star$ \bbtext{Regras sem corpo correspondem a fatos. Por exemplo, o fato e a regra abaixo são }
+    @c.text = $\star$ \bbtext{Para diferenciar regras de fatos neste caso, observe que, em uma regra, ao menos}
     @c.anchor = west
 
 c1 => Node
     @c1.x = 0.5
     @c1.y = 3.5
-    @c1.text = \bbtext{equivalentes:}
+    @c1.text = \bbtext{um dos argumentos deve ser uma variável:}
     @c1.anchor = west
 
 c2 => Node

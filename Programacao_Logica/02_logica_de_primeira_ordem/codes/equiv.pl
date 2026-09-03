@@ -1,2 +1,2 @@
-f(1).
-f(1) :- true.
+f(1).       % Fato
+f(X).       % Regra, equivale a f(X) :- true.
