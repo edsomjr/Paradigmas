@@ -1,5 +1,5 @@
 % Computa a soma de todos os inteiros no intervalo [A, B]
-% O predicado sum(A, B, C) é verdadeiro se C = A + B
+% O predicado plus(A, B, C) é verdadeiro se C = A + B
 summation(A, B, Sum) :-
     numlist(A, B, L),
     foldl(plus, L, 0, Sum).
