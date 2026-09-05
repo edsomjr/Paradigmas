@@ -11,3 +11,5 @@ a.out
 *.mod
 **/_minted
 *.aux
+*.fdb_latexmk
+*.fls
