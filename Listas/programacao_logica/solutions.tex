@@ -1,0 +1,250 @@
+\input{packages}
+\input{setup}
+\input{commands}
+
+\begin{document}
+
+\input{logo}
+
+\vspace{0.1in}
+
+\begin{center}
+    \textbf{\huge Paradigmas de Programação}
+
+    \vspace{0.1in}
+    \textbf{\Large Programação Lógica}
+\end{center}\vskip1em
+
+\renewcommand{\Qq}[1]{{#1}}
+
+\section*{Parte A -- Lógica Proposicional Booleana}
+
+\Qitem{ \Qq{Julgue a afirmativa a seguir como \textbf{verdadeira} ou \textbf{falsa}:
+    ``Afirmar que uma proposição $p$ é, ao mesmo tempo, verdadeira e falsa, violaria o Princípio do Terceiro Excluído''.
+} }
+
+\begin{solution}
+\textbf{Falsa}. A afirmativa viola o \textbf{Princípio da Não-Contradição}: uma proposição não pode ser, ao mesmo tempo, verdadeira e falsa. O \textbf{Princípio do Terceiro Excluído} afirma que toda proposição ou é verdadeira ou é falsa, sem uma terceira possibilidade.
+\end{solution}
+% F. Feedback: O princípio violado seria o Princípio da Não-Contradição.
+
+\Qitem{ \Qq{Na canção Maricotinha, Dorival Caymmi afirma que ``Se fizer bom tempo amanhã eu vou''. Assumindo que esta proposição é verdadeira, assinale a única situação impossível: }
+\begin{Qlist}
+\item Fez bom tempo e ele foi
+\item Fez bom tempo e ele não foi
+\item Não fez bom tempo e ele foi
+\item Não fez bom tempo e ele não foi
+\end{Qlist}
+}
+
+\begin{solution}
+\textbf{Letra B}: ``Fez bom tempo e ele não foi''. A condicional $p \to q$ (``Se fizer bom tempo, eu vou'') só é falsa quando o antecedente $p$ é verdadeiro e o consequente $q$ é falso. As demais combinações tornam a proposição verdadeira.
+\end{solution}
+% B. Feedback: A condicional só é falsa caso o antecedente seja verdadeiro e o consequente falso.
+
+\Qitem{ \Qq{Qual é o menor número natural $x$ que torna a sentença aberta ``$x/2 > \pi$'' verdadeira? } }
+
+\begin{solution}
+\[
+    \frac{x}{2} > \pi \iff x > 2\pi .
+\]
+Como $2\pi \approx 6{,}28$, o menor número natural que torna a sentença verdadeira é $x = 7$.
+\end{solution}
+% Resposta: x = 7
+
+% Feedback: $x$ tem que ser maior do que $2\pi$ e  $2\pi < 7$.
+
+\section*{Parte B -- Fundamentos da programação lógica}
+
+\Qitem{ \Qq{Considere o código Prolog abaixo:}
+\inputcode{prolog}{codes/maratona.pl}
+\begin{Qlist}
+\item[(a)] Identifique os predicados (nome e aridade).
+\item[(b)] Determine o número de fatos, regras e cláusulas.
+\item[(c)] Observe a saída da consulta 
+
+    \vspace{0.1in}
+    \hspace{0.3in}\mintinline{prolog}{?- selecionado(X).}
+    \vspace{0.1in}
+
+Proponha uma correção para o código para que a saída da consulta liste corretamente os selecionados.
+\end{Qlist}
+}
+
+\begin{solution}
+\textbf{(a)} Predicados: \mintinline{prolog}{time/3} (fato), \mintinline{prolog}{campeao/1} (regra) e \mintinline{prolog}{selecionado/1} (regra).
+
+\textbf{(b)} Há $8$ fatos (\mintinline{prolog}{time/3}), $3$ regras (uma de \mintinline{prolog}{campeao/1} e duas de \mintinline{prolog}{selecionado/1}) e, portanto, $11$ cláusulas no total.
+
+\textbf{(c)} A consulta retorna as equipes campeãs (\mintinline{prolog}{time/3} com $1$ no segundo argumento) e, em seguida, as equipes do grupo \mintinline{prolog}{'mg'}: \mintinline{prolog}{'Monkeys'}, \mintinline{prolog}{'Teorema de Offson'},\mintinline{prolog}{'Torcida Pão de Alho'}, \mintinline{prolog}{'5am, wood again'},
+
+\mintinline{prolog}{'Amigos do Mortandela'} e novamente \mintinline{prolog}{'Torcida Pão de Alho'}. A equipe \mintinline{prolog}{'Torcida Pão de Alho'} aparece duplicada porque é, ao mesmo tempo, campeã e do grupo \mintinline{prolog}{'mg'}. Para eliminar a duplicação, basta impedir que a segunda regra liste as campeãs:
+
+\inputsyntax{prolog}{codes/selecionado.pl}
+\end{solution}
+
+\Qitem{ \Qq{Considere os seguintes fatos:}
+\inputcode{prolog}{codes/fatos.pl}
+Determine o resultado das seguintes consultas. Caso o resultado seja verdadeiro, indique também o valor das variáveis lógicas, quando for o caso.
+\begin{Qlist}
+\item[(a)] \mintinline{prolog}{?- p(b, a).}
+\item[(b)] \mintinline{prolog}{?- p(a, b).}
+\item[(c)] \mintinline{prolog}{?- g(X).}
+\item[(d)] \mintinline{prolog}{?- p(a, Y).}
+\end{Qlist}
+}
+
+\begin{solution}
+\textbf{(a)} \mintinline{prolog}{?- p(b, a).} $\Rightarrow$ \textbf{falso}: não há fato \mintinline{prolog}{p(b, a)} (o fato \mintinline{prolog}{p(b)} tem aridade $1$).
+
+\textbf{(b)} \mintinline{prolog}{?- p(a, b).} $\Rightarrow$ \textbf{verdadeiro}: corresponde ao fato \mintinline{prolog}{p(a, b)}.
+
+\textbf{(c)} \mintinline{prolog}{?- g(X).} $\Rightarrow$ \textbf{verdadeiro}, com $X = a$ e $X = b$ (fatos \mintinline{prolog}{g(a)} e \mintinline{prolog}{g(b)}; o fato \mintinline{prolog}{g(a, b)} tem aridade $2$ e não unifica).
+
+\textbf{(d)} \mintinline{prolog}{?- p(a, Y).} $\Rightarrow$ \textbf{verdadeiro}, com $Y = b$ e $Y = c$ (fatos \mintinline{prolog}{p(a, b)} e \mintinline{prolog}{p(a, c)}).
+\end{solution}
+
+\Qitem{ \Qq{Considere uma consulta composta de Prolog e as quatro portas que controlam o fluxo da execução. Descreva o cenário no qual a saída da consulta exibirá as variáveis lógicas e seus respectivos valores. Explique quando é possível inserir ponto-e-vírgula após o resultado de uma consulta e qual é o significado desta inserção, em termos do fluxo de controle.} }
+
+\begin{solution}
+As quatro portas do fluxo de execução são \textbf{call} (chamada do predicado), \textbf{exit} (sucesso da cláusula), \textbf{redo} (tentativa de obter uma nova solução, por retrocesso) e \textbf{fail} (fracasso da cláusula).
+
+A saída exibe as variáveis lógicas e seus valores quando a consulta \textbf{sai} pela porta \textbf{exit}: ou seja, quando uma cláusula é satisfeita e o Prolog mostra a substituição (as ligações) das variáveis que tornam a consulta verdadeira.
+
+O ponto-e-vírgula (\mintinline{prolog}{;}) pode ser digitado sempre que o Prolog exibe uma solução e fica aguardando confirmação. Ao digitá-lo, o usuário aciona a porta \textbf{redo}: o Prolog desfaz as últimas ligações e tenta, por retrocesso (\textit{backtracking}), encontrar a próxima solução. Quando não há mais soluções, a consulta termina em \textbf{fail} e o Prolog responde \mintinline{prolog}{false}.
+\end{solution}
+
+\Qitem{ \Qq{Considere o código Prolog abaixo, onde o predicado \mintinline{prolog}{matricula/2} indica que o estudante está matriculado na disciplina indicada e o predicado \mintinline{prolog}{estudante/3} informa que o estudante do semestre indicado cursa a graduação dada no terceiro argumento:}
+\inputcode{prolog}{codes/fcte.pl}
+\begin{Qlist}
+\item[(a)] Implemente a regra \mintinline{prolog}{tem_calouros/1}, que retorna as disciplinas que tem calouros matriculados.
+\item[(b)] Implemente a regra \mintinline{prolog}{turma_mista/1}, que retorna as disciplinas que tem ao menos um estudante de cada curso.
+\item[(c)] Implemente a regra \mintinline{prolog}{software/0}, que imprime todos os estudantes de Engenharia de Software, um estudante por linha.
+\end{Qlist}
+}
+
+\begin{solution}
+Um calouro é um estudante do semestre $1$. Uma disciplina tem calouros quando algum estudante do semestre $1$ está matriculado nela; uma turma é mista quando possui ao menos um estudante de cada um dos três cursos; e \mintinline{prolog}{software/0} imprime os estudantes de Engenharia de Software usando um laço de falha (\mintinline{prolog}{fail}):
+
+\inputsyntax{prolog}{codes/sol_fcte.pl}
+
+\mintinline{prolog}{tem_calouros/1} retorna \mintinline{prolog}{'Cálculo 1'} e \mintinline{prolog}{'IAL'}; \mintinline{prolog}{turma_mista/1} retorna \mintinline{prolog}{'APC'}; e \mintinline{prolog}{software/0} imprime \mintinline{prolog}{ana}, \mintinline{prolog}{fabio} e \mintinline{prolog}{gustavo}.
+\end{solution}
+
+\section*{Parte C -- Regras}
+
+\Qitem{ \Qq{Considere a figura abaixo, que apresenta a árvore genealógica dos Simpsons:}
+
+\begin{center}
+    \includegraphics[scale=0.4]{simpsons.png}
+\end{center}
+
+Implemente os predicados abaixo, declarando a seguir os fatos relativos à família Simpson relacionados a cada predicado.
+\begin{Qlist}
+\item[(a)] \mintinline{prolog}{male/1} e \mintinline{prolog}{female/1}, que indicam os homens e mulheres, respectivamente.
+\item[(b)] \mintinline{prolog}{father/2}, que indica o pai do respectivo membro da família.
+\item[(c)] \mintinline{prolog}{mother/2}, que indica a mãe do respectivo membro da família.
+\end{Qlist}
+
+\vspace{0.1in}
+Implemente as regras abaixo e valide sua implementação com consultas na base de fatos declarados.
+
+\begin{Qlist}
+\item[(a)] \mintinline{prolog}{uncle/2}, que indica o tio do respectivo membro da família.
+\item[(b)] \mintinline{prolog}{grandmother/2}, que indica a avó do respectivo membro da família.
+\end{Qlist}
+}
+
+\begin{solution}
+\inputsyntax{prolog}{codes/simpsons.pl}
+
+A regra \mintinline{prolog}{uncle/2} usa o auxiliar \mintinline{prolog}{sibling/2} (irmãos compartilham o mesmo pai e a mesma mãe): o tio de $X$ é um homem que é irmão de um dos pais de $X$. A regra \mintinline{prolog}{grandmother/2} diz que a avó de $X$ é a mãe de um dos pais de $X$.
+\end{solution}
+
+\Qitem{ \Qq{Implemente o predicado \mintinline{prolog}{distance/5}, que compute a distância percorrida $S$, em metros, em $T$ segundos, 
+a partir de um ponto inicial que fica a $I$ metros da origem, com velocidade de $V$ m/s e aceleração igual a $A$ m/s$^2$.} }
+
+\begin{solution}
+Usando a equação horária do movimento uniformemente variado,
+\[
+    S = I + V\cdot T + \frac{A\cdot T^2}{2},
+\]
+o predicado (com assinatura \mintinline{prolog}{distance(I, V, T, A, S)}) é:
+
+\inputsyntax{prolog}{codes/distance.pl}
+\end{solution}
+
+\Qitem{ \Qq{Implemente o predicado \mintinline{prolog}{divisores/2}, que computa o número de divisores positivos $X$ de um inteiro
+positivo $N$. Utilize o predicado \mintinline{prolog}{mod/2}, que retorna o resto da divisão de $X$ por $Y$. Em seguida, transforme este predicado em uma função aritmética e também em um operador infixado, sem associatividade, de modo que as consultas abaixo sejam possíveis e retornem os resultados indicados:} 
+
+\inputcode{prolog}{codes/divisores_consultas.pl}
+}
+
+\begin{solution}
+O predicado conta, de $N$ até $1$, quantos valores dividem $N$, usando \mintinline{prolog}{mod/2} e um acumulador:
+
+\inputsyntax{prolog}{codes/divisors.pl}
+
+A diretiva \mintinline{prolog}{:- arithmetic_function(divisores/1).} registra \mintinline{prolog}{divisores/1} como função aritmética, permitindo \mintinline{prolog}{R is divisores(20)} ($R = 6$). A diretiva \mintinline{prolog}{:- op(500, xfx, divisores).} declara \mintinline{prolog}{divisores} como operador infixado sem associatividade, permitindo \mintinline{prolog}{?- 60 divisores X.} ($X = 12$).
+\end{solution}
+
+\section*{Parte D - Listas e Unificação}
+
+\Qitem{ \Qq{O predicado \mintinline{prolog}{is_set/1} recebe como parâmetro uma lista de inteiros e retorna verdadeiro se todos os elemntos são únicos. Descreva o comportamento da consulta
+
+    \vspace{0.1in}
+    \hspace{0.3in}\mintinline{prolog}{?- is_set(1, 2, 3).}
+    \vspace{0.1in}
+} }
+
+\begin{solution}
+O predicado foi declarado como \mintinline{prolog}{is_set/1}:ele recebe \textbf{um único} argumento (uma lista).
+
+A consulta \mintinline{prolog}{?- is_set(1, 2, 3).} tenta chamar \mintinline{prolog}{is_set/3}, que não está definido. Portanto, o Prolog reporta um \textbf{erro} de predicado inexistente (erro de aridade, ``Unknown procedure''). Para funcionar, a consulta deveria passar uma lista, por exemplo \mintinline{prolog}{?- is_set([1, 2, 3]).}
+\end{solution}
+
+\Qitem{ \Qq{Determine, sem executar, o resultado da consulta:
+
+    \vspace{0.1in}
+    \hspace{0.3in}\mintinline{prolog}{?- X = Y, Y \= Z, Z = W, X = a, W = b.}
+    \vspace{0.1in}
+
+Execute esta consulta no \textit{listener} Prolog e compare com sua expectativa. Caso sua expectativa seja diferente do resultado, como a consulta deve ser modificada para obter o retorno esperado?
+} }
+
+\begin{solution}
+A consulta \textbf{falha} (retorna \mintinline{prolog}{false}). Analisando passo a passo:
+\begin{itemize}
+    \item \mintinline{prolog}{X = Y}: $X$ e $Y$ passam a compartilhar a mesma variável (ambos livres).
+    \item \mintinline{prolog}{Y \= Z}: como $Y$ e $Z$ são livres, elas \textbf{são} unificáveis; logo a desigualdade \mintinline{prolog}{\=} falha e a conjunção termina.
+\end{itemize}
+Como a segunda meta já falha, o restante (\mintinline{prolog}{Z = W}, \mintinline{prolog}{X = a}, \mintinline{prolog}{W = b}) nunca chega a ser avaliado.
+
+Para obter o sucesso esperado, basta instanciar $Y$ e $Z$ com valores distintos \textbf{antes} de testar a desigualdade, reordenando as metas. Por exemplo, a consulta
+\mintinline{prolog}{?- X = Y, Z = W, X = a, W = b, Y \= Z.}
+retorna \textbf{verdadeiro}, com $X = Y = a$ e $Z = W = b$.
+\end{solution}
+% Feedback: $f(0) = f(2\pi)$ e $\f(\mathbb{R}) = [-1, 1]$.
+
+\Qitem{ \Qq{O código abaixo implementa o predicado \mintinline{prolog}{same_parity/2}, que retorna verdadeiro se $X$ e $Y$ são ambos pares ou ambos ímpares. 
+
+\inputcode{prolog}{codes/parity.pl}
+
+Contudo, a consulta
+
+    \vspace{0.1in}
+    \hspace{0.3in}\mintinline{prolog}{?- same_parity(2, 4).}
+    \vspace{0.1in}
+
+retorna falso. Explique o que há de incorreto na implementação e proponha uma correção.} }
+
+\begin{solution}
+O problema é o uso do operador de \textbf{unificação} \mintinline{prolog}{=} no lugar de uma avaliação aritmética. A expressão \mintinline{prolog}{mod(X, 2)} é um termo composto, não é avaliada: \mintinline{prolog}{mod(X, 2) = mod(Y, 2)} apenas unifica os dois termos, forçando $X = Y$. Por isso, \mintinline{prolog}{?- same_parity(2, 4).} tenta unificar $2$ com $4$ e retorna \mintinline{prolog}{false}.
+
+A correção é usar o operador de comparação aritmética \mintinline{prolog}{=:=}, que avalia ambos os lados:
+
+\inputsyntax{prolog}{codes/parity_fix.pl}
+\end{solution}
+
+\end{document}
+
