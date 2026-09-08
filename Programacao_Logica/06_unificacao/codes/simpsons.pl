@@ -14,5 +14,5 @@ brothers(X, Y) :- male(Y), siblings(X, Y).
 sisters(X, Y) :- female(Y), siblings(X, Y).
 
 % Exemplos de consultas
-?- sisters(bart, X).
-?- siblings(maggie, X).     % Explique o resultado desta consulta!
+?- sisters(bart, S).
+?- siblings(maggie, S).     % Explique o resultado desta consulta!

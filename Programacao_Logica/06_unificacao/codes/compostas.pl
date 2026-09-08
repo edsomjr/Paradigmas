@@ -1,4 +1,4 @@
-?- f(A, B) = C, write(C), nl, A = a, B = 8, write(C).
+?- f(A, B) = C, write(C), nl, A = a, B = 8.
 f(_6142,_6144)
 A = a,
 B = 8,
