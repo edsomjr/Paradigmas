@@ -5,7 +5,7 @@ fact(N, F) :-
     fact(NewN, F1),
     F is F1*N.
 
-fact(0, F) :- F is 1.
+fact(0, 1).
 
 % Implementação recursiva de cauda
 factTR(N, Acc, F) :- 
@@ -14,6 +14,6 @@ factTR(N, Acc, F) :-
     NewAcc is Acc * N,
     factTR(NewN, NewAcc, F).  
 
-factTR(0, Acc, F) :- F is Acc.
+factTR(0, Acc, Acc).
 
 factorial(N, F) :- factTR(N, 1, F).

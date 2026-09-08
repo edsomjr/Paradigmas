@@ -224,7 +224,7 @@ b => Node
 b1 => Node
     @b1.x = 1.25
     @b1.y = 4
-    @b1.text = $fxy = fx(Kyx) = (fx)(Kyx) = Sf(Ky)x$
+    @b1.text = $fxy = fx(Kyx) = fx((Ky)x) = Sf(Ky)x$
     @b1.anchor = west
 
 b2 => Node
@@ -328,7 +328,7 @@ c1 => Node
 d => Node
     @d.x = 1
     @d.y = 1.5
-    @d.text = $\star$ \bbtext{Ele esteve muito próximo de um resultado fundamental, mas não enunciou:}
+    @d.text = $\star$ \bbtext{Ele esteve muito próximo de um resultado fundamental, mas não o enunciou:}
     @d.anchor = west
 
 d1 => Node
