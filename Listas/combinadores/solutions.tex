@@ -1,0 +1,333 @@
+\input{packages}
+\input{setup}
+\input{commands}
+
+\begin{document}
+
+\input{logo}
+
+\vspace{0.1in}
+
+\begin{center}
+    \textbf{\huge Paradigmas de Programação}
+
+    \vspace{0.1in}
+    \textbf{\Large Combinadores}
+\end{center}\vskip1em
+
+\renewcommand{\Qq}[1]{{#1}}
+
+\section*{Parte A - Combinadores}
+
+\Qitem{ \Qq{Seja
+\[
+    p\downarrow q = \bar{p}\land \bar{q}
+\]
+a negação conjunta, onde $p\land q$ é a conjunção de $p$ e $q$ e $\bar{p}$ a negação de $p$. Determine a proposição equivalente a cada proposição composta abaixo usando apenas a negação disjunta.
+    \begin{Qlist}
+    \item[(a)] $p\land q$
+    \item[(b)] $p\vee q$
+    \item[(c)] $\bar{p}$
+    \end{Qlist}
+} }
+
+\begin{solution}
+A operação definida é a negação da disjunção (NOR): $p\downarrow q = \bar{p}\land\bar{q} = \overline{p\vee q}$. Usando apenas $\downarrow$:
+
+\begin{Qlist}
+\item[(a)] $p\land q = (p\downarrow p)\downarrow(q\downarrow q)$.
+
+\textbf{Justificativa:} para a conjunção, usamos a negação do item (c) $p\downarrow p = \bar{p}$ e $q\downarrow q = \bar{q}$ e negamos o NOR dessas negações: $(p\downarrow p)\downarrow(q\downarrow q) = \bar{p}\downarrow\bar{q} = \overline{\bar{p}\vee\bar{q}} = p\land q$.
+
+\item[(b)] $p\vee q = (p\downarrow q)\downarrow(p\downarrow q)$.
+
+\textbf{Justificativa:} para recuperar a disjunção, basta negar o NOR: $(p\downarrow q)\downarrow(p\downarrow q) = \overline{p\downarrow q} = p\vee q$.
+
+\item[(c)] $\bar{p} = p\downarrow p$.
+
+\textbf{Justificativa:} o NOR de $p$ consigo mesmo é a negação de $p$: $p\downarrow p = \bar{p}\land\bar{p} = \bar{p}$.
+\end{Qlist}
+\leavevmode\newline
+Tabela-verdade, confirmando as equivalências:
+\begin{center}
+\begin{tabular}{cc|cc|cc|c}
+\toprule
+$p$ & $q$ & $p\land q$ & $(p\downarrow p)\downarrow(q\downarrow q)$ & $p\vee q$ & $(p\downarrow q)\downarrow(p\downarrow q)$ & $p\downarrow q$ \\
+\midrule
+V & V & V & V & V & V & F \\
+V & F & F & F & V & V & F \\
+F & V & F & F & V & V & F \\
+F & F & F & F & F & F & V \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{solution}
+
+\Qitem{ \Qq{Sejam $\oplus$ e $\odot$ dois conectivos lógicos tais que $p\oplus q$ é verdadeira apenas se $p$ é falsa e $q$ é verdadeira e que
+    $p\odot q$ é falsa se $p$ é verdadeira ou $q$ é falsa. Determine proposições equivalentes a $p\oplus q$ e $p\odot q$ usando apenas os conectivos listados.
+    \begin{Qlist}
+    \item[(a)] negação e conjunção
+    \item[(b)] negação conjunta
+    \item[(c)] negação e condicional
+    \end{Qlist}
+} }
+
+\begin{solution}
+Ambos os conectivos são verdadeiros exatamente quando $p$ é falsa e $q$ é verdadeira; logo $p\oplus q = p\odot q$.
+\begin{Qlist}
+\item[(a)] usando negação e conjunção: $\bar{p}\land q$;
+\item[(b)] usando apenas a negação conjunta: $p\downarrow(q\downarrow q)$, pois $q\downarrow q = \bar{q}$ e $p\downarrow\bar{q} = \overline{p\vee\bar{q}} = \bar{p}\land q$;
+\item[(c)] usando negação e condicional: $\overline{q\to p}$, pois $q\to p = p\vee\bar{q}$ e $\overline{q\to p} = \bar{p}\land q$.
+\end{Qlist}
+\leavevmode\newline
+Tabela-verdade, confirmando que $p\oplus q = p\odot q = \bar{p}\land q$:
+\begin{center}
+\begin{tabular}{cc|ccc}
+\toprule
+$p$ & $q$ & $p\downarrow(q\downarrow q)$ & $\overline{q\to p}$ & $\bar{p}\land q$ \\
+\midrule
+V & V & F & F & F \\
+V & F & F & F & F \\
+F & V & V & V & V \\
+F & F & F & F & F \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{solution}
+
+\Qitem{ \Qq{Considere a proposição composta ``$x$ não é múltiplo de 3 e $y$ é primo''.
+    \begin{Qlist}
+    \item[(a)] Escreva esta proposição usando variáveis lógicas para indicar as proposições simples e os conectivos tradicionais da lógica booleana.
+    \item[(b)] Escreva, em notação simbólica, a negação desta proposição.
+    \item[(c)] Escreva, em notação simbólica, esta proposição, usando apenas a negação conjunta.
+    \item[(d)] Escreva, em notação simbólica, esta proposição, usando apenas o conectivo fundamental de Schönfinkel.
+    \end{Qlist}
+} }
+
+\begin{solution}
+Sejam $p$: ``$x$ é múltiplo de 3'' e $q$: ``$y$ é primo''. A proposição é $\bar{p}\land q$.
+\begin{Qlist}
+\item[(a)] $\bar{p}\land q$;
+\item[(b)] negação: $\overline{\bar{p}\land q} = p\vee\bar{q}$;
+\item[(c)] usando apenas a negação conjunta: $p\downarrow(q\downarrow q)$;
+\item[(d)] usando apenas o conectivo fundamental de Schönfinkel ($p\,|\,q \equiv \bar{p}\vee\bar{q} \equiv \overline{p\land q}$).
+
+Do conectivo fundamental obtemos a negação, $\bar{p} \equiv p\,|\,p$ (pois $p\,|\,p = \bar{p}\vee\bar{p} = \bar{p}$), e a conjunção, $a\land b \equiv (a\,|\,b)\,|\,(a\,|\,b)$ (pois $(a\,|\,b)\,|\,(a\,|\,b) = \overline{a\,|\,b} = \overline{\overline{a\land b}} = a\land b$). Aplicando-as a $\bar{p}\land q$:
+\[
+\bar{p}\land q = (p\,|\,p)\land q = \bigl((p\,|\,p)\,|\,q\bigr)\,|\,\bigl((p\,|\,p)\,|\,q\bigr).
+\]
+\end{Qlist}
+\end{solution}
+
+\section*{Parte B - Base $SK$}
+
+\Qitem{ \Qq{Escreva os combinadores utilizando apenas os cinco combinadores fundamentais de Schönfinkel: $S, K, I, C, B$.
+    \begin{Qlist}
+    \item[(a)] \textit{Blackbird}: $B_1abcd = a(bcd)$ % BBB
+    \item[(b)] \textit{Dove}: $Dabcd = ab(cd)$ % BB
+    \item[(c)] \textit{Goldfinch}: $Gabcd = ad(bc)$ % BBC
+    \item[(d)] \textit{Owl}: $Oab = b(ab)$ % SI
+    \end{Qlist}
+} }
+\begin{solution}
+Lembre que a aplicação é associativa à esquerda e que as regras dos combinadores fundamentais são
+\[
+Sxyz = xz(yz),\quad Kxy = x,\quad Ix = x,\quad Bxyz = x(yz),\quad Cxyz = xzy.
+\]
+
+Para cada pássaro, derivamos o combinador e em seguida verificamos a redução.
+
+\begin{Qlist}
+\item[(a)] \textbf{\textit{Blackbird}: $B_1 = BBB$.}
+
+\textbf{Derivação.} Queremos
+\[
+B_1 a b c d = a(b c d) = a((bc)d).
+\]
+Usando a regra de \(B\) com \(x=a\), \(y=bc\), \(z=d\):
+\[
+a((bc)d) = B a (bc) d.
+\]
+Agora, \(B a (bc)\) pode ser reescrito como \(B(Ba)bc\), pois
+\[
+B(Ba)bc = (Ba)(bc) = Ba(bc).
+\]
+Como \((BB)Ba = B(Ba)\), obtemos
+\[
+B a (bc) d = ((BB)B) a b c d = BBBabcd.
+\]
+Logo, \(B_1 = BBB\).
+
+\textbf{Verificação.}
+\[
+\begin{aligned}
+BBBabcd
+&= ((BB)B) a b c d \\
+&= B(Ba)bcd && \text{pois } ((BB)B)a = B(Ba) \\
+&= (Ba)(bc)d && \text{regra de } B \\
+&= Ba(bc)d \\
+&= a((bc)d) && \text{regra de } B \\
+&= a(bcd).
+\end{aligned}
+\]
+
+\item[(b)] \textbf{\textit{Dove}: $D = BB$.}
+
+\textbf{Derivação.} Queremos
+\[
+Dabcd = ab(cd) = (ab)(cd).
+\]
+Pela regra de \(B\) com \(x=ab\), \(y=c\), \(z=d\):
+\[
+(ab)(cd) = B(ab)cd.
+\]
+Como \((BB)ab = B(ab)\), segue que
+\[
+B(ab)cd = BBabcd.
+\]
+Logo, \(D = BB\).
+
+\textbf{Verificação.}
+\[
+\begin{aligned}
+BBabcd
+&= ((BB)a)bcd \\
+&= B(ab)cd && \text{regra de } B \text{ em } (BB)ab\\
+&= (ab)(cd) && \text{regra de } B.
+\end{aligned}
+\]
+
+\item[(c)] \textbf{\textit{Goldfinch}: $G = BBC$.}
+
+\textbf{Derivação.} Queremos
+\[
+Gabcd = ad(bc).
+\]
+Pela regra de \(C\) com \(x=a\), \(y=bc\), \(z=d\):
+\[
+ad(bc) = Ca(bc)d.
+\]
+Agora, \(Ca(bc) = B(Ca)bc\), pois
+\[
+B(Ca)bc = (Ca)(bc) = Ca(bc).
+\]
+Como \(((BB)C)a = B(Ca)\), obtemos
+\[
+Ca(bc)d = ((BB)C)abcd = BBCabcd.
+\]
+Logo, \(G = BBC\).
+
+\textbf{Verificação.}
+\[
+\begin{aligned}
+BBCabcd
+&= ((BB)C)abcd \\
+&= B(Ca)bcd && \text{pois } ((BB)C)a = B(Ca) \\
+&= (Ca)(bc)d && \text{regra de } B \\
+&= Ca(bc)d \\
+&= ad(bc) && \text{regra de } C.
+\end{aligned}
+\]
+
+\item[(d)] \textbf{\textit{Owl}: $O = SI$.}
+
+\textbf{Derivação.} Queremos
+\[
+Oab = b(ab).
+\]
+Basta aplicar a regra de \(S\) com \(x=I\), \(y=a\), \(z=b\):
+\[
+SIab = Ib(ab).
+\]
+Como \(Ib = b\), temos
+\[
+Ib(ab) = b(ab).
+\]
+Logo, \(O = SI\).
+
+\textbf{Verificação.}
+\[
+\begin{aligned}
+SIab
+&= Ib(ab) && \text{regra de } S \\
+&= b(ab) && \text{regra de } I.
+\end{aligned}
+\]
+\end{Qlist}
+\end{solution}
+
+\Qitem{ \Qq{Aplique, enquanto for possível, a redução beta nas expressões abaixo.
+    \begin{Qlist}
+    \item[(a)] $S(K(S(K((S(KS))K))))abcde$ % abc(de)
+    \item[(b)] $S(K((S((SK)K))((SK)K)))ab$ % ab(ab)
+    \item[(c)] $S(K((S(K(S((SK)K))))K))abc$ % c(ab)
+    \end{Qlist}
+} }
+
+\begin{solution}
+\textbf{(a)}
+\[
+\begin{aligned}
+&S(K(S(K((S(KS))K))))abcde \\
+&= (K(S(K((S(KS))K))))b(ab)cde \\
+&= S(K((S(KS))K))(ab)cde \\
+&= (K((S(KS))K))c(abc)de \\
+&= ((S(KS))K)(abc)de \\
+&= (KS)(abc)(K(abc))de \\
+&= S(K(abc))de \\
+&= (K(abc))e(de) \\
+&= (abc)(de) = abc(de).
+\end{aligned}
+\]
+
+\textbf{(b)}
+\[
+\begin{aligned}
+&S(K((S((SK)K))((SK)K)))ab \\
+&= (K((S((SK)K))((SK)K)))b(ab) \\
+&= ((S((SK)K))((SK)K))(ab) \\
+&= ((SK)K)(ab)(((SK)K)(ab)) \\
+&= (ab)(ab) = ab(ab),
+\end{aligned}
+\]
+pois $(SK)K = SKK = I$.
+
+\textbf{(c)}
+\[
+\begin{aligned}
+&S(K((S(K(S((SK)K))))K))abc \\
+&= (K((S(K(S((SK)K))))K))b(ab)c \\
+&= (S(K(S((SK)K))))K(ab)c \\
+&= (K(S((SK)K)))(ab)(K(ab))c \\
+&= (S((SK)K))(K(ab))c \\
+&= ((SK)K)c((K(ab))c) \\
+&= c(ab) = c(ab).
+\end{aligned}
+\]
+\end{solution}
+
+\Qitem{ \Qq{Considere uma floresta e que as letras maiúsculas do alfabeto $A, B, \ldots, Z$ representem pássaros que vivem na floresta. Quando o pássaro $A$ ouve o nome do pássaro $B$, ele responde $AB$. Dizemos que $A$ ama $B$ se $AB = B$. Considere que, para quaisquer dois pássaros $A$ e $B$, existe na floresta um pássaro $C$ tal que $Cx = A(Bx)$, para qualquer pássaro $x$. Assuma também que o tordo-imitador $M$ vive na floresta: para qualquer pássaro $x$, $Mx=xx$.
+
+Neste cenário, prove que existe um pássaro egocêntrico $E$ tal que $EE = E$, ou seja, $E$ ama a si mesmo. } }
+
+\begin{solution}
+Pela hipótese da composição, tomando $A = B = M$, existe um pássaro $C$ tal que, para todo pássaro $x$,
+\[
+    Cx = M(Mx).
+\]
+Como $My = yy$ para todo $y$, temos $Cx = M(Mx) = (Mx)(Mx)$. Em particular, para $x = C$:
+\[
+    CC = M(MC) = (MC)(MC).
+\]
+Mas $MC = CC$ (pela definição do tordo-imitador). Logo
+\[
+    CC = (MC)(MC) = (CC)(CC).
+\]
+Tomando $E = CC$, obtemos
+\[
+    EE = (CC)(CC) = CC = E,
+\]
+isto é, $E$ ama a si mesmo: $E$ é um pássaro egocêntrico. $\blacksquare$
+\end{solution}
+
+\end{document}
