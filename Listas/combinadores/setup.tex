@@ -32,3 +32,16 @@
 \renewcommand{\algorithmicrequire}{\textbf{Entrada:}}
 \renewcommand{\algorithmicensure}{\textbf{Saída:}}
 \floatname{algorithm}{Algoritmo}
+
+% mdframed: usa o framemethod tikz para quebrar
+% caixas entre paginas sem perder bordas (superior/esquerda).
+\mdfsetup{
+    skipabove=12pt,
+    skipbelow=12pt,
+    innertopmargin=8pt,
+    innerbottommargin=8pt,
+    innerleftmargin=10pt,
+    innerrightmargin=10pt,
+    splittopskip=12pt,
+    splitbottomskip=12pt,
+}
