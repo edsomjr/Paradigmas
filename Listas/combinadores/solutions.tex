@@ -23,7 +23,7 @@
 \[
     p\downarrow q = \bar{p}\land \bar{q}
 \]
-a negação conjunta, onde $p\land q$ é a conjunção de $p$ e $q$ e $\bar{p}$ a negação de $p$. Determine a proposição equivalente a cada proposição composta abaixo usando apenas a negação disjunta.
+a negação conjunta, onde $p\land q$ é a conjunção de $p$ e $q$ e $\bar{p}$ a negação de $p$. Determine a proposição equivalente a cada proposição composta abaixo usando apenas a negação conjunta.
     \begin{Qlist}
     \item[(a)] $p\land q$
     \item[(b)] $p\vee q$
@@ -32,20 +32,20 @@ a negação conjunta, onde $p\land q$ é a conjunção de $p$ e $q$ e $\bar{p}$ 
 } }
 
 \begin{solution}
-A operação definida é a negação da disjunção (NOR): $p\downarrow q = \bar{p}\land\bar{q} = \overline{p\vee q}$. Usando apenas $\downarrow$:
+A operação definida é a negação conjunta: $p\downarrow q = \bar{p}\land\bar{q} = \overline{p\vee q}$. Usando apenas $\downarrow$:
 
 \begin{Qlist}
 \item[(a)] $p\land q = (p\downarrow p)\downarrow(q\downarrow q)$.
 
-\textbf{Justificativa:} para a conjunção, usamos a negação do item (c) $p\downarrow p = \bar{p}$ e $q\downarrow q = \bar{q}$ e negamos o NOR dessas negações: $(p\downarrow p)\downarrow(q\downarrow q) = \bar{p}\downarrow\bar{q} = \overline{\bar{p}\vee\bar{q}} = p\land q$.
+\textbf{Justificativa:} para a conjunção, usamos a negação do item (c) $p\downarrow p = \bar{p}$ e $q\downarrow q = \bar{q}$ e aplicamos $\downarrow$ a essas negações: $(p\downarrow p)\downarrow(q\downarrow q) = \bar{p}\downarrow\bar{q} = \overline{\bar{p}\vee\bar{q}} = p\land q$.
 
 \item[(b)] $p\vee q = (p\downarrow q)\downarrow(p\downarrow q)$.
 
-\textbf{Justificativa:} para recuperar a disjunção, basta negar o NOR: $(p\downarrow q)\downarrow(p\downarrow q) = \overline{p\downarrow q} = p\vee q$.
+\textbf{Justificativa:} para recuperar a disjunção, basta negar $p\downarrow q$: $(p\downarrow q)\downarrow(p\downarrow q) = \overline{p\downarrow q} = p\vee q$.
 
 \item[(c)] $\bar{p} = p\downarrow p$.
 
-\textbf{Justificativa:} o NOR de $p$ consigo mesmo é a negação de $p$: $p\downarrow p = \bar{p}\land\bar{p} = \bar{p}$.
+\textbf{Justificativa:} $p\downarrow p$ é a negação de $p$: $p\downarrow p = \bar{p}\land\bar{p} = \bar{p}$.
 \end{Qlist}
 \leavevmode\newline
 Tabela-verdade, confirmando as equivalências:
