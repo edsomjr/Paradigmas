@@ -1,0 +1,202 @@
+\input{packages}
+\input{setup}
+\input{commands}
+
+\begin{document}
+
+\input{logo}
+
+\vspace{0.1in}
+
+\begin{center}
+    \textbf{\huge Paradigmas de Programação}
+
+    \vspace{0.1in}
+    \textbf{\Large Programação Funcional: Lista 1}
+\end{center}\vskip1em
+
+\renewcommand{\Qq}[1]{{#1}}
+
+\section*{Parte A - Funções}
+
+\Qitem{ \Qq{Usando apenas as funções uma ou mais dentre as funções \code{haskell}{head}, 
+        \code{haskell}{tail}, \code{haskell}{take}, \code{haskell}{drop}, \code{haskell}{length} e
+        \code{haskell}{null}, e os recursos e elementos presentes nas duas primeiras aulas sobre
+        programação funcional, implemente as funções abaixo:
+
+    \begin{Qlist}
+        \item[(a)] \code{haskell}{second :: [a] -> Maybe a}, que recebe uma lista como parâmetro e 
+            retorna o segundo elemento da lista, se existir. Ex.:
+                \inputsyntax{haskell}{codes/second.hs}
+
+        \begin{solution}
+        O padrão \code{haskell}{(_ : x : _)} só casa com listas de pelo menos dois elementos e
+        captura o segundo em \code{haskell}{x}; qualquer outra lista (vazia ou unitária) cai no
+        segundo caso.
+
+        \inputsnippet{haskell}{1}{4}{codes/sol/solutions.hs}
+        \end{solution}
+
+        \item[(b)] \code{haskell}{body :: [a] -> Maybe [a]}, que recebe uma lista como parâmetros e 
+            retorna todos os elementos, exceto o primeiro e o último, se possível. Ex.:
+                \inputsyntax{haskell}{codes/body.hs}
+
+        \begin{solution}
+        Listas vazias e unitárias não têm primeiro e último elementos distintos, então o
+        resultado é \code{haskell}{Nothing}. Nos demais casos, o padrão \code{haskell}{(_:xs)}
+        descarta o primeiro elemento, e \code{haskell}{take (length xs - 1) xs} descarta o último.
+        Para uma lista de dois elementos, o resultado é \code{haskell}{Just []}.
+
+        \inputsnippet{haskell}{6}{10}{codes/sol/solutions.hs}
+        \end{solution}
+
+        \item[(c)] \code{haskell}{median :: [a] -> Maybe a}, que retorna o elemento central da lista de
+            $N$ elementos, se N é ímpar, ou o $N/2$-ésimo elemento, se $N$ é par, se possível. Ex.: 
+
+                \inputsyntax{haskell}{codes/median.hs}
+
+        \begin{solution}
+        Em ambos os casos o elemento procurado é o de posição $\lfloor (N+1)/2\rfloor$
+        (contando a partir de 1): se $N$ é ímpar, é o elemento central; se $N$ é par, é o
+        $N/2$-ésimo. Como \code{haskell}{drop} descarta os $k$ primeiros elementos, descartamos
+        $\lfloor (N+1)/2\rfloor - 1$ elementos e pegamos o \code{haskell}{head} do resto.
+
+        \inputsnippet{haskell}{12}{15}{codes/sol/solutions.hs}
+        \end{solution}
+    \end{Qlist}
+} }
+
+\Qitem{ \Qq{Utilizando \textbf{obrigatoriamente} recursão, e opcionalmente guardas e os recursos 
+        apresentados nas duas primeiras aulas sobre programação funcional, implemente as funções 
+        abaixo:
+
+    \begin{Qlist}
+        \item[(a)] \code{haskell}{parity :: Int -> Int}, que recebe um inteiro positivo $n$ e retorna
+            0 se $n$ é par, ou 1, se $n$ é ímpar.
+
+        \begin{solution}
+        Subtraindo $2$ de $n$ não se altera a paridade; a recursão termina em $0$ (par) ou
+        $1$ (ímpar), que são exatamente os valores a retornar.
+
+        \inputsnippet{haskell}{17}{21}{codes/sol/solutions.hs}
+        \end{solution}
+
+        \item[(b)] \code{haskell}{remainder :: Int -> Int -> Int}, que recebe dois inteiros positivos
+            $a$ e $b$ e retorna o resto da divisão euclidiana de $a$ por $b$.
+
+        \begin{solution}
+        Se $a<b$, o resto é o próprio $a$; caso contrário, o resto de $a$ por $b$ é igual ao
+        resto de $a-b$ por $b$.
+
+        \inputsnippet{haskell}{23}{27}{codes/sol/solutions.hs}
+        \end{solution}
+
+        \item[(c)] \code{haskell}{quotient :: Int -> Int -> Int}, que recebe dois inteiros positivos
+            $a$ e $b$ e retorna o quociente da divisão euclidiana de $a$ por $b$.
+
+        \begin{solution}
+        Se $a<b$, o quociente é $0$; caso contrário, é uma unidade a mais que o quociente de
+        $a-b$ por $b$ (cabe mais um $b$ em $a$).
+
+        \inputsnippet{haskell}{29}{33}{codes/sol/solutions.hs}
+        \end{solution}
+
+        \item[(d)] \code{haskell}{greater_common_divisor :: Int -> Int -> Int}, que recebe dois inteiros 
+            positivos $a$ e $b$ e retorna o maior divisor comum $(a, b)$ de $a$ e $b$.
+            Dica: $(a, b) = (b, a - b)$ e $(a, 0) = a$.
+
+        \begin{solution}
+        Caso base: $(a,0)=a$. Passo recursivo: o algoritmo de Euclides, $(a,b)=(b,a \bmod b)$,
+        que é a dica $(a,b)=(b,a-b)$ aplicada repetidamente até que $a<b$. O resto é calculado
+        pela função \code{haskell}{remainder} do item anterior.
+
+        \inputsnippet{haskell}{35}{39}{codes/sol/solutions.hs}
+        \end{solution}
+
+        \item[(e)] \code{haskell}{semifactorial :: Int -> Int}, que recebe um inteiror positivo e
+            retorna
+        \[
+            \mbox{\code{haskell}{semifactorial} $n$} = n(n - 2)(n - 4)\ldots 1
+        \]
+        e \code{haskell}{semifactorial} $1 = $ \code{haskell}{semifactorial} $0 = 1$.
+
+        \begin{solution}
+        Os casos base são $n=0$ e $n=1$ (o produto é $1$); para $n\geq 2$,
+        $n!! = n\times (n-2)!!$.
+
+        \inputsnippet{haskell}{41}{45}{codes/sol/solutions.hs}
+        \end{solution}
+
+        \item[(f)] \code{haskell}{power :: Int -> Int -> Int}, que recebe dois inteiros positivos
+            $a$ e $n$ e retorna $a^n$.
+
+        \begin{solution}
+        $a^0=1$ e $a^n = a\times a^{n-1}$.
+
+        \inputsnippet{haskell}{47}{51}{codes/sol/solutions.hs}
+        \end{solution}
+
+        \item[(g)] \code{haskell}{sum_of_first_n :: Int -> Int}, que recebe um natural $n$, e retorna 
+            a soma dos primeiros $n$ números naturais.
+
+        \begin{solution}
+        A soma de zero termos é $0$, e $\sum_{i=1}^{n} i = n + \sum_{i=1}^{n-1} i$.
+
+        \inputsnippet{haskell}{53}{57}{codes/sol/solutions.hs}
+        \end{solution}
+
+        \item[(h)] \code{haskell}{sum_of_first_n_squares :: Int -> Int}, que recebe um natural $n$, e 
+            retorna a soma dos quadrados dos primeiros $n$ números naturais.
+
+        \begin{solution}
+        Análogo ao item anterior: $\sum_{i=1}^{n} i^2 = n^2 + \sum_{i=1}^{n-1} i^2$.
+
+        \inputsnippet{haskell}{59}{63}{codes/sol/solutions.hs}
+        \end{solution}
+
+        \item[(i)] \code{haskell}{arithmetic_progression_sum :: Int -> Int -> Int -> Int}, que recebe 
+            três naturais $a, r$ e $n$ e retorna a soma dos primeiros $n$ termos
+            de uma progressão aritmética cujo primeiro termo é igual a $a$ e a razão é igual a $r$.
+
+        \begin{solution}
+        A soma dos $n$ termos é o primeiro termo $a$ mais a soma dos $n-1$ termos da
+        progressão que começa em $a+r$ com a mesma razão.
+
+        \inputsnippet{haskell}{65}{69}{codes/sol/solutions.hs}
+        \end{solution}
+
+        \item[(j)] \code{haskell}{geometric_progression_sum:: Int -> Int -> Int -> Int}, que recebe
+            três naturais $a, q$ e $n$ e retorna a soma dos primeiros $n$ termos
+            de uma progressão geométrica cujo primeiro termo é igual a $a$ e a razão é igual a $q$.
+
+        \begin{solution}
+        Como $a + aq + aq^2 + \cdots + aq^{n-1} = a + q\,(a + aq + \cdots + aq^{n-2})$, a soma de
+        $n$ termos é $a$ mais $q$ vezes a soma de $n-1$ termos da mesma progressão.
+
+        \inputsnippet{haskell}{71}{75}{codes/sol/solutions.hs}
+        \end{solution}
+
+        \item[(k)] \code{haskell}{binomial :: Int -> Int -> Int}, que recebe dois inteiros não-negativos
+            $n$ e $m$, com $n \geq m$, e computa o coeficiente binomial $\binom{n}{m}$.
+
+        \begin{solution}
+        Usamos a relação de Pascal, $\binom{n}{m}=\binom{n-1}{m}+\binom{n-1}{m-1}$, com
+        casos base $\binom{n}{n}=\binom{n}{0}=1$. A primeira guarda ($m>n$, que retorna $0$)
+        não é alcançada para entradas válidas; serve apenas como proteção.
+
+        \inputsnippet{haskell}{77}{82}{codes/sol/solutions.hs}
+        \end{solution}
+
+        \item[(l)] \code{haskell}{count_vowels :: String -> Int}, que recebe uma string de caracteres
+            minúsculos $s$ e retorna o número de vogais (``$aeiou$'') presentes em $s$.
+
+        \begin{solution}
+        Uma string vazia tem $0$ vogais. Caso contrário, somamos $1$ se o primeiro caractere é
+        uma vogal e continuamos a contagem no restante da string.
+
+        \inputsnippet{haskell}{84}{89}{codes/sol/solutions.hs}
+        \end{solution}
+    \end{Qlist}
+} }
+
+\end{document}
