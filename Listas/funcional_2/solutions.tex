@@ -1,0 +1,288 @@
+\input{packages}
+\input{setup}
+\input{commands}
+
+\begin{document}
+
+\input{logo}
+
+\vspace{0.1in}
+
+\begin{center}
+    \textbf{\huge Paradigmas de Programação}
+
+    \vspace{0.1in}
+    \textbf{\Large Programação Funcional: Lista 2}
+\end{center}\vskip1em
+
+\renewcommand{\Qq}[1]{{#1}}
+
+\section*{Parte A - Funções de alta ordem}
+
+\Qitem{ \Qq{Usando apenas as funções das bibliotecas \code{haskell}{Prelude} e 
+        \code{haskell}{Data.Char} e funções de alta ordem, implemente, de forma tácita,
+        as funções listadas abaixo.
+
+    \begin{Qlist}
+        \item[(a)] \code{haskell}{count :: String -> Int}, que recebe uma string e retorne o número
+            de palavras que terminem com letra minúscula.
+
+                \inputsyntax{haskell}{codes/count.hs}
+
+        \begin{solution}
+        \code{haskell}{words} separa a string em palavras, \code{haskell}{last} extrai o último
+        caractere de cada palavra (nunca é vazia) e \code{haskell}{isLower} testa se ele é
+        minúsculo. \code{haskell}{filter} mantém as palavras que passam no teste e
+        \code{haskell}{length} as conta.
+
+        \inputsnippet{haskell}{3}{5}{codes/sol/solutions.hs}
+
+
+        \textbf{Soluções alternativas:} a primeira usa \code{haskell}{map} para obter uma lista de \code{haskell}{Bool} (um por palavra) e conta os verdadeiros com \code{haskell}{filter id}; a segunda extrai o último caractere de cada palavra com \code{haskell}{map last} e filtra os caracteres minúsculos com \code{haskell}{isLower}.
+
+        \inputsnippet{haskell}{4}{8}{codes/sol/alternatives.hs}
+        \end{solution}
+
+        \item[(b)] \code{haskell}{inverses :: [Int] -> [Double]}, que recebe uma lista de inteiros e 
+            retorne uma lista com os inversos multiplicativos dos elementos não-nulos. Ex
+
+                \inputsyntax{haskell}{codes/inverses.hs}
+
+        \begin{solution}
+        \code{haskell}{filter (/= 0)} descarta os zeros; em seguida, \code{haskell}{fromIntegral}
+        converte cada \code{haskell}{Int} em \code{haskell}{Double} e \code{haskell}{(1 /)} calcula
+        o inverso.
+
+        \inputsnippet{haskell}{7}{9}{codes/sol/solutions.hs}
+
+        \textbf{Soluções alternativas:} \code{haskell}{recip x} é o mesmo que \code{haskell}{1 / x}.
+
+        \inputsnippet{haskell}{11}{12}{codes/sol/alternatives.hs}
+        \end{solution}
+
+        \item[(c)] \code{haskell}{odds :: Int -> Int}, que recebe um inteiro e 
+            returne o número de dígitos ímpares deste número.
+
+                \inputsyntax{haskell}{codes/odds.hs}
+
+        \begin{solution}
+        \code{haskell}{abs} descarta o sinal, \code{haskell}{show} converte o número em uma string
+        de dígitos e \code{haskell}{digitToInt} converte cada caractere de volta em inteiro, que é
+        testado com \code{haskell}{odd}.
+
+        \inputsnippet{haskell}{11}{13}{codes/sol/solutions.hs}
+
+        \textbf{Soluções alternativas:} a primeira versão converte cada caractere em inteiro com \code{haskell}{read [c]}; a segunda só testa se o caractere pertence a \code{haskell}{"13579"}.
+
+        \inputsnippet{haskell}{15}{19}{codes/sol/alternatives.hs}
+        \end{solution}
+
+        \item[(d)] \code{haskell}{palindromes :: String -> Int}, que recebe uma string e retorna
+            o número de palavras que são palíndromos. Ex.:
+
+                \inputsyntax{haskell}{codes/palindromes.hs}
+
+        \begin{solution}
+        Para funções, \code{haskell}{f <*> g} aplicada a um argumento $w$ resulta em
+        \code{haskell}{f w (g w)}. Logo, \code{haskell}{(==) <*> reverse} aplicada a $w$ resulta em
+        \code{haskell}{w == reverse w}, isto é, testa se uma palavra é igual à sua inversa.
+
+        A comparação diferencia maiúsculas de minúsculas, como no exemplo do enunciado:
+        \code{haskell}{"Aia"} não é contada, e o resultado é $2$ (``mussum'' e ``mirim'').
+
+        \inputsnippet{haskell}{15}{17}{codes/sol/solutions.hs}
+
+        \textbf{Soluções alternativas:} a gente sempre tem que associar cada palavra o par formado por ela e pela sua inversa, e testar se as duas componentes são iguais. 
+        
+        Com algo como \code{haskell}{uncurry (==)}, a primeira usa função anônima; a segunda \code{haskell}{(,) <*> reverse}, que aplicada a $w$ resulta em \code{haskell}{(w, reverse w)}; a terceira \code{haskell}{liftA2 (,) id reverse}.
+
+        \inputsnippet{haskell}{22}{29}{codes/sol/alternatives.hs}
+        \end{solution}
+
+        \item[(e)] \code{haskell}{isOctNumber :: Int -> Bool}, que recebe um inteiro
+            \code{haskell}{x} e retorna verdadeiro se $x$ representa um número em base octal. Ex.:
+
+                \inputsyntax{haskell}{codes/oct.hs}
+
+        \begin{solution}
+        Um número está escrito em base octal se todos os seus dígitos estão em
+        \code{haskell}{"01234567"}. Assim, \code{haskell}{show . abs} produz a string dos dígitos e
+        \code{haskell}{all (flip elem "01234567")} verifica que todos pertencem ao conjunto.
+
+        \inputsnippet{haskell}{19}{21}{codes/sol/solutions.hs}
+
+        \textbf{Soluções alternativas:} a primeira versão define a função auxiliar \code{haskell}{within} (pertinência em lista, com os argumentos invertidos) e a usa no lugar de \code{haskell}{flip elem}; a segunda usa o fato de que os caracteres \code{haskell}{'0'} a \code{haskell}{'9'} são consecutivos e ordenados, de modo que um dígito é octal se, e somente se, é menor que \code{haskell}{'8'}.
+
+        \inputsnippet{haskell}{32}{39}{codes/sol/alternatives.hs}
+        \end{solution}
+    \end{Qlist}
+} }
+
+\Qitem{ \Qq{Usando uma única dobra à esquerda, implemente as funções abaixo. A implementação deve ser
+        feita em uma única linha.
+
+    \begin{Qlist}
+        \item[(a)] \code{haskell}{eval :: [Int] -> Int -> Int}, que recebe uma lista de inteiros 
+            \code{haskell}{as} e um inteiro \code{haskell}{x} e retorna o valor de $p(x)$, onde
+            \[
+                p(x) = a_0 + a_1x + a_2x^2 + \ldots + a_Nx^N
+            \]
+
+        \textbf{Observação}: a lista \code{haskell}{as} contém os coeficientes do polinômio do maior
+        índice para o menor índice. Ex.:
+                \inputsyntax{haskell}{codes/eval.hs}
+
+        \textbf{Dica:} utilize o algoritmo de Horner. 
+
+        \begin{solution}
+        O algoritmo de Horner reescreve
+        $p(x) = (\ldots((a_Nx + a_{N-1})x + a_{N-2})x + \ldots)x + a_0$. Como a lista já vem do maior
+        para o menor índice, basta percorrê-la da esquerda para a direita com acumulador inicial $0$,
+        fazendo $\text{acc} \leftarrow \text{acc}\cdot x + a$ a cada coeficiente $a$.
+
+        \inputsnippet{haskell}{23}{25}{codes/sol/solutions.hs}
+
+        Exemplo ($p(x)=x^2-5x+6$, $x=2$): $((0\cdot 2+1)\cdot 2-5)\cdot 2+6 = 0$.
+
+
+        \textbf{Soluções alternativas:} \code{haskell}{(+) . (* x)} é a função \code{haskell}{\acc a -> acc * x + a}, escrita de forma tácita: primeiro multiplica o acumulador por $x$ e depois soma o coeficiente.
+
+        \inputsnippet{haskell}{42}{43}{codes/sol/alternatives.hs}
+        \end{solution}
+
+        \item[(b)] \code{haskell}{k_factorial :: Int -> Int -> Int}, que recebe os inteiros
+            \code{haskell}{n} e \code{haskell}{k} e retorna o $k$-fatorial $n!_{(k)}$ de $n$, onde
+        \[
+            n!_{(k)} = \left\{ \begin{array}{ll} n\cdot (n - k)!_{(k)}, & \mbox{se}\ n > 0;\\
+                1,& \mbox{se}\ -k < n \leq 0;\\
+                0,& \mbox{caso contrário}\end{array}\right.
+        \]
+
+        Ex.:
+                \inputsyntax{haskell}{codes/kfact.hs}
+
+        \begin{solution}
+        Seja $k>0$. Se $n\leq -k$, o resultado é $0$, o que é obtido com a lista
+        \code{haskell}{[0]}. Caso contrário, o resultado é o produto de
+        $n,\ n-k,\ n-2k,\ \ldots$ enquanto os termos forem positivos: ao chegar a um termo $m\leq 0$,
+        necessariamente $-k<m\leq 0$, e o caso base vale $1$. Essa sequência é gerada por
+        \code{haskell}{iterate (subtract k) n} e cortada por \code{haskell}{takeWhile (> 0)}; a dobra
+        \code{haskell}{foldl (*) 1} calcula o produto.
+
+        \inputsnippet{haskell}{27}{29}{codes/sol/solutions.hs}
+
+        Exemplo: \code{haskell}{k_factorial 6 2} $= 6\cdot 4\cdot 2 = 48$.
+
+
+        \textbf{Soluções alternativas:} em vez de \code{haskell}{if}, acrescenta-se um elemento $0$ à lista com a compreensão de listas \code{haskell}{[0 | n <= -k]}, que é a lista \code{haskell}{[0]} se $n\leq -k$ e a lista vazia caso contrário. Quando $n\leq -k$, o \code{haskell}{takeWhile} resulta em lista vazia e o produto final é $0$.
+
+        \inputsnippet{haskell}{46}{48}{codes/sol/alternatives.hs}
+        \end{solution}
+
+        \item[(c)] \code{haskell}{mean :: [Int] -> Double}, que recebe uma lista de inteiros 
+            \code{haskell}{xs} e retorna a média aritmética destes números. Ex.:
+
+                \inputsyntax{haskell}{codes/mean.hs}
+
+        \begin{solution}
+        Como só é permitida uma dobra, a soma e a quantidade de elementos são acumuladas
+        simultaneamente em um par \code{haskell}{(soma, quantidade)}. Ao final,
+        \code{haskell}{uncurry (/)} divide a primeira componente pela segunda. Para a lista vazia,
+        o resultado é \code{haskell}{NaN} ($0/0$).
+
+        \inputsnippet{haskell}{31}{33}{codes/sol/solutions.hs}
+
+        \textbf{Soluções alternativas:} \code{haskell}{f <*> g} aplicada a uma lista $xs$ resulta em \code{haskell}{f xs (g xs)}; assim, o termo divide a soma de $xs$ pelo seu comprimento. O resultado é o mesmo, mas esta versão percorre a lista duas vezes: uma pela dobra e outra por \code{haskell}{length}, por isso ela não segue estritamente a restrição de usar uma única dobra.
+
+        \inputsnippet{haskell}{51}{52}{codes/sol/alternatives.hs}
+        \end{solution}
+
+        \item[(d)] \code{haskell}{arithmetic_progression_sum :: Int -> Int -> Int -> Int} que recebe o
+            número de termos \code{haskell}{n}, o primeiro termo \code{haskell}{a} e a razão
+            \code{haskell}{q} de uma progressão aritmética e retorne a soma dos primeiros $n$
+            termos desta progressão. Ex.:
+
+                \inputsyntax{haskell}{codes/pa.hs}
+
+        \begin{solution}
+        \code{haskell}{iterate (+ q) a} gera a progressão infinita $a, a+q, a+2q, \ldots$;
+        \code{haskell}{take n} guarda os $n$ primeiros termos e a dobra \code{haskell}{foldl (+) 0}
+        os soma.
+
+        \inputsnippet{haskell}{35}{37}{codes/sol/solutions.hs}
+
+        Exemplo: $1+3+5+\cdots+19=100$.
+
+
+        \textbf{Soluções alternativas:} a primeira versão escreve \code{haskell}{iterate} com \code{haskell}{flip}; a segunda dobra sobre os índices $0, 1, \ldots, n-1$, somando o termo $a + i\,q$ ao acumulador.
+
+        \inputsnippet{haskell}{55}{59}{codes/sol/alternatives.hs}
+        \end{solution}
+
+        \item[(e)] \code{haskell}{exp_approx :: Double -> Double}, que recebe um número \code{haskell}{x}
+            e retorna a aproximação da exponencial por série de potências até o 11° termo, isto
+            é,
+        \[
+            e^x \approx 1 + \frac{x}{1!} + \frac{x^2}{2!} + \ldots + \frac{x^{10}}{10!}
+        \]
+        Ex.:
+                \inputsyntax{haskell}{codes/exp.hs}
+
+        \begin{solution}
+        O termo de índice $n$ é $x^n/n!$, para $n=0,1,\ldots,10$ (onze termos). Esses termos são
+        calculados com \code{haskell}{map} e somados com uma única dobra à esquerda.
+
+        \inputsnippet{haskell}{39}{41}{codes/sol/solutions.hs}
+
+        \textbf{Soluções alternativas:} a primeira versão emparelha $x$ com os expoentes por meio de \code{haskell}{zip}; como o \code{haskell}{zip} é truncado no menor operando, só são usados onze termos. A segunda usa o método de Horner: $e^x\approx 1 + x\bigl(1 + \tfrac{x}{2}\bigl(1 + \tfrac{x}{3}(\ldots(1 + \tfrac{x}{10}))\bigr)\bigr)$, calculado por uma dobra à esquerda com $n=10,9,\ldots,1$ e $\text{acc}\leftarrow 1 + \text{acc}\cdot x/n$.
+
+        \inputsnippet{haskell}{62}{68}{codes/sol/alternatives.hs}
+        \end{solution}
+    \end{Qlist}
+} }
+
+\section*{Parte B - I/O}
+
+\Qitem{ \Qq{Resolva, no Beecrowd, o exercício indicado em Haskell. Para formatar a saída, use a função
+        \code{haskell}{printf} do módulo \code{haskell}{Text.Printf}.
+
+    \begin{Qlist}
+        \item[(a)] \texttt{BEE 1007} -- Diferença
+
+        \begin{solution}
+
+        \inputsnippet{haskell}{1}{6}{codes/sol/bee1007.hs}
+        \end{solution}
+
+        \item[(b)] \texttt{BEE 1008} -- Salário
+
+        \begin{solution}
+
+        \inputsnippet{haskell}{1}{7}{codes/sol/bee1008.hs}
+        \end{solution}
+
+        \item[(c)] \texttt{BEE 1011} -- Esfera
+
+        \begin{solution}
+
+        \inputsnippet{haskell}{1}{6}{codes/sol/bee1011.hs}
+        \end{solution}
+
+        \item[(d)] \texttt{BEE 1013} -- O Maior
+
+        \begin{solution}
+
+        \inputsnippet{haskell}{1}{6}{codes/sol/bee1013.hs}
+        \end{solution}
+
+        \item[(e)] \texttt{BEE 1014} -- Consumo
+
+        \begin{solution}
+
+        \inputsnippet{haskell}{1}{6}{codes/sol/bee1014.hs}
+        \end{solution}
+    \end{Qlist}
+} }
+
+
+\end{document}
