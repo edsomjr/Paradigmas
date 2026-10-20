@@ -35,6 +35,10 @@
         segundo caso.
 
         \inputsnippet{haskell}{1}{4}{codes/sol/solutions.hs}
+
+        \textbf{Solução alternativa:} em vez de casar o padrão, testa-se o tamanho com \code{haskell}{length}; se há pelo menos dois elementos, o segundo é o primeiro da cauda (\code{haskell}{head (tail xs)}).
+
+        \inputsnippet{haskell}{2}{5}{codes/sol/alternatives.hs}
         \end{solution}
 
         \item[(b)] \code{haskell}{body :: [a] -> Maybe [a]}, que recebe uma lista como parâmetros e 
@@ -48,6 +52,10 @@
         Para uma lista de dois elementos, o resultado é \code{haskell}{Just []}.
 
         \inputsnippet{haskell}{6}{10}{codes/sol/solutions.hs}
+
+        \textbf{Solução alternativa:} com menos de dois elementos não há o que devolver. Caso contrário, \code{haskell}{tail} descarta o primeiro elemento e \code{haskell}{take (length xs - 2)} guarda os $N-2$ elementos seguintes, que são todos, exceto o primeiro e o último.
+
+        \inputsnippet{haskell}{8}{11}{codes/sol/alternatives.hs}
         \end{solution}
 
         \item[(c)] \code{haskell}{median :: [a] -> Maybe a}, que retorna o elemento central da lista de
@@ -62,6 +70,10 @@
         $\lfloor (N+1)/2\rfloor - 1$ elementos e pegamos o \code{haskell}{head} do resto.
 
         \inputsnippet{haskell}{12}{15}{codes/sol/solutions.hs}
+
+        \textbf{Solução alternativa:} \code{haskell}{div (length xs - 1) 2} é o número de elementos a descartar (igual a $\lfloor (N+1)/2\rfloor - 1$), o que evita o ``mais um, menos um''.
+
+        \inputsnippet{haskell}{14}{17}{codes/sol/alternatives.hs}
         \end{solution}
     \end{Qlist}
 } }
@@ -79,6 +91,12 @@
         $1$ (ímpar), que são exatamente os valores a retornar.
 
         \inputsnippet{haskell}{17}{21}{codes/sol/solutions.hs}
+
+        \textbf{Solução alternativa:} a paridade de $n$ é o oposto da paridade de $n-1$; \\
+        logo, \code{haskell}{parity n = 1 - parity (n - 1)},
+        com \code{haskell}{parity 0 = 0}.
+
+        \inputsnippet{haskell}{20}{23}{codes/sol/alternatives.hs}
         \end{solution}
 
         \item[(b)] \code{haskell}{remainder :: Int -> Int -> Int}, que recebe dois inteiros positivos
@@ -111,6 +129,10 @@
         pela função \code{haskell}{remainder} do item anterior.
 
         \inputsnippet{haskell}{35}{39}{codes/sol/solutions.hs}
+
+        \textbf{Solução alternativa:} só pela dica do enunciado, usando apenas subtração: se $a\geq b$, então $(a,b)=(b,a-b)$; se $a<b$, só trocar a ordem dos argumentos.
+
+        \inputsnippet{haskell}{26}{30}{codes/sol/alternatives.hs}
         \end{solution}
 
         \item[(e)] \code{haskell}{semifactorial :: Int -> Int}, que recebe um inteiror positivo e
@@ -163,6 +185,10 @@
         progressão que começa em $a+r$ com a mesma razão.
 
         \inputsnippet{haskell}{65}{69}{codes/sol/solutions.hs}
+
+        \textbf{Solução alternativa:} soma-se primeiro o \emph{último} termo, $a+(n-1)r$, e volta para $n-1$ termos; assim, $a$ e $r$ estão fixos em toda a recursão.
+
+        \inputsnippet{haskell}{33}{36}{codes/sol/alternatives.hs}
         \end{solution}
 
         \item[(j)] \code{haskell}{geometric_progression_sum:: Int -> Int -> Int -> Int}, que recebe
@@ -174,6 +200,10 @@
         $n$ termos é $a$ mais $q$ vezes a soma de $n-1$ termos da mesma progressão.
 
         \inputsnippet{haskell}{71}{75}{codes/sol/solutions.hs}
+
+        \textbf{Solução alternativa:} soma-se o último termo, $a\,q^{n-1}$, e volta para $n-1$ termos.
+
+        \inputsnippet{haskell}{39}{42}{codes/sol/alternatives.hs}
         \end{solution}
 
         \item[(k)] \code{haskell}{binomial :: Int -> Int -> Int}, que recebe dois inteiros não-negativos
@@ -185,6 +215,10 @@
         não é alcançada para entradas válidas; serve apenas como proteção.
 
         \inputsnippet{haskell}{77}{82}{codes/sol/solutions.hs}
+
+        \textbf{Solução alternativa:} usa a identidade $\binom{n}{m}=\frac{n}{m}\binom{n-1}{m-1}$ se e apenas se $m\leq n$, que reduz $n$ e $m$ ao mesmo tempo e faz apenas uma chamada recursiva.
+
+        \inputsnippet{haskell}{45}{48}{codes/sol/alternatives.hs}
         \end{solution}
 
         \item[(l)] \code{haskell}{count_vowels :: String -> Int}, que recebe uma string de caracteres
