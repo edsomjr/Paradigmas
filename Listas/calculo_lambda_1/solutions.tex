@@ -1,0 +1,312 @@
+\input{packages}
+\input{setup}
+\input{commands}
+
+\begin{document}
+
+\input{logo}
+
+\vspace{0.1in}
+
+\begin{center}
+    \textbf{\huge Paradigmas de Programação}
+
+    \vspace{0.1in}
+    \textbf{\Large Cálculo-$\lambda$: Lista 1}
+\end{center}\vskip1em
+
+\renewcommand{\Qq}[1]{{#1}}
+
+\section*{Parte A - Definição de cálculo-$\lambda$}
+
+\Qitem{ \Qq{Descreva a sequência de aplicações dos axiomas de construção que forma o termo-$\lambda$
+indicado. Assuma que $x, y, z, w$ são variáveis e siga o modelo do exemplo, o qual ilustra a construção do termo $wz(\lambda y.xy)$:
+\[
+    x 
+    \quad \xrightarrow{\tiny \mbox{aplicação}}\quad xy
+    \quad \xrightarrow{\tiny \mbox{abstração}}\quad \lambda y.xy
+    \quad \xrightarrow{\tiny \mbox{aplicação}}\quad z(\lambda y.xy)
+    \quad \xrightarrow{\tiny \mbox{aplicação}}\quad wz(\lambda y.xy)
+\]
+    \begin{Qlist}
+    \item[(a)] $(\lambda y.(\lambda x.xy)xy)$
+    \item[(b)] $\lambda w.xyx(\lambda z.z)$
+    \end{Qlist}
+} }
+
+\begin{solution}
+\textbf{(a)}
+\[
+    x
+    \;\xrightarrow{\tiny\mbox{aplicação}}\; xy
+    \;\xrightarrow{\tiny\mbox{abstração}}\; \lambda x.xy
+    \;\xrightarrow{\tiny\mbox{aplicação}}\; (\lambda x.xy)x
+    \;\xrightarrow{\tiny\mbox{aplicação}}\; (\lambda x.xy)xy
+    \;\xrightarrow{\tiny\mbox{abstração}}\; \lambda y.(\lambda x.xy)xy
+\]
+
+\textbf{(b)} O termo $\lambda w.xyx(\lambda z.z)$ requer a construção de dois
+subtermos, $xyx$ e $\lambda z.z$, que são então combinados por aplicação
+e juntos por abstração em $w$:
+\begin{align*}
+    &z \;\xrightarrow{\tiny\mbox{abstração}}\; \lambda z.z \\[4pt]
+    &x \;\xrightarrow{\tiny\mbox{aplicação}}\; xy
+      \;\xrightarrow{\tiny\mbox{aplicação}}\; xyx
+      \;\xrightarrow{\tiny\mbox{aplicação}}\; xyx(\lambda z.z)
+      \;\xrightarrow{\tiny\mbox{abstração}}\; \lambda w.xyx(\lambda z.z)
+\end{align*}
+\end{solution}
+
+\Qitem{ \Qq{Para cada termo abaixo, indique se a substituição da variável $x$ por $N$ se aplica ou
+        não. Em caso afirmativo, realize a substituição; caso contrário, justifique porque a 
+        substituição não se aplica.
+
+    \begin{Qlist}
+    \item[(a)] $(\lambda y.xyx)(yxy)$
+    \item[(b)] $\lambda x.(\lambda y.xyx)$
+    \item[(c)] $\lambda z.yzwz$
+    \end{Qlist}
+} }
+
+\begin{solution}
+\begin{Qlist}
+\item[(a)] \textbf{Aplica-se.} A variável $x$ ocorre livre em ambos os subtermos.
+Aplicando as regras de substituição para aplicação e abstração
+(supondo $y\notin FV(N)$ para evitar captura no contexto de $\lambda y$):
+\[
+    \bigl((\lambda y.xyx)(yxy)\bigr)[x:=N]
+    = (\lambda y.xyx)[x:=N]\cdot(yxy)[x:=N]
+    = (\lambda y.NyN)(yNy).
+\]
+
+\item[(b)] \textbf{Não se aplica.} O símbolo $\lambda x$ mais externo ata a variável
+$x$ em todo o corpo do termo; portanto, não há ocorrência \emph{livre} de $x$ sobre
+a qual a substituição possa agir.
+
+\item[(c)] \textbf{Aplica-se, mas não altera o termo.} A variável $x$ não ocorre
+no termo $\lambda z.yzwz$; pelas regras ii e iv (como no exemplo
+$(\lambda x.xy)[z:=N]=\lambda x.xy$ dos slides):
+\[
+    (\lambda z.yzwz)[x:=N] = \lambda z.\,(yzwz)[x:=N] = \lambda z.yzwz.
+\]
+\end{Qlist}
+\end{solution}
+
+\Qitem{ \Qq{Aplique os axiomas de redução, enquanto for possível, nas expressões abaixo:
+    \begin{Qlist}
+    \item[(a)] $({\lambda y.({\lambda x.xyx})})x$
+    \item[(b)] $\lambda z.({\lambda y.yz})x$
+    \end{Qlist}
+} }
+
+\begin{solution}
+\begin{Qlist}
+\item[(a)] Aplicamos a redução-$\beta$ substituindo $y$ por $x$ no corpo $(\lambda x.xyx)$:
+\[
+    (\lambda y.(\lambda x.xyx))\,x \;\to_\beta\; (\lambda x.xyx)[y:=x].
+\]
+O termo substituto $x$ tem $x\in FV(x)$ e $y$ ocorre livre no corpo $xyx$ de $\lambda x$;
+logo a substituição direta faria $\lambda x$ capturar o $x$ livre do argumento. Usamos a conversão-$\alpha$ para renomear a variável atada:
+\[
+    \lambda x.xyx \;\equiv_\alpha\; \lambda z.zyz.
+\]
+Como $z\neq x$, a substituição não causa captura:
+\[
+    (\lambda z.zyz)[y:=x] = \lambda z.\,(zyz)[y:=x] = \lambda z.zxz.
+\]
+O resultado $\lambda z.zxz$ é uma forma normal; nenhuma redução adicional é possível.
+
+\item[(b)] Aplicamos a redução-$\beta$ à subexpressão interna $(\lambda y.yz)x$:
+\[
+    \lambda z.\,(\lambda y.yz)\,x
+    \;\to_\beta\;
+    \lambda z.\,(yz)[y:=x]
+    = \lambda z.xz.
+\]
+O termo $\lambda z.xz$ tem a forma $\lambda z.Mz$ com $M=x$ e
+$z\notin FV(x)=\{x\}$; a conversão-$\eta$ é, portanto, aplicável:
+\[
+    \lambda z.xz \;\equiv_\eta\; x.
+\]
+O resultado final é $x$.
+\end{Qlist}
+\end{solution}
+
+\Qitem{ \Qq{Identifique, para cada termo abaixo, se a conversão-$\eta$ é aplicável. Justifique caso
+        não seja, ou aplique a conversão, se possível.
+        \begin{Qlist}
+        \item[(a)] $\lambda x.x$
+        \item[(b)] $\lambda x.y$
+        \item[(c)] $\lambda x.xyx$
+        \end{Qlist}
+} }
+
+\begin{solution}
+A conversão-$\eta$ transforma $\lambda x.Mx$ em $M$. Ela só se aplica quando o
+corpo da abstração é uma \emph{aplicação} da forma $M\,x$ com $x\notin FV(M)$.
+
+\begin{Qlist}
+\item[(a)] $\lambda x.x$: O corpo é a variável $x$, e não uma aplicação da forma
+$M\,x$. A conversão-$\eta$ \textbf{não é aplicável}.
+
+\item[(b)] $\lambda x.y$: O corpo é a variável $y$; tampouco é uma aplicação.
+A conversão-$\eta$ \textbf{não é aplicável}.
+
+\item[(c)] $\lambda x.xyx$: O corpo $xyx=(xy)x$ está na forma $M\,x$ com $M=xy$.
+No entanto, $x\in FV(xy)=\{x,y\}$, o que viola a condição $x\notin FV(M)$.
+A conversão-$\eta$ \textbf{não é aplicável}.
+\end{Qlist}
+\end{solution}
+
+\Qitem{ \Qq{Determine o conjunto das variáveis livres do termo $({\lambda x.zxyw})({\lambda y.wxzy})$.} }
+
+\begin{solution}
+Pelas regras de variáveis livres $FV$:
+\begin{align*}
+    FV(\lambda x.zxyw) &= FV(zxyw) - \{x\} = \{z,x,y,w\} - \{x\} = \{z,y,w\},\\
+    FV(\lambda y.wxzy) &= FV(wxzy) - \{y\} = \{w,x,z,y\} - \{y\} = \{w,x,z\}.
+\end{align*}
+Logo:
+\[
+    FV\!\bigl((\lambda x.zxyw)(\lambda y.wxzy)\bigr)
+    = \{z,y,w\}\cup\{w,x,z\} = \{x,\,y,\,z,\,w\}.
+\]
+\end{solution}
+
+\Qitem{ \Qq{Escreva um combinador formado apenas por $S$ e $K$ que seja extensionalmente
+        igual ao combinador $K_*$.} }
+
+\begin{solution}
+O combinador $K_*\equiv\lambda xy.y$ seleciona sempre o \emph{segundo} argumento,
+e $SK$ se comporta da mesma forma:
+\[
+    SK\,x\,y
+    \;=\; Ky\,(xy)
+    \;=\; y
+    \;=\; K_*\,x\,y,
+\]
+pois $Sxyz=xz(yz)$ e $Kab=a$. Portanto, $K_* = SK$.
+\end{solution}
+
+\section*{Parte B - Lógica booleana}
+
+\Qitem{ \Qq{Defina um termo lambda $X$ que correponda à operação lógica ``ou exclusivo'', isto é,
+        $Xpq = T$ se $p$ e $q$ tem valores lógicos distintos e $Xpq = F$, caso contrário.} }
+
+\begin{solution}
+Usando $T\equiv\lambda xy.x$, $F\equiv\lambda xy.y$ e
+$\lnot q\equiv qFT$, definimos:
+\[
+    X \;\equiv\; \lambda pq.\;p\,(\lnot q)\,q
+      \;=\; \lambda pq.\;p\,(qFT)\,q.
+\]
+
+\textbf{Verificação} (tabela-verdade):
+\begin{center}
+\begin{tabular}{cc|l|c}
+\toprule
+$p$ & $q$ & $X\,p\,q = p\,(qFT)\,q$ & esperado \\
+\midrule
+$T$ & $T$ & $T\underbrace{(TFT)}_{=F}T = TFT = F$ & $F$ \checkmark \\[4pt]
+$T$ & $F$ & $T\underbrace{(FFT)}_{=T}F = TTF = T$ & $T$ \checkmark \\[4pt]
+$F$ & $T$ & $F\underbrace{(TFT)}_{=F}T = FFT = T$ & $T$ \checkmark \\[4pt]
+$F$ & $F$ & $F\underbrace{(FFT)}_{=T}F = FTF = F$ & $F$ \checkmark \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{solution}
+
+\Qitem{ \Qq{Escreva, para cada operador lógico abaixo, um combinador na base $SK$ que seja
+        extensionalmente igual ao operador. Indique a posição do operador (pré-fixada, in-fixada ou
+        pós-fixada).
+    \begin{Qlist}
+    \item[(a)] condicional
+    \item[(b)] bicondicional
+    \end{Qlist}
+} }
+
+\begin{solution}
+Com $T=K$ e $F=SK$:
+
+\begin{Qlist}
+\item[(a)] \textbf{Condicional $p\to q$.} Combinador: $K$, posição pós-fixada.
+
+$p\,q\,K = p\to q$:
+\begin{itemize}
+    \item Se $p=T$: $\;T\,q\,K = q$ \quad (T seleciona o primeiro argumento).
+    \item Se $p=F$: $\;F\,q\,K = K = T$ \quad (F seleciona o segundo argumento).
+\end{itemize}
+
+\textbf{Verificação} (tabela-verdade):
+\begin{center}
+\begin{tabular}{cc|c|c}
+\toprule
+$p$ & $q$ & $p\,q\,K$ & $p\to q$ \\
+\midrule
+$T$ & $T$ & $T\,T\,K = T$     & $T$ \checkmark \\
+$T$ & $F$ & $T\,F\,K = F$     & $F$ \checkmark \\
+$F$ & $T$ & $F\,T\,K = K = T$ & $T$ \checkmark \\
+$F$ & $F$ & $F\,F\,K = K = T$ & $T$ \checkmark \\
+\bottomrule
+\end{tabular}
+\end{center}
+Portanto, $\text{COND} = K$ (pós-fixado): $p\,q\,K\;=\;p\to q$.
+
+\item[(b)] \textbf{Bicondicional $p\leftrightarrow q$.} Combinador: $B$, posição pré-fixada.
+
+$p\leftrightarrow q$ é verdadeiro quando $p$ e $q$ têm o mesmo valor: para $p=T$
+o resultado é $q$, e para $p=F$ o resultado é $\lnot q$. O combinador pré-fixado
+\[
+    B \;\equiv\; \lambda p.\;p\,I\,\text{NOT},
+\]
+onde $I=SKK$ e $\text{NOT}\equiv\lambda q.\;q\,F\,T = \lambda q.\;q\,(SK)\,K$ (a versão
+\emph{pré-fixada} da negação; o $\mathbf{NOT}\equiv(\mathbf{SK})\mathbf{K}$ dos slides é
+\emph{pós-fixado}, isto é, $q\,\mathbf{NOT} = q\,(SK)\,K$, e não serviria aqui, pois
+$(SK)K\,q = q$), satisfaz
+\[
+    B\,p\,q = (p\,I\,\text{NOT})\,q =
+    \begin{cases} I\,q = q, & \text{se } p=T,\\ \text{NOT}\,q = \lnot q, & \text{se } p=F. \end{cases}
+\]
+
+\textbf{Verificação}:
+\begin{center}
+\begin{tabular}{cc|c|c}
+\toprule
+$p$ & $q$ & $B\,p\,q$ & $p\leftrightarrow q$ \\
+\midrule
+$T$ & $T$ & $I\,T = T$          & $T$ \checkmark \\
+$T$ & $F$ & $I\,F = F$          & $F$ \checkmark \\
+$F$ & $T$ & $\lnot T = F$       & $F$ \checkmark \\
+$F$ & $F$ & $\lnot F = T$       & $T$ \checkmark \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{Derivação em $SK$ puro}:
+\[
+    B = \lambda p.\;p\,I\,\text{NOT}
+      = S(\lambda p.\;p\,I)(\lambda p.\;\text{NOT}).
+\]
+Como $\text{NOT}$ não depende de $p$:
+$\lambda p.\,\text{NOT} = K\,\text{NOT}$. Traduzindo $\text{NOT}$ para $SK$:
+\[
+    \text{NOT} = \lambda q.\;q\,(SK)\,K
+               = S(\lambda q.\;q\,(SK))(\lambda q.\;K)
+               = S\bigl(S\,I\,(K(SK))\bigr)(KK)
+               = S\bigl(S(SKK)(K(SK))\bigr)(KK).
+\]
+(Verificação: $S(SI(K(SK)))(KK)\,q = SI(K(SK))\,q\,(KKq) = Iq\,(K(SK)q)\,K = q\,(SK)\,K$.)
+
+E, usando $I=SKK$:
+\[
+    \lambda p.\;p\,I = S(\lambda p.p)(\lambda p.I) = S\,I\,(K\,I)
+                    = S(SKK)(K(SKK)).
+\]
+Portanto:
+\[
+    B = S\bigl(S(SKK)(K(SKK))\bigr)\Bigl(K\bigl(S(S(SKK)(K(SK)))(KK)\bigr)\Bigr).
+\]
+\end{Qlist}
+\end{solution}
+
+\end{document}

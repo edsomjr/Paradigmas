@@ -1,0 +1,301 @@
+\input{packages}
+\input{setup}
+\input{commands}
+
+\begin{document}
+
+\input{logo}
+
+\vspace{0.1in}
+
+\begin{center}
+    \textbf{\huge Paradigmas de Programação}
+
+    \vspace{0.1in}
+    \textbf{\Large Cálculo-$\lambda$: Lista 2}
+\end{center}\vskip1em
+
+\renewcommand{\Qq}[1]{{#1}}
+
+\section*{Parte A - Aritmética}
+
+\Qitem{ \Qq{Defina um termo-$\lambda$ $L$ tal que, para dois naturais $x$ e $y$, $Lxy$ seja
+        verdadeiro se $x\leq y$, e falso, caso contrário. Use, nesta definição, os termos-$\lambda$
+        $Z$ e $P$.} }
+
+\begin{solution}
+Lembre que um natural $n$ aplica $n$ vezes seu primeiro argumento ao segundo. Assim,
+$yPx$ aplica $y$ vezes o antecessor a $x$, resultando em $x - y$ se $x\geq y$, ou em $0$
+caso contrário (pois $P0=0$). Logo, $x\leq y$ se, e somente se, $yPx = 0$:
+\[
+    L \;\equiv\; \lambda xy.\,Z(yPx).
+\]
+
+\textbf{Verificação:}
+\begin{align*}
+    L\,2\,3 &\equiv Z(3P2) \equiv Z(P(P(P\,2))) \equiv Z\,0 \equiv T, \\
+    L\,3\,3 &\equiv Z(3P3) \equiv Z\,0 \equiv T, \\
+    L\,3\,2 &\equiv Z(2P3) \equiv Z(P(P\,3)) \equiv Z\,1 \equiv F.
+\end{align*}
+(Note que nos slides, há o termo $G$, o termo $L$ é ele com os argumentos trocados: $Lxy \equiv Gyx$.)
+\end{solution}
+
+\Qitem{ \Qq{Defina um termo-$\lambda$ $M$ tal que, para dois naturais $x$ e $y$, $Mxy$ seja
+        igual ao maior dentre ambos. Use, nesta definição, os termos-$\lambda$ $Z$ e $P$. } }
+
+\begin{solution}
+Usando a estrutura \texttt{if-then-else} ($I_F\,p\,a\,b\equiv p\,a\,b$) com o predicado
+$x\leq y$, isto é, $Z(yPx)$ da questão anterior: se $x\leq y$, o maior é $y$; caso
+contrário, é $x$.
+\[
+    M \;\equiv\; \lambda xy.\,Z(yPx)\,y\,x.
+\]
+
+\textbf{Verificação:}
+\begin{align*}
+    M\,2\,3 &\equiv Z(3P2)\,3\,2 \equiv Z\,0\,3\,2 \equiv T\,3\,2 \equiv 3, \\
+    M\,3\,2 &\equiv Z(2P3)\,2\,3 \equiv Z\,1\,2\,3 \equiv F\,2\,3 \equiv 3.
+\end{align*}
+\end{solution}
+
+\Qitem{ \Qq{Defina um termo-$\lambda$ $N$ tal que, para dois naturais $x$ e $y$, $N xy$ seja
+        igual ao menor dentre ambos. Use, nesta definição, os termos-$\lambda$ $Z$ e $P$. } }
+
+\begin{solution}
+Basta trocar a posição do resultado do \texttt{if-then-else} do termo anterior: se $x\leq y$, o menor é $x$; caso contrário, é $y$.
+\[
+    N \;\equiv\; \lambda xy.\,Z(yPx)\,x\,y.
+\]
+
+\textbf{Verificação:}
+\begin{align*}
+    N\,2\,3 &\equiv Z(3P2)\,2\,3 \equiv Z\,0\,2\,3 \equiv T\,2\,3 \equiv 2, \\
+    N\,3\,2 &\equiv Z(2P3)\,3\,2 \equiv Z\,1\,3\,2 \equiv F\,3\,2 \equiv 2.
+\end{align*}
+\end{solution}
+
+\section*{Parte B - Recursão}
+
+\Qitem{ \Qq{No cálculo lambda, a adição de dois números naturais $x$ e $y$ pode ser definida por meio
+        do termo-$\lambda$
+    \[
+        + \equiv \lambda xy.xSy,
+    \]
+    onde $Sn$ é o sucessor do natural $n$. Também é possível definir a adição nos naturais por
+    meio de recursão:
+    \[
+        \left\{ \begin{array}{ll} x + 1 = x'\\ x + y' = (x + y)'\end{array}\right.
+    \]
+    onde $n'$ é o sucessor do natural $n$.
+
+    Usando os termos-$\lambda$ sucessor $S$, antecessor $P$ e igualdade $E$, defina um termo 
+    $\Gamma$ tal que $Y\Gamma$ corresponda à esta definição recursiva de adição de naturais. } }
+
+\begin{solution}
+Seguindo a estrutura $\Gamma\equiv\lambda f x.(\text{predicado})(\text{caso base})(\text{chamada recursiva})$
+nos slides, a recursão é feita sobre $y$:
+\begin{itemize}
+    \item predicado do caso base: $y = 1$, isto é, $E\,y\,1$;
+    \item caso base: $x + 1 = x'$, isto é, $S\,x$;
+    \item chamada recursiva: $x + y = (x + (y-1))'$, isto é, $S\,(f\,x\,(P\,y))$.
+\end{itemize}
+\[
+    \Gamma \;\equiv\; \lambda fxy.\,(E\,y\,1)\,(S\,x)\,\bigl(S\,(f\,x\,(P\,y))\bigr).
+\]
+
+Considerando que o menor natural é $1$.
+
+\textbf{Verificação} ($2 + 2$):
+\begin{align*}
+    (Y\Gamma)\,2\,2 &\equiv \Gamma\,(Y\Gamma)\,2\,2
+        \equiv (E\,2\,1)\,(S\,2)\,\bigl(S\,((Y\Gamma)\,2\,(P\,2))\bigr)
+        \equiv F\,(S\,2)\,\bigl(S\,((Y\Gamma)\,2\,1)\bigr) \\
+    &\equiv S\,\bigl((Y\Gamma)\,2\,1\bigr)
+        \equiv S\,\bigl(\Gamma\,(Y\Gamma)\,2\,1\bigr)
+        \equiv S\,\bigl((E\,1\,1)\,(S\,2)\,(\ldots)\bigr)
+        \equiv S\,(T\,(S\,2)\,(\ldots)) \\
+    &\equiv S\,(S\,2) \equiv S\,3 \equiv 4.
+\end{align*}
+
+\end{solution}
+
+\Qitem{ \Qq{No cálculo lambda, a multiplicação de dois números naturais $x$ e $y$ pode ser definida por
+        meio do termo-$\lambda$
+    \[
+        \times \equiv \lambda xyz.x(yz)
+    \]
+    Também é possível definir a multiplicação nos naturais por meio de recursão:
+    \[
+        \left\{ \begin{array}{ll} x\times 1 = x\\ x\times y' = x\times y + x\end{array}\right.
+    \]
+    onde $n'$ é o sucessor do natural $n$.
+
+    Usando os termos-$\lambda$ sucessor $S$, antecessor $P$, igualdade $E$ e soma $+$, defina um 
+    termo $\Gamma$ tal que $Y\Gamma$ corresponda à esta definição recursiva de multiplicação de
+    naturais. } }
+
+\begin{solution}
+A recursão é feita sobre $y$:
+\begin{itemize}
+    \item predicado do caso base: $E\,y\,1$;
+    \item caso base: $x\times 1 = x$, isto é, $x$;
+    \item chamada recursiva: $x\times y = x\times(y-1) + x$, isto é, $+\,(f\,x\,(P\,y))\,x$.
+\end{itemize}
+\[
+    \Gamma \;\equiv\; \lambda fxy.\,(E\,y\,1)\,x\,\bigl(+\,(f\,x\,(P\,y))\,x\bigr).
+\]
+
+Considerando que o menor natural é $1$.
+
+\textbf{Verificação} ($3\times 2$):
+\begin{align*}
+    (Y\Gamma)\,3\,2 &\equiv \Gamma\,(Y\Gamma)\,3\,2
+        \equiv (E\,2\,1)\,3\,\bigl(+\,((Y\Gamma)\,3\,(P\,2))\,3\bigr)
+        \equiv +\,((Y\Gamma)\,3\,1)\,3 \\
+    &\equiv +\,\bigl((E\,1\,1)\,3\,(\ldots)\bigr)\,3
+        \equiv +\,3\,3 \equiv 6.
+\end{align*}
+
+\end{solution}
+
+\Qitem{ \Qq { Defina um termo-$\lambda$ $\Gamma$ tal que $(Y\Gamma)$ compute, recursivamente, o que
+        for solicitado nos itens a seguir. É permitido o uso de qualquer termo-$\lambda$ definido
+        nos slides das aulas sobre o cálculo lambda.
+
+        \medskip
+
+		\begin{solution}
+
+        \noindent\textbf{Observação geral:}
+		Em todos os itens, $\Gamma$ segue a estrutura dos slides:
+		\begin{align*}
+        	\Gamma\equiv\lambda f\,x.\,(\text{predicado})\,(\text{caso base})\,(\text{chamada recursiva})
+		\end{align*}
+		
+		Termos usados dos slides: $T$, $F$, $\lnot$, $Z$ (teste de zero), $P$ (antecessor), $S$ (sucessor),
+        $+$, $\times$ e $G$ ($Gxy = T$ se $x\geq y$).
+
+		\end{solution}
+
+    \begin{Qlist}
+        \item[(a)] Dado um natural $n$, $(Y\Gamma)n$ é verdadeiro, se $n$ é par, ou falso, se $n$ é ímpar.
+
+        \begin{solution}
+        $0$ é par, e $n>0$ é par se, e somente se, $n-1$ é ímpar:
+        \[
+            \Gamma \;\equiv\; \lambda fn.\,(Z\,n)\,T\,\bigl(\lnot\,(f\,(P\,n))\bigr).
+        \]
+        Exemplo: $(Y\Gamma)\,2 \equiv \lnot((Y\Gamma)\,1) \equiv \lnot(\lnot((Y\Gamma)\,0))
+        \equiv \lnot(\lnot T) \equiv T$.
+        \end{solution}
+
+        \item[(b)] Dados dois naturais $a$ e $b$, $(Y\Gamma)ab$ é o resto da divisão euclidiana de $a$ por $b$.
+
+        \begin{solution}
+        Se $a\geq b$, o resto de $a$ por $b$ é igual ao resto de $a-b$ por $b$; caso contrário, é o próprio $a$:
+        \[
+            \Gamma \;\equiv\; \lambda fab.\,(G\,a\,b)\,\bigl(f\,(bPa)\,b\bigr)\,a.
+        \]
+        Exemplo: $(Y\Gamma)\,7\,3 \equiv (Y\Gamma)\,4\,3 \equiv (Y\Gamma)\,1\,3 \equiv 1$, pois $G\,1\,3 = F$.
+
+        \end{solution}
+
+        \item[(c)] Dados dois naturais $a$ e $b$, $(Y\Gamma)ab$ é o quociente da divisão euclidiana de $a$ por $b$.
+
+        \begin{solution}
+        Se $a\geq b$, o quociente é um a mais que o quociente de $a-b$ por $b$; caso contrário, é $0$:
+        \[
+            \Gamma \;\equiv\; \lambda fab.\,(G\,a\,b)\,\bigl(S\,(f\,(bPa)\,b)\bigr)\,0.
+        \]
+        Exemplo: $(Y\Gamma)\,7\,3 \equiv S((Y\Gamma)\,4\,3) \equiv S(S((Y\Gamma)\,1\,3))
+        \equiv S(S\,0) \equiv 2$.
+
+        \end{solution}
+
+        \item[(d)] Dados dois naturais $a$ e $b$, $(Y\Gamma)ab$ é o maior divisor comum $(a, b$) entre $a$ e 
+            $b$. Dica: $(a, b) = (b, a - b)$ e $(a, 0) = a$.
+
+        \begin{solution}
+        Caso base: $(a,0) = a$. Como a subtração $bPa$ resulta em $0$ quando $a<b$, a relação $(a,b)=(b,a-b)$ só pode ser aplicada diretamente se $a\geq b$; quando $a<b$, basta inverter a ordem dos argumentos devido a simetria $(a,b)=(b,a)$:
+        \[
+            \Gamma \;\equiv\; \lambda fab.\,(Z\,b)\,a\,\Bigl((G\,a\,b)\,\bigl(f\,b\,(bPa)\bigr)\,(f\,b\,a)\Bigr).
+        \]
+        Exemplo: $(Y\Gamma)\,4\,6 \equiv (Y\Gamma)\,6\,4 \equiv (Y\Gamma)\,4\,2 \equiv (Y\Gamma)\,2\,2
+        \equiv (Y\Gamma)\,2\,0 \equiv 2$.
+        \end{solution}
+
+        \item[(e)] Dado um natural $n$, $(Y\Gamma)n = n!!$, onde 
+        \[
+            n!! = n(n - 2)(n - 4)\ldots .. 1
+        \]
+        e $1!! = 0!! = 1$.
+
+        \begin{solution}
+        Os casos base são $n=0$ e $n=1$, os quais satisfazem $Pn = 0$ (pois $P0=0$ e $P1=0$); para $n\geq 2$, temos $n!! = n\times(n-2)!!$:
+        \[
+            \Gamma \;\equiv\; \lambda fn.\,\bigl(Z\,(P\,n)\bigr)\,1\,\Bigl(\times\,n\,\bigl(f\,(P\,(P\,n))\bigr)\Bigr).
+        \]
+        Exemplo: $(Y\Gamma)\,5 \equiv \times\,5\,((Y\Gamma)\,3) \equiv \times\,5\,(\times\,3\,((Y\Gamma)\,1))
+        \equiv \times\,5\,(\times\,3\,1) \equiv 15$.
+        \end{solution}
+
+        \item[(f)] Dados dois naturais $a$ e $b$, $(Y\Gamma)ab$ é igual a $a^b$.
+
+        \begin{solution}
+        Caso base: $a^0 = 1$. Para $b>0$, $a^b = a\times a^{b-1}$:
+        \[
+            \Gamma \;\equiv\; \lambda fab.\,(Z\,b)\,1\,\bigl(\times\,a\,(f\,a\,(P\,b))\bigr).
+        \]
+        Exemplo: $(Y\Gamma)\,2\,3 \equiv \times\,2\,(\times\,2\,(\times\,2\,1)) \equiv 8$.
+        \end{solution}
+
+        \item[(g)] Dado um natural $n$, $(Y\Gamma)n$ é a soma dos primeiros $n$ números naturais.
+
+        \begin{solution}
+        A soma de zero termos é $0$, e $\sum_{i=1}^{n} i = n + \sum_{i=1}^{n-1} i$:
+        \[
+            \Gamma \;\equiv\; \lambda fn.\,(Z\,n)\,0\,\bigl(+\,n\,(f\,(P\,n))\bigr).
+        \]
+
+		Considerando que o menor natural é $1$.
+
+        Exemplo: $(Y\Gamma)\,3 \equiv +\,3\,(+\,2\,(+\,1\,0)) \equiv 6$.
+        \end{solution}
+
+        \pagebreak
+        \item[(h)] Dado um natural $n$, $(Y\Gamma)n$ é a soma dos quadrados dos primeiros $n$ números naturais.
+
+        \begin{solution}
+        Análogo ao item anterior, somando $n^2 = \times\,n\,n$:
+        \[
+            \Gamma \;\equiv\; \lambda fn.\,(Z\,n)\,0\,\bigl(+\,(\times\,n\,n)\,(f\,(P\,n))\bigr).
+        \]
+        Exemplo: $(Y\Gamma)\,3 \equiv +\,9\,(+\,4\,(+\,1\,0)) \equiv 14$.
+        \end{solution}
+
+        \item[(i)] Dados três naturais $a, r$ e $n$, $(Y\Gamma)arn$ é igual a soma dos primeiros $n$ termos
+            de uma progressão aritmética cujo primeiro termo é igual a $a$ e a razão é igual a $r$.
+
+        \begin{solution}
+        Os $n$ primeiros termos são $a, a+r, \ldots, a+(n-1)r$. A soma é $0$ se $n=0$; caso contrário, é o termo atual $a$ mais a soma dos $n-1$ primeiros termos da PA que se inicia em $a+r$ com a mesma razão:
+        \[
+            \Gamma \;\equiv\; \lambda farn.\,(Z\,n)\,0\,\bigl(+\,a\,(f\,(+\,a\,r)\,r\,(P\,n))\bigr).
+        \]
+        Exemplo ($a=1$, $r=2$, $n=3$): $(Y\Gamma)\,1\,2\,3 \equiv +\,1\,(+\,3\,(+\,5\,0)) \equiv 9$.
+        \end{solution}
+
+        \item[(j)] Dados três naturais $a, q$ e $n$, $(Y\Gamma)aqn$ é igual a soma dos primeiros $n$ termos
+            de uma progressão geométrica cujo primeiro termo é igual a $a$ e a razão é igual a $q$.
+
+        \begin{solution}
+        Os $n$ primeiros termos são $a, aq, \ldots, aq^{n-1}$. De forma análoga à PA, a soma é $0$ se $n=0$; caso contrário, é $a$ mais a soma dos $n-1$ termos restantes da PG que começa em $a\times q$:
+        \[
+            \Gamma \;\equiv\; \lambda faqn.\,(Z\,n)\,0\,\bigl(+\,a\,(f\,(\times\,a\,q)\,q\,(P\,n))\bigr).
+        \]
+        Exemplo ($a=1$, $q=2$, $n=3$): $(Y\Gamma)\,1\,2\,3 \equiv +\,1\,(+\,2\,(+\,4\,0)) \equiv 7$.
+        \end{solution}
+    \end{Qlist}
+} }
+
+\end{document}
+
