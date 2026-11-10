@@ -5,19 +5,15 @@
     \begin{itemize}
         \item APL não disponibiliza uma primitiva para a ordenação dos elementos de um
             \textit{array}
-        \pause
 
         \item Para ordenar um vetor é preciso recorrer as funções de ranqueamento
-        \pause
 
         \item A função monádica \code{apl}{⍋} (\textit{grade up}) ranqueia um vetor
             ascendentemente
-        \pause
 
         \item Ela retorna um vetor de índices, cujo $i$-ésimo elemento indica
             o índice do $i$-ésimo menor elemento do argumento
                 \inputsyntax{apl}{codes/gradeup.apl}
-        \pause
 
         \item A ordenação de um vetor pode ser obtida por meio da expressão \code{apl}{a[⍋a]}
                 \inputsyntax{apl}{codes/sortup.apl}
@@ -43,7 +39,6 @@
         \item A ordenação apresentada ordena os elementos de um \textit{array} segundo a ordem
             lexicográfica
                 \inputsyntax{apl}{codes/lexicographic.apl}
-        \pause
 
         \item A função diádica \code{apl}{⌷} (\textit{index}) permite, em conjunto com uma inclusão,
             ordenar um \textit{array} de forma arbitrária
@@ -63,7 +58,6 @@
     \begin{itemize}
         \item  A função monádica \code{apl}{⍒} (\textit{grade down}) retorna o ranqueamento descendente de seu argumento
                 \inputsyntax{apl}{codes/rankdown.apl}
-        \pause
 
         \item Strings são ordenadas de acordo com os valores dos caracteres na tabela Unicode
                 \inputsyntax{apl}{codes/sortStrings.apl}
@@ -83,7 +77,6 @@
         \item É possível obter o índice do menor ou do maior elemento de um \textit{array} usando 
             os \textit{atops} \code{apl}{⊃⍋} e \code{apl}{⊃⍒}, respectivamente
                 \inputsyntax{apl}{codes/minimax.apl}
-        \pause
 
         \item O duplo ranqueamento permite obter as posições que cada elemento do \textit{array}
             ocupará após a ordenação
@@ -96,16 +89,13 @@
 
     \begin{itemize}
         \item As funções de ranqueamento também tem formas diádicas
-        \pause
 
         \item O parâmetro à esquerda indicará o alfabeto \code{apl}{⍺} que será utilzado como
             critério de ordenação
-        \pause
 
         \item No exemplo a seguir os caracteres ímpares devem anteceder os caracteres pares na
             ordenação
                 \inputsyntax{apl}{codes/dyadicGrade.apl}
-        \pause
 
         \item Caracteres que não forem indicado no alfabeto serão considerados equivalentes, 
             ocupando a posição logo após o último caractere indicado
