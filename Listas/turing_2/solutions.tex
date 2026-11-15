@@ -1,0 +1,535 @@
+\input{packages}
+\input{setup}
+\input{commands}
+\mdfsetup{nobreak=true}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+\tikzset{
+    tmstate/.style={draw,circle,inner sep=1pt,minimum size=6.5mm,font=\footnotesize},
+    abnode/.style={draw,circle,inner sep=1pt,minimum size=7mm,font=\footnotesize}
+}
+
+\begin{document}
+
+\input{logo}
+
+\vspace{0.1in}
+
+\begin{center}
+    \textbf{\huge Paradigmas de Programação}
+
+    \vspace{0.1in}
+    \textbf{\Large Máquinas de Turing: Lista 2}
+\end{center}\vskip1em
+
+\renewcommand{\Qq}[1]{{#1}}
+
+\section*{Parte A - Definição de Máquinas de Turing}
+
+\begin{mdframed}
+\noindent\textbf{Convenções:}\par\medskip
+Nos fluxogramas, cada seta tem rótulo $s:a$, com $s\in\{0,1\}$ ($1$ = traço, $0$ = branco) e
+$a\in\{L,R,B,1\}$ (mover à esquerda, mover à direita, apagar ou escrever traço). A máquina
+inicia em $q_1$ e para quando não há transição para o par (estado, símbolo); estados de parada
+aparecem com círculo duplo.
+\end{mdframed}
+
+\Qitem{ \Qq{Considere uma fita contendo um bloco de $n$ traços, seguido por um espaço, seguido por
+        um bloco de $m$ traços, seguido por um espaço, seguido por um bloco de $k$ traços, sendo
+        que o resto da fita está em branco. Especifique uma máquina de Turing, por meio de um
+        fluxograma, que, quando iniciada no traço mais à esquerda, finalmente para, sem ter
+        escrito nem apagado nada...}
+
+    \vspace{0.1in}
+    \begin{Qlist}
+        \item[(a)] ...no traço mais à esquerda do segundo bloco.
+
+        \begin{solution}
+        $q_1$ percorre o 1º bloco e avança sobre o espaço até o primeiro traço do 2º bloco, parando
+        em $q_2$.
+
+        \begin{center}
+        \begin{tikzpicture}[>=Stealth,node distance=1cm,every node/.style={}]
+  \node[tmstate] (q1) at (0.00,0.00) {$q_{1}$};
+  \node[tmstate,double] (q2) at (2.40,0.00) {$q_{2}$};
+  \draw[->] (q1) edge[loop above] node[above] {\scriptsize $1:R$} (q1);
+  \draw[->] (q1) edge node[above,midway] {\scriptsize $0:R$} (q2);
+\end{tikzpicture}
+        \end{center}
+        \end{solution}
+
+        \item[(b)] ...no traço mais à esquerda do terceiro bloco.
+
+        \begin{solution}
+        $q_1$ e $q_2$ atravessam os dois primeiros blocos e seus espaços seguintes, parando em $q_3$
+        sobre o primeiro traço do 3º bloco.
+
+        \begin{center}
+        \begin{tikzpicture}[>=Stealth,node distance=1cm,every node/.style={}]
+  \node[tmstate] (q1) at (0.00,0.00) {$q_{1}$};
+  \node[tmstate] (q2) at (2.40,0.00) {$q_{2}$};
+  \node[tmstate,double] (q3) at (4.80,0.00) {$q_{3}$};
+  \draw[->] (q1) edge[loop above] node[above] {\scriptsize $1:R$} (q1);
+  \draw[->] (q1) edge node[above,midway] {\scriptsize $0:R$} (q2);
+  \draw[->] (q2) edge[loop above] node[above] {\scriptsize $1:R$} (q2);
+  \draw[->] (q2) edge node[above,midway] {\scriptsize $0:R$} (q3);
+\end{tikzpicture}
+        \end{center}
+        \end{solution}
+
+        \item[(c)] ...no traço mais à direita do segundo bloco.
+
+        \begin{solution}
+        $q_1$ e $q_2$ percorrem os dois primeiros blocos; ao ler o espaço após o 2º bloco, $q_2$
+        recua um passo para o último traço desse bloco ($q_3$).
+
+        \begin{center}
+        \begin{tikzpicture}[>=Stealth,node distance=1cm,every node/.style={}]
+  \node[tmstate] (q1) at (0.00,0.00) {$q_{1}$};
+  \node[tmstate] (q2) at (2.40,0.00) {$q_{2}$};
+  \node[tmstate,double] (q3) at (4.80,0.00) {$q_{3}$};
+  \draw[->] (q1) edge[loop above] node[above] {\scriptsize $1:R$} (q1);
+  \draw[->] (q1) edge node[above,midway] {\scriptsize $0:R$} (q2);
+  \draw[->] (q2) edge[loop above] node[above] {\scriptsize $1:R$} (q2);
+  \draw[->] (q2) edge node[above,midway] {\scriptsize $0:L$} (q3);
+\end{tikzpicture}
+        \end{center}
+        \end{solution}
+
+        \item[(d)] ...no traço mais à direita do terceiro bloco.
+
+        \begin{solution}
+        $q_1$, $q_2$ e $q_3$ percorrem os três blocos; ao ler o branco após o 3º bloco, $q_3$ recua
+        um passo para o último traço desse bloco ($q_4$).
+
+        \begin{center}
+        \begin{tikzpicture}[>=Stealth,node distance=1cm,every node/.style={}]
+  \node[tmstate] (q1) at (0.00,0.00) {$q_{1}$};
+  \node[tmstate] (q2) at (2.40,0.00) {$q_{2}$};
+  \node[tmstate] (q3) at (4.80,0.00) {$q_{3}$};
+  \node[tmstate,double] (q4) at (7.20,0.00) {$q_{4}$};
+  \draw[->] (q1) edge[loop above] node[above] {\scriptsize $1:R$} (q1);
+  \draw[->] (q1) edge node[above,midway] {\scriptsize $0:R$} (q2);
+  \draw[->] (q2) edge[loop above] node[above] {\scriptsize $1:R$} (q2);
+  \draw[->] (q2) edge node[above,midway] {\scriptsize $0:R$} (q3);
+  \draw[->] (q3) edge[loop above] node[above] {\scriptsize $1:R$} (q3);
+  \draw[->] (q3) edge node[above,midway] {\scriptsize $0:L$} (q4);
+\end{tikzpicture}
+        \end{center}
+        \end{solution}
+    \end{Qlist}
+}
+
+\Qitem{ \Qq{Especifique, por meio de um fluxograma, uma máquina de Turing que, iniciando com a fita
+        descrita na questão anterior, finalmente para no traço mais à esquerda da fita, a qual
+        deve agora conter...}
+
+    \vspace{0.1in}
+    \begin{Qlist}
+        \item[(a)] um bloco de $n$ traços, seguido por um espaço em branco, seguido por um
+            bloco de $m + 1$ traços, seguido por um espaço em branco, seguido por um bloco de $k$
+            traços.
+
+        \begin{solution}
+        Desloca-se o 1º bloco uma posição para a esquerda (escrevendo um traço antes do início e
+        apagando seu último traço) e preenche-se o espaço original entre os blocos, acrescentando
+        um traço ao 2º bloco. Ao fim, a cabeça volta ao traço mais à esquerda ($q_8$).
+
+        \begin{center}
+        \begin{tikzpicture}[>=Stealth,node distance=1cm,every node/.style={}]
+  \node[tmstate] (q1) at (0.00,0.00) {$q_{1}$};
+  \node[tmstate] (q2) at (2.40,0.00) {$q_{2}$};
+  \node[tmstate] (q3) at (4.80,0.00) {$q_{3}$};
+  \node[tmstate] (q4) at (7.20,0.00) {$q_{4}$};
+  \node[tmstate] (q5) at (7.20,-2.00) {$q_{5}$};
+  \node[tmstate] (q6) at (4.80,-2.00) {$q_{6}$};
+  \node[tmstate] (q7) at (2.40,-2.00) {$q_{7}$};
+  \node[tmstate,double] (q8) at (0.00,-2.00) {$q_{8}$};
+  \draw[->] (q1) edge node[above,midway] {\scriptsize $1:L$} (q2);
+  \draw[->] (q2) edge node[above,midway] {\scriptsize $0:1$} (q3);
+  \draw[->] (q3) edge[loop above] node[above] {\scriptsize $1:R$} (q3);
+  \draw[->] (q3) edge node[above,midway] {\scriptsize $0:1$} (q4);
+  \draw[->] (q4) edge node[right,midway] {\scriptsize $1:L$} (q5);
+  \draw[->] (q5) edge node[above,midway] {\scriptsize $1:B$} (q6);
+  \draw[->] (q6) edge node[above,midway] {\scriptsize $0:L$} (q7);
+  \draw[->] (q7) edge[loop below] node[below] {\scriptsize $1:L$} (q7);
+  \draw[->] (q7) edge node[above,midway] {\scriptsize $0:R$} (q8);
+\end{tikzpicture}
+        \end{center}
+        \end{solution}
+
+        \item[(b)] um bloco de $n$ traços, seguido por um espaço em branco, seguido por um
+            bloco de $m - 1$ traços, seguido por um espaço em branco, seguido por um bloco de $k$
+            traços.
+
+        \begin{solution}
+        Apaga-se o primeiro traço do 1º bloco, preenche-se o espaço original e apaga-se o primeiro
+        traço do 2º bloco, deslocando o 1º bloco uma posição para a direita sem deixar espaço extra. Ao fim, volta-se ao traço mais à esquerda ($q_8$).
+
+        \begin{center}
+        \begin{tikzpicture}[>=Stealth,node distance=1cm,every node/.style={}]
+  \node[tmstate] (q1) at (0.00,0.00) {$q_{1}$};
+  \node[tmstate] (q2) at (2.40,0.00) {$q_{2}$};
+  \node[tmstate] (q3) at (4.80,0.00) {$q_{3}$};
+  \node[tmstate] (q4) at (7.20,0.00) {$q_{4}$};
+  \node[tmstate] (q5) at (7.20,-2.00) {$q_{5}$};
+  \node[tmstate] (q6) at (4.80,-2.00) {$q_{6}$};
+  \node[tmstate] (q7) at (2.40,-2.00) {$q_{7}$};
+  \node[tmstate,double] (q8) at (0.00,-2.00) {$q_{8}$};
+  \draw[->] (q1) edge node[above,midway] {\scriptsize $1:B$} (q2);
+  \draw[->] (q2) edge node[above,midway] {\scriptsize $0:R$} (q3);
+  \draw[->] (q3) edge[loop above] node[above] {\scriptsize $1:R$} (q3);
+  \draw[->] (q3) edge node[above,midway] {\scriptsize $0:1$} (q4);
+  \draw[->] (q4) edge node[right,midway] {\scriptsize $1:R$} (q5);
+  \draw[->] (q5) edge node[above,midway] {\scriptsize $1:B$} (q6);
+  \draw[->] (q6) edge node[above,midway] {\scriptsize $0:L$} (q7);
+  \draw[->] (q7) edge[loop below] node[below] {\scriptsize $1:L$} (q7);
+  \draw[->] (q7) edge node[above,midway] {\scriptsize $0:R$} (q8);
+\end{tikzpicture}
+        \end{center}
+        \end{solution}
+    \end{Qlist}
+}
+
+\Qitem{ \Qq{Especifique, por meio de um fluxograma, uma máquina de Turing que compute a função}
+
+    \begin{solution}
+    Pela convenção padrão, a fita inicia com blocos de $x$ e $y$ traços ($x,y\geq 1$) separados
+    por um espaço, com a cabeça no traço mais à esquerda, e deve parar no traço mais à esquerda
+    do bloco resultado (com o resto em branco).
+
+    Ambas as máquinas contém o mesmo laço de emparelhamento ($q_1$ a $q_{11}$): a cada rodada,
+    move-se um traço do 1º bloco para um acumulador $R$ à esquerda e apaga-se um traço do 2º
+    bloco. Após $r=\min(x,y)$ rodadas, a fita fica na forma
+    \[
+        \underbrace{1\cdots 1}_{R:\ r}\ \ 0_b\ \ \underbrace{1\cdots 1}_{X':\ x-r}\ \ 0\ \ 
+        \underbrace{1\cdots 1}_{Y':\ y-r},
+    \]
+    em que $X'$ (se $x\leq y$) ou $Y'$ (se $y<x$) está vazio.
+    \end{solution}
+
+    \vspace{0.1in}
+    \begin{Qlist}
+        \item[(a)] $\min(x, y) = $ o menor de $x$ e $y$.
+
+        \begin{solution}
+        Ao esgotar $X'$ ($q_1\to q_{12}$) ou $Y'$ ($q_3\to q_{16}$), apaga-se o bloco restante
+        ($q_{12}$--$q_{13}$ ou $q_{16}$--$q_{18}$) e retorna-se ao traço mais à esquerda de $R$
+        ($q_{15}\to q_{19}$), que contém $\min(x,y)$ traços.
+
+        \begin{center}
+        \resizebox{\linewidth}{!}{\begin{tikzpicture}[>=Stealth,node distance=1cm,every node/.style={}]
+  \node[tmstate] (q1) at (0.00,0.00) {$q_{1}$};
+  \node[tmstate] (q2) at (2.20,0.00) {$q_{2}$};
+  \node[tmstate] (q3) at (4.40,0.00) {$q_{3}$};
+  \node[tmstate] (q4) at (6.60,0.00) {$q_{4}$};
+  \node[tmstate] (q5) at (8.80,0.00) {$q_{5}$};
+  \node[tmstate] (q6) at (8.80,-2.00) {$q_{6}$};
+  \node[tmstate] (q7) at (6.60,-2.00) {$q_{7}$};
+  \node[tmstate] (q8) at (4.40,-2.00) {$q_{8}$};
+  \node[tmstate] (q9) at (2.20,-2.00) {$q_{9}$};
+  \node[tmstate] (q10) at (0.00,-2.00) {$q_{10}$};
+  \node[tmstate] (q11) at (-2.20,-1.00) {$q_{11}$};
+  \node[tmstate] (q12) at (0.00,2.00) {$q_{12}$};
+  \node[tmstate] (q13) at (-2.20,2.00) {$q_{13}$};
+  \node[tmstate] (q14) at (0.00,4.00) {$q_{14}$};
+  \node[tmstate] (q15) at (3.30,4.00) {$q_{15}$};
+  \node[tmstate,double] (q19) at (3.30,6.00) {$q_{19}$};
+  \node[tmstate] (q16) at (4.40,2.00) {$q_{16}$};
+  \node[tmstate] (q17) at (6.60,2.00) {$q_{17}$};
+  \node[tmstate] (q18) at (8.80,2.00) {$q_{18}$};
+  \draw[->] (q1) edge node[above,midway] {\scriptsize $1:R$} (q2);
+  \draw[->] (q1) edge node[right,midway] {\scriptsize $0:R$} (q12);
+  \draw[->] (q2) edge[loop above] node[above] {\scriptsize $1:R$} (q2);
+  \draw[->] (q2) edge node[above,midway] {\scriptsize $0:R$} (q3);
+  \draw[->] (q3) edge node[above,midway] {\scriptsize $1:R$} (q4);
+  \draw[->] (q3) edge node[right,midway] {\scriptsize $0:L$} (q16);
+  \draw[->] (q4) edge[loop above] node[above] {\scriptsize $1:R$} (q4);
+  \draw[->] (q4) edge node[above,midway] {\scriptsize $0:L$} (q5);
+  \draw[->] (q5) edge node[right,midway] {\scriptsize $1:B$} (q6);
+  \draw[->] (q6) edge node[above,midway] {\scriptsize $0:L$} (q7);
+  \draw[->] (q7) edge[loop below] node[below] {\scriptsize $1:L$} (q7);
+  \draw[->] (q7) edge node[above,midway] {\scriptsize $0:L$} (q8);
+  \draw[->] (q8) edge[loop below] node[below] {\scriptsize $1:L$} (q8);
+  \draw[->] (q8) edge node[above,midway] {\scriptsize $0:1$} (q9);
+  \draw[->] (q9) edge node[above,midway] {\scriptsize $1:R$} (q10);
+  \draw[->] (q10) edge node[above,sloped,midway] {\scriptsize $1:B$} (q11);
+  \draw[->] (q11) edge node[above,sloped,midway] {\scriptsize $0:R$} (q1);
+  \draw[->] (q12) edge[bend left] node[below] {\scriptsize $1:B$} (q13);
+  \draw[->] (q12) edge node[right,midway] {\scriptsize $0:L$} (q14);
+  \draw[->] (q13) edge[bend left] node[above] {\scriptsize $0:R$} (q12);
+  \draw[->] (q14) edge[loop above] node[above] {\scriptsize $0:L$} (q14);
+  \draw[->] (q14) edge node[above,midway] {\scriptsize $1:L$} (q15);
+  \draw[->] (q15) edge[loop below] node[below] {\scriptsize $1:L$} (q15);
+  \draw[->] (q15) edge node[right,midway] {\scriptsize $0:R$} (q19);
+  \draw[->] (q16) edge node[above,midway] {\scriptsize $0:L$} (q17);
+  \draw[->] (q17) edge[bend left] node[above] {\scriptsize $1:B$} (q18);
+  \draw[->] (q17) edge node[above,sloped,midway] {\scriptsize $0:L$} (q15);
+  \draw[->] (q18) edge[bend left] node[below] {\scriptsize $0:L$} (q17);
+\end{tikzpicture}}
+        \end{center}
+        \end{solution}
+
+        \item[(b)] $\max(x, y) = $ o maior de $x$ e $y$.
+
+        \begin{solution}
+        Ao esgotar $X'$ ou $Y'$, preenchem-se o espaço separador e $0_b$ ($q_{12},q_{13}$), unindo
+        $R$ ao excesso restante em um bloco de $\max(x,y)+2$ traços. Por fim, volta-se ao início
+        desse bloco e apagam-se seus dois primeiros traços ($q_{14}$--$q_{19}$).
+
+        \begin{center}
+        \resizebox{\linewidth}{!}{\begin{tikzpicture}[>=Stealth,node distance=1cm,every node/.style={}]
+  \node[tmstate] (q1) at (0.00,0.00) {$q_{1}$};
+  \node[tmstate] (q2) at (2.20,0.00) {$q_{2}$};
+  \node[tmstate] (q3) at (4.40,0.00) {$q_{3}$};
+  \node[tmstate] (q4) at (6.60,0.00) {$q_{4}$};
+  \node[tmstate] (q5) at (8.80,0.00) {$q_{5}$};
+  \node[tmstate] (q6) at (8.80,-2.00) {$q_{6}$};
+  \node[tmstate] (q7) at (6.60,-2.00) {$q_{7}$};
+  \node[tmstate] (q8) at (4.40,-2.00) {$q_{8}$};
+  \node[tmstate] (q9) at (2.20,-2.00) {$q_{9}$};
+  \node[tmstate] (q10) at (0.00,-2.00) {$q_{10}$};
+  \node[tmstate] (q11) at (-2.20,-1.00) {$q_{11}$};
+  \node[tmstate] (q12) at (0.00,2.00) {$q_{12}$};
+  \node[tmstate] (q13) at (4.40,2.00) {$q_{13}$};
+  \node[tmstate] (q14) at (0.00,4.00) {$q_{14}$};
+  \node[tmstate] (q15) at (2.20,4.00) {$q_{15}$};
+  \node[tmstate] (q16) at (4.40,4.00) {$q_{16}$};
+  \node[tmstate] (q17) at (6.60,4.00) {$q_{17}$};
+  \node[tmstate] (q18) at (8.80,4.00) {$q_{18}$};
+  \node[tmstate,double] (q19) at (11.00,4.00) {$q_{19}$};
+  \draw[->] (q1) edge node[above,midway] {\scriptsize $1:R$} (q2);
+  \draw[->] (q1) edge node[right,midway] {\scriptsize $0:1$} (q12);
+  \draw[->] (q2) edge[loop above] node[above] {\scriptsize $1:R$} (q2);
+  \draw[->] (q2) edge node[above,midway] {\scriptsize $0:R$} (q3);
+  \draw[->] (q3) edge node[above,midway] {\scriptsize $1:R$} (q4);
+  \draw[->] (q3) edge node[right,midway] {\scriptsize $0:L$} (q13);
+  \draw[->] (q4) edge[loop above] node[above] {\scriptsize $1:R$} (q4);
+  \draw[->] (q4) edge node[above,midway] {\scriptsize $0:L$} (q5);
+  \draw[->] (q5) edge node[right,midway] {\scriptsize $1:B$} (q6);
+  \draw[->] (q6) edge node[above,midway] {\scriptsize $0:L$} (q7);
+  \draw[->] (q7) edge[loop below] node[below] {\scriptsize $1:L$} (q7);
+  \draw[->] (q7) edge node[above,midway] {\scriptsize $0:L$} (q8);
+  \draw[->] (q8) edge[loop below] node[below] {\scriptsize $1:L$} (q8);
+  \draw[->] (q8) edge node[above,midway] {\scriptsize $0:1$} (q9);
+  \draw[->] (q9) edge node[above,midway] {\scriptsize $1:R$} (q10);
+  \draw[->] (q10) edge node[above,sloped,midway] {\scriptsize $1:B$} (q11);
+  \draw[->] (q11) edge node[above,sloped,midway] {\scriptsize $0:R$} (q1);
+  \draw[->] (q12) edge[loop left] node[left] {\scriptsize $1:L$} (q12);
+  \draw[->] (q12) edge node[right,midway] {\scriptsize $0:1$} (q14);
+  \draw[->] (q13) edge node[above,midway] {\scriptsize $0:1$} (q12);
+  \draw[->] (q14) edge[loop left] node[left] {\scriptsize $1:L$} (q14);
+  \draw[->] (q14) edge node[above,midway] {\scriptsize $0:R$} (q15);
+  \draw[->] (q15) edge node[above,midway] {\scriptsize $1:B$} (q16);
+  \draw[->] (q16) edge node[above,midway] {\scriptsize $0:R$} (q17);
+  \draw[->] (q17) edge node[above,midway] {\scriptsize $1:B$} (q18);
+  \draw[->] (q18) edge node[above,midway] {\scriptsize $0:R$} (q19);
+\end{tikzpicture}}
+        \end{center}
+        \end{solution}
+    \end{Qlist}
+}
+
+\section*{Parte B - Computabilidade}
+
+\Qitem{ \Qq{Identifique o número inteiro associado a máquina de Turing $M_i$. Em seguida, 
+        desenhe o fluxograma desta máquina e explique o seu comportamento.}
+
+    \begin{solution}
+    Uma máquina com $n$ estados ativos ($q_1,\ldots,q_n$) e parada em $q_{n+1}$ é codificada por
+    $2^{a_1}3^{a_2}\cdots p_{4n}^{a_{4n}}$, onde $(a_{2k-1},a_{2k})$ dá (instrução, próximo estado)
+    para $q_1S_0, q_1S_1, q_2S_0, q_2S_1,\ldots$, com $S_0,S_1,L,R \mapsto 1,2,3,4$.
+    \begin{center}
+    \resizebox{\linewidth}{!}{%
+    \begin{tabular}{c|ccccccc}
+    $i$ & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \midrule
+    $(a_1,a_2,a_3,a_4)$ & $(1,1,1,1)$ & $(2,1,1,1)$ & $(1,2,1,1)$ & $(3,1,1,1)$ &
+        $(1,1,2,1)$ & $(2,2,1,1)$ & $(1,1,1,2)$ \\
+    número & $210$ & $420$ & $630$ & $840$ & $1050$ & $1260$ & $1470$
+    \end{tabular}}
+    \end{center}
+    \end{solution}
+
+    \vspace{0.1in}
+    \begin{Qlist}
+        \item[(a)] $i = 4$
+
+        \begin{solution}
+        $840 = 2^3\cdot 3\cdot 5\cdot 7$, isto é, $(a_1,a_2,a_3,a_4)=(3,1,1,1)$:
+        $q_1S_0Lq_1$ e $q_1S_1S_0q_1$.
+        \begin{center}
+        \begin{tikzpicture}[>=Stealth,node distance=1cm,every node/.style={}]
+  \node[tmstate] (q1) at (0.00,0.00) {$q_{1}$};
+  \draw[->] (q1) edge[loop above] node[above] {\scriptsize $0:L,\ 1:B$} (q1);
+\end{tikzpicture}
+        \end{center}
+        Apaga o traço inicial e move-se indefinidamente para a esquerda sobre brancos; nunca para.
+        \end{solution}
+
+        \item[(b)] $i = 5$
+
+        \begin{solution}
+        $1050 = 2\cdot 3\cdot 5^2\cdot 7$, isto é, $(a_1,a_2,a_3,a_4)=(1,1,2,1)$:
+        $q_1S_0S_0q_1$ e $q_1S_1S_1q_1$.
+        \begin{center}
+        \begin{tikzpicture}[>=Stealth,node distance=1cm,every node/.style={}]
+  \node[tmstate] (q1) at (0.00,0.00) {$q_{1}$};
+  \draw[->] (q1) edge[loop above] node[above] {\scriptsize $0:B,\ 1:1$} (q1);
+\end{tikzpicture}
+        \end{center}
+        Reescreve o símbolo examinado sem mover a cabeça nem mudar de estado; nunca para.
+        \end{solution}
+
+        \item[(c)] $i = 6$
+
+        \begin{solution}
+        $1260 = 2^2\cdot 3^2\cdot 5\cdot 7$, isto é, $(a_1,a_2,a_3,a_4)=(2,2,1,1)$:
+        $q_1S_0S_1q_2$ e $q_1S_1S_0q_1$.
+        \begin{center}
+        \begin{tikzpicture}[>=Stealth,node distance=1cm,every node/.style={}]
+  \node[tmstate] (q1) at (0.00,0.00) {$q_{1}$};
+  \node[tmstate,double] (q2) at (2.80,0.00) {$q_{2}$};
+  \draw[->] (q1) edge node[above,midway] {\scriptsize $0:1$} (q2);
+  \draw[->] (q1) edge[loop above] node[above] {\scriptsize $1:B$} (q1);
+\end{tikzpicture}
+        \end{center}
+        Apaga o traço inicial e o reescreve em seguida, parando em $q_2$ na configuração final
+        padrão; computa a identidade.
+        \end{solution}
+    \end{Qlist}
+}
+
+\Qitem{ \Qq{Compute a função diagonal $d(n)$ para $n = 7$. Para isto, identifique e desenhe o
+        fluxograma correspondente à máquina de Turing $M_7$.}
+
+    \begin{solution}
+    $M_7$ tem número $1470 = 2\cdot 3\cdot 5\cdot 7^2$, com
+    $(a_1,a_2,a_3,a_4)=(1,1,1,2)$: $q_1S_0S_0q_1$ e $q_1S_1S_0q_2$.
+    \begin{center}
+    \begin{tikzpicture}[>=Stealth,node distance=1cm,every node/.style={}]
+  \node[tmstate] (q1) at (0.00,0.00) {$q_{1}$};
+  \node[tmstate,double] (q2) at (2.80,0.00) {$q_{2}$};
+  \draw[->] (q1) edge[loop above] node[above] {\scriptsize $0:B$} (q1);
+  \draw[->] (q1) edge node[above,midway] {\scriptsize $1:B$} (q2);
+\end{tikzpicture}
+    \end{center}
+    Para o argumento $7$ a fita inicial é $1\,1\,1\,1\,1\,1\,1$, com o cabeçote sobre o primeiro
+    símbolo em $q_1$. A única transição aplicável, $q_1 1 \longrightarrow q_2 0$ (lê $1$, escreve o
+    branco $0$ e passa a $q_2$), produz
+    \[
+      1_1\,1\,1\,1\,1\,1\,1 \;\longrightarrow\; 0_2\,1\,1\,1\,1\,1\,1,
+    \]
+    Em $q_2$ não há transição para branco, então a máquina para sobre um branco, fora da configuração
+    final padrão. Logo, $f_7(7)$ é indefinida e $d(7) = 1$.
+    \end{solution}
+}
+
+\section*{Parte C - Ábacos}
+
+\begin{mdframed}
+\noindent\textbf{Convenções:}\par\medskip
+Os argumentos iniciam nos registradores $R_1$ e $R_2$, o resultado fica em $R_0$ e os
+demais registradores começam em $0$. Um nó $r+$ incrementa $R_r$; um nó $r-$ decrementa
+$R_r$ se $[r]\neq 0$, ou segue a seta $e$ se $[r]=0$.
+\end{mdframed}
+
+\Qitem{ \Qq{Especifique um ábaco para computar a função diferença `$-$' definida como segue:
+        $-(x, y) = x - y$, se $y < x$, e $-(x, y) = 0$, caso contrário.}
+
+    \begin{solution}
+    \begin{center}
+    \begin{tikzpicture}[>=Stealth]
+        \coordinate (A) at (0, 1.4);
+        \node[abnode,
+            % label={[font=\tiny]135:{(1)}}
+        ] (n1) at (0, 0) {$1-$};
+        \node[abnode,
+            % label={[font=\tiny]135:{(2)}}
+        ] (n2) at (0, -2.2) {$0+$};
+        \node[abnode,
+            % label={[font=\tiny]135:{(3)}}
+        ] (n3) at (3, 0) {$2-$};
+        \node[abnode,
+            % label={[font=\tiny]135:{(4)}}
+        ] (n4) at (3, -2.2) {$0-$};
+
+        \draw[->] (A) -- (n1);
+        \draw[->] (n1) edge[bend right=25] (n2);
+        \draw[->] (n2) edge[bend right=25] (n1);
+        \draw[->] (n1) -- node[above] {\scriptsize $e$} (n3);
+        \draw[->] (n3) edge[bend right=25] (n4);
+        \draw[->] (n4) edge[bend right=25] (n3);
+        \draw[->] (n3) -- node[above] {\scriptsize $e$} ++(2.2, 0) node[right] {\scriptsize pare};
+        \draw[->] (n4) -- node[above] {\scriptsize $e$} ++(2.2, 0) node[right] {\scriptsize pare};
+    \end{tikzpicture}
+    \end{center}
+    % O laço $(1)$--$(2)$ copia $x$ para $R_0$, e $(3)$--$(4)$ decrementa $R_2$ e $R_0$ em paralelo:
+    % se $R_2$ zera primeiro, $(3)$ para com $[0]=x-y$; se $R_0$ zera primeiro ($y\geq x$), $(4)$ para
+    % com $[0]=0$.
+    \end{solution}
+}
+
+\Qitem{ \Qq{A função sinal $\mathrm{sn}$ é definida por $\mathrm{sn}(x) = 1$ se $x > 0$, e $= 0$ 
+        caso contrário. Apresente uma prova direta de que $\mathrm{sn}$ é computável por ábaco, 
+        especificando um ábaco que a compute. }
+
+    \begin{solution}
+    \begin{center}
+    \begin{tikzpicture}[>=Stealth]
+        \coordinate (A) at (0, 1.4);
+        \node[abnode,
+            % label={[font=\tiny]135:{(1)}}
+        ] (n1) at (0, 0) {$1-$};
+        \node[abnode,
+            % label={[font=\tiny]135:{(2)}}
+        ] (n2) at (0, -2.2) {$0+$};
+
+        \draw[->] (A) -- (n1);
+        \draw[->] (n1) -- (n2);
+        \draw[->] (n1) -- node[above] {\scriptsize $e$} ++(2.2, 0) node[right] {\scriptsize pare};
+        \draw[->] (n2) -- ++(0, -1.3) node[below] {\scriptsize pare};
+    \end{tikzpicture}
+    \end{center}
+    % Se $x=0$, $[1]=0$ e $(1)$ segue pela seta $e$, parando com $[0]=0=\mathrm{sn}(0)$. Se $x>0$,
+    % $(1)$ decrementa $R_1$ e $(2)$ incrementa $R_0$, parando com $[0]=1=\mathrm{sn}(x)$.
+    \end{solution}
+}
+
+\Qitem{ \Qq{Mostre, especificando um ábaco apropriado, que a função $f$ definida por $f(x, y) = 1$,
+        se $x < y$, e $f(x, y) = 0$, caso contrário, é computável por ábaco. }
+
+    \begin{solution}
+    \begin{center}
+    \begin{tikzpicture}[>=Stealth]
+        \coordinate (A) at (0, 1.4);
+        \node[abnode,
+            % label={[font=\tiny]135:{(1)}}
+        ] (n1) at (0, 0) {$1-$};
+        \node[abnode,
+            % label={[font=\tiny]135:{(2)}}
+        ] (n2) at (0, -2.2) {$2-$};
+        \node[abnode,
+            % label={[font=\tiny]135:{(3)}}
+        ] (n4) at (3, 0) {$2-$};
+        \node[abnode,
+            % label={[font=\tiny]135:{(4)}}
+        ] (n5) at (3, -2.2) {$0+$};
+
+        \draw[->] (A) -- (n1);
+        \draw[->] (n1) edge[bend right=25] (n2);
+        \draw[->] (n2) edge[bend right=25] (n1);
+        \draw[->] (n1) -- node[above] {\scriptsize $e$} (n4);
+        \draw[->] (n2) -- node[above] {\scriptsize $e$} ++(-2.2, 0) node[left] {\scriptsize pare};
+        \draw[->] (n4) -- (n5);
+        \draw[->] (n4) -- node[above] {\scriptsize $e$} ++(2.2, 0) node[right] {\scriptsize pare};
+        \draw[->] (n5) -- ++(0, -1.3) node[below] {\scriptsize pare};
+    \end{tikzpicture}
+    \end{center}
+    % O laço $(1)$--$(2)$ decrementa $R_1$ e $R_2$ em paralelo: se $R_2$ zera primeiro ($x>y$), $(2)$
+    % para com $[0]=0$; se $R_1$ zera primeiro, $(3)$ verifica se $[2]=y-x>0$, incrementando $R_0$ em
+    % $(4)$ quando $x<y$ e parando com $[0]=0$ quando $x=y$.
+    \end{solution}
+}
+
+\end{document}
