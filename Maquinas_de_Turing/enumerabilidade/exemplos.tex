@@ -173,7 +173,7 @@
         \]
         onde os números $p_i$ são primos e os expoentes $\alpha_i$ são inteiros não-negativos.
         A função $f(s)$ recebe uma sequência finita de inteiros positivos 
-        $s = \lbrace s_1, s_2, \ldots, s_N\rbrace$ e retorna o natural
+        $s = (s_1, s_2, \ldots, s_N)$ e retorna o natural
         \[
             f(s) = 2^{s_1}3^{s_2}5^{s_3}\ldots p_N^{s_N},
         \]
@@ -187,20 +187,20 @@
 \begin{frame}[fragile]{Exemplos da enumeração de $\mathcal{S}$}
 
     \begin{enumerate}
-        \item A sequência de três termos $s = \lbrace 1, 2, 3\rbrace$ é codificada pelo número
+        \item A sequência de três termos $s = (1, 2, 3)$ é codificada pelo número
         $2250$ pela função $f$, pois
         \[
             f(s) = 2^13^25^3 = 2250
         \]
 
-        \item A sequência $s$ tal que $f(s) = 30$ é $s = \lbrace 1, 1, 1\rbrace$, pois
+    \item A sequência $s$ tal que $f(s) = 30$ é $s = (1, 1, 1)$, pois
         \[
             30 = 2^13^15^1
         \]
 
         \item As cinco primeiras sequências da enumeração são
         \[
-            e, \lbrace 1\rbrace, \lbrace 2\rbrace, \lbrace 1, 1\rbrace, \lbrace 3\rbrace
+            e, (1), (2), (1, 1), (3)
         \]
 
         \item Veja, na listagem acima, que a função $G(n) = f^{-1}(n)$ não está definida para
@@ -219,13 +219,13 @@
     \begin{block}{Demonstração}
         Como $\mathcal{A}$ é enumerável, seus elementos podem ser dispostos em ordem:
         \[
-            \mathcal{A} = \lbrace a_1, a_2, a_3, \ldots\rbrace
+            \mathcal{A} = (a_1, a_2, a_3, \ldots)
         \]
 
-        Assim, qualquer cadeia finita $c = \lbrace a_{i_1}a_{i_2}\ldots a_{i_N}\rbrace\in\mathcal{C}$ 
+        Assim, qualquer cadeia finita $c = a_{i_1}a_{i_2}\ldots a_{i_N}\in\mathcal{C}$ 
         corresponde uma sequência finita de inteiros positivos
         \[
-            s = \lbrace i_1, i_2, \ldots, i_N\rbrace
+            s = (i_1, i_2, \ldots, i_N)
         \]
         Como $\mathcal{S}$ é enumerável, $\mathcal{C}$ também é enumerável.
     \end{block}
