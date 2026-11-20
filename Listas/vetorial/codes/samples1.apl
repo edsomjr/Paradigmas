@@ -4,6 +4,6 @@
     +c              ⍝ Conjugado complexo
 0J¯1
     ×c              ⍝ Vetor unitário na direção de c
-OJ1
+0J1
     f c             ⍝ Diferença entre ambos
-OJ¯2
+0J¯2

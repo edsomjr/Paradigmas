@@ -1,0 +1,256 @@
+\input{packages}
+\input{setup}
+\input{commands}
+
+\begin{document}
+
+\input{logo}
+
+\vspace{0.1in}
+
+\begin{center}
+    \textbf{\huge Paradigmas de Programação}
+
+    \vspace{0.1in}
+    \textbf{\Large Máquinas de Turing: Lista 1}
+\end{center}\vskip1em
+
+\renewcommand{\Qq}[1]{{#1}}
+
+\section*{Parte A - Enumerabilidade}
+
+\Qitem{ \Qq{Defina uma função $f: \mathbb{N}\to A$, total ou parcial, que enumere os elementos do
+        conjunto $A$ definido abaixo.}
+
+    \vspace{0.1in}
+    \begin{Qlist}
+    \item[(a)] O conjunto dos múltiplos positivos de três, isto é,
+            \[
+                A = \{ 0, 3, 6, 9, \ldots \}
+            \]
+
+    \begin{solution}
+    $
+        f(n) = 3(n-1)
+    $
+    \end{solution}
+
+    \item[(b)] O conjunto dos números primos, isto é,
+            \[
+                A = \{ 2, 3, 5, 7, 11, 13, 17, 19, 23, \ldots \}
+            \]
+
+    \begin{solution}
+    \begin{itemize}
+        \item \textbf{Total:} $f(n) = p_n$, sendo $p_n$ o $n$-ésimo número primo, com $p_1=2$, $p_2=3$, $p_3=5$, $\ldots$
+        \item \textbf{Parcial:}
+        \[
+            f(n) = \left\{ \begin{array}{ll}
+                        n, & \mbox{se}\ n\ \mbox{é primo} \\
+                        \mbox{indefinida}, & \mbox{caso contrário}
+                    \end{array}\right.
+        \]
+    \end{itemize}
+    \end{solution}
+
+    \item[(c)] O conjunto das notas musicais, isto é,
+            \[
+                A = \{ \mbox{dó, ré, mi, fá, sol, lá, si} \}
+            \]
+
+    \begin{solution}
+    \[
+        f(n) = \left\{ \begin{array}{ll}
+                    \mbox{dó}, & \mbox{se}\ n = 1 \\
+                    \mbox{ré}, & \mbox{se}\ n = 2 \\
+                    \mbox{mi}, & \mbox{se}\ n = 3 \\
+                    \mbox{fá}, & \mbox{se}\ n = 4 \\
+                    \mbox{sol}, & \mbox{se}\ n = 5 \\
+                    \mbox{lá}, & \mbox{se}\ n = 6 \\
+                    \mbox{si}, & \mbox{se}\ n = 7 \\
+                    \mbox{indefinida}, & \mbox{se}\ n > 7
+                \end{array}\right.
+    \]
+    \end{solution}
+    \end{Qlist}
+}
+
+\Qitem{ \Qq{Compute os valores abaixo, onde $G$ é a função que enumera os pares de inteiros 
+    positivos segundo o zigue-zague de Cantor.}
+
+    \begin{solution}
+        $G(1)=(1,1)$, $G(2)=(1,2)$, $G(3)=(2,1)$, $G(4)=(1,3)$, $\ldots$:
+        os pares são listados em ordem crescente da soma $s$ de suas coordenadas e, para a mesma
+        soma, em ordem crescente da primeira coordenada. A diagonal de soma $s$ tem $s-1$ pares:
+        $(1,s-1),(2,s-2),\ldots,(s-1,1)$. Logo, o número de pares com soma até $s$ é
+        $1+2+\cdots+(s-1) = \frac{(s-1)s}{2}$:
+        \begin{center}
+        \begin{tabular}{c|cccccccccccccc}
+        $s$ & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 \\ \midrule
+        pares até $s$ & 1 & 3 & 6 & 10 & 15 & 21 & 28 & 36 & 45 & 55 & 66 & 78 & 91 & 105
+        \end{tabular}
+        \end{center}
+        Para achar $G(n)$, encontra-se a menor soma $s$ com $\frac{(s-1)s}{2}\geq n$. Então
+        $G(n)=(k,\,s-k)$, onde $k = n - \frac{(s-2)(s-1)}{2}$ é a posição de $n$ dentro da
+        diagonal.
+    \end{solution}
+
+    \vspace{0.1in}
+    \begin{Qlist}
+        \item[(a)] $G(25)$
+
+        \begin{solution}
+            Até $s=7$ há $21$ pares; $s=8$ cobre as posições $22$ a $28$. Então
+            $k = 25 - 21 = 4$ e
+            \[
+                G(25) = (4,\,8-4) = (4,\,4).
+            \]
+        \end{solution}
+
+        \item[(b)] $G(50)$
+
+        \begin{solution}
+            Até $s=10$ há $45$ pares; $s=11$ cobre as posições $46$ a $55$. Então
+            $k = 50 - 45 = 5$ e
+            \[
+                G(50) = (5,\,11-5) = (5,\,6).
+            \]
+        \end{solution}
+
+        \item[(c)] $G(100)$
+
+        \begin{solution}
+            Até $s=14$ há $91$ pares; $s=15$ cobre as posições $92$ a $105$. Então
+            $k = 100 - 91 = 9$ e
+            \[
+                G(100) = (9,\,15-9) = (9,\,6).
+            \]
+        \end{solution}
+    \end{Qlist}
+}
+
+\Qitem{ \Qq{Em relação à enumeração das sequências finitas de inteiros positivos, determine o 
+    natural que codifica a sequência indicada.}
+
+    \begin{solution}
+    $s=\{s_1,\ldots,s_N\}$ é codificada por
+    $f(s) = 2^{s_1}3^{s_2}5^{s_3}\cdots p_N^{s_N}$, onde $p_N$ é o $N$-ésimo primo.
+    \end{solution}
+
+    \vspace{0.1in}
+    \begin{Qlist}
+        \item[(a)] $s_1 = \{ 1, 2, 1, 2, 1 \}$
+
+            \begin{solution}
+               $f(s_1) = 2^1\cdot 3^2\cdot 5^1\cdot 7^2\cdot 11^1
+                = 2\cdot 9\cdot 5\cdot 49\cdot 11 = 48\,510.$ 
+            \end{solution}
+
+        \item[(b)] $s_2 = \{ 1, 2, 3, 4, 5 \}$
+
+            \begin{solution}
+               $f(s_2) = 2^1\cdot 3^2\cdot 5^3\cdot 7^4\cdot 11^5
+                = 2\cdot 9\cdot 125\cdot 2\,401\cdot 161\,051 = 870\,037\,764\,750.$
+            \end{solution}
+        \item[(c)] $s_3 = \{ 1, 1, 1, 1, 1 \}$
+
+            \begin{solution}
+               $f(s_3) = 2^1\cdot 3^1\cdot 5^1\cdot 7^1\cdot 11^1 = 2\,310.$
+            \end{solution}
+    \end{Qlist}
+}
+
+\Qitem{ \Qq{Ainda em relação à enumeração das sequências finitas de inteiros positivos, 
+        determine qual seria a $n$-ésima sequência, segundo esta enumeração.}
+
+        \begin{solution}
+            $G=f^{-1}$ é parcial: um natural $m$ decodifica uma sequência se
+            $m=1$ ou se, sendo $m=2^{a_1}3^{a_2}\cdots p_k^{a_k}$, tem-se $a_i>0$
+            para todo $i$.
+            \begin{center}
+            \begin{tabular}{c|cccccccccccc}
+            posição & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 \\ \midrule
+            código $m$ & 1 & 2 & 4 & 6 & 8 & 12 & 16 & 18 & 24 & 30 & 32 & 36 \\
+            sequência & $e$ & $\{1\}$ & $\{2\}$ & $\{1,1\}$ & $\{3\}$ & $\{2,1\}$ & $\{4\}$ &
+                $\{1,2\}$ & $\{3,1\}$ & $\{1,1,1\}$ & $\{5\}$ & $\{2,2\}$
+            \end{tabular}
+            \end{center}
+        \end{solution}
+
+    \vspace{0.1in}
+    \begin{Qlist}
+        \item[(a)] $n = 8$
+
+            \begin{solution}
+                \item[(a)] $n=8$: $\{1, 2\}$, pois $18 = 2^1\cdot 3^2$.
+            \end{solution}
+
+        \item[(b)] $n = 10$
+
+            \begin{solution}
+                \item[(b)] $n=10$: $\{1, 1, 1\}$, pois $30 = 2^1\cdot 3^1\cdot 5^1$.
+            \end{solution}
+        \item[(c)] $n = 12$
+
+            \begin{solution}
+                \item[(c)] $n=12$: $\{2, 2\}$, pois $36 = 2^2\cdot 3^2$.
+            \end{solution}
+    \end{Qlist}
+}
+
+\Qitem{ \Qq{Dada uma lista $L = S_1, S_2, S_3, \ldots$ de conjuntos de inteiros positivos, 
+    determine o conjunto $\Delta(L)$, de acordo com a diagonalização de Cantor.}
+
+    \begin{solution}
+        Dada $L = S_1, S_2, S_3, \ldots$, o conjunto diagonal é definido por
+        \[
+            \Delta(L) = \{ n\in\mathbb{Z}^+\ |\ n\not\in S_n \}.
+        \]
+    \end{solution}
+
+    \vspace{0.1in}
+    \begin{Qlist}
+        \item[(a)] $S_i$ é o conjunto dos $i$ primeiros naturais:
+            \[
+                S_1 = \{ 1 \}, S_2 = \{ 1, 2 \}, S_3 = \{ 1, 2, 3 \}, \ldots
+            \]
+
+        \begin{solution}
+            Como $S_n = \{1, \ldots, n\}$, tem-se $n \in S_n$ para todo $n \in \mathbb{Z}^+$. Logo,
+            \[
+                \Delta(L) = \emptyset.
+            \]
+        \end{solution}
+
+        \item[(b)] $S_i$ é o conjunto dos divisores próprios de $i$, isto é, divisores positivos e 
+            menores do que $i$:
+            \[
+                S_1 = \emptyset, S_2 = \{ 1 \}, S_3 = \{ 1 \}, S_4 = \{ 1, 2 \}, \ldots
+            \]
+
+        \begin{solution}
+            Todos os elementos de $S_n$ são menores do que $n$, logo $n \not\in S_n$ para todo
+            $n \in \mathbb{Z}^+$ (inclusive $n = 1$, pois $S_1 = \emptyset$). Assim,
+            \[
+                \Delta(L) = \mathbb{Z}^+ = \{1, 2, 3, \ldots\}.
+            \]
+        \end{solution}
+
+        \item[(c)] $S_i$ é o conjunto dos $i$ primeiros números pares, isto é,
+            \[
+                S_1 = \{ 2 \}, S_2 = \{ 2, 4 \}, S_3 = \{ 2, 4 ,6 \}, \ldots 
+            \]
+
+        \begin{solution}
+            Como $S_n = \{2, 4, \ldots, 2n\}$, tem-se $n \in S_n$ se $n$ é par ($n \leq 2n$), e
+            $n \not\in S_n$ se $n$ é ímpar. Logo,
+            \[
+                \Delta(L) = \{1, 3, 5, 7, \ldots\}.
+            \]
+        \end{solution}
+    \end{Qlist}
+}
+
+
+
+\end{document}

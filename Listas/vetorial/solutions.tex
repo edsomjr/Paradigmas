@@ -1,0 +1,195 @@
+\input{packages}
+\input{setup}
+\input{commands}
+
+\begin{document}
+
+\input{logo}
+
+\vspace{0.1in}
+
+\begin{center}
+    \textbf{\huge Paradigmas de Programação}
+
+    \vspace{0.1in}
+    \textbf{\Large Programação Vetorial: Lista}
+\end{center}\vskip1em
+
+\renewcommand{\Qq}[1]{{#1}}
+
+\Qitem{ \Qq{Analise as funções táticas abaixo, quanto à sua aridade, classificação e semântica, dando
+        exemplos em cada caso.  \textbf{Exemplo}: a função tática
+
+            \inputsyntax{apl}{codes/sample.apl}
+
+        em sua forma monádica, é um \textit{fork} que computa a diferença entre o conjugado
+        complexo e o vetor unitário na direção de seu argumento:
+
+            \inputsyntax{apl}{codes/samples1.apl}
+
+        Em sua forma diádica é um \textit{fork} que computa a diferença entre a soma e o produto
+        de ambos argumentos:
+
+            \inputsyntax{apl}{codes/samples2.apl}
+
+        \textbf{Dica:} utilize o site TryAPL para consultar as versões monádicas e diádicas de
+        cada glifo (e também o comando \code{apl}{]help}).}
+
+        \vspace{0.1in}
+
+    \begin{Qlist}
+    \item[(a)] \code{apl}{÷*-}
+
+    \begin{solution}
+    \textbf{\textit{Fork}} com $f=$ \code{apl}{÷}, $g=$ \code{apl}{*}, $h=$ \code{apl}{-}.
+    \begin{itemize}
+        \item \textbf{Monádica:} $(\div\omega)^{(-\omega)} = (1/\omega)^{-\omega}=\omega^\omega$.
+        \item \textbf{Diádica:} $(\alpha\div\omega)^{(\alpha-\omega)}$.
+    \end{itemize}
+    \inputsyntax{apl}{codes/sol/vet_a.apl}
+    \end{solution}
+
+    \item[(b)] \code{apl}{⍳!+}
+
+    \begin{solution}
+    \textbf{\textit{Fork}} com $f=$ \code{apl}{⍳}, $g=$ \code{apl}{!}, $h=$ \code{apl}{+}.
+    \begin{itemize}
+        \item \textbf{Monádica:} \code{apl}{(⍳⍵)!+⍵}. Para $\omega$ escalar, gera os coeficientes binomiais $\binom{\omega}{1},\ldots,\binom{\omega}{\omega}$ (linha $\omega$ do triângulo de Pascal sem $\binom{\omega}{0}$).
+        \item \textbf{Diádica:} \code{apl}{(⍺⍳⍵)!(⍺+⍵)}, calculando $\binom{\alpha+\omega}{k}$, onde $k$ é o índice de $\omega$ no vetor $\alpha$.
+    \end{itemize}
+    \inputsyntax{apl}{codes/sol/vet_b.apl}
+    \end{solution}
+
+    \item[(c)] \code{apl}{×/*}
+
+    \begin{solution}
+    \textbf{\textit{Atop}} com $f=$ \code{apl}{×/} e $g=$ \code{apl}{*}.
+    \begin{itemize}
+        \item \textbf{Monádica:} \code{apl}{×/*⍵}, que calcula $\prod_i e^{\omega_i}=e^{\sum_i\omega_i}$.
+        \item \textbf{Diádica:} \code{apl}{×/(⍺*⍵)}, o produto das potências $\prod_i \alpha_i^{\omega_i}$.
+    \end{itemize}
+    \inputsyntax{apl}{codes/sol/vet_c.apl}
+    \end{solution}
+
+    \item[(d)] \code{apl}{⌈÷⌊}
+
+    \begin{solution}
+    \textbf{\textit{Fork}} com $f=$ \code{apl}{⌈}, $g=$ \code{apl}{÷}, $h=$ \code{apl}{⌊}.
+    \begin{itemize}
+        \item \textbf{Monádica:} $\lceil\omega\rceil\div\lfloor\omega\rfloor$ ($1$ para inteiros).
+        \item \textbf{Diádica:} $(\alpha\lceil\omega)\div(\alpha\lfloor\omega)$, o maior dividido pelo menor.
+    \end{itemize}
+    \inputsyntax{apl}{codes/sol/vet_d.apl}
+    \end{solution}
+
+    \item[(e)] \code{apl}{+=-}
+
+    \begin{solution}
+    \textbf{\textit{Fork}} com $f=$ \code{apl}{+}, $g=$ \code{apl}{=}, $h=$ \code{apl}{-}.
+    \begin{itemize}
+        \item \textbf{Monádica:} $\overline{\omega}=-\omega$, verdadeiro quando a parte real de $\omega$ é nula.
+        \item \textbf{Diádica:} $(\alpha+\omega)=(\alpha-\omega)$, verdadeiro quando $\omega=0$.
+    \end{itemize}
+    \inputsyntax{apl}{codes/sol/vet_e.apl}
+    \end{solution}
+
+    \item[(f)] \code{apl}{×≥÷}
+
+    \begin{solution}
+    \textbf{\textit{Fork}} com $f=$ \code{apl}{×}, $g=$ \code{apl}{≥}, $h=$ \code{apl}{÷}.
+    \begin{itemize}
+        \item \textbf{Monádica:} $\operatorname{sgn}(\omega)\geq 1/\omega$, retornando $1$ para $\omega\geq 1$ ou $-1\leq\omega<0$, e $0$ nos demais casos.
+        \item \textbf{Diádica:} $(\alpha\times\omega)\geq(\alpha\div\omega)$.
+    \end{itemize}
+    \inputsyntax{apl}{codes/sol/vet_f.apl}
+    \end{solution}
+
+    \item[(g)] \code{apl}{≡⍴>}
+
+    \begin{solution}
+    \textbf{\textit{Fork}} com $f=$ \code{apl}{≡}, $g=$ \code{apl}{⍴}, $h=$ \code{apl}{>}.
+    \begin{itemize}
+        \item \textbf{Diádica:} \code{apl}{(⍺≡⍵)⍴(⍺>⍵)}. Resulta em \code{apl}{,0} quando os argumentos são idênticos e no vetor vazio caso contrário.
+    \end{itemize}
+    \inputsyntax{apl}{codes/sol/vet_g.apl}
+    \end{solution}
+
+    \item[(h)] \code{apl}{!+○}
+
+    \begin{solution}
+    \textbf{\textit{Fork}} com $f=$ \code{apl}{!}, $g=$ \code{apl}{+}, $h=$ \code{apl}{○}.
+    \begin{itemize}
+        \item \textbf{Monádica:} $\omega!+\pi\omega$.
+        \item \textbf{Diádica:} $\binom{\omega}{\alpha}+(\alpha\,\texttt{○}\,\omega)$, em que \code{apl}{⍺○⍵} aplica a função circular selecionada por $\alpha$.
+    \end{itemize}
+    \inputsyntax{apl}{codes/sol/vet_h.apl}
+    \end{solution}
+
+    \item[(i)] \code{apl}{∨-∧}
+
+    \begin{solution}
+    \textbf{\textit{Fork}} com $f=$ \code{apl}{∨}, $g=$ \code{apl}{-}, $h=$ \code{apl}{∧}.
+    \begin{itemize}
+        \item \textbf{Diádica:} $(\alpha\lor\omega)-(\alpha\land\omega)$. Calcula $\operatorname{mdc}(\alpha,\omega)-\operatorname{mmc}(\alpha,\omega)$ para inteiros positivos e o ou exclusivo para booleanos.
+    \end{itemize}
+    \inputsyntax{apl}{codes/sol/vet_i.apl}
+    \end{solution}
+
+    \item[(j)] \code{apl}{≤≠≥}
+
+    \begin{solution}
+    \textbf{\textit{Fork}} com $f=$ \code{apl}{≤}, $g=$ \code{apl}{≠}, $h=$ \code{apl}{≥}.
+    \begin{itemize}
+        \item \textbf{Diádica:} $(\alpha\leq\omega)\neq(\alpha\geq\omega)$, equivalente a $\alpha\neq\omega$.
+    \end{itemize}
+    \inputsyntax{apl}{codes/sol/vet_j.apl}
+    \end{solution}
+
+    \item[(k)] \code{apl}{⍋⍒}
+
+    \begin{solution}
+    \textbf{\textit{Atop}} com $f=$ \code{apl}{⍋} e $g=$ \code{apl}{⍒}.
+    \begin{itemize}
+        \item \textbf{Monádica:} \code{apl}{⍋(⍒⍵)}, que retorna a posição de cada elemento de $\omega$ na ordenação decrescente (inversa da permutação \code{apl}{⍒⍵}).
+        \item \textbf{Diádica:} \code{apl}{⍋(⍺⍒⍵)}, que faz o mesmo usando o vetor de caracteres $\alpha$ como ordem de comparação.
+    \end{itemize}
+    \inputsyntax{apl}{codes/sol/vet_k.apl}
+    \end{solution}
+
+    \item[(l)] \code{apl}{⍴⍴≡}
+
+    \begin{solution}
+    \textbf{\textit{Fork}} com $f=$ \code{apl}{⍴}, $g=$ \code{apl}{⍴}, $h=$ \code{apl}{≡}.
+    \begin{itemize}
+        \item \textbf{Monádica:} \code{apl}{(⍴⍵)⍴(≡⍵)}, um \emph{array} com a forma de $\omega$ preenchido com sua profundidade.
+        \item \textbf{Diádica:} \code{apl}{(⍺⍴⍵)⍴(⍺≡⍵)}, um \emph{array} de forma \code{apl}{⍺⍴⍵} preenchido com $1$ se os argumentos forem idênticos e $0$ caso contrário.
+    \end{itemize}
+    \inputsyntax{apl}{codes/sol/vet_l.apl}
+    \end{solution}
+
+    \item[(m)] \code{apl}{⊃⊂⍳}
+
+    \begin{solution}
+    \textbf{\textit{Fork}} com $f=$ \code{apl}{⊃}, $g=$ \code{apl}{⊂}, $h=$ \code{apl}{⍳}.
+    \begin{itemize}
+        \item \textbf{Monádica:} \code{apl}{(⊃⍵)⊂(⍳⍵)}, particionando \code{apl}{⍳⍵} com \code{apl}{⊃⍵} partições por posição.
+        \item \textbf{Diádica:} \code{apl}{(⍺⊃⍵)⊂(⍺⍳⍵)}, particionando os índices de $\omega$ em $\alpha$ conforme o valor selecionado por \code{apl}{⍺⊃⍵}.
+    \end{itemize}
+    \inputsyntax{apl}{codes/sol/vet_m.apl}
+    \end{solution}
+
+    \item[(n)] \inputsyntax{apl}{codes/scan.apl}
+
+    \begin{solution}
+    \textbf{\textit{Atop}} com $f=$ \code{apl}{⍟} e $g=$ \texttt{×\textbackslash}.
+    \begin{itemize}
+        \item \textbf{Monádica:} \texttt{⍟(×\textbackslash⍵)}, o logaritmo natural dos produtos acumulados, equivalente à soma acumulada dos logaritmos (\texttt{+\textbackslash⍟⍵}).
+    \end{itemize}
+    \inputsyntax{apl}{codes/sol/vet_n.apl}
+    \end{solution}
+
+    \end{Qlist}
+}
+
+
+\end{document}
